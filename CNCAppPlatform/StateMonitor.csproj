@@ -1,0 +1,514 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{7B55478C-C488-4E0F-AB57-A1C632E19CB8}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>CNCAppPlatform</RootNamespace>
+    <AssemblyName>Toptek</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Common.Logging, Version=2.0.0.0, Culture=neutral, PublicKeyToken=af08829b84f0328e, processorArchitecture=MSIL">
+      <HintPath>..\packages\Common.Logging.2.0.0\lib\2.0\Common.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="CookComputing.XmlRpcServerV2, Version=3.0.0.0, Culture=neutral, PublicKeyToken=a7d6e17aa302004d, processorArchitecture=MSIL">
+      <HintPath>..\packages\xmlrpcnet-server.3.0.0.266\lib\net20\CookComputing.XmlRpcServerV2.dll</HintPath>
+    </Reference>
+    <Reference Include="CookComputing.XmlRpcV2, Version=3.0.0.0, Culture=neutral, PublicKeyToken=a7d6e17aa302004d, processorArchitecture=MSIL">
+      <HintPath>..\packages\xmlrpcnet.3.0.0.266\lib\net20\CookComputing.XmlRpcV2.dll</HintPath>
+    </Reference>
+    <Reference Include="EasyModbus, Version=5.6.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\EasyModbusTCP.5.6.0\lib\net40\EasyModbus.dll</HintPath>
+    </Reference>
+    <Reference Include="iniRW, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\iniRW\iniRW\bin\Debug\iniRW.dll</HintPath>
+    </Reference>
+    <Reference Include="LiveCharts, Version=0.9.7.0, Culture=neutral, PublicKeyToken=0bc1f845d1ebb8df, processorArchitecture=MSIL">
+      <HintPath>..\packages\LiveCharts.0.9.7\lib\net45\LiveCharts.dll</HintPath>
+    </Reference>
+    <Reference Include="LiveCharts.WinForms, Version=0.9.7.1, Culture=neutral, PublicKeyToken=0bc1f845d1ebb8df, processorArchitecture=MSIL">
+      <HintPath>..\packages\LiveCharts.WinForms.0.9.7.1\lib\net45\LiveCharts.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="LiveCharts.Wpf, Version=0.9.7.0, Culture=neutral, PublicKeyToken=0bc1f845d1ebb8df, processorArchitecture=MSIL">
+      <HintPath>..\packages\LiveCharts.Wpf.0.9.7\lib\net45\LiveCharts.Wpf.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=1.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Bcl.AsyncInterfaces.1.0.0\lib\net461\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="netstandard, Version=2.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51" />
+    <Reference Include="NModbus, Version=3.0.81.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\NModbus.3.0.81\lib\net46\NModbus.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="Renci.SshNet, Version=2024.0.0.0, Culture=neutral, PublicKeyToken=1cee9f8bde3db106, processorArchitecture=MSIL">
+      <HintPath>..\packages\SSH.NET.2024.0.0\lib\netstandard2.0\Renci.SshNet.dll</HintPath>
+    </Reference>
+    <Reference Include="RosSharp, Version=1.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\ROS.Sharp.1.1.0\lib\net46\RosSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="SqlAccessMaicl, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\SqlAccessMaicl\SqlAccessMaicl\bin\Debug\SqlAccessMaicl.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Net" />
+    <Reference Include="System.Reactive, Version=1.0.10621.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Rx-Main.1.0.11226\lib\Net4\System.Reactive.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.4.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.4.5.2\lib\netstandard2.0\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Remoting" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Threading.Tasks" />
+    <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Threading.Tasks.Extensions.4.5.2\lib\netstandard2.0\System.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
+    <Reference Include="WindowsFormsIntegration" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ActUtlTypeLib.cs" />
+    <Compile Include="AddItemButton.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="AddItemButton.Designer.cs">
+      <DependentUpon>AddItemButton.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\DoubleImg.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\myPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\PlcConnectionBox.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\PlcConnectionBox.Designer.cs">
+      <DependentUpon>PlcConnectionBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Task\Agv.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\Task\Agv.Designer.cs">
+      <DependentUpon>Agv.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Task\TR1844.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\Task\TR1844.Designer.cs">
+      <DependentUpon>TR1844.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Task\TS0082-1.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\Task\TS0082-1.Designer.cs">
+      <DependentUpon>TS0082-1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Task\TS0082_2.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\Task\TS0082_2.Designer.cs">
+      <DependentUpon>TS0082_2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Task\TS0082_3.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\Task\TS0082_3.Designer.cs">
+      <DependentUpon>TS0082_3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Task\TS0131.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\Task\TS0131.Designer.cs">
+      <DependentUpon>TS0131.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\OrderLog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\OrderLog.Designer.cs">
+      <DependentUpon>OrderLog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Setting.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Setting.Designer.cs">
+      <DependentUpon>Setting.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Services\LineNotify.cs" />
+    <Compile Include="Temp\datePicker.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Temp\datePicker.designer.cs">
+      <DependentUpon>datePicker.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\deviceInfoView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\deviceInfoView.Designer.cs">
+      <DependentUpon>deviceInfoView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\deviceOverview.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\deviceOverview.Designer.cs">
+      <DependentUpon>deviceOverview.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Temp\equipStateIndicator.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Temp\equipStateIndicator.Designer.cs">
+      <DependentUpon>equipStateIndicator.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\flowView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\flowView.Designer.cs">
+      <DependentUpon>flowView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GlobalVar.cs" />
+    <Compile Include="INiReader.cs" />
+    <Compile Include="Controls\LabelLED.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\LabelLED.Designer.cs">
+      <DependentUpon>LabelLED.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\LayoutView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Controls\LayoutView.Designer.cs">
+      <DependentUpon>LayoutView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LineNotify.cs" />
+    <Compile Include="Temp\machineInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Temp\machineInfo.designer.cs">
+      <DependentUpon>machineInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Temp\machineState.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Temp\machineState.Designer.cs">
+      <DependentUpon>machineState.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Temp\MsgBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Temp\MsgBox.designer.cs">
+      <DependentUpon>MsgBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\OrderInputFrame.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\OrderInputFrame.Designer.cs">
+      <DependentUpon>OrderInputFrame.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\PlcConn.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\PlcConn.Designer.cs">
+      <DependentUpon>PlcConn.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\PlcControl.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\PlcControl.Designer.cs">
+      <DependentUpon>PlcControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\PlcRW_Test.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\PlcRW_Test.Designer.cs">
+      <DependentUpon>PlcRW_Test.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Controls\SpeedBar.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\SpeedBar.Designer.cs">
+      <DependentUpon>SpeedBar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Temp\ToggleSwitch.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Temp\ToggleSwitch.Designer.cs">
+      <DependentUpon>ToggleSwitch.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="AddItemButton.resx">
+      <DependentUpon>AddItemButton.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\PlcConnectionBox.resx">
+      <DependentUpon>PlcConnectionBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\Task\Agv.resx">
+      <DependentUpon>Agv.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\Task\TR1844.resx">
+      <DependentUpon>TR1844.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\Task\TS0082-1.resx">
+      <DependentUpon>TS0082-1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\Task\TS0082_2.resx">
+      <DependentUpon>TS0082_2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\Task\TS0082_3.resx">
+      <DependentUpon>TS0082_3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\Task\TS0131.resx">
+      <DependentUpon>TS0131.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\OrderLog.resx">
+      <DependentUpon>OrderLog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Setting.resx">
+      <DependentUpon>Setting.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Temp\datePicker.resx">
+      <DependentUpon>datePicker.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\deviceInfoView.resx">
+      <DependentUpon>deviceInfoView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\deviceOverview.resx">
+      <DependentUpon>deviceOverview.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Temp\equipStateIndicator.resx">
+      <DependentUpon>equipStateIndicator.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\flowView.resx">
+      <DependentUpon>flowView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\LabelLED.resx">
+      <DependentUpon>LabelLED.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\LayoutView.resx">
+      <DependentUpon>LayoutView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Temp\machineInfo.resx">
+      <DependentUpon>machineInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Temp\machineState.resx">
+      <DependentUpon>machineState.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Temp\MsgBox.resx">
+      <DependentUpon>MsgBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\OrderInputFrame.resx">
+      <DependentUpon>OrderInputFrame.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\PlcConn.resx">
+      <DependentUpon>PlcConn.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\PlcControl.resx">
+      <DependentUpon>PlcControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\PlcRW_Test.resx">
+      <DependentUpon>PlcRW_Test.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="Controls\SpeedBar.resx">
+      <DependentUpon>SpeedBar.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\barchart.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\piechart.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\barchart2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\piechart2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\dataExchange.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\refrsh.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CNCmachine.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\RobotArm.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\alarm.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\busy.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\idle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\d.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\7Axis.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\AGV.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\dualarm.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\kuka_kr6.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\refular_payload_section2_img.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\alarm1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\busy1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\idle1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logo4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\TV158B.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\EPH4000D_EP4000D_500.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\maicl.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SmartFactory_GP600_700.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PMCRobot.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\table.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\table1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\agv1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\agv2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cncicon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\backHome.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\info-icon-4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\lg500.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\6axis.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="ActUtlTypeLib">
+      <Guid>{D217E54E-4A26-4A76-B0AB-57166B90F9AF}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
