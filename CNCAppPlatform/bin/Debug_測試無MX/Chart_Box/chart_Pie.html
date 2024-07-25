@@ -1,0 +1,139 @@
+<!-- saved from url=(0016)http://localhost -->  
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+            <title>Chart_Box</title>
+            <script src="./js/Chart.min.js"></script>
+            <script src="./js/utils.js"></script>
+    </head>
+    <body>
+        <canvas id="chart-0" width="10" height="10"></canvas>
+
+        <script>
+
+            var utils = Samples.utils;
+            utils.srand(110);
+            var chart;
+            var data ;
+            var options = {
+                legend: false,
+                responsive: true
+            };
+            
+            var color_num =1;
+            function color ()
+            {
+                if(color_num ==1)
+                {
+                    color_num ++;
+                    return window.chartColors.red;
+                }
+                else if(color_num ==2)
+                {
+                    color_num ++;
+                    return window.chartColors.orange;
+                }
+                else if(color_num ==3)
+                {
+                    color_num ++;
+                    return window.chartColors.green;
+                }
+                else if(color_num ==4)
+                {
+                    color_num ++;
+                    return window.chartColors.yellow;
+                }
+                else if(color_num ==5)
+                {
+                    color_num =1;
+                    return window.chartColors.blue;
+                }
+            }
+            function CreateChart_Pie(txt)
+            {
+                try
+                {
+                    console.log(txt);
+                    var json = JSON.parse(txt);
+                    
+                    var value = [];
+                    var title = [];
+                    var bgColor = [];
+                    for(var k in json) {
+                        for(var array in json[k]) {
+                            for(var key in json[k][array]) {
+                                    value.push(json[k][array][key]);
+                                    title.push(key);
+                                    bgColor.push(color ());
+
+                            }
+                        }
+                    }
+                    data = {
+                    datasets: [{
+                        data: value,
+                        backgroundColor: bgColor,
+                        label: 'Dataset 1'
+                    }],
+                    labels:title
+                    };
+                
+                    chart = new Chart('chart-0', {
+                    type: 'pie',
+                    data: data,
+                    options: options
+                    })
+                }
+                catch (e)
+                {
+                    alert("讀取Json資訊有錯");
+                }
+            }
+            function UpdateChart_Pie(txt)
+            {
+                try
+                {
+                    console.log(txt);
+                    var json = JSON.parse(txt);
+                    
+                    var value = [];
+                    var title = [];
+                    var bgColor = [];
+                    for(var k in json) {
+                        for(var array in json[k]) {
+                            for(var key in json[k][array]) {
+                                    value.push(json[k][array][key]);
+                                    title.push(key);
+                                    bgColor.push(color ());
+                            }
+                        }
+                    }
+                    data = {
+                    datasets: [{
+                        data: value,
+                        backgroundColor: bgColor,
+                        label: 'Dataset 1'
+                    }],
+                    labels:title
+                    };
+
+                    chart.data.datasets.forEach(function(dataset) {
+                    dataset.data = value;
+                    });
+                    chart.update();
+                }
+                catch (e)
+                {
+                    alert("讀取Json資訊有錯");
+                }
+            }
+        </script>
+        
+        <style>
+            body{
+                background-color: gray;
+                overflow: hidden;
+            }
+        </style>
+</body>
+</html>

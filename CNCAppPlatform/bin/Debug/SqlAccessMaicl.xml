@@ -1,0 +1,380 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>SqlAccessMaicl</name>
+    </assembly>
+    <members>
+        <member name="P:SqlAccessMaicl.sqlAccessClass.MOID">
+            <summary>
+            待加工工單編號
+            </summary>
+        </member>
+        <member name="P:SqlAccessMaicl.sqlAccessClass.OPID">
+            <summary>
+            工序
+            </summary>
+        </member>
+        <member name="P:SqlAccessMaicl.sqlAccessClass.EQID">
+            <summary>
+            負責加工之設備ID
+            </summary>
+        </member>
+        <member name="P:SqlAccessMaicl.sqlAccessClass.SUBID">
+            <summary>
+            加工品號
+            </summary>
+        </member>
+        <member name="P:SqlAccessMaicl.sqlAccessClass.SchedulingTime">
+            <summary>
+            排程起始時間
+            </summary>
+        </member>
+        <member name="P:SqlAccessMaicl.sqlAccessClass.QTY">
+            <summary>
+            加工量
+            </summary>
+        </member>
+        <member name="P:SqlAccessMaicl.sqlAccessClass.sampleCodePath_s">
+            <summary>
+            標準加工碼存放路徑
+            </summary>
+        </member>
+        <member name="P:SqlAccessMaicl.sqlAccessClass.ncCodePath">
+            <summary>
+            加工碼存放路徑
+            </summary>
+        </member>
+        <member name="P:SqlAccessMaicl.sqlAccessClass.LocationNo">
+            <summary>
+            儲位編號
+            </summary>
+        </member>
+        <member name="P:SqlAccessMaicl.sqlAccessClass.StkStatus">
+            <summary>
+            儲位狀態 read from sensor
+            </summary>
+        </member>
+        <member name="P:SqlAccessMaicl.sqlAccessClass.StkType">
+            <summary>
+            托盤上物件類型 M:material T:tool G:gripper
+            </summary>
+        </member>
+        <member name="P:SqlAccessMaicl.sqlAccessClass.PalletNo">
+            <summary>
+            托盤代號
+            </summary>
+        </member>
+        <member name="P:SqlAccessMaicl.sqlAccessClass.JIGID">
+            <summary>
+            治具代號1
+            </summary>
+        </member>
+        <member name="P:SqlAccessMaicl.sqlAccessClass.JIGID2">
+            <summary>
+            治具代號2
+            </summary>
+        </member>
+        <member name="P:SqlAccessMaicl.sqlAccessClass.Toollist">
+            <summary>
+            刀盤代號
+            </summary>
+        </member>
+        <member name="P:SqlAccessMaicl.sqlAccessClass.WorkType">
+            <summary>
+            任務種類 I:stockIn O:stockOut L:Load U:Unload
+            </summary>
+        </member>
+        <member name="P:SqlAccessMaicl.sqlAccessClass.WorkTypeAGV">
+            <summary>
+            任務種類 I:stockIn O:stockOut L:Load U:Unload
+            </summary>
+        </member>
+        <member name="P:SqlAccessMaicl.sqlAccessClass.Fwork">
+            <summary>
+            托盤狀態 Y:加工完成 N:未加工 W:加工中 D:加工完成等候下料
+            </summary>
+        </member>
+        <member name="P:SqlAccessMaicl.sqlAccessClass.Changer">
+            <summary>
+            交換站編號 000001:左 000002:右
+            </summary>
+        </member>
+        <member name="P:SqlAccessMaicl.sqlAccessClass.WHProcessID">
+            <summary>
+            倉儲任務ID
+            </summary>
+        </member>
+        <member name="P:SqlAccessMaicl.sqlAccessClass.errWipprocessQty">
+            <summary>
+            在製品無法生產之錯誤訊息數量
+            </summary>
+        </member>
+        <member name="M:SqlAccessMaicl.sqlAccessClass.#ctor(System.String,System.String,System.String,System.String)">
+            <summary>
+            建立SQL連線物件 並賦予連線相關參數 
+            </summary>
+            <param name="serverName">伺服器名稱</param>
+            <param name="dBName">DB名稱</param>
+            <param name="iD">使用者</param>
+            <param name="pW">密碼</param>
+        </member>
+        <member name="M:SqlAccessMaicl.sqlAccessClass.getLastestOP(System.Int32)">
+            <summary>
+            取得最近一筆符合生產條件之訂單資訊，如有可生產之訂單回傳1；如無回傳0
+            </summary>
+            <param name="orderRank">第N筆排序資料</param>
+            <returns></returns>
+        </member>
+        <member name="M:SqlAccessMaicl.sqlAccessClass.getEqWorkInfo(System.String[]@,System.String)">
+            <summary>
+            取得目標設備目前加工資訊，查詢條件為設備代號，如有回傳參考[SUBID]/[OPID]/[MOID]/[PALLETNO]
+            </summary>
+            <param name="info">回傳值參考</param>
+            <param name="EQID">目標設備代號</param>
+            <returns></returns>
+        </member>
+        <member name="M:SqlAccessMaicl.sqlAccessClass.getEqInfo(System.String[]@,System.String,System.Object[])">
+            <summary>
+            取得目標設備特定欄位資訊，
+            </summary>
+            <param name="values">回傳值參考</param>
+            <param name="EQID">目標設備代號</param>
+            <param name="columnName">欲取得資料之欄位名稱</param>
+            <returns></returns>
+        </member>
+        <member name="M:SqlAccessMaicl.sqlAccessClass.matchingEQnTool(System.String,System.String,System.String)">
+            <summary>
+            確認工具機目前刀具是否符合欲加工之工序及品號，如符合回傳值1，不符合回傳值0
+            </summary>
+            <param name="EQID">設備代號</param>
+            <param name="OPID">工序</param>
+            <param name="SUBID">加工品號</param>
+            <returns></returns>
+        </member>
+        <member name="M:SqlAccessMaicl.sqlAccessClass.getTargetLocationStk(System.String[]@,System.String,System.String)">
+            <summary>
+            查詢儲架上是否有目標工件，查詢條件為工單編號及工序，如有回傳參考[儲位編號]及[托盤編號]，如無回傳"null"
+            </summary>
+            <param name="returnVal">回傳值參考； returnVal[0]：儲位編號 returnVal[1]：托盤編號</param>
+            <param name="MOID">工單編號</param>
+            <param name="OPID">工序</param>
+            <returns></returns>
+        </member>
+        <member name="M:SqlAccessMaicl.sqlAccessClass.checkOrderFeasibility(System.Collections.Generic.List{System.String},System.String,System.String,System.String)">
+            <summary>
+            確認訂單是否滿足所有加工要件，加工碼檢查==>刀具檢查==>機台狀態檢查。條件滿足回傳1；不滿足回傳0。條件滿足時，同時會將NC Code列表回傳至參考
+            </summary>
+            <param name="CodeList">加工程式列表</param>
+            <param name="EQID">加工設備代號</param>
+            <param name="OPID">加工OP</param>
+            <param name="SUBID">加工品號</param>
+            <returns></returns>
+        </member>
+        <member name="M:SqlAccessMaicl.sqlAccessClass.getLatestLoadOP(System.Collections.Generic.List{System.String}@)">
+            <summary>
+            取得可執行之上料作業，回傳值：[0]無可執行之工序；[1]有可執行之工序；[48]手臂Busy；[99]SQL連線異常
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SqlAccessMaicl.sqlAccessClass.getLatestStockOP">
+            <summary>
+            取得可執行之入出庫作業，回傳值：[0]無可執行之工序；[1]有可執行之工序；[48]手臂Busy；[99]SQL連線異常
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SqlAccessMaicl.sqlAccessClass.getLatestUnloadOP">
+            <summary>
+            取得可執行之下料作業，回傳值：[0]無可執行之工序；[1]有可執行之工序；[48]手臂Busy；[99]SQL連線異常
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SqlAccessMaicl.sqlAccessClass.getLatestAgvOP">
+            <summary>
+            取得可執行之入出庫作業，回傳值：[0]無可執行之工序；[1]有可執行之工序；[48]手臂Busy；[99]SQL連線異常
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SqlAccessMaicl.sqlAccessClass.updateEqnPalletStatusToUnload(System.String)">
+            <summary>
+            加工機加工完成更新設備狀態STATUS=0 and PALLET.FWORK=D
+            </summary>
+            <param name="EQID"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SqlAccessMaicl.sqlAccessClass.updatePallet(System.String,System.String,System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            更新特定托盤基本檔
+            </summary>
+            <param name="palletNo">目標托盤編號</param>
+            <param name="jigID">治具編號</param>
+            <param name="MOID">工單編號</param>
+            <param name="OPID">工序</param>
+            <param name="toolList">刀具清單編號</param>
+            <param name="fWork">加工狀態； N：未加工  Y：已加工</param>
+        </member>
+        <member name="M:SqlAccessMaicl.sqlAccessClass.updateSensorStatus(System.String[])">
+            <summary>
+            更新儲位sensor值
+            </summary>
+            <param name="sensors">sensor value array</param>
+            <returns></returns>
+        </member>
+        <member name="M:SqlAccessMaicl.sqlAccessClass.updateWipProcessDispatchTime(System.String,System.String,System.String,System.String)">
+            <summary>
+            更新特定工序資料檔[派工時間] [是否已派工]；更新時機為取單派工後
+            </summary>
+            <param name="MOID">目標工單編號</param>
+            <param name="OPID">工序</param>
+            <param name="dispatch">是否已派工； Y：已派工 N：未派工</param>
+            <param name="arriveTime">派工時間</param>
+        </member>
+        <member name="M:SqlAccessMaicl.sqlAccessClass.updateWipProcessOuttime(System.String,System.String,System.String,System.String)">
+            <summary>
+            更新特定工序資料檔[完工時間] [是否已完工]；更新時機為加工完成放回料架後
+            </summary>
+            <param name="MOID">目標工單編號</param>
+            <param name="OPID">工序</param>
+            <param name="finish">是否已完工； Y：已完工 N：未完工</param>
+            <param name="outTime">完工時間</param>
+        </member>
+        <member name="M:SqlAccessMaicl.sqlAccessClass.wipeMCToolStk(System.String)">
+            <summary>
+            清除目標設備刀庫資料檔
+            </summary>
+            <param name="EQID">目標設備代號</param>
+        </member>
+        <member name="M:SqlAccessMaicl.sqlAccessClass.updateMCToolStk(System.String,System.String)">
+            <summary>
+            更新目標設備刀庫之 [刀具編號]
+            </summary>
+            <param name="locationNo">刀庫編號</param>
+            <param name="toolNo">刀具ID</param>
+            <returns></returns>
+        </member>
+        <member name="M:SqlAccessMaicl.sqlAccessClass.insertEquiplog(System.String,System.String,System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            新增一筆設備動作紀錄檔
+            </summary>
+            <param name="equipID">設備代號</param>
+            <param name="date">日期</param>
+            <param name="startDatetime">起始時間</param>
+            <param name="endDatetime">結束時間</param>
+            <param name="equipStatus">設備狀態</param>
+            <param name="duration">動作時間</param>
+            <param name="CNCProgram">程式名稱</param>
+        </member>
+        <member name="M:SqlAccessMaicl.sqlAccessClass.insertWorklog(System.String,System.String)">
+            <summary>
+            新增一筆工作紀錄檔
+            </summary>
+            <param name="equipID">設備代號</param>
+            <param name="desc">作業內容描述</param>
+        </member>
+        <member name="M:SqlAccessMaicl.sqlAccessClass.getEquipStatus(System.String)">
+            <summary>
+            取得設備狀態
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SqlAccessMaicl.sqlAccessClass.insertWIP_ERRMSG(System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            新增一筆WIP無法執行之錯誤描述
+            </summary>
+            <param name="MOID"></param>
+            <param name="OPID"></param>
+            <param name="desc"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SqlAccessMaicl.sqlAccessClass.updateLocationStk(System.String,System.Object[])">
+            <summary>
+            更新儲位資料檔，條件：[儲位編號]，更新內容：[欄位名稱][欲更新之內容]
+            </summary>
+            <param name="locationNo"></param>
+            <param name="publishContent"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SqlAccessMaicl.sqlAccessClass.updateEquipment(System.String,System.Object[])">
+            <summary>
+            更新設備基本檔，條件：[設備代號]，更新內容：[欄位名稱][欲更新之內容]
+            </summary>
+            <param name="EQID"></param>
+            <param name="publishContent"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SqlAccessMaicl.sqlAccessClass.update(System.String,System.String,System.String,System.Object[])">
+            <summary>
+            更新欄位資訊，成功回傳1，異常回傳0
+            </summary>
+            <param name="table"></param>
+            <param name="conditionColumnName"></param>
+            <param name="condition"></param>
+            <param name="publishContent"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SqlAccessMaicl.sqlAccessClass.updatePallet(System.String,System.Object[])">
+            <summary>
+            更新托盤基本檔，條件：[托盤代號]，更新內容：[欄位名稱][欲更新之內容]
+            </summary>
+            <param name="palletNo"></param>
+            <param name="publishContent"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SqlAccessMaicl.sqlAccessClass.getWipErrList(System.Collections.Generic.List{System.String}@)">
+            <summary>
+            取得無法執行之工序資料錯誤列表
+            </summary>
+            <param name="errList"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SqlAccessMaicl.sqlAccessClass.wipeWipErrList">
+            <summary>
+            清除無法執行之工序資料錯誤列表
+            </summary>
+            <param name="errList"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SqlAccessMaicl.sqlAccessClass.getAccuUptime(System.Int32[]@,System.String,System.String,System.String,System.Object[])">
+            <summary>
+            取得目標設備累計稼動率，成功回傳1，異常回傳0
+            </summary>
+            <param name="values">回傳值參考List</param>
+            <param name="EQID">目標設備代號</param>
+            <param name="startDate">查詢起始日</param>
+            <param name="endDate">查詢截止日</param>
+            <param name="columnName">欲取得之狀態欄位</param>
+            <returns></returns>
+        </member>
+        <member name="M:SqlAccessMaicl.sqlAccessClass.wipePublicMember">
+            <summary>
+            清除成員變數資訊
+            </summary>
+        </member>
+        <member name="M:SqlAccessMaicl.sqlAccessClass.checkStkIOOP(System.String)">
+            <summary>
+            確認儲位是否已有入出庫任務占用
+            </summary>
+            <param name="locationno">儲位編號</param>
+            <returns></returns>
+        </member>
+        <member name="M:SqlAccessMaicl.sqlAccessClass.truncate(System.String)">
+            <summary>
+            清除指定表單內容
+            </summary>
+            <param name="tableName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SqlAccessMaicl.sqlAccessClass.iniCheck">
+            <summary>
+            倉儲初始化檢查，比對sensor與儲位資料是否一致
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SqlAccessMaicl.sqlAccessClass.getAvailibleOP(System.Collections.Generic.List{System.String}@)">
+            <summary>
+            取得最近一筆可執行排程工作
+            </summary>
+            <param name="ncCodeList"></param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

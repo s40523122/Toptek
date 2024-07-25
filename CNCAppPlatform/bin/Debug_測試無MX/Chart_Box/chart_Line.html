@@ -1,0 +1,149 @@
+<!-- saved from url=(0016)http://localhost -->  
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+            <title>Chart_Box</title>
+            <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+            <script src="./js/Chart.min.js"></script>
+            <script src="./js/utils.js"></script>
+    </head>
+        <body >
+            <canvas  class="chartjs-render-monitor" id="chart-0" style="width: 300px; height: 433px; display: block;"></canvas>
+            <script>
+                var presets = window.chartColors;
+                var utils = Samples.utils;
+                var options = {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    spanGaps: false,
+                    legend: false,
+                    elements: {
+                        line: {
+                            tension: 0.000001
+                        }
+                    },
+                    plugins: {
+                        filler: {
+                            propagate: false
+                        }
+                    },
+                    scales: {
+                        xAxes: [{
+                            ticks: {
+                                fontColor: "white",
+                                beginAtZero:true
+                            },
+                            gridLines: {
+                            display: true,
+                            color: "#FFFFFF"
+                            }
+                        }],
+                        yAxes: [{
+                            ticks: {
+                                fontColor: "white",
+                                beginAtZero:true
+                            },
+                            gridLines: {
+                            display: true,
+                            color: "#FFFFFF"
+                            }
+                        }]
+                    }
+
+                };
+                var config  ;
+                var chart  ;
+                function CreateChart_Line(txt)
+                {
+                    try
+                    {
+                        var json = JSON.parse(txt);
+                        var  value = [];
+                        var  title = [];
+                        var colorNames = Object.keys(window.chartColors);
+                        var colorName = colorNames[1];
+                        for(var k in json) {
+                            for(var array in json[k]) {
+                                for(var key in json[k][array]) {
+                                        value.push(json[k][array][key]);
+                                        title.push(key);
+                                }
+                            }
+                        }
+   
+                        [false].forEach(function(boundary, index) {
+                        utils.srand(8);
+                        
+                        config = 
+                        {
+                            type: 'line',
+                            data: {
+                                    labels: title,
+                                    datasets: [{
+                                        backgroundColor: utils.transparentize(presets.red),
+                                        borderColor: presets.red,
+                                        data: value,
+                                        borderColor: window.chartColors[colorName],
+                                        lineColor:"white",
+                                        label: 'Dataset',
+                                        fill: boundary
+                                    }]
+                                  },
+                            options: Chart.helpers.merge(options, {
+                                    title: {
+                                        text: 'fill: ' + boundary,
+                                        display: false
+                                    }
+                                    })
+                        };
+
+                        chart = new Chart('chart-' + index, config);
+
+                        });
+                    }
+                    catch (e)
+                    {
+                        alert("讀取Json資訊有錯");
+                    }
+        
+                }
+                function UpdateChart_Line (txt)
+                {
+                    try
+                    {
+                        var json = JSON.parse(txt);
+                            var  value = [];
+                            var  title = [];
+                            for(var k in json) {
+                                for(var array in json[k]) {
+                                    for(var key in json[k][array]) {
+                                            value.push(json[k][array][key]);
+                                            title.push(key);
+                                    }
+                                }
+                            }
+
+                        config.data.labels = title;
+                        config.data.datasets.forEach(function(dataset) {
+                                dataset.data = value;
+                            });
+                        chart.update();
+
+                    }
+                    catch (e)
+                    {
+                        alert("讀取Json資訊有錯");
+                    }
+                }
+
+            //     CreateChart_Line('{"result":[{"aa":2},{"ba":1},{"ca":6},{"da":7},{"ea":1}]}');
+
+            </script>    
+            <style>
+                body{
+                    background-color: gray;
+                    overflow: hidden;
+                }
+            </style>
+        </body>
+</html>
