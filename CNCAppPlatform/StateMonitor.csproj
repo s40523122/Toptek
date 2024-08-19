@@ -163,11 +163,23 @@
     <Compile Include="Controls\Task\TS0082_3.Designer.cs">
       <DependentUpon>TS0082_3.cs</DependentUpon>
     </Compile>
+    <Compile Include="Controls\Task\Carousel_8_box.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\Task\Carousel_8_box.Designer.cs">
+      <DependentUpon>Carousel_8_box.cs</DependentUpon>
+    </Compile>
     <Compile Include="Controls\Task\TS0131.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Controls\Task\TS0131.Designer.cs">
       <DependentUpon>TS0131.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\newOverview.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\newOverview.Designer.cs">
+      <DependentUpon>newOverview.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\OrderLog.cs">
       <SubType>Form</SubType>
@@ -310,8 +322,14 @@
     <EmbeddedResource Include="Controls\Task\TS0082_3.resx">
       <DependentUpon>TS0082_3.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Controls\Task\Carousel_8_box.resx">
+      <DependentUpon>Carousel_8_box.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Controls\Task\TS0131.resx">
       <DependentUpon>TS0131.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\newOverview.resx">
+      <DependentUpon>newOverview.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\OrderLog.resx">
       <DependentUpon>OrderLog.cs</DependentUpon>

@@ -137,7 +137,7 @@ namespace CNCAppPlatform
             btnColor(button);
             if (!(button.Tag is Form))
             {
-                deviceOverview frame = new deviceOverview()
+                newOverview frame = new newOverview()
                 {
                     Dock = DockStyle.Fill,
                     TopLevel = false,

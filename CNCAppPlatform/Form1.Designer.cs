@@ -73,18 +73,16 @@ namespace CNCAppPlatform
             this.sidePanel.Controls.Add(this.btnHome);
             this.sidePanel.Dock = System.Windows.Forms.DockStyle.Left;
             this.sidePanel.Location = new System.Drawing.Point(0, 0);
-            this.sidePanel.Margin = new System.Windows.Forms.Padding(4);
             this.sidePanel.Name = "sidePanel";
-            this.sidePanel.Size = new System.Drawing.Size(250, 808);
+            this.sidePanel.Size = new System.Drawing.Size(188, 656);
             this.sidePanel.TabIndex = 0;
             // 
             // slidePanel
             // 
             this.slidePanel.BackColor = System.Drawing.Color.DarkOrange;
-            this.slidePanel.Location = new System.Drawing.Point(0, 708);
-            this.slidePanel.Margin = new System.Windows.Forms.Padding(4);
+            this.slidePanel.Location = new System.Drawing.Point(0, 575);
             this.slidePanel.Name = "slidePanel";
-            this.slidePanel.Size = new System.Drawing.Size(11, 100);
+            this.slidePanel.Size = new System.Drawing.Size(8, 81);
             this.slidePanel.TabIndex = 2;
             this.slidePanel.Visible = false;
             // 
@@ -92,10 +90,9 @@ namespace CNCAppPlatform
             // 
             this.info.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.info.Image = ((System.Drawing.Image)(resources.GetObject("info.Image")));
-            this.info.Location = new System.Drawing.Point(4, 666);
-            this.info.Margin = new System.Windows.Forms.Padding(4);
+            this.info.Location = new System.Drawing.Point(3, 541);
             this.info.Name = "info";
-            this.info.Size = new System.Drawing.Size(40, 39);
+            this.info.Size = new System.Drawing.Size(30, 32);
             this.info.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.info.TabIndex = 2;
             this.info.TabStop = false;
@@ -110,10 +107,9 @@ namespace CNCAppPlatform
             this.flowLayoutPanel1.Controls.Add(this.btnPlcTest);
             this.flowLayoutPanel1.Controls.Add(this.btnSetting);
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 140);
-            this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(4);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 114);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(250, 569);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(188, 462);
             this.flowLayoutPanel1.TabIndex = 14;
             // 
             // btnPlcSetting
@@ -128,8 +124,8 @@ namespace CNCAppPlatform
             this.btnPlcSetting.Location = new System.Drawing.Point(0, 0);
             this.btnPlcSetting.Margin = new System.Windows.Forms.Padding(0);
             this.btnPlcSetting.Name = "btnPlcSetting";
-            this.btnPlcSetting.Padding = new System.Windows.Forms.Padding(7, 0, 0, 0);
-            this.btnPlcSetting.Size = new System.Drawing.Size(280, 98);
+            this.btnPlcSetting.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
+            this.btnPlcSetting.Size = new System.Drawing.Size(210, 80);
             this.btnPlcSetting.TabIndex = 2;
             this.btnPlcSetting.Text = "PLC 連線設定";
             this.btnPlcSetting.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -146,11 +142,11 @@ namespace CNCAppPlatform
             this.btnOrderLog.ForeColor = System.Drawing.Color.White;
             this.btnOrderLog.Image = ((System.Drawing.Image)(resources.GetObject("btnOrderLog.Image")));
             this.btnOrderLog.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnOrderLog.Location = new System.Drawing.Point(0, 98);
+            this.btnOrderLog.Location = new System.Drawing.Point(0, 80);
             this.btnOrderLog.Margin = new System.Windows.Forms.Padding(0);
             this.btnOrderLog.Name = "btnOrderLog";
-            this.btnOrderLog.Padding = new System.Windows.Forms.Padding(7, 0, 0, 0);
-            this.btnOrderLog.Size = new System.Drawing.Size(280, 98);
+            this.btnOrderLog.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
+            this.btnOrderLog.Size = new System.Drawing.Size(210, 80);
             this.btnOrderLog.TabIndex = 2;
             this.btnOrderLog.Text = "  工單歷程";
             this.btnOrderLog.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -167,11 +163,11 @@ namespace CNCAppPlatform
             this.btnDeviceOverView.ForeColor = System.Drawing.Color.White;
             this.btnDeviceOverView.Image = ((System.Drawing.Image)(resources.GetObject("btnDeviceOverView.Image")));
             this.btnDeviceOverView.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnDeviceOverView.Location = new System.Drawing.Point(0, 196);
+            this.btnDeviceOverView.Location = new System.Drawing.Point(0, 160);
             this.btnDeviceOverView.Margin = new System.Windows.Forms.Padding(0);
             this.btnDeviceOverView.Name = "btnDeviceOverView";
-            this.btnDeviceOverView.Padding = new System.Windows.Forms.Padding(7, 0, 0, 0);
-            this.btnDeviceOverView.Size = new System.Drawing.Size(280, 98);
+            this.btnDeviceOverView.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
+            this.btnDeviceOverView.Size = new System.Drawing.Size(210, 80);
             this.btnDeviceOverView.TabIndex = 2;
             this.btnDeviceOverView.Text = "   設備總覽";
             this.btnDeviceOverView.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -188,11 +184,11 @@ namespace CNCAppPlatform
             this.btnPlcTest.ForeColor = System.Drawing.Color.White;
             this.btnPlcTest.Image = ((System.Drawing.Image)(resources.GetObject("btnPlcTest.Image")));
             this.btnPlcTest.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnPlcTest.Location = new System.Drawing.Point(0, 294);
+            this.btnPlcTest.Location = new System.Drawing.Point(0, 240);
             this.btnPlcTest.Margin = new System.Windows.Forms.Padding(0);
             this.btnPlcTest.Name = "btnPlcTest";
-            this.btnPlcTest.Padding = new System.Windows.Forms.Padding(7, 0, 0, 0);
-            this.btnPlcTest.Size = new System.Drawing.Size(280, 99);
+            this.btnPlcTest.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
+            this.btnPlcTest.Size = new System.Drawing.Size(210, 80);
             this.btnPlcTest.TabIndex = 2;
             this.btnPlcTest.Text = "  PLC 讀寫測試";
             this.btnPlcTest.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -209,11 +205,11 @@ namespace CNCAppPlatform
             this.btnSetting.ForeColor = System.Drawing.Color.White;
             this.btnSetting.Image = ((System.Drawing.Image)(resources.GetObject("btnSetting.Image")));
             this.btnSetting.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSetting.Location = new System.Drawing.Point(0, 393);
+            this.btnSetting.Location = new System.Drawing.Point(0, 320);
             this.btnSetting.Margin = new System.Windows.Forms.Padding(0);
             this.btnSetting.Name = "btnSetting";
-            this.btnSetting.Padding = new System.Windows.Forms.Padding(7, 0, 0, 0);
-            this.btnSetting.Size = new System.Drawing.Size(280, 99);
+            this.btnSetting.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
+            this.btnSetting.Size = new System.Drawing.Size(210, 80);
             this.btnSetting.TabIndex = 4;
             this.btnSetting.Text = " 設定";
             this.btnSetting.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -228,19 +224,17 @@ namespace CNCAppPlatform
             this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel4.ForeColor = System.Drawing.Color.DarkSlateGray;
             this.panel4.Location = new System.Drawing.Point(0, 0);
-            this.panel4.Margin = new System.Windows.Forms.Padding(4);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(250, 140);
+            this.panel4.Size = new System.Drawing.Size(188, 114);
             this.panel4.TabIndex = 12;
             // 
             // label2
             // 
             this.label2.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.label2.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.label2.Location = new System.Drawing.Point(0, 90);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Location = new System.Drawing.Point(0, 73);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(276, 47);
+            this.label2.Size = new System.Drawing.Size(207, 38);
             this.label2.TabIndex = 3;
             this.label2.Text = "  智慧電腦輔助生產系統";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -249,10 +243,9 @@ namespace CNCAppPlatform
             // 
             this.label3.Font = new System.Drawing.Font("微軟正黑體", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.label3.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.label3.Location = new System.Drawing.Point(16, 5);
-            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label3.Location = new System.Drawing.Point(12, 4);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(276, 75);
+            this.label3.Size = new System.Drawing.Size(207, 61);
             this.label3.TabIndex = 4;
             this.label3.Text = "iCAPS";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -267,11 +260,11 @@ namespace CNCAppPlatform
             this.btnHome.ForeColor = System.Drawing.Color.White;
             this.btnHome.Image = ((System.Drawing.Image)(resources.GetObject("btnHome.Image")));
             this.btnHome.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnHome.Location = new System.Drawing.Point(0, 709);
+            this.btnHome.Location = new System.Drawing.Point(0, 576);
             this.btnHome.Margin = new System.Windows.Forms.Padding(0);
             this.btnHome.Name = "btnHome";
-            this.btnHome.Padding = new System.Windows.Forms.Padding(7, 0, 0, 0);
-            this.btnHome.Size = new System.Drawing.Size(250, 99);
+            this.btnHome.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
+            this.btnHome.Size = new System.Drawing.Size(188, 80);
             this.btnHome.TabIndex = 4;
             this.btnHome.Text = "  返回主頁";
             this.btnHome.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -285,10 +278,9 @@ namespace CNCAppPlatform
             this.panel2.Controls.Add(this.btFold);
             this.panel2.Controls.Add(this.btPower);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel2.Location = new System.Drawing.Point(250, 0);
-            this.panel2.Margin = new System.Windows.Forms.Padding(4);
+            this.panel2.Location = new System.Drawing.Point(188, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1182, 57);
+            this.panel2.Size = new System.Drawing.Size(886, 46);
             this.panel2.TabIndex = 1;
             // 
             // btnFormControl
@@ -297,11 +289,10 @@ namespace CNCAppPlatform
             this.btnFormControl.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnFormControl.Change = true;
             this.btnFormControl.Image = ((System.Drawing.Image)(resources.GetObject("btnFormControl.Image")));
-            this.btnFormControl.Location = new System.Drawing.Point(1086, 17);
-            this.btnFormControl.Margin = new System.Windows.Forms.Padding(4);
+            this.btnFormControl.Location = new System.Drawing.Point(814, 14);
             this.btnFormControl.Name = "btnFormControl";
             this.btnFormControl.SetSquare = true;
-            this.btnFormControl.Size = new System.Drawing.Size(26, 26);
+            this.btnFormControl.Size = new System.Drawing.Size(20, 20);
             this.btnFormControl.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.btnFormControl.SubImg = ((System.Drawing.Image)(resources.GetObject("btnFormControl.SubImg")));
             this.btnFormControl.TabIndex = 5;
@@ -313,10 +304,9 @@ namespace CNCAppPlatform
             // 
             this.panel3.BackColor = System.Drawing.Color.Silver;
             this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel3.Location = new System.Drawing.Point(0, 56);
-            this.panel3.Margin = new System.Windows.Forms.Padding(4);
+            this.panel3.Location = new System.Drawing.Point(0, 45);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1182, 1);
+            this.panel3.Size = new System.Drawing.Size(886, 1);
             this.panel3.TabIndex = 4;
             // 
             // label1
@@ -324,8 +314,7 @@ namespace CNCAppPlatform
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("微軟正黑體", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label1.Location = new System.Drawing.Point(57, 12);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Location = new System.Drawing.Point(43, 10);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(195, 27);
             this.label1.TabIndex = 3;
@@ -334,10 +323,9 @@ namespace CNCAppPlatform
             // btFold
             // 
             this.btFold.Image = ((System.Drawing.Image)(resources.GetObject("btFold.Image")));
-            this.btFold.Location = new System.Drawing.Point(23, 16);
-            this.btFold.Margin = new System.Windows.Forms.Padding(4);
+            this.btFold.Location = new System.Drawing.Point(17, 13);
             this.btFold.Name = "btFold";
-            this.btFold.Size = new System.Drawing.Size(27, 27);
+            this.btFold.Size = new System.Drawing.Size(20, 22);
             this.btFold.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.btFold.TabIndex = 2;
             this.btFold.TabStop = false;
@@ -348,10 +336,9 @@ namespace CNCAppPlatform
             this.btPower.FlatAppearance.BorderSize = 0;
             this.btPower.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btPower.Image = ((System.Drawing.Image)(resources.GetObject("btPower.Image")));
-            this.btPower.Location = new System.Drawing.Point(1141, 16);
-            this.btPower.Margin = new System.Windows.Forms.Padding(4);
+            this.btPower.Location = new System.Drawing.Point(856, 13);
             this.btPower.Name = "btPower";
-            this.btPower.Size = new System.Drawing.Size(27, 27);
+            this.btPower.Size = new System.Drawing.Size(20, 22);
             this.btPower.TabIndex = 0;
             this.btPower.UseVisualStyleBackColor = true;
             this.btPower.Click += new System.EventHandler(this.btPower_Click);
@@ -359,10 +346,9 @@ namespace CNCAppPlatform
             // panel1
             // 
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(250, 152);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4);
+            this.panel1.Location = new System.Drawing.Point(188, 131);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1182, 656);
+            this.panel1.Size = new System.Drawing.Size(886, 525);
             this.panel1.TabIndex = 5;
             // 
             // timer1
@@ -374,10 +360,9 @@ namespace CNCAppPlatform
             // 
             this.panel5.BackColor = System.Drawing.Color.Black;
             this.panel5.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel5.Location = new System.Drawing.Point(250, 151);
-            this.panel5.Margin = new System.Windows.Forms.Padding(4);
+            this.panel5.Location = new System.Drawing.Point(188, 130);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(1182, 1);
+            this.panel5.Size = new System.Drawing.Size(886, 1);
             this.panel5.TabIndex = 44;
             // 
             // connStatusLabel
@@ -385,8 +370,7 @@ namespace CNCAppPlatform
             this.connStatusLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.connStatusLabel.AutoSize = true;
             this.connStatusLabel.Font = new System.Drawing.Font("微軟正黑體", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.connStatusLabel.Location = new System.Drawing.Point(1063, 90);
-            this.connStatusLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.connStatusLabel.Location = new System.Drawing.Point(797, 73);
             this.connStatusLabel.Name = "connStatusLabel";
             this.connStatusLabel.Size = new System.Drawing.Size(180, 27);
             this.connStatusLabel.TabIndex = 43;
@@ -399,20 +383,19 @@ namespace CNCAppPlatform
             this.moduleTitle.Dock = System.Windows.Forms.DockStyle.Top;
             this.moduleTitle.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.moduleTitle.Font = new System.Drawing.Font("微軟正黑體", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.moduleTitle.Location = new System.Drawing.Point(250, 57);
-            this.moduleTitle.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.moduleTitle.Location = new System.Drawing.Point(188, 46);
             this.moduleTitle.Name = "moduleTitle";
-            this.moduleTitle.Padding = new System.Windows.Forms.Padding(27);
-            this.moduleTitle.Size = new System.Drawing.Size(328, 94);
+            this.moduleTitle.Padding = new System.Windows.Forms.Padding(20, 22, 20, 22);
+            this.moduleTitle.Size = new System.Drawing.Size(314, 84);
             this.moduleTitle.TabIndex = 42;
             this.moduleTitle.Text = "設備狀態監控App";
             this.moduleTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1432, 808);
+            this.ClientSize = new System.Drawing.Size(1074, 656);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel5);
             this.Controls.Add(this.connStatusLabel);
@@ -420,7 +403,6 @@ namespace CNCAppPlatform
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.sidePanel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "狀態監控App";
