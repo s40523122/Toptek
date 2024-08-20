@@ -24,23 +24,19 @@ namespace CNCAppPlatform
 
             InitializeComponent();
 
-            //DeviceRecord(deviceInfoView1);
-            //DeviceRecord(deviceInfoView2);
-            //DeviceRecord(deviceInfoView3);
-            //DeviceRecord(deviceInfoView4);
-            //DeviceRecord(deviceInfoView5);
-            //DeviceRecord(deviceInfoView6);
+            DeviceRecord(deviceInfoView1);
+            DeviceRecord(deviceInfoView2);
+            DeviceRecord(deviceInfoView3);
+            DeviceRecord(deviceInfoView4);
+            DeviceRecord(deviceInfoView5);
+            DeviceRecord(deviceInfoView6);
 
-            deviceInfoView1.TaskControl(new Carousel_8_box());
-            deviceInfoView2.TaskControl(new Carousel_8_box());
-            deviceInfoView3.TaskControl(new Carousel_8_box());
-            deviceInfoView4.TaskControl(new Carousel_8_box());
-            deviceInfoView5.TaskControl(new Carousel_8_box()
-            {
-                D_registers = new string[] { "D1300", "D1301", "D1302", "D1303", "D1325", "D1326" },
-                Dwh_registers = new string[] { "D1313", "D1314", "D1315", "D1316", "D1317", "D1318", "D1319", "D1320", "D1321", "D1322", "D1323", "D1324" }
-            });
-            deviceInfoView6.TaskControl(new Agv() { D_registers = new string[] { "D1360" } });
+            deviceInfoView1.TaskControl(new Carousel_8_box() { Dwh_registers = "D1313" });
+            deviceInfoView2.TaskControl(new Carousel_8_box() { Dwh_registers = "D1313" });
+            deviceInfoView3.TaskControl(new Carousel_8_box() { Dwh_registers = "D1313" });
+            deviceInfoView4.TaskControl(new Carousel_8_box() { Dwh_registers = "D1313" });
+            deviceInfoView5.TaskControl(new Carousel_8_box() { Dwh_registers = "D1313" });
+            deviceInfoView6.TaskControl(new Carousel_8_box() { Dwh_registers = "D1313" });
 
             deviceInfoView1.BaseIOs = new string[2] { "D1010", "D1011" };
             deviceInfoView2.BaseIOs = new string[2] { "D1060", "D1061" };
@@ -66,8 +62,15 @@ namespace CNCAppPlatform
             string deviceName = INiReader.ReadINIFile(IniPath, (string)infoView.Tag, "Name");
             int speedR = int.Parse(INiReader.ReadINIFile(IniPath, (string)infoView.Tag, "SpeedBarR"));
             int speedY = int.Parse(INiReader.ReadINIFile(IniPath, (string)infoView.Tag, "SpeedBarY"));
+            string strtags = INiReader.ReadINIFile(IniPath, (string)infoView.Tag, "tags").Replace("\\n", "\n"); ;
+            string[] tags = strtags.Split(',');
+            string start_d = INiReader.ReadINIFile(IniPath, (string)infoView.Tag, "start_reg").Replace("\\n", "\n"); ;
+
             infoView.LoadData(flows, imgPath, deviceName, speedR, speedY);
+
+            infoView.TaskControl(new Carousel_8_box() { Dwh_registers = start_d, Set_tag = tags });
             infoView.moveFlowDot(1);
+            infoView.ActiveStateRead();
         }
 
         private void button1_Click(object sender, EventArgs e)

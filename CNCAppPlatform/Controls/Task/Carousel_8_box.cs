@@ -7,62 +7,35 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using CNCAppPlatform.Controls;
 
 namespace CNCAppPlatform
 {
     public partial class Carousel_8_box : UserControl
     {
-        string reg_plateNo1 = "D0";
-        string reg_plateNo2 = "D0";
-        string reg_plateNo3 = "D0";
-        string reg_plateNo4 = "D0";
-        string reg_orderID1 = "D0";
-        string reg_orderID2 = "D0";
-
         string reg_wh1 = "D0";
-        string reg_wh2 = "D0";
-        string reg_wh3 = "D0";
-        string reg_wh4 = "D0";
-        string reg_wh5 = "D0";
-        string reg_wh6 = "D0";
-        string reg_wh7 = "D0";
-        string reg_wh8 = "D0";
-        string reg_wh9 = "D0";
-        string reg_wh10 = "D0";
-        string reg_wh11 = "D0";
-        string reg_wh12 = "D0";
 
-        public string[] D_registers
+        public string Dwh_registers
         {
             set
             {
-                string[] D_reg = value as string[];
-                reg_plateNo1 = D_reg[0];
-                reg_plateNo2 = D_reg[1];
-                reg_plateNo3 = D_reg[2];
-                reg_plateNo4 = D_reg[3];
-                reg_orderID1 = D_reg[4];
-                reg_orderID2 = D_reg[5];
+                reg_wh1 = value;
             }
         }
 
-        public string[] Dwh_registers
+        public string[] Set_tag
         {
             set
             {
-                string[] Dwh_reg = value as string[];
-                reg_wh1 = Dwh_reg[0];
-                reg_wh2 = Dwh_reg[1];
-                reg_wh3 = Dwh_reg[2];
-                reg_wh4 = Dwh_reg[3];
-                reg_wh5 = Dwh_reg[4];
-                reg_wh6 = Dwh_reg[5];
-                reg_wh7 = Dwh_reg[6];
-                reg_wh8 = Dwh_reg[7];
-                reg_wh9 = Dwh_reg[8];
-                reg_wh10 = Dwh_reg[9];
-                reg_wh11 = Dwh_reg[10];
-                reg_wh12 = Dwh_reg[11];
+                string[] tags = value;
+                List<Label> Taglabels = new List<Label> {label1, label2, label3, label4, label5, label6, label7, label8,
+                                                     label9, label10, label11, label12, label13, label14, label15, label16,
+                                                     label17, label18, label19, label20, label21, label22, label23, label24};
+
+                for (int i = 0; i < tags.Length; i++)
+                {
+                    Taglabels[i].Text = tags[i];
+                }
             }
         }
 
@@ -166,6 +139,17 @@ namespace CNCAppPlatform
                 }
                 
             }));
+        }
+
+        private void Carousel_8_box_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void panel1_Click(object sender, EventArgs e)
+        {
+            setform setting = new setform();
+            //setting.ShowDialog();
         }
     }
 }

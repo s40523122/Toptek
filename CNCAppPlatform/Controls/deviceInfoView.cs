@@ -39,8 +39,6 @@ namespace CNCAppPlatform
             speedBar1.Click += SpeedBar1_Click;
 
             SizeChanged += DeviceInfoView_SizeChanged;
-
-            ActiveStateRead();
         }
 
         private DateTime _lineNotifyrecordTime = DateTime.Now;
@@ -72,7 +70,6 @@ namespace CNCAppPlatform
                 speedBar1.PercentageWarn = int.Parse(textBoxY.Text);
                 INiReader.WriteINIFile(deviceOverview.IniPath, (string)Tag, "SpeedBarR", textBoxR.Text);
                 INiReader.WriteINIFile(deviceOverview.IniPath, (string)Tag, "SpeedBarY", textBoxY.Text);
-
             }
             else
             {
@@ -233,19 +230,21 @@ namespace CNCAppPlatform
             return (int)operationRate < 0 ? 0 : (int)operationRate;
         }
 
-        private void ActiveStateRead()
+        public void ActiveStateRead()
         {
             System.Timers.Timer timer = new System.Timers.Timer();
             timer.Interval = 1000; // 設置計時器間隔為 1000 毫秒 (1 秒)
             timer.Elapsed += Active_Timer_Elapsed;
             timer.Start();
         }
-
+         
         private void Active_Timer_Elapsed(object sender, EventArgs e)
         {
             int no = 1;
             short[] arraydata;
             arraydata = new short[no];
+
+            flowView1.PlcRead();
 
             _ = Form1.axActUtlType.ReadDeviceBlock2(activation_D_register, no, out arraydata[0]);
 

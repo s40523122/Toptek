@@ -133,6 +133,9 @@
     <Compile Include="Controls\PlcConnectionBox.Designer.cs">
       <DependentUpon>PlcConnectionBox.cs</DependentUpon>
     </Compile>
+    <Compile Include="Controls\setform.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Controls\Task\Agv.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -306,6 +309,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\PlcConnectionBox.resx">
       <DependentUpon>PlcConnectionBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\setform.resx">
+      <DependentUpon>setform.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\Task\Agv.resx">
       <DependentUpon>Agv.cs</DependentUpon>

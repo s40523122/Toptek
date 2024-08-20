@@ -33,11 +33,9 @@ namespace CNCAppPlatform
 
             SizeChanged += FlowView_SizeChanged;
             //MouseMove += FlowView_MouseMove;
-
-            PlcRead();
         }
 
-        private void PlcRead()
+        public void PlcRead()
         {
             System.Timers.Timer timer = new System.Timers.Timer();
             timer.Interval = 200; // 設置計時器間隔為 1000 毫秒 (1 秒)

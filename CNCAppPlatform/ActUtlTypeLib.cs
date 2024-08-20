@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ActUtlTypeLib.test
+namespace ActUtlTypeLib
 {
     public partial class ActUtlType
     {
@@ -25,6 +25,17 @@ namespace ActUtlTypeLib.test
             return 1;
         }
 
+        public int ReadDeviceBlock(string _, int __, out int aa)
+        {
+            aa = 0;
+            return 1;
+        }
+
+        public int WriteDeviceBlock(string _, int __, ref int aa)
+        {
+            return 1;
+        }
+
         public void Close()
         {
         }
@@ -35,6 +46,11 @@ namespace ActUtlTypeLib.test
         }
 
         public void SetDevice(string _, byte aa)
+        {
+
+        }
+
+        public void SetDevice(string _, int aa)
         {
 
         }
