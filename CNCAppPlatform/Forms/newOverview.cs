@@ -28,21 +28,21 @@ namespace CNCAppPlatform
             DeviceRecord(deviceInfoView2);
             DeviceRecord(deviceInfoView3);
             DeviceRecord(deviceInfoView4);
-            DeviceRecord(deviceInfoView5);
+            //DeviceRecord(deviceInfoView5);
             DeviceRecord(deviceInfoView6);
 
             deviceInfoView1.TaskControl(new Carousel_8_box() { Dwh_registers = "D1313" });
             deviceInfoView2.TaskControl(new Carousel_8_box() { Dwh_registers = "D1313" });
             deviceInfoView3.TaskControl(new Carousel_8_box() { Dwh_registers = "D1313" });
             deviceInfoView4.TaskControl(new Carousel_8_box() { Dwh_registers = "D1313" });
-            deviceInfoView5.TaskControl(new Carousel_8_box() { Dwh_registers = "D1313" });
+            //deviceInfoView5.TaskControl(new Carousel_8_box() { Dwh_registers = "D1313" });
             deviceInfoView6.TaskControl(new Carousel_8_box() { Dwh_registers = "D1313" });
 
             deviceInfoView1.BaseIOs = new string[2] { "D1010", "D1011" };
             deviceInfoView2.BaseIOs = new string[2] { "D1060", "D1061" };
             deviceInfoView3.BaseIOs = new string[2] { "D1210", "D1211" };
             deviceInfoView4.BaseIOs = new string[2] { "D1260", "D1261" };
-            deviceInfoView5.BaseIOs = new string[2] { "D1310", "D1311" };
+            //deviceInfoView5.BaseIOs = new string[2] { "D1310", "D1311" };
             deviceInfoView6.BaseIOs = new string[2] { "D1367", "D1368" };
 
             //deviceInfoView6.IntervalMin = 0;        // AGV 不發警報

@@ -267,6 +267,11 @@ namespace CNCAppPlatform
         {
             //machineState1.timer1.Enabled = true;
         }
+
+        private void panel1_Resize(object sender, EventArgs e)
+        {
+            deviceInfoView_V21.Height = panel1.Height * 9 / 10;
+        }
     }
 
 }

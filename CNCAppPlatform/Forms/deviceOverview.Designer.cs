@@ -46,8 +46,8 @@
             this.deviceInfoView1 = new CNCAppPlatform.deviceInfoView();
             this.deviceInfoView3 = new CNCAppPlatform.deviceInfoView();
             this.deviceInfoView4 = new CNCAppPlatform.deviceInfoView();
-            this.deviceInfoView6 = new CNCAppPlatform.deviceInfoView();
             this.deviceInfoView5 = new CNCAppPlatform.deviceInfoView();
+            this.deviceInfoView_V21 = new CNCAppPlatform.Controls.deviceInfoView_V2();
             this.tableLayoutPanel2.SuspendLayout();
             this.panel2.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -56,7 +56,7 @@
             // button1
             // 
             this.button1.Location = new System.Drawing.Point(452, 4);
-            this.button1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button1.Margin = new System.Windows.Forms.Padding(4);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(100, 28);
             this.button1.TabIndex = 2;
@@ -68,7 +68,7 @@
             // button2
             // 
             this.button2.Location = new System.Drawing.Point(560, 4);
-            this.button2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button2.Margin = new System.Windows.Forms.Padding(4);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(100, 28);
             this.button2.TabIndex = 2;
@@ -80,7 +80,7 @@
             // button3
             // 
             this.button3.Location = new System.Drawing.Point(668, 4);
-            this.button3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button3.Margin = new System.Windows.Forms.Padding(4);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(100, 28);
             this.button3.TabIndex = 2;
@@ -92,7 +92,7 @@
             // button4
             // 
             this.button4.Location = new System.Drawing.Point(776, 4);
-            this.button4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button4.Margin = new System.Windows.Forms.Padding(4);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(100, 28);
             this.button4.TabIndex = 2;
@@ -104,7 +104,7 @@
             // button5
             // 
             this.button5.Location = new System.Drawing.Point(884, 4);
-            this.button5.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button5.Margin = new System.Windows.Forms.Padding(4);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(100, 28);
             this.button5.TabIndex = 2;
@@ -117,7 +117,7 @@
             // 
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(27, 25);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(59, 941);
             this.panel1.TabIndex = 3;
@@ -132,7 +132,7 @@
             this.tableLayoutPanel2.Controls.Add(this.label2, 0, 1);
             this.tableLayoutPanel2.Controls.Add(this.label1, 0, 0);
             this.tableLayoutPanel2.Location = new System.Drawing.Point(27, 95);
-            this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(4);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 5;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 166F));
@@ -214,7 +214,7 @@
             this.panel2.Controls.Add(this.tableLayoutPanel1);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(86, 25);
-            this.panel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1811, 941);
             this.panel2.TabIndex = 4;
@@ -226,17 +226,17 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 400F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 400F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 400F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 400F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 400F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 389F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 411F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 433F));
             this.tableLayoutPanel1.Controls.Add(this.deviceInfoView2, 2, 0);
             this.tableLayoutPanel1.Controls.Add(this.deviceInfoView1, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.deviceInfoView3, 3, 0);
             this.tableLayoutPanel1.Controls.Add(this.deviceInfoView4, 4, 0);
-            this.tableLayoutPanel1.Controls.Add(this.deviceInfoView6, 6, 0);
             this.tableLayoutPanel1.Controls.Add(this.deviceInfoView5, 5, 0);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(2, 70);
-            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tableLayoutPanel1.Controls.Add(this.deviceInfoView_V21, 6, 0);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(8, 57);
+            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(4);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
@@ -247,6 +247,7 @@
             // 
             this.deviceInfoView2.AllowDrop = true;
             this.deviceInfoView2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.deviceInfoView2.IntervalMin = 10D;
             this.deviceInfoView2.Location = new System.Drawing.Point(405, 5);
             this.deviceInfoView2.Margin = new System.Windows.Forms.Padding(5);
             this.deviceInfoView2.Name = "deviceInfoView2";
@@ -258,6 +259,7 @@
             // 
             this.deviceInfoView1.AllowDrop = true;
             this.deviceInfoView1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.deviceInfoView1.IntervalMin = 10D;
             this.deviceInfoView1.Location = new System.Drawing.Point(5, 5);
             this.deviceInfoView1.Margin = new System.Windows.Forms.Padding(5);
             this.deviceInfoView1.Name = "deviceInfoView1";
@@ -268,6 +270,7 @@
             // deviceInfoView3
             // 
             this.deviceInfoView3.AllowDrop = true;
+            this.deviceInfoView3.IntervalMin = 10D;
             this.deviceInfoView3.Location = new System.Drawing.Point(805, 5);
             this.deviceInfoView3.Margin = new System.Windows.Forms.Padding(5);
             this.deviceInfoView3.Name = "deviceInfoView3";
@@ -278,32 +281,31 @@
             // deviceInfoView4
             // 
             this.deviceInfoView4.AllowDrop = true;
+            this.deviceInfoView4.IntervalMin = 10D;
             this.deviceInfoView4.Location = new System.Drawing.Point(1205, 5);
             this.deviceInfoView4.Margin = new System.Windows.Forms.Padding(5);
             this.deviceInfoView4.Name = "deviceInfoView4";
-            this.deviceInfoView4.Size = new System.Drawing.Size(390, 933);
+            this.deviceInfoView4.Size = new System.Drawing.Size(379, 933);
             this.deviceInfoView4.TabIndex = 4;
             this.deviceInfoView4.Tag = "Table4";
-            // 
-            // deviceInfoView6
-            // 
-            this.deviceInfoView6.AllowDrop = true;
-            this.deviceInfoView6.Location = new System.Drawing.Point(2005, 5);
-            this.deviceInfoView6.Margin = new System.Windows.Forms.Padding(5);
-            this.deviceInfoView6.Name = "deviceInfoView6";
-            this.deviceInfoView6.Size = new System.Drawing.Size(392, 933);
-            this.deviceInfoView6.TabIndex = 6;
-            this.deviceInfoView6.Tag = "Table6";
             // 
             // deviceInfoView5
             // 
             this.deviceInfoView5.AllowDrop = true;
-            this.deviceInfoView5.Location = new System.Drawing.Point(1605, 5);
+            this.deviceInfoView5.IntervalMin = 10D;
+            this.deviceInfoView5.Location = new System.Drawing.Point(1594, 5);
             this.deviceInfoView5.Margin = new System.Windows.Forms.Padding(5);
             this.deviceInfoView5.Name = "deviceInfoView5";
             this.deviceInfoView5.Size = new System.Drawing.Size(390, 933);
             this.deviceInfoView5.TabIndex = 5;
             this.deviceInfoView5.Tag = "Table5";
+            // 
+            // deviceInfoView_V21
+            // 
+            this.deviceInfoView_V21.Location = new System.Drawing.Point(2003, 3);
+            this.deviceInfoView_V21.Name = "deviceInfoView_V21";
+            this.deviceInfoView_V21.Size = new System.Drawing.Size(427, 754);
+            this.deviceInfoView_V21.TabIndex = 6;
             // 
             // deviceOverview
             // 
@@ -318,7 +320,7 @@
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "deviceOverview";
             this.Padding = new System.Windows.Forms.Padding(27, 25, 27, 25);
             this.Text = "deviceOverall";
@@ -349,6 +351,6 @@
         private deviceInfoView deviceInfoView3;
         private deviceInfoView deviceInfoView4;
         private deviceInfoView deviceInfoView5;
-        private deviceInfoView deviceInfoView6;
+        private Controls.deviceInfoView_V2 deviceInfoView_V21;
     }
 }

@@ -63,24 +63,26 @@
             this.tableLayoutPanel1.Controls.Add(this.panelFlow, 0, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.Padding = new System.Windows.Forms.Padding(5);
+            this.tableLayoutPanel1.Padding = new System.Windows.Forms.Padding(7, 6, 7, 6);
             this.tableLayoutPanel1.RowCount = 5;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 131F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 179F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 65F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 211F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 165F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(295, 759);
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 161F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 220F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 80F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 260F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 203F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(393, 934);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // panelTask
             // 
             this.panelTask.BackColor = System.Drawing.SystemColors.Control;
             this.panelTask.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelTask.Location = new System.Drawing.Point(8, 383);
+            this.panelTask.Location = new System.Drawing.Point(11, 471);
+            this.panelTask.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panelTask.Name = "panelTask";
-            this.panelTask.Size = new System.Drawing.Size(279, 205);
+            this.panelTask.Size = new System.Drawing.Size(371, 252);
             this.panelTask.TabIndex = 4;
             // 
             // panel4
@@ -93,17 +95,19 @@
             this.panel4.Controls.Add(this.label1);
             this.panel4.Controls.Add(this.speedBar1);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel4.Location = new System.Drawing.Point(8, 594);
+            this.panel4.Location = new System.Drawing.Point(11, 731);
+            this.panel4.Margin = new System.Windows.Forms.Padding(4);
             this.panel4.Name = "panel4";
             this.panel4.Radius = 10;
-            this.panel4.Size = new System.Drawing.Size(279, 159);
+            this.panel4.Size = new System.Drawing.Size(371, 195);
             this.panel4.TabIndex = 3;
             // 
             // labelY
             // 
             this.labelY.AutoSize = true;
             this.labelY.Font = new System.Drawing.Font("微軟正黑體", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.labelY.Location = new System.Drawing.Point(3, 90);
+            this.labelY.Location = new System.Drawing.Point(4, 111);
+            this.labelY.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelY.Name = "labelY";
             this.labelY.Size = new System.Drawing.Size(25, 26);
             this.labelY.TabIndex = 3;
@@ -113,9 +117,10 @@
             // textBoxY
             // 
             this.textBoxY.Font = new System.Drawing.Font("微軟正黑體", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.textBoxY.Location = new System.Drawing.Point(29, 90);
+            this.textBoxY.Location = new System.Drawing.Point(39, 111);
+            this.textBoxY.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxY.Name = "textBoxY";
-            this.textBoxY.Size = new System.Drawing.Size(38, 27);
+            this.textBoxY.Size = new System.Drawing.Size(49, 27);
             this.textBoxY.TabIndex = 2;
             this.textBoxY.Text = "30";
             this.textBoxY.Visible = false;
@@ -124,7 +129,8 @@
             // 
             this.labelR.AutoSize = true;
             this.labelR.Font = new System.Drawing.Font("微軟正黑體", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.labelR.Location = new System.Drawing.Point(3, 57);
+            this.labelR.Location = new System.Drawing.Point(4, 70);
+            this.labelR.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelR.Name = "labelR";
             this.labelR.Size = new System.Drawing.Size(26, 26);
             this.labelR.TabIndex = 3;
@@ -134,9 +140,10 @@
             // textBoxR
             // 
             this.textBoxR.Font = new System.Drawing.Font("微軟正黑體", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.textBoxR.Location = new System.Drawing.Point(29, 57);
+            this.textBoxR.Location = new System.Drawing.Point(39, 70);
+            this.textBoxR.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxR.Name = "textBoxR";
-            this.textBoxR.Size = new System.Drawing.Size(38, 27);
+            this.textBoxR.Size = new System.Drawing.Size(49, 27);
             this.textBoxR.TabIndex = 2;
             this.textBoxR.Text = "30";
             this.textBoxR.Visible = false;
@@ -145,7 +152,8 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("微軟正黑體", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label1.Location = new System.Drawing.Point(7, 7);
+            this.label1.Location = new System.Drawing.Point(9, 9);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(105, 24);
             this.label1.TabIndex = 1;
@@ -158,7 +166,8 @@
             this.speedBar1.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.speedBar1.ForeColor = System.Drawing.Color.DarkGoldenrod;
             this.speedBar1.IsAdjustment = false;
-            this.speedBar1.Location = new System.Drawing.Point(56, 14);
+            this.speedBar1.Location = new System.Drawing.Point(74, 16);
+            this.speedBar1.Margin = new System.Windows.Forms.Padding(4);
             this.speedBar1.Name = "speedBar1";
             this.speedBar1.NowPercentage = 0;
             this.speedBar1.PercentageSafe = 20;
@@ -168,7 +177,7 @@
             this.speedBar1.RatioPinLength = 28;
             this.speedBar1.Reverse = true;
             this.speedBar1.RingColor = System.Drawing.Color.DarkGray;
-            this.speedBar1.Size = new System.Drawing.Size(148, 148);
+            this.speedBar1.Size = new System.Drawing.Size(182, 182);
             this.speedBar1.TabIndex = 0;
             // 
             // deviceName
@@ -177,17 +186,19 @@
             this.deviceName.Controls.Add(this.tBoxDeviceName);
             this.deviceName.Controls.Add(this.DeviceNamelabel);
             this.deviceName.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.deviceName.Location = new System.Drawing.Point(8, 318);
+            this.deviceName.Location = new System.Drawing.Point(11, 391);
+            this.deviceName.Margin = new System.Windows.Forms.Padding(4);
             this.deviceName.Name = "deviceName";
             this.deviceName.Radius = 10;
-            this.deviceName.Size = new System.Drawing.Size(279, 59);
+            this.deviceName.Size = new System.Drawing.Size(371, 72);
             this.deviceName.TabIndex = 1;
             // 
             // tBoxDeviceName
             // 
-            this.tBoxDeviceName.Location = new System.Drawing.Point(24, 3);
+            this.tBoxDeviceName.Location = new System.Drawing.Point(32, 4);
+            this.tBoxDeviceName.Margin = new System.Windows.Forms.Padding(4);
             this.tBoxDeviceName.Name = "tBoxDeviceName";
-            this.tBoxDeviceName.Size = new System.Drawing.Size(106, 20);
+            this.tBoxDeviceName.Size = new System.Drawing.Size(140, 22);
             this.tBoxDeviceName.TabIndex = 1;
             this.tBoxDeviceName.Visible = false;
             // 
@@ -196,8 +207,9 @@
             this.DeviceNamelabel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.DeviceNamelabel.Font = new System.Drawing.Font("微軟正黑體", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.DeviceNamelabel.Location = new System.Drawing.Point(0, 0);
+            this.DeviceNamelabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.DeviceNamelabel.Name = "DeviceNamelabel";
-            this.DeviceNamelabel.Size = new System.Drawing.Size(279, 59);
+            this.DeviceNamelabel.Size = new System.Drawing.Size(371, 72);
             this.DeviceNamelabel.TabIndex = 0;
             this.DeviceNamelabel.Text = "label1";
             this.DeviceNamelabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -208,10 +220,11 @@
             this.deviceImg.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("deviceImg.BackgroundImage")));
             this.deviceImg.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.deviceImg.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.deviceImg.Location = new System.Drawing.Point(8, 139);
+            this.deviceImg.Location = new System.Drawing.Point(11, 171);
+            this.deviceImg.Margin = new System.Windows.Forms.Padding(4);
             this.deviceImg.Name = "deviceImg";
             this.deviceImg.Radius = 10;
-            this.deviceImg.Size = new System.Drawing.Size(279, 173);
+            this.deviceImg.Size = new System.Drawing.Size(371, 212);
             this.deviceImg.TabIndex = 0;
             // 
             // panelFlow
@@ -221,17 +234,19 @@
             this.panelFlow.Controls.Add(this.LabelFlow);
             this.panelFlow.Controls.Add(this.flowView1);
             this.panelFlow.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelFlow.Location = new System.Drawing.Point(8, 8);
+            this.panelFlow.Location = new System.Drawing.Point(11, 10);
+            this.panelFlow.Margin = new System.Windows.Forms.Padding(4);
             this.panelFlow.Name = "panelFlow";
             this.panelFlow.Radius = 10;
-            this.panelFlow.Size = new System.Drawing.Size(279, 125);
+            this.panelFlow.Size = new System.Drawing.Size(371, 153);
             this.panelFlow.TabIndex = 5;
             // 
             // richTextBox1
             // 
-            this.richTextBox1.Location = new System.Drawing.Point(11, 21);
+            this.richTextBox1.Location = new System.Drawing.Point(15, 26);
+            this.richTextBox1.Margin = new System.Windows.Forms.Padding(4);
             this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(81, 81);
+            this.richTextBox1.Size = new System.Drawing.Size(107, 99);
             this.richTextBox1.TabIndex = 2;
             this.richTextBox1.Text = "";
             this.richTextBox1.Visible = false;
@@ -240,7 +255,8 @@
             // 
             this.LabelFlow.AutoSize = true;
             this.LabelFlow.Font = new System.Drawing.Font("微軟正黑體", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.LabelFlow.Location = new System.Drawing.Point(7, 7);
+            this.LabelFlow.Location = new System.Drawing.Point(9, 9);
+            this.LabelFlow.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.LabelFlow.Name = "LabelFlow";
             this.LabelFlow.Size = new System.Drawing.Size(86, 24);
             this.LabelFlow.TabIndex = 1;
@@ -249,19 +265,20 @@
             // 
             // flowView1
             // 
-            this.flowView1.Location = new System.Drawing.Point(81, 37);
-            this.flowView1.Margin = new System.Windows.Forms.Padding(4);
+            this.flowView1.Location = new System.Drawing.Point(108, 37);
+            this.flowView1.Margin = new System.Windows.Forms.Padding(5);
             this.flowView1.Name = "flowView1";
-            this.flowView1.Size = new System.Drawing.Size(117, 76);
+            this.flowView1.Size = new System.Drawing.Size(156, 94);
             this.flowView1.TabIndex = 0;
             // 
             // deviceInfoView
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.tableLayoutPanel1);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "deviceInfoView";
-            this.Size = new System.Drawing.Size(295, 759);
+            this.Size = new System.Drawing.Size(393, 934);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();

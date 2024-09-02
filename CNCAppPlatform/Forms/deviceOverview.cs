@@ -29,7 +29,7 @@ namespace CNCAppPlatform
             DeviceRecord(deviceInfoView3);
             DeviceRecord(deviceInfoView4);
             DeviceRecord(deviceInfoView5);
-            DeviceRecord(deviceInfoView6);
+            //DeviceRecord(deviceInfoView6);
 
             deviceInfoView1.TaskControl(new TS0082_1() { D_registers = new string[] { "D1000", "D1001", "D1002" } });
             deviceInfoView2.TaskControl(new TS0082_2() { D_registers = new string[] { "D1050", "D1051" } });
@@ -40,14 +40,14 @@ namespace CNCAppPlatform
                 D_registers = new string[] { "D1300", "D1301", "D1302", "D1303", "D1325", "D1326" },
                 Dwh_registers = new string[] { "D1313", "D1314", "D1315", "D1316", "D1317", "D1318", "D1319", "D1320", "D1321", "D1322", "D1323", "D1324" }
             });
-            deviceInfoView6.TaskControl(new Agv() { D_registers = new string[] { "D1360" } });
+            //deviceInfoView6.TaskControl(new Agv() { D_registers = new string[] { "D1360" } });
 
             deviceInfoView1.BaseIOs = new string[2] { "D1010", "D1011" };
             deviceInfoView2.BaseIOs = new string[2] { "D1060", "D1061" };
             deviceInfoView3.BaseIOs = new string[2] { "D1210", "D1211" };
             deviceInfoView4.BaseIOs = new string[2] { "D1260", "D1261" };
             deviceInfoView5.BaseIOs = new string[2] { "D1310", "D1311" };
-            deviceInfoView6.BaseIOs = new string[2] { "D1367", "D1368" };
+            //deviceInfoView6.BaseIOs = new string[2] { "D1367", "D1368" };
 
             //deviceInfoView6.IntervalMin = 0;        // AGV 不發警報
 

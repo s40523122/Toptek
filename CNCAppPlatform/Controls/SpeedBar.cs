@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using System.Drawing.Drawing2D;
 using System.Net.Http.Headers;
 using System.Net.Http;
+using System.Diagnostics;
 
 namespace CNCAppPlatform
 {
@@ -181,6 +182,7 @@ namespace CNCAppPlatform
         {
             this.ResizeRedraw = true; // 當控制項大小改變時重繪
             this.DoubleBuffered = true; // 啟用雙緩衝以減少閃爍
+            small_size = Math.Min(Width, Height);
             SizeChanged += ProgressRingChart_SizeChanged;
             //DoubleClick += SpeedBar_DoubleClick;
         }
@@ -198,10 +200,14 @@ namespace CNCAppPlatform
             _isMove = !_isMove;
         }
 
+        int small_size;
+
         private void ProgressRingChart_SizeChanged(object sender, EventArgs e)
         {
-            int small_size = Math.Min(Width, Height);
-            Size = new Size(small_size, small_size);
+            //small_size = Math.Min(Width, Height);
+            small_size = Height;
+            //Size = new Size(small_size, small_size);
+
         }
 
         protected override void OnPaint(PaintEventArgs e)
@@ -231,7 +237,7 @@ namespace CNCAppPlatform
                 g.FillPie(brush, rect, startAngle, swipeAngle);
             }
 
-            rect.Inflate(offset - 1, offset - 1);
+            rect.Inflate(offset - 2, offset - 2);
             using (SolidBrush brush = new SolidBrush(borderColor))        // Border
             {
                 g.DrawPie(new Pen(brush, 4), rect, startAngle, swipeAngle);
@@ -244,8 +250,8 @@ namespace CNCAppPlatform
         {
             g.SmoothingMode = SmoothingMode.AntiAlias;
 
-            int offset = Math.Max(ClientSize.Width / 65, 1);
-            int diameter = ClientSize.Width - offset;
+            int offset = Math.Max(small_size / 65, 1);
+            int diameter = small_size - offset;
             int startAngle = 150;
             int endAngle = 390;
             int safeAngle = (int)(240 * ((float)_percentageSafe / 100));
@@ -286,12 +292,14 @@ namespace CNCAppPlatform
             Point[] points = new Point[]
             {
             new Point(-offset*3, 0),
-            new Point(0, -offset * _ratioPinLength),
+            new Point(0, -diameter/2),
             new Point(offset*3, 0)
             };
 
-            rect.Inflate(-offset * _ratioInnerCircle, -offset * _ratioInnerCircle);
-            g.FillEllipse(Brushes.Black, rect);
+            int pin_diameter = small_size / 10;
+            Rectangle pin_rect = new Rectangle((Width - pin_diameter) / 2, (Height - pin_diameter) / 2, pin_diameter, pin_diameter);
+            rect.Inflate(-offset * 5, -offset * 5);
+            g.FillEllipse(Brushes.Black, pin_rect);
 
             // 保存當前 Graphics
             Matrix originalTransform = g.Transform.Clone();
