@@ -54,7 +54,6 @@ namespace CNCAppPlatform
             this.panel5 = new System.Windows.Forms.Panel();
             this.connStatusLabel = new System.Windows.Forms.Label();
             this.moduleTitle = new System.Windows.Forms.Label();
-            this.deviceInfoView_V21 = new CNCAppPlatform.Controls.deviceInfoView_V2();
             this.sidePanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.info)).BeginInit();
             this.flowLayoutPanel1.SuspendLayout();
@@ -62,7 +61,6 @@ namespace CNCAppPlatform
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnFormControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btFold)).BeginInit();
-            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // sidePanel
@@ -360,14 +358,12 @@ namespace CNCAppPlatform
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.deviceInfoView_V21);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(251, 152);
             this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1181, 655);
             this.panel1.TabIndex = 5;
-            this.panel1.Resize += new System.EventHandler(this.panel1_Resize);
             // 
             // timer1
             // 
@@ -412,13 +408,6 @@ namespace CNCAppPlatform
             this.moduleTitle.Text = "³]³Æª¬ºAºÊ±±App";
             this.moduleTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // deviceInfoView_V21
-            // 
-            this.deviceInfoView_V21.Location = new System.Drawing.Point(62, 24);
-            this.deviceInfoView_V21.Name = "deviceInfoView_V21";
-            this.deviceInfoView_V21.Size = new System.Drawing.Size(518, 600);
-            this.deviceInfoView_V21.TabIndex = 0;
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -443,7 +432,6 @@ namespace CNCAppPlatform
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnFormControl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btFold)).EndInit();
-            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -475,7 +463,6 @@ namespace CNCAppPlatform
         private ART_plus.DoubleImg btnFormControl;
         private System.Windows.Forms.Button btnSetting;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
-        private Controls.deviceInfoView_V2 deviceInfoView_V21;
     }
 }
 

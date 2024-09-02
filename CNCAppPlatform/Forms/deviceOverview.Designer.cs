@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(deviceOverview));
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
@@ -302,9 +303,11 @@
             // 
             // deviceInfoView_V21
             // 
+            this.deviceInfoView_V21.Labels = ((System.Collections.Generic.List<string>)(resources.GetObject("deviceInfoView_V21.Labels")));
             this.deviceInfoView_V21.Location = new System.Drawing.Point(2003, 3);
             this.deviceInfoView_V21.Name = "deviceInfoView_V21";
-            this.deviceInfoView_V21.Size = new System.Drawing.Size(427, 754);
+            this.deviceInfoView_V21.Paramrters = ((System.Collections.Generic.List<int>)(resources.GetObject("deviceInfoView_V21.Paramrters")));
+            this.deviceInfoView_V21.Size = new System.Drawing.Size(648, 754);
             this.deviceInfoView_V21.TabIndex = 6;
             // 
             // deviceOverview
