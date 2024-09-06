@@ -32,35 +32,35 @@ namespace CNCAppPlatform
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.sidePanel = new System.Windows.Forms.Panel();
             this.slidePanel = new System.Windows.Forms.Panel();
-            this.info = new System.Windows.Forms.PictureBox();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.btnPlcSetting = new System.Windows.Forms.Button();
-            this.btnOrderLog = new System.Windows.Forms.Button();
-            this.btnDeviceOverView = new System.Windows.Forms.Button();
-            this.btnPlcTest = new System.Windows.Forms.Button();
-            this.btnSetting = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.btnHome = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.btnFormControl = new ART_plus.DoubleImg();
             this.panel3 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
-            this.btFold = new System.Windows.Forms.PictureBox();
-            this.btPower = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.panel5 = new System.Windows.Forms.Panel();
             this.connStatusLabel = new System.Windows.Forms.Label();
             this.moduleTitle = new System.Windows.Forms.Label();
+            this.btnFormControl = new ART_plus.DoubleImg();
+            this.btFold = new System.Windows.Forms.PictureBox();
+            this.btPower = new System.Windows.Forms.Button();
+            this.info = new System.Windows.Forms.PictureBox();
+            this.btnPlcSetting = new System.Windows.Forms.Button();
+            this.btnOrderLog = new System.Windows.Forms.Button();
+            this.btnDeviceOverView = new System.Windows.Forms.Button();
+            this.btnPlcTest = new System.Windows.Forms.Button();
+            this.btnSetting = new System.Windows.Forms.Button();
+            this.btnHome = new System.Windows.Forms.Button();
             this.sidePanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.info)).BeginInit();
             this.flowLayoutPanel1.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnFormControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btFold)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.info)).BeginInit();
             this.SuspendLayout();
             // 
             // sidePanel
@@ -88,20 +88,6 @@ namespace CNCAppPlatform
             this.slidePanel.TabIndex = 2;
             this.slidePanel.Visible = false;
             // 
-            // info
-            // 
-            this.info.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.info.Image = ((System.Drawing.Image)(resources.GetObject("info.Image")));
-            this.info.Location = new System.Drawing.Point(4, 666);
-            this.info.Margin = new System.Windows.Forms.Padding(4);
-            this.info.Name = "info";
-            this.info.Size = new System.Drawing.Size(40, 39);
-            this.info.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.info.TabIndex = 2;
-            this.info.TabStop = false;
-            this.info.Visible = false;
-            this.info.Click += new System.EventHandler(this.info_Click);
-            // 
             // flowLayoutPanel1
             // 
             this.flowLayoutPanel1.Controls.Add(this.btnPlcSetting);
@@ -115,110 +101,6 @@ namespace CNCAppPlatform
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(251, 569);
             this.flowLayoutPanel1.TabIndex = 14;
-            // 
-            // btnPlcSetting
-            // 
-            this.btnPlcSetting.BackColor = System.Drawing.Color.SteelBlue;
-            this.btnPlcSetting.FlatAppearance.BorderSize = 0;
-            this.btnPlcSetting.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnPlcSetting.Font = new System.Drawing.Font("微軟正黑體", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.btnPlcSetting.ForeColor = System.Drawing.Color.White;
-            this.btnPlcSetting.Image = ((System.Drawing.Image)(resources.GetObject("btnPlcSetting.Image")));
-            this.btnPlcSetting.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnPlcSetting.Location = new System.Drawing.Point(0, 0);
-            this.btnPlcSetting.Margin = new System.Windows.Forms.Padding(0);
-            this.btnPlcSetting.Name = "btnPlcSetting";
-            this.btnPlcSetting.Padding = new System.Windows.Forms.Padding(7, 0, 0, 0);
-            this.btnPlcSetting.Size = new System.Drawing.Size(280, 98);
-            this.btnPlcSetting.TabIndex = 2;
-            this.btnPlcSetting.Text = "PLC 連線設定";
-            this.btnPlcSetting.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnPlcSetting.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnPlcSetting.UseVisualStyleBackColor = false;
-            this.btnPlcSetting.Click += new System.EventHandler(this.btnPlcSetting_Click);
-            // 
-            // btnOrderLog
-            // 
-            this.btnOrderLog.BackColor = System.Drawing.Color.SteelBlue;
-            this.btnOrderLog.FlatAppearance.BorderSize = 0;
-            this.btnOrderLog.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnOrderLog.Font = new System.Drawing.Font("微軟正黑體", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.btnOrderLog.ForeColor = System.Drawing.Color.White;
-            this.btnOrderLog.Image = ((System.Drawing.Image)(resources.GetObject("btnOrderLog.Image")));
-            this.btnOrderLog.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnOrderLog.Location = new System.Drawing.Point(0, 98);
-            this.btnOrderLog.Margin = new System.Windows.Forms.Padding(0);
-            this.btnOrderLog.Name = "btnOrderLog";
-            this.btnOrderLog.Padding = new System.Windows.Forms.Padding(7, 0, 0, 0);
-            this.btnOrderLog.Size = new System.Drawing.Size(280, 98);
-            this.btnOrderLog.TabIndex = 2;
-            this.btnOrderLog.Text = "  工單歷程";
-            this.btnOrderLog.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnOrderLog.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnOrderLog.UseVisualStyleBackColor = false;
-            this.btnOrderLog.Click += new System.EventHandler(this.btnOrderLog_Click);
-            // 
-            // btnDeviceOverView
-            // 
-            this.btnDeviceOverView.BackColor = System.Drawing.Color.SteelBlue;
-            this.btnDeviceOverView.FlatAppearance.BorderSize = 0;
-            this.btnDeviceOverView.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDeviceOverView.Font = new System.Drawing.Font("微軟正黑體", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.btnDeviceOverView.ForeColor = System.Drawing.Color.White;
-            this.btnDeviceOverView.Image = ((System.Drawing.Image)(resources.GetObject("btnDeviceOverView.Image")));
-            this.btnDeviceOverView.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnDeviceOverView.Location = new System.Drawing.Point(0, 196);
-            this.btnDeviceOverView.Margin = new System.Windows.Forms.Padding(0);
-            this.btnDeviceOverView.Name = "btnDeviceOverView";
-            this.btnDeviceOverView.Padding = new System.Windows.Forms.Padding(7, 0, 0, 0);
-            this.btnDeviceOverView.Size = new System.Drawing.Size(280, 98);
-            this.btnDeviceOverView.TabIndex = 2;
-            this.btnDeviceOverView.Text = "   設備總覽";
-            this.btnDeviceOverView.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnDeviceOverView.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnDeviceOverView.UseVisualStyleBackColor = false;
-            this.btnDeviceOverView.Click += new System.EventHandler(this.btnDeviceOverall_Click);
-            // 
-            // btnPlcTest
-            // 
-            this.btnPlcTest.BackColor = System.Drawing.Color.SteelBlue;
-            this.btnPlcTest.FlatAppearance.BorderSize = 0;
-            this.btnPlcTest.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnPlcTest.Font = new System.Drawing.Font("微軟正黑體", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.btnPlcTest.ForeColor = System.Drawing.Color.White;
-            this.btnPlcTest.Image = ((System.Drawing.Image)(resources.GetObject("btnPlcTest.Image")));
-            this.btnPlcTest.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnPlcTest.Location = new System.Drawing.Point(0, 294);
-            this.btnPlcTest.Margin = new System.Windows.Forms.Padding(0);
-            this.btnPlcTest.Name = "btnPlcTest";
-            this.btnPlcTest.Padding = new System.Windows.Forms.Padding(7, 0, 0, 0);
-            this.btnPlcTest.Size = new System.Drawing.Size(280, 98);
-            this.btnPlcTest.TabIndex = 2;
-            this.btnPlcTest.Text = "  PLC 讀寫測試";
-            this.btnPlcTest.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnPlcTest.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnPlcTest.UseVisualStyleBackColor = false;
-            this.btnPlcTest.Click += new System.EventHandler(this.btnPlcTest_Click);
-            // 
-            // btnSetting
-            // 
-            this.btnSetting.BackColor = System.Drawing.Color.SteelBlue;
-            this.btnSetting.FlatAppearance.BorderSize = 0;
-            this.btnSetting.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSetting.Font = new System.Drawing.Font("微軟正黑體", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.btnSetting.ForeColor = System.Drawing.Color.White;
-            this.btnSetting.Image = ((System.Drawing.Image)(resources.GetObject("btnSetting.Image")));
-            this.btnSetting.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSetting.Location = new System.Drawing.Point(0, 392);
-            this.btnSetting.Margin = new System.Windows.Forms.Padding(0);
-            this.btnSetting.Name = "btnSetting";
-            this.btnSetting.Padding = new System.Windows.Forms.Padding(7, 0, 0, 0);
-            this.btnSetting.Size = new System.Drawing.Size(280, 98);
-            this.btnSetting.TabIndex = 4;
-            this.btnSetting.Text = " 設定";
-            this.btnSetting.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnSetting.UseVisualStyleBackColor = false;
-            this.btnSetting.Click += new System.EventHandler(this.btnSetting_Click);
             // 
             // panel4
             // 
@@ -257,26 +139,6 @@ namespace CNCAppPlatform
             this.label3.Text = "iCAPS";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // btnHome
-            // 
-            this.btnHome.BackColor = System.Drawing.Color.SteelBlue;
-            this.btnHome.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.btnHome.FlatAppearance.BorderSize = 0;
-            this.btnHome.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnHome.Font = new System.Drawing.Font("微軟正黑體", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.btnHome.ForeColor = System.Drawing.Color.White;
-            this.btnHome.Image = ((System.Drawing.Image)(resources.GetObject("btnHome.Image")));
-            this.btnHome.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnHome.Location = new System.Drawing.Point(0, 709);
-            this.btnHome.Margin = new System.Windows.Forms.Padding(0);
-            this.btnHome.Name = "btnHome";
-            this.btnHome.Padding = new System.Windows.Forms.Padding(7, 0, 0, 0);
-            this.btnHome.Size = new System.Drawing.Size(251, 98);
-            this.btnHome.TabIndex = 4;
-            this.btnHome.Text = "  返回主頁";
-            this.btnHome.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnHome.UseVisualStyleBackColor = false;
-            // 
             // panel2
             // 
             this.panel2.Controls.Add(this.btnFormControl);
@@ -288,26 +150,8 @@ namespace CNCAppPlatform
             this.panel2.Location = new System.Drawing.Point(251, 0);
             this.panel2.Margin = new System.Windows.Forms.Padding(4);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1181, 57);
+            this.panel2.Size = new System.Drawing.Size(1249, 57);
             this.panel2.TabIndex = 1;
-            // 
-            // btnFormControl
-            // 
-            this.btnFormControl.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnFormControl.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnFormControl.Change = true;
-            this.btnFormControl.Image = ((System.Drawing.Image)(resources.GetObject("btnFormControl.Image")));
-            this.btnFormControl.Location = new System.Drawing.Point(1085, 17);
-            this.btnFormControl.Margin = new System.Windows.Forms.Padding(4);
-            this.btnFormControl.Name = "btnFormControl";
-            this.btnFormControl.SetSquare = true;
-            this.btnFormControl.Size = new System.Drawing.Size(25, 25);
-            this.btnFormControl.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.btnFormControl.SubImg = ((System.Drawing.Image)(resources.GetObject("btnFormControl.SubImg")));
-            this.btnFormControl.TabIndex = 5;
-            this.btnFormControl.TabStop = false;
-            this.btnFormControl.Tag = ((object)(resources.GetObject("btnFormControl.Tag")));
-            this.btnFormControl.Visible = false;
             // 
             // panel3
             // 
@@ -316,7 +160,7 @@ namespace CNCAppPlatform
             this.panel3.Location = new System.Drawing.Point(0, 56);
             this.panel3.Margin = new System.Windows.Forms.Padding(4);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1181, 1);
+            this.panel3.Size = new System.Drawing.Size(1249, 1);
             this.panel3.TabIndex = 4;
             // 
             // label1
@@ -331,38 +175,13 @@ namespace CNCAppPlatform
             this.label1.TabIndex = 3;
             this.label1.Text = "State Monitor App";
             // 
-            // btFold
-            // 
-            this.btFold.Image = ((System.Drawing.Image)(resources.GetObject("btFold.Image")));
-            this.btFold.Location = new System.Drawing.Point(23, 16);
-            this.btFold.Margin = new System.Windows.Forms.Padding(4);
-            this.btFold.Name = "btFold";
-            this.btFold.Size = new System.Drawing.Size(27, 27);
-            this.btFold.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.btFold.TabIndex = 2;
-            this.btFold.TabStop = false;
-            // 
-            // btPower
-            // 
-            this.btPower.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btPower.FlatAppearance.BorderSize = 0;
-            this.btPower.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btPower.Image = ((System.Drawing.Image)(resources.GetObject("btPower.Image")));
-            this.btPower.Location = new System.Drawing.Point(1141, 16);
-            this.btPower.Margin = new System.Windows.Forms.Padding(4);
-            this.btPower.Name = "btPower";
-            this.btPower.Size = new System.Drawing.Size(27, 27);
-            this.btPower.TabIndex = 0;
-            this.btPower.UseVisualStyleBackColor = true;
-            this.btPower.Click += new System.EventHandler(this.btPower_Click);
-            // 
             // panel1
             // 
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(251, 152);
             this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1181, 655);
+            this.panel1.Size = new System.Drawing.Size(1249, 655);
             this.panel1.TabIndex = 5;
             // 
             // timer1
@@ -377,7 +196,7 @@ namespace CNCAppPlatform
             this.panel5.Location = new System.Drawing.Point(251, 151);
             this.panel5.Margin = new System.Windows.Forms.Padding(4);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(1181, 1);
+            this.panel5.Size = new System.Drawing.Size(1249, 1);
             this.panel5.TabIndex = 44;
             // 
             // connStatusLabel
@@ -385,7 +204,7 @@ namespace CNCAppPlatform
             this.connStatusLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.connStatusLabel.AutoSize = true;
             this.connStatusLabel.Font = new System.Drawing.Font("微軟正黑體", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.connStatusLabel.Location = new System.Drawing.Point(1063, 90);
+            this.connStatusLabel.Location = new System.Drawing.Point(1131, 90);
             this.connStatusLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.connStatusLabel.Name = "connStatusLabel";
             this.connStatusLabel.Size = new System.Drawing.Size(180, 27);
@@ -408,11 +227,200 @@ namespace CNCAppPlatform
             this.moduleTitle.Text = "設備狀態監控App";
             this.moduleTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // btnFormControl
+            // 
+            this.btnFormControl.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnFormControl.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnFormControl.Change = true;
+            this.btnFormControl.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnFormControl.Image = ((System.Drawing.Image)(resources.GetObject("btnFormControl.Image")));
+            this.btnFormControl.Location = new System.Drawing.Point(1153, 17);
+            this.btnFormControl.Margin = new System.Windows.Forms.Padding(4);
+            this.btnFormControl.Name = "btnFormControl";
+            this.btnFormControl.SetSquare = true;
+            this.btnFormControl.Size = new System.Drawing.Size(25, 25);
+            this.btnFormControl.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.btnFormControl.SubImg = ((System.Drawing.Image)(resources.GetObject("btnFormControl.SubImg")));
+            this.btnFormControl.TabIndex = 5;
+            this.btnFormControl.TabStop = false;
+            this.btnFormControl.Tag = ((object)(resources.GetObject("btnFormControl.Tag")));
+            this.btnFormControl.Visible = false;
+            // 
+            // btFold
+            // 
+            this.btFold.Image = ((System.Drawing.Image)(resources.GetObject("btFold.Image")));
+            this.btFold.Location = new System.Drawing.Point(23, 16);
+            this.btFold.Margin = new System.Windows.Forms.Padding(4);
+            this.btFold.Name = "btFold";
+            this.btFold.Size = new System.Drawing.Size(27, 27);
+            this.btFold.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.btFold.TabIndex = 2;
+            this.btFold.TabStop = false;
+            // 
+            // btPower
+            // 
+            this.btPower.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btPower.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btPower.FlatAppearance.BorderSize = 0;
+            this.btPower.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btPower.Image = ((System.Drawing.Image)(resources.GetObject("btPower.Image")));
+            this.btPower.Location = new System.Drawing.Point(1209, 16);
+            this.btPower.Margin = new System.Windows.Forms.Padding(4);
+            this.btPower.Name = "btPower";
+            this.btPower.Size = new System.Drawing.Size(27, 27);
+            this.btPower.TabIndex = 0;
+            this.btPower.UseVisualStyleBackColor = true;
+            this.btPower.Click += new System.EventHandler(this.btPower_Click);
+            // 
+            // info
+            // 
+            this.info.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.info.Image = ((System.Drawing.Image)(resources.GetObject("info.Image")));
+            this.info.Location = new System.Drawing.Point(4, 666);
+            this.info.Margin = new System.Windows.Forms.Padding(4);
+            this.info.Name = "info";
+            this.info.Size = new System.Drawing.Size(40, 39);
+            this.info.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.info.TabIndex = 2;
+            this.info.TabStop = false;
+            this.info.Visible = false;
+            this.info.Click += new System.EventHandler(this.info_Click);
+            // 
+            // btnPlcSetting
+            // 
+            this.btnPlcSetting.BackColor = System.Drawing.Color.SteelBlue;
+            this.btnPlcSetting.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnPlcSetting.FlatAppearance.BorderSize = 0;
+            this.btnPlcSetting.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPlcSetting.Font = new System.Drawing.Font("微軟正黑體", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.btnPlcSetting.ForeColor = System.Drawing.Color.White;
+            this.btnPlcSetting.Image = ((System.Drawing.Image)(resources.GetObject("btnPlcSetting.Image")));
+            this.btnPlcSetting.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnPlcSetting.Location = new System.Drawing.Point(0, 0);
+            this.btnPlcSetting.Margin = new System.Windows.Forms.Padding(0);
+            this.btnPlcSetting.Name = "btnPlcSetting";
+            this.btnPlcSetting.Padding = new System.Windows.Forms.Padding(7, 0, 0, 0);
+            this.btnPlcSetting.Size = new System.Drawing.Size(280, 98);
+            this.btnPlcSetting.TabIndex = 2;
+            this.btnPlcSetting.Text = "PLC 連線設定";
+            this.btnPlcSetting.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnPlcSetting.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnPlcSetting.UseVisualStyleBackColor = false;
+            this.btnPlcSetting.Click += new System.EventHandler(this.btnPlcSetting_Click);
+            // 
+            // btnOrderLog
+            // 
+            this.btnOrderLog.BackColor = System.Drawing.Color.SteelBlue;
+            this.btnOrderLog.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnOrderLog.FlatAppearance.BorderSize = 0;
+            this.btnOrderLog.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnOrderLog.Font = new System.Drawing.Font("微軟正黑體", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.btnOrderLog.ForeColor = System.Drawing.Color.White;
+            this.btnOrderLog.Image = ((System.Drawing.Image)(resources.GetObject("btnOrderLog.Image")));
+            this.btnOrderLog.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnOrderLog.Location = new System.Drawing.Point(0, 98);
+            this.btnOrderLog.Margin = new System.Windows.Forms.Padding(0);
+            this.btnOrderLog.Name = "btnOrderLog";
+            this.btnOrderLog.Padding = new System.Windows.Forms.Padding(7, 0, 0, 0);
+            this.btnOrderLog.Size = new System.Drawing.Size(280, 98);
+            this.btnOrderLog.TabIndex = 2;
+            this.btnOrderLog.Text = "  工單歷程";
+            this.btnOrderLog.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnOrderLog.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnOrderLog.UseVisualStyleBackColor = false;
+            this.btnOrderLog.Click += new System.EventHandler(this.btnOrderLog_Click);
+            // 
+            // btnDeviceOverView
+            // 
+            this.btnDeviceOverView.BackColor = System.Drawing.Color.SteelBlue;
+            this.btnDeviceOverView.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnDeviceOverView.FlatAppearance.BorderSize = 0;
+            this.btnDeviceOverView.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDeviceOverView.Font = new System.Drawing.Font("微軟正黑體", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.btnDeviceOverView.ForeColor = System.Drawing.Color.White;
+            this.btnDeviceOverView.Image = ((System.Drawing.Image)(resources.GetObject("btnDeviceOverView.Image")));
+            this.btnDeviceOverView.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnDeviceOverView.Location = new System.Drawing.Point(0, 196);
+            this.btnDeviceOverView.Margin = new System.Windows.Forms.Padding(0);
+            this.btnDeviceOverView.Name = "btnDeviceOverView";
+            this.btnDeviceOverView.Padding = new System.Windows.Forms.Padding(7, 0, 0, 0);
+            this.btnDeviceOverView.Size = new System.Drawing.Size(280, 98);
+            this.btnDeviceOverView.TabIndex = 2;
+            this.btnDeviceOverView.Text = "   設備總覽";
+            this.btnDeviceOverView.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnDeviceOverView.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnDeviceOverView.UseVisualStyleBackColor = false;
+            this.btnDeviceOverView.Click += new System.EventHandler(this.btnDeviceOverall_Click);
+            // 
+            // btnPlcTest
+            // 
+            this.btnPlcTest.BackColor = System.Drawing.Color.SteelBlue;
+            this.btnPlcTest.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnPlcTest.FlatAppearance.BorderSize = 0;
+            this.btnPlcTest.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPlcTest.Font = new System.Drawing.Font("微軟正黑體", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.btnPlcTest.ForeColor = System.Drawing.Color.White;
+            this.btnPlcTest.Image = ((System.Drawing.Image)(resources.GetObject("btnPlcTest.Image")));
+            this.btnPlcTest.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnPlcTest.Location = new System.Drawing.Point(0, 294);
+            this.btnPlcTest.Margin = new System.Windows.Forms.Padding(0);
+            this.btnPlcTest.Name = "btnPlcTest";
+            this.btnPlcTest.Padding = new System.Windows.Forms.Padding(7, 0, 0, 0);
+            this.btnPlcTest.Size = new System.Drawing.Size(280, 98);
+            this.btnPlcTest.TabIndex = 2;
+            this.btnPlcTest.Text = "  PLC 讀寫測試";
+            this.btnPlcTest.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnPlcTest.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnPlcTest.UseVisualStyleBackColor = false;
+            this.btnPlcTest.Click += new System.EventHandler(this.btnPlcTest_Click);
+            // 
+            // btnSetting
+            // 
+            this.btnSetting.BackColor = System.Drawing.Color.SteelBlue;
+            this.btnSetting.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnSetting.FlatAppearance.BorderSize = 0;
+            this.btnSetting.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSetting.Font = new System.Drawing.Font("微軟正黑體", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.btnSetting.ForeColor = System.Drawing.Color.White;
+            this.btnSetting.Image = ((System.Drawing.Image)(resources.GetObject("btnSetting.Image")));
+            this.btnSetting.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnSetting.Location = new System.Drawing.Point(0, 392);
+            this.btnSetting.Margin = new System.Windows.Forms.Padding(0);
+            this.btnSetting.Name = "btnSetting";
+            this.btnSetting.Padding = new System.Windows.Forms.Padding(7, 0, 0, 0);
+            this.btnSetting.Size = new System.Drawing.Size(280, 98);
+            this.btnSetting.TabIndex = 4;
+            this.btnSetting.Text = " 設定";
+            this.btnSetting.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnSetting.UseVisualStyleBackColor = false;
+            this.btnSetting.Click += new System.EventHandler(this.btnSetting_Click);
+            // 
+            // btnHome
+            // 
+            this.btnHome.BackColor = System.Drawing.Color.SteelBlue;
+            this.btnHome.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnHome.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.btnHome.FlatAppearance.BorderSize = 0;
+            this.btnHome.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnHome.Font = new System.Drawing.Font("微軟正黑體", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.btnHome.ForeColor = System.Drawing.Color.White;
+            this.btnHome.Image = ((System.Drawing.Image)(resources.GetObject("btnHome.Image")));
+            this.btnHome.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnHome.Location = new System.Drawing.Point(0, 709);
+            this.btnHome.Margin = new System.Windows.Forms.Padding(0);
+            this.btnHome.Name = "btnHome";
+            this.btnHome.Padding = new System.Windows.Forms.Padding(7, 0, 0, 0);
+            this.btnHome.Size = new System.Drawing.Size(251, 98);
+            this.btnHome.TabIndex = 4;
+            this.btnHome.Text = "  返回主頁";
+            this.btnHome.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnHome.UseVisualStyleBackColor = false;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1432, 807);
+            this.ClientSize = new System.Drawing.Size(1500, 807);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel5);
             this.Controls.Add(this.connStatusLabel);
@@ -425,13 +433,13 @@ namespace CNCAppPlatform
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "狀態監控App";
             this.sidePanel.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.info)).EndInit();
             this.flowLayoutPanel1.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnFormControl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btFold)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.info)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
