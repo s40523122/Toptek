@@ -21,6 +21,7 @@ namespace CNCAppPlatform
         //private const int CS_DropShadow = 0x00020000;
 
         public static ActUtlType axActUtlType = new ActUtlType();       // PLC
+        public static string path = Application.StartupPath;
 
         /// <summary>
         /// 連線狀態文字
@@ -34,7 +35,6 @@ namespace CNCAppPlatform
         public Form1()
         {
             InitializeComponent();
-            //string path = Application.StartupPath;
 
             // 返回主頁
             btnHome.Click += btnHome_Click;

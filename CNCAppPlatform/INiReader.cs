@@ -31,7 +31,7 @@ namespace CNCAppPlatform
         /// string DataPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "config/temp.ini");
         /// </code>
         /// </remarks>
-        public static bool WriteValue(string path, string section, string key, string value)
+        public static bool WriteINIFile(string path, string section, string key, string value)
         {
             try
             {
@@ -63,7 +63,7 @@ namespace CNCAppPlatform
         /// string DataPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "config/temp.ini");
         /// </code>
         /// </remarks>
-        public static string ReadValue(string path, string section, string key)
+        public static string ReadINIFile(string path, string section, string key)
         {
             const int bufferSize = 255; // 緩衝區大小
             StringBuilder buffer = new StringBuilder(bufferSize);

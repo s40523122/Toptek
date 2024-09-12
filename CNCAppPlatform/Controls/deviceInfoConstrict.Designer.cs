@@ -55,7 +55,6 @@
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(987, 117);
             this.button1.TabIndex = 0;
-            this.button1.Text = "button1";
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Paint += new System.Windows.Forms.PaintEventHandler(this.button1_Paint);
             this.button1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.button1_MouseDown);

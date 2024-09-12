@@ -1,9 +1,12 @@
-﻿using System;
+﻿using Messages.dynamic_reconfigure;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -12,8 +15,41 @@ namespace CNCAppPlatform.Controls
 {
     public partial class deviceInfoConstrict : UserControl
     {
+        
+        public Image DeviceImg
+        {
+            get
+            {
+                return pictureBox1.Image;
+            }
+            set
+            {
+                pictureBox1.Image = value;
+                Refresh();
+            }
+        }
+
+
+
+        private string _deviceName = "";
+        public string DeviceName
+        {
+            get
+            {
+                return _deviceName;
+            }
+            set
+            {
+                _deviceName = value;
+                Refresh();
+            }
+        }
+
         [Description("設備圖片。"), Category("自訂值")]
-        public Image DeviceImg { get; set; } = null;
+        public string ID { set; get; }
+
+        string IniPath = Path.Combine(Form1.path, "Configurations/devices.ini");
+        string ImgPath = Path.Combine(Form1.path, "Images/Devices/");
 
         public deviceInfoConstrict()
         {
@@ -25,6 +61,12 @@ namespace CNCAppPlatform.Controls
             //Height = button1.Height;
 
             SizeChanged += DeviceInfoConstrict_SizeChanged;
+            Load += DeviceInfoConstrict_Load;
+        }
+
+        private void DeviceInfoConstrict_Load(object sender, EventArgs e)
+        {
+            Config_input();
         }
 
         private void DeviceInfoConstrict_SizeChanged(object sender, EventArgs e)
@@ -56,8 +98,8 @@ namespace CNCAppPlatform.Controls
             e.Graphics.DrawImage(imgRight, imgRightRect);
 
             // 繪製文字
-            string buttonText = "Your Text";
-            Font font = new Font(button.Font.FontFamily, imageHeight / 5);
+            string buttonText = DeviceName;
+            Font font = new Font(button.Font.FontFamily, imageHeight / 4);
             SizeF textSize = e.Graphics.MeasureString(buttonText, font);
             PointF textLocation = new PointF(imageHeight + padding * 7, (button.Height - textSize.Height) / 2);
 
@@ -69,6 +111,14 @@ namespace CNCAppPlatform.Controls
             doubleImg1.Change = !doubleImg1.Change;
             if (doubleImg1.Change) Height *= 5;
             else Height /= 5;
+        }
+
+        class cell_config
+        {
+            public string config_name { get; set; }
+            public string display_text { get; set; }
+            public string value { get; set; }
+            public string cell_mode { get; set; }
         }
 
         private void InitializeDataGridView()
@@ -106,6 +156,61 @@ namespace CNCAppPlatform.Controls
             dataGridView1.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             dataGridView1.Columns[1].FillWeight = 4;
 
+            // 綁定 CellClick 事件
+            dataGridView1.CellClick += DataGridView1_CellClick;
+            dataGridView1.CellValueChanged += DataGridView1_CellValueChanged;
+        }
+
+        private void Config_input()
+        {
+            cell_config device_name = new cell_config() {config_name = "device_name", display_text = "設備名稱", cell_mode = "text" };
+            cell_config device_img = new cell_config() { config_name = "device_img", display_text = "設備圖片", value = "設定", cell_mode = "button" };
+            cell_config order_sequence = new cell_config() { config_name = "order_sequence", display_text = "生產次序內容", value = "設定", cell_mode = "button" };
+            cell_config reg_sequence = new cell_config() { config_name = "reg_sequence", display_text = "指定生產次序暫存器", cell_mode = "text" };
+            cell_config device_param = new cell_config() { config_name = "device_param", display_text = "設備參數內容", value = "設定", cell_mode = "button" };
+            cell_config reg_availability = new cell_config() { config_name = "reg_availability", display_text = "指定稼動率暫存器", cell_mode = "text" };
+            cell_config update_rate = new cell_config() { config_name = "update_rate", display_text = "更新頻率(s)", cell_mode = "text" };
+            cell_config enable_line_notify = new cell_config() { config_name = "enable_line_notify", display_text = "是否開啟 Line Notify 追蹤", cell_mode = "bool" };
+
+            List<cell_config> config_list = new List<cell_config>() { device_name, device_img, order_sequence, reg_sequence, device_param, reg_availability, update_rate, enable_line_notify };
+            Dictionary<string, string> import_config = INiReader.ReadSection(IniPath, ID);
+            
+            foreach (cell_config config in config_list)
+            {                
+                string _name = config.config_name;
+                try
+                {
+                    config.value = import_config[_name];
+                }
+                catch
+                {
+                }
+                int _index = dataGridView1.Rows.Add(config.display_text, config.value);
+                
+
+                switch (config.cell_mode)
+                {
+                    case "text":
+                        dataGridView1.Rows[_index].Cells[1] = new DataGridViewTextBoxCell();
+                        break;
+                    case "bool":
+                        var comboBoxCell = new DataGridViewComboBoxCell();
+                        comboBoxCell.Items.AddRange("Enable", "Disable");
+                        dataGridView1.Rows[_index].Cells[1] = comboBoxCell;
+                        break;
+                    default:
+                        dataGridView1.Rows[_index].Cells[1] = new DataGridViewButtonCell();
+                        break;
+                }
+
+                dataGridView1.Rows[_index].Tag = config.config_name;
+                dataGridView1.Rows[_index].Cells[1].Value = config.value;
+                
+            }
+
+            
+            
+            /*
             // 添加行：設備名稱，並在值列中添加文本框
             int deviceRowIndex = dataGridView1.Rows.Add("設備名稱", "Device 1");
             dataGridView1.Rows[deviceRowIndex].Cells[1] = new DataGridViewTextBoxCell();
@@ -147,11 +252,40 @@ namespace CNCAppPlatform.Controls
             comboBoxCell.Items.AddRange("Enable", "Disable");
             comboBoxCell.Value = "Enable"; // 預設值
             dataGridView1.Rows[statusRowIndex].Cells[1] = comboBoxCell;
+            */
 
             
+        }
 
-            // 綁定 CellClick 事件
-            dataGridView1.CellClick += DataGridView1_CellClick;
+        private void DataGridView1_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+        {
+            string _name = dataGridView1.Rows[e.RowIndex].Tag as string;
+            string _value = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
+            Dictionary<string, string> import_config = INiReader.ReadSection(IniPath, ID);
+            try
+            {
+                string _val = import_config[_name];
+            }
+            catch
+            {
+                return;
+            }
+
+            switch (_name)
+            {
+                case "device_name":
+                    DeviceName = _value;
+                    break;
+                case "update_rate":
+                    if (!Int32.TryParse(_value, out int num))
+                    {
+                        MessageBox.Show("請輸入整數數值");
+                        return;
+                    };
+                    break;
+            }
+
+            INiReader.WriteINIFile(IniPath, ID, _name, _value);
         }
 
         private void DataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
