@@ -46,7 +46,7 @@ namespace CNCAppPlatform.Controls
         }
 
         [Description("設備圖片。"), Category("自訂值")]
-        public string ID { set; get; }
+        public string ID { set; get; } = "";
 
         string IniPath = Path.Combine(Form1.path, "Configurations/devices.ini");
         string ImgPath = Path.Combine(Form1.path, "Images/Devices/");
@@ -91,8 +91,12 @@ namespace CNCAppPlatform.Controls
             Rectangle imgLeftRect = new Rectangle(padding*5, (button.Height - imageHeight) / 2, imageHeight, imageHeight);
             Rectangle imgRightRect = new Rectangle(button.Width - imageHeight/3 - padding*3, (button.Height - imageHeight/3) / 2, imageHeight/3, imageHeight/3);
 
+            // 複製 zoom 後的圖片
+            Bitmap bitmap = new Bitmap(pictureBox1.Width, pictureBox1.Height);
+            pictureBox1.DrawToBitmap(bitmap, new Rectangle(0, 0, pictureBox1.Width, pictureBox1.Height));
+
             // 繪製左邊的圖片
-            e.Graphics.DrawImage(imgLeft, imgLeftRect);
+            e.Graphics.DrawImage(bitmap, imgLeftRect);
 
             // 繪製右邊的圖片
             e.Graphics.DrawImage(imgRight, imgRightRect);
@@ -156,37 +160,40 @@ namespace CNCAppPlatform.Controls
             dataGridView1.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             dataGridView1.Columns[1].FillWeight = 4;
 
-            // 綁定 CellClick 事件
-            dataGridView1.CellClick += DataGridView1_CellClick;
-            dataGridView1.CellValueChanged += DataGridView1_CellValueChanged;
+            
         }
 
         private void Config_input()
         {
-            cell_config device_name = new cell_config() {config_name = "device_name", display_text = "設備名稱", cell_mode = "text" };
+            // 若無指定 ID，不匯入資料
+            if (ID == "")
+            {
+                MessageBox.Show("請加入 Constrict ID");
+                return;
+            }
+
+            // 匯入設定檔
+            Dictionary<string, string> import_config = INiReader.ReadSection(IniPath, ID);
+
+            cell_config device_name = new cell_config() {config_name = "device_name", display_text = "設備名稱", value = import_config["device_name"], cell_mode = "text" };
             cell_config device_img = new cell_config() { config_name = "device_img", display_text = "設備圖片", value = "設定", cell_mode = "button" };
             cell_config order_sequence = new cell_config() { config_name = "order_sequence", display_text = "生產次序內容", value = "設定", cell_mode = "button" };
-            cell_config reg_sequence = new cell_config() { config_name = "reg_sequence", display_text = "指定生產次序暫存器", cell_mode = "text" };
+            cell_config reg_sequence = new cell_config() { config_name = "reg_sequence", display_text = "指定生產次序暫存器", value = import_config["reg_sequence"], cell_mode = "text" };
             cell_config device_param = new cell_config() { config_name = "device_param", display_text = "設備參數內容", value = "設定", cell_mode = "button" };
-            cell_config reg_availability = new cell_config() { config_name = "reg_availability", display_text = "指定稼動率暫存器", cell_mode = "text" };
-            cell_config update_rate = new cell_config() { config_name = "update_rate", display_text = "更新頻率(s)", cell_mode = "text" };
-            cell_config enable_line_notify = new cell_config() { config_name = "enable_line_notify", display_text = "是否開啟 Line Notify 追蹤", cell_mode = "bool" };
+            cell_config reg_availability = new cell_config() { config_name = "reg_availability", display_text = "指定稼動率暫存器", value = import_config["reg_availability"], cell_mode = "text" };
+            cell_config update_rate = new cell_config() { config_name = "update_rate", display_text = "更新頻率(s)", value = import_config["update_rate"], cell_mode = "text" };
+            cell_config enable_line_notify = new cell_config() { config_name = "enable_line_notify", display_text = "是否開啟 Line Notify 追蹤", value = import_config["enable_line_notify"], cell_mode = "bool" };
 
             List<cell_config> config_list = new List<cell_config>() { device_name, device_img, order_sequence, reg_sequence, device_param, reg_availability, update_rate, enable_line_notify };
-            Dictionary<string, string> import_config = INiReader.ReadSection(IniPath, ID);
-            
+
+            // 更新預覽圖示
+            DeviceName = import_config["device_name"];
+            DeviceImg = Image.FromFile(Path.Combine(ImgPath, import_config["device_img"]));
+
+            // 加入設定內容格式
             foreach (cell_config config in config_list)
             {                
-                string _name = config.config_name;
-                try
-                {
-                    config.value = import_config[_name];
-                }
-                catch
-                {
-                }
                 int _index = dataGridView1.Rows.Add(config.display_text, config.value);
-                
 
                 switch (config.cell_mode)
                 {
@@ -205,11 +212,12 @@ namespace CNCAppPlatform.Controls
 
                 dataGridView1.Rows[_index].Tag = config.config_name;
                 dataGridView1.Rows[_index].Cells[1].Value = config.value;
-                
             }
 
-            
-            
+            // 綁定 CellClick 事件
+            dataGridView1.CellClick += DataGridView1_CellClick;
+            dataGridView1.CellValueChanged += DataGridView1_CellValueChanged;
+
             /*
             // 添加行：設備名稱，並在值列中添加文本框
             int deviceRowIndex = dataGridView1.Rows.Add("設備名稱", "Device 1");
@@ -254,7 +262,7 @@ namespace CNCAppPlatform.Controls
             dataGridView1.Rows[statusRowIndex].Cells[1] = comboBoxCell;
             */
 
-            
+
         }
 
         private void DataGridView1_CellValueChanged(object sender, DataGridViewCellEventArgs e)
@@ -290,35 +298,56 @@ namespace CNCAppPlatform.Controls
 
         private void DataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            // 檢查點擊的是不是按鈕
-            if (e.RowIndex >= 0 && e.ColumnIndex == 1)
+            // 若無指定 ID，不匯入資料
+            if (ID == "")
             {
-                string description = dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString();
+                MessageBox.Show("請加入 Constrict ID");
+                return;
+            }
 
-                if (description == "Image Name")
-                {
+            // 標題欄與描述格不可選
+            if (e.RowIndex <= 0 || e.ColumnIndex == 0) return;
+            string _name = dataGridView1.Rows[e.RowIndex].Tag as string;
+
+            string description = dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString();
+
+            switch (_name)
+            {
+                case "device_img":
                     // 打開圖片選擇對話框
                     using (OpenFileDialog openFileDialog = new OpenFileDialog())
                     {
                         openFileDialog.Filter = "Image Files|*.jpg;*.jpeg;*.png;*.bmp";
                         if (openFileDialog.ShowDialog() == DialogResult.OK)
                         {
-                            MessageBox.Show($"Selected Image: {openFileDialog.FileName}");
+                            //MessageBox.Show($"Selected Image: {openFileDialog.FileName}");
+                            DeviceImg = Image.FromFile(openFileDialog.FileName);
+                            
+                            // 將圖片儲存到指定的資料夾中
+                            string savePath = Path.Combine(ImgPath, $"{ID}.png");
+                            DeviceImg.Save(savePath);
+
+                            // 寫入設定檔
+                            INiReader.WriteINIFile(IniPath, ID, "device_img", $"{ID}.png");
                         }
+
+                        
                     }
-                }
-                else if (description == "Parameter Settings")
-                {
+                    break;
+
+                case "device_param":
                     // 打開新視窗進行參數設定
                     using (Form parameterForm = new Form())
                     {
                         parameterForm.Text = "Parameter Settings";
                         parameterForm.Width = 300;
                         parameterForm.Height = 200;
+                        parameterForm.StartPosition = FormStartPosition.CenterParent;
                         parameterForm.ShowDialog();
                     }
-                }
+                    break;
             }
+            
         }
     }
 }
