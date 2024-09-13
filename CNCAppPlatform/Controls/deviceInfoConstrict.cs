@@ -175,6 +175,15 @@ namespace CNCAppPlatform.Controls
             // 匯入設定檔
             Dictionary<string, string> import_config = INiReader.ReadSection(IniPath, ID);
 
+            try 
+            {
+                string _ = import_config["device_name"];
+            }
+            catch
+            {
+                return;
+            }
+
             cell_config device_name = new cell_config() {config_name = "device_name", display_text = "設備名稱", value = import_config["device_name"], cell_mode = "text" };
             cell_config device_img = new cell_config() { config_name = "device_img", display_text = "設備圖片", value = "設定", cell_mode = "button" };
             cell_config order_sequence = new cell_config() { config_name = "order_sequence", display_text = "生產次序內容", value = "設定", cell_mode = "button" };
@@ -217,52 +226,6 @@ namespace CNCAppPlatform.Controls
             // 綁定 CellClick 事件
             dataGridView1.CellClick += DataGridView1_CellClick;
             dataGridView1.CellValueChanged += DataGridView1_CellValueChanged;
-
-            /*
-            // 添加行：設備名稱，並在值列中添加文本框
-            int deviceRowIndex = dataGridView1.Rows.Add("設備名稱", "Device 1");
-            dataGridView1.Rows[deviceRowIndex].Cells[1] = new DataGridViewTextBoxCell();
-            dataGridView1.Rows[deviceRowIndex].Cells[1].Value = "Device 1";
-
-            // 添加行：圖片名稱，並在值列中添加按鈕
-            int imageRowIndex = dataGridView1.Rows.Add("圖片", "Browse Image");
-            dataGridView1.Rows[imageRowIndex].Cells[1] = new DataGridViewButtonCell();
-            dataGridView1.Rows[imageRowIndex].Cells[1].Value = "設定";
-
-            // 添加行：參數設定，並在值列中添加按鈕
-            int proRowIndex = dataGridView1.Rows.Add("生產次序內容", "Set Parameters");
-            dataGridView1.Rows[proRowIndex].Cells[1] = new DataGridViewButtonCell();
-            dataGridView1.Rows[proRowIndex].Cells[1].Value = "設定";
-
-            // 添加行：暫存器設定，並在值列中添加文本框
-            int regRowIndex = dataGridView1.Rows.Add("指定生產次序暫存器", "Set Parameters");
-            dataGridView1.Rows[regRowIndex].Cells[1] = new DataGridViewTextBoxCell();
-            dataGridView1.Rows[regRowIndex].Cells[1].Value = "D100";
-
-            // 添加行：參數設定，並在值列中添加按鈕
-            int paramRowIndex = dataGridView1.Rows.Add("參數內容", "Set Parameters");
-            dataGridView1.Rows[paramRowIndex].Cells[1] = new DataGridViewButtonCell();
-            dataGridView1.Rows[paramRowIndex].Cells[1].Value = "設定";
-
-            // 添加行：暫存器設定，並在值列中添加文本框
-            int reg2RowIndex = dataGridView1.Rows.Add("指定稼動率暫存器", "Set Parameters");
-            dataGridView1.Rows[reg2RowIndex].Cells[1] = new DataGridViewTextBoxCell();
-            dataGridView1.Rows[reg2RowIndex].Cells[1].Value = "D101";
-
-            // 添加行：更新頻率，並在值列中添加文本框
-            int rateRowIndex = dataGridView1.Rows.Add("更新頻率(s)", "Device 1");
-            dataGridView1.Rows[rateRowIndex].Cells[1] = new DataGridViewTextBoxCell();
-            dataGridView1.Rows[rateRowIndex].Cells[1].Value = "3";
-
-            // 添加行：狀態選項，並在值列中添加下拉式選單
-            int statusRowIndex = dataGridView1.Rows.Add("是否開啟 Line Notify 追蹤", "Enable");
-            var comboBoxCell = new DataGridViewComboBoxCell();
-            comboBoxCell.Items.AddRange("Enable", "Disable");
-            comboBoxCell.Value = "Enable"; // 預設值
-            dataGridView1.Rows[statusRowIndex].Cells[1] = comboBoxCell;
-            */
-
-
         }
 
         private void DataGridView1_CellValueChanged(object sender, DataGridViewCellEventArgs e)

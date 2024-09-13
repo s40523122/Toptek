@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CNCAppPlatform.Controls;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,6 +14,9 @@ namespace CNCAppPlatform
 {
     public partial class Overview_V2 : Form
     {
+        // 設定加入設備數量
+        int Num_of_Devices = 5;
+
         List<Control> page_dot = new List<Control>();
         System.Timers.Timer timer = new System.Timers.Timer();
 
@@ -24,19 +28,27 @@ namespace CNCAppPlatform
             this.SetStyle(ControlStyles.OptimizedDoubleBuffer, true);
             this.UpdateStyles();
 
-            SizeChanged += Overview_V2_SizeChanged;
+            // 加入設備
+            for (int i = 2; i < Num_of_Devices; i++)
+            {
+                deviceInfoView_V2 deviceInfoView = new deviceInfoView_V2();
+                flowLayoutPanel1.Controls.Add(deviceInfoView);
+            }
 
-            // 啟動輪播
-            ChangePage();
-
-            
-            for (int i = 0; i <= (int)Math.Round((double)(flowLayoutPanel1.Controls.Count / 2), 0); i++)
+            // 設定分頁圖示
+            int max_pages = (int) Math.Round(((double)Num_of_Devices / 2.0), 0, MidpointRounding.AwayFromZero);
+            for (int i = 0; i < max_pages; i++)
             {
                 page_dot.Add(new myPanel() { Size = new Size(20, 20), Radius = 8, BackColor = Color.DarkGray});
             }
             page_dots.Controls.AddRange(page_dot.ToArray());
             page_dots.Controls.Add(pause_btn);
             page_dots.Width = 26 * (page_dot.Count + 1);
+
+            // 啟動輪播
+            ChangePage();
+
+            SizeChanged += Overview_V2_SizeChanged;
         }
 
         private void Overview_V2_SizeChanged(object sender, EventArgs e)
@@ -48,7 +60,7 @@ namespace CNCAppPlatform
             foreach (Control _deviceInfoView_V2 in flowLayoutPanel1.Controls) _deviceInfoView_V2.Height = flowLayoutPanel1.Height;
 
             // 自適應 flowLayoutPanel 並回到初始位置
-            flowLayoutPanel1.Width = (deviceInfoView_V21.Width + 5) * flowLayoutPanel1.Controls.Count;
+            flowLayoutPanel1.Width = (deviceInfoView_V21.Width + 5) * Num_of_Devices;
             flowLayoutPanel1.Left = 20;
             page_index = 1;
 
@@ -77,12 +89,13 @@ namespace CNCAppPlatform
         {
             // 判定是否輪播
             if (pause_btn.Change) return;
+            if (Num_of_Devices == 2) return;
 
             // 計算總頁數
-            int max_page = (int)Math.Round((double)(flowLayoutPanel1.Controls.Count / 2), 0);
-            
+            int max_page = (int)Math.Round(((double)Num_of_Devices / 2.0), 0, MidpointRounding.AwayFromZero);
+
             // 當目前頁數為最後頁時，回到第一頁
-            int next_page = page_index <= max_page ? 1 : -max_page;
+            int next_page = page_index < max_page ? 1 : -max_page+1;
 
             // 計算翻頁距離
             int between = deviceInfoView_V22.Left - deviceInfoView_V21.Left;
@@ -90,7 +103,7 @@ namespace CNCAppPlatform
             int one_step = between * next_page * 2 / step;
 
             // 翻頁動畫，每 10ms 移動一次
-            for (int i = 0; i < step; i++)
+            for (int i = 1; i <= step; i++)
             {
                 flowLayoutPanel1.Invoke((MethodInvoker) delegate
                 {
