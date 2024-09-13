@@ -15,7 +15,9 @@ namespace CNCAppPlatform.Controls
 {
     public partial class deviceInfoConstrict : UserControl
     {
-        
+        [Description("設備ID。"), Category("自訂值")]
+        public string ID { set; get; } = "";
+
         public Image DeviceImg
         {
             get
@@ -44,9 +46,6 @@ namespace CNCAppPlatform.Controls
                 Refresh();
             }
         }
-
-        [Description("設備圖片。"), Category("自訂值")]
-        public string ID { set; get; } = "";
 
         string IniPath = Path.Combine(Form1.path, "Configurations/devices.ini");
         string ImgPath = Path.Combine(Form1.path, "Images/Devices/");
@@ -288,7 +287,14 @@ namespace CNCAppPlatform.Controls
                             
                             // 將圖片儲存到指定的資料夾中
                             string savePath = Path.Combine(ImgPath, $"{ID}.png");
-                            DeviceImg.Save(savePath);
+
+                            // 為了解決錯誤"在GDI+中發生泛型錯誤"
+                            using (System.IO.MemoryStream oMS = new System.IO.MemoryStream())
+                            {
+                                //將oTarImg儲存（指定）到記憶體串流中
+                                DeviceImg.Save(oMS, System.Drawing.Imaging.ImageFormat.Jpeg);
+                            }
+                            //DeviceImg.Save(savePath);
 
                             // 寫入設定檔
                             INiReader.WriteINIFile(IniPath, ID, "device_img", $"{ID}.png");
