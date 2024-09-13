@@ -13,6 +13,9 @@ namespace CNCAppPlatform.Controls
 {
     public partial class deviceInfoView_V2 : UserControl
     {
+        [Description("設備ID。"), Category("自訂值")]
+        public string ID { set; get; } = "";
+
         public List<string> Labels { get; set; }
         public List<int> Paramrters {get;set;}
 
@@ -41,6 +44,13 @@ namespace CNCAppPlatform.Controls
             }
 
             SizeChanged += deviceInfoView_V2_SizeChanged;
+        }
+
+        public void ImportData(string device_name, Image device_img)
+        {
+            label1.Text = device_name;
+            pictureBox1.Image = device_img;
+            Refresh();
         }
 
         private void deviceInfoView_V2_SizeChanged(object sender, EventArgs e)

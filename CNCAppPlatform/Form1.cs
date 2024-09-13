@@ -150,6 +150,7 @@ namespace CNCAppPlatform
 
             Tag = button.Tag;
             (button.Tag as Form).Show();
+            (button.Tag as Overview_V2).Import_config();
 
             moduleTitle.Text = button.Text.Trim();
         }

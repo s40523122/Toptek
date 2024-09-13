@@ -196,7 +196,17 @@ namespace CNCAppPlatform.Controls
 
             // 更新預覽圖示
             DeviceName = import_config["device_name"];
-            DeviceImg = Image.FromFile(Path.Combine(ImgPath, import_config["device_img"]));
+            //DeviceImg = Image.FromFile(Path.Combine(ImgPath, import_config["device_img"]));
+            
+            // 解決圖片占用問題
+            FileStream fs = File.OpenRead(Path.Combine(ImgPath, import_config["device_img"]));
+            int filelength = 0;
+            filelength = (int)fs.Length; //獲得檔長度
+            Byte[] image = new Byte[filelength]; //建立一個位元組陣列
+            fs.Read(image, 0, filelength); //按位元組流讀取
+            Image result = Image.FromStream(fs);
+            fs.Close();
+            DeviceImg = result;
 
             // 加入設定內容格式
             foreach (cell_config config in config_list)
@@ -289,12 +299,16 @@ namespace CNCAppPlatform.Controls
                             string savePath = Path.Combine(ImgPath, $"{ID}.png");
 
                             // 為了解決錯誤"在GDI+中發生泛型錯誤"
-                            using (System.IO.MemoryStream oMS = new System.IO.MemoryStream())
-                            {
-                                //將oTarImg儲存（指定）到記憶體串流中
-                                DeviceImg.Save(oMS, System.Drawing.Imaging.ImageFormat.Jpeg);
-                            }
-                            //DeviceImg.Save(savePath);
+                            //using (System.IO.MemoryStream oMS = new System.IO.MemoryStream())
+                            //{
+                            //    //將oTarImg儲存（指定）到記憶體串流中
+                            //    DeviceImg.Save(oMS, System.Drawing.Imaging.ImageFormat.Jpeg);
+                            //    //將串流整個讀到陣列中，寫入某個路徑中的某個檔案裡
+                            //    using (System.IO.FileStream oFS = System.IO.File.Open(savePath, System.IO.FileMode.OpenOrCreate))
+                            //    { oFS.Write(oMS.ToArray(), 0, oMS.ToArray().Length); }
+                            //}
+                            // GDI+中發生泛型錯誤，可能原因為圖片被占用?
+                            DeviceImg.Save(savePath);
 
                             // 寫入設定檔
                             INiReader.WriteINIFile(IniPath, ID, "device_img", $"{ID}.png");

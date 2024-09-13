@@ -1,9 +1,11 @@
 ﻿using CNCAppPlatform.Controls;
+using Renci.SshNet.Messages;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading;
@@ -15,10 +17,13 @@ namespace CNCAppPlatform
     public partial class Overview_V2 : Form
     {
         // 設定加入設備數量
-        int Num_of_Devices = 5;
+        int Num_of_Devices = 4;
 
         List<Control> page_dot = new List<Control>();
         System.Timers.Timer timer = new System.Timers.Timer();
+
+        string IniPath = Path.Combine(Form1.path, "Configurations/devices.ini");
+        string ImgPath = Path.Combine(Form1.path, "Images/Devices/");
 
         public Overview_V2()
         {
@@ -29,9 +34,9 @@ namespace CNCAppPlatform
             this.UpdateStyles();
 
             // 加入設備
-            for (int i = 2; i < Num_of_Devices; i++)
+            for (int i = 3; i <= Num_of_Devices; i++)
             {
-                deviceInfoView_V2 deviceInfoView = new deviceInfoView_V2();
+                deviceInfoView_V2 deviceInfoView = new deviceInfoView_V2() { ID = $"device{i}"};
                 flowLayoutPanel1.Controls.Add(deviceInfoView);
             }
 
@@ -45,10 +50,42 @@ namespace CNCAppPlatform
             page_dots.Controls.Add(pause_btn);
             page_dots.Width = 26 * (page_dot.Count + 1);
 
+            Import_config();
+
             // 啟動輪播
             ChangePage();
 
             SizeChanged += Overview_V2_SizeChanged;
+        }
+
+        public void Import_config()
+        {
+            // 匯入資料
+            foreach (deviceInfoView_V2 device in flowLayoutPanel1.Controls)
+            {
+                // 匯入設定檔
+                Dictionary<string, string> import_config = INiReader.ReadSection(IniPath, device.ID);
+
+                try
+                {
+                    string _ = import_config["device_name"];
+                }
+                catch
+                {
+                    return;
+                }
+
+                string device_name = import_config["device_name"];
+                //Image device_img = Image.FromFile(Path.Combine(ImgPath, import_config["device_img"]));
+                FileStream fs = File.OpenRead(Path.Combine(ImgPath, import_config["device_img"]));
+                int filelength = 0;
+                filelength = (int)fs.Length; //獲得檔長度
+                Byte[] image = new Byte[filelength]; //建立一個位元組陣列
+                fs.Read(image, 0, filelength); //按位元組流讀取
+                Image result = Image.FromStream(fs);
+                fs.Close();
+                device.ImportData(device_name, result);
+            }
         }
 
         private void Overview_V2_SizeChanged(object sender, EventArgs e)

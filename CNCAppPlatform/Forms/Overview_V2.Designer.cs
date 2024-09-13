@@ -30,11 +30,11 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Overview_V2));
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.deviceInfoView_V21 = new CNCAppPlatform.Controls.deviceInfoView_V2();
+            this.deviceInfoView_V22 = new CNCAppPlatform.Controls.deviceInfoView_V2();
             this.page_bottom = new System.Windows.Forms.Splitter();
             this.page_dots = new System.Windows.Forms.FlowLayoutPanel();
             this.pause_btn = new ART_plus.DoubleImg();
-            this.deviceInfoView_V21 = new CNCAppPlatform.Controls.deviceInfoView_V2();
-            this.deviceInfoView_V22 = new CNCAppPlatform.Controls.deviceInfoView_V2();
             this.flowLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pause_btn)).BeginInit();
             this.SuspendLayout();
@@ -48,6 +48,26 @@
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(1246, 612);
             this.flowLayoutPanel1.TabIndex = 2;
+            // 
+            // deviceInfoView_V21
+            // 
+            this.deviceInfoView_V21.ID = "device1";
+            this.deviceInfoView_V21.Labels = ((System.Collections.Generic.List<string>)(resources.GetObject("deviceInfoView_V21.Labels")));
+            this.deviceInfoView_V21.Location = new System.Drawing.Point(3, 3);
+            this.deviceInfoView_V21.Name = "deviceInfoView_V21";
+            this.deviceInfoView_V21.Paramrters = ((System.Collections.Generic.List<int>)(resources.GetObject("deviceInfoView_V21.Paramrters")));
+            this.deviceInfoView_V21.Size = new System.Drawing.Size(518, 600);
+            this.deviceInfoView_V21.TabIndex = 0;
+            // 
+            // deviceInfoView_V22
+            // 
+            this.deviceInfoView_V22.ID = "device2";
+            this.deviceInfoView_V22.Labels = ((System.Collections.Generic.List<string>)(resources.GetObject("deviceInfoView_V22.Labels")));
+            this.deviceInfoView_V22.Location = new System.Drawing.Point(527, 3);
+            this.deviceInfoView_V22.Name = "deviceInfoView_V22";
+            this.deviceInfoView_V22.Paramrters = ((System.Collections.Generic.List<int>)(resources.GetObject("deviceInfoView_V22.Paramrters")));
+            this.deviceInfoView_V22.Size = new System.Drawing.Size(518, 600);
+            this.deviceInfoView_V22.TabIndex = 0;
             // 
             // page_bottom
             // 
@@ -82,25 +102,6 @@
             this.pause_btn.TabIndex = 5;
             this.pause_btn.TabStop = false;
             this.pause_btn.Tag = ((object)(resources.GetObject("pause_btn.Tag")));
-            // 
-            // deviceInfoView_V21
-            // 
-            this.deviceInfoView_V21.Labels = ((System.Collections.Generic.List<string>)(resources.GetObject("deviceInfoView_V21.Labels")));
-            this.deviceInfoView_V21.Location = new System.Drawing.Point(3, 3);
-            this.deviceInfoView_V21.Name = "deviceInfoView_V21";
-            this.deviceInfoView_V21.Paramrters = ((System.Collections.Generic.List<int>)(resources.GetObject("deviceInfoView_V21.Paramrters")));
-            this.deviceInfoView_V21.Size = new System.Drawing.Size(518, 600);
-            this.deviceInfoView_V21.TabIndex = 0;
-            // 
-            // deviceInfoView_V22
-            // 
-            this.deviceInfoView_V22.Labels = ((System.Collections.Generic.List<string>)(resources.GetObject("deviceInfoView_V22.Labels")));
-            this.deviceInfoView_V22.Location = new System.Drawing.Point(527, 3);
-            this.deviceInfoView_V22.Name = "deviceInfoView_V22";
-            this.deviceInfoView_V22.Paramrters = ((System.Collections.Generic.List<int>)(resources.GetObject("deviceInfoView_V22.Paramrters")));
-            this.deviceInfoView_V22.Size = new System.Drawing.Size(518, 600);
-            this.deviceInfoView_V22.TabIndex = 0;
-
             // 
             // Overview_V2
             // 
