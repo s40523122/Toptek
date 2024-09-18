@@ -46,7 +46,7 @@ namespace CNCAppPlatform.Controls
             SizeChanged += deviceInfoView_V2_SizeChanged;
         }
 
-        public void ImportData(string device_name, Image device_img, string[] param_labels)
+        public void ImportData(string device_name, Image device_img, string[] param_labels, string[] sequence_list)
         {
             label1.Text = device_name;
             pictureBox1.Image = device_img;
@@ -59,6 +59,8 @@ namespace CNCAppPlatform.Controls
             {
                 dataGridView2.Rows[i-12].Cells[0].Value = param_labels[i];
             }
+
+            ucStep1.Steps = sequence_list;
             Refresh();
         }
 

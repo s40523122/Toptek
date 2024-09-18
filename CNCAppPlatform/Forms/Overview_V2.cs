@@ -63,7 +63,7 @@ namespace CNCAppPlatform
             // 匯入資料
             foreach (deviceInfoView_V2 device in flowLayoutPanel1.Controls)
             {
-                // 匯入設定檔
+                // 取得設定檔資料
                 Dictionary<string, string> import_config = INiReader.ReadSection(IniPath, device.ID);
 
                 try
@@ -75,7 +75,10 @@ namespace CNCAppPlatform
                     return;
                 }
 
+                // 設備名稱
                 string device_name = import_config["device_name"];
+                
+                // 圖片來源
                 //Image device_img = Image.FromFile(Path.Combine(ImgPath, import_config["device_img"]));
                 FileStream fs = File.OpenRead(Path.Combine(ImgPath, import_config["device_img"]));
                 int filelength = 0;
@@ -85,10 +88,14 @@ namespace CNCAppPlatform
                 Image result = Image.FromStream(fs);
                 fs.Close();
 
+                // 參數標籤
                 string[] labels = INiReader.ReadINIFile(IniPath, device.ID, "param_labels").Split(';');
 
-                device.ImportData(device_name, result, labels);
+                // 生產次序
+                string[] seq_list = INiReader.ReadINIFile(IniPath, device.ID, "sequence_list").Split(';');
 
+                // 匯入設定檔
+                device.ImportData(device_name, result, labels, seq_list);
             }
         }
 
