@@ -1,7 +1,4 @@
-﻿using RosSharp;
-using System.Drawing;
-
-namespace CNCAppPlatform
+﻿namespace CNCAppPlatform
 {
     partial class Setting
     {

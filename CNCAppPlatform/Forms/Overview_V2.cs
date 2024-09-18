@@ -84,7 +84,11 @@ namespace CNCAppPlatform
                 fs.Read(image, 0, filelength); //按位元組流讀取
                 Image result = Image.FromStream(fs);
                 fs.Close();
-                device.ImportData(device_name, result);
+
+                string[] labels = INiReader.ReadINIFile(IniPath, device.ID, "param_labels").Split(';');
+
+                device.ImportData(device_name, result, labels);
+
             }
         }
 

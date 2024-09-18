@@ -32,35 +32,35 @@ namespace CNCAppPlatform
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.sidePanel = new System.Windows.Forms.Panel();
             this.slidePanel = new System.Windows.Forms.Panel();
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.panel5 = new System.Windows.Forms.Panel();
-            this.connStatusLabel = new System.Windows.Forms.Label();
-            this.moduleTitle = new System.Windows.Forms.Label();
-            this.btnFormControl = new ART_plus.DoubleImg();
-            this.btFold = new System.Windows.Forms.PictureBox();
-            this.btPower = new System.Windows.Forms.Button();
             this.info = new System.Windows.Forms.PictureBox();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.btnPlcSetting = new System.Windows.Forms.Button();
             this.btnOrderLog = new System.Windows.Forms.Button();
             this.btnDeviceOverView = new System.Windows.Forms.Button();
             this.btnPlcTest = new System.Windows.Forms.Button();
             this.btnSetting = new System.Windows.Forms.Button();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.btnHome = new System.Windows.Forms.Button();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.btnFormControl = new ART_plus.DoubleImg();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.btFold = new System.Windows.Forms.PictureBox();
+            this.btPower = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.connStatusLabel = new System.Windows.Forms.Label();
+            this.moduleTitle = new System.Windows.Forms.Label();
             this.sidePanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.info)).BeginInit();
             this.flowLayoutPanel1.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnFormControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btFold)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.info)).BeginInit();
             this.SuspendLayout();
             // 
             // sidePanel
@@ -88,190 +88,6 @@ namespace CNCAppPlatform
             this.slidePanel.TabIndex = 2;
             this.slidePanel.Visible = false;
             // 
-            // flowLayoutPanel1
-            // 
-            this.flowLayoutPanel1.Controls.Add(this.btnPlcSetting);
-            this.flowLayoutPanel1.Controls.Add(this.btnOrderLog);
-            this.flowLayoutPanel1.Controls.Add(this.btnDeviceOverView);
-            this.flowLayoutPanel1.Controls.Add(this.btnPlcTest);
-            this.flowLayoutPanel1.Controls.Add(this.btnSetting);
-            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 140);
-            this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(4);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(251, 569);
-            this.flowLayoutPanel1.TabIndex = 14;
-            // 
-            // panel4
-            // 
-            this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(62)))), ((int)(((byte)(80)))));
-            this.panel4.Controls.Add(this.label2);
-            this.panel4.Controls.Add(this.label3);
-            this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel4.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.panel4.Location = new System.Drawing.Point(0, 0);
-            this.panel4.Margin = new System.Windows.Forms.Padding(4);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(251, 140);
-            this.panel4.TabIndex = 12;
-            // 
-            // label2
-            // 
-            this.label2.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label2.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.label2.Location = new System.Drawing.Point(0, 90);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(276, 47);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "  智慧電腦輔助生產系統";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // label3
-            // 
-            this.label3.Font = new System.Drawing.Font("微軟正黑體", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label3.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.label3.Location = new System.Drawing.Point(16, 5);
-            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(276, 75);
-            this.label3.TabIndex = 4;
-            this.label3.Text = "iCAPS";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // panel2
-            // 
-            this.panel2.Controls.Add(this.btnFormControl);
-            this.panel2.Controls.Add(this.panel3);
-            this.panel2.Controls.Add(this.label1);
-            this.panel2.Controls.Add(this.btFold);
-            this.panel2.Controls.Add(this.btPower);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel2.Location = new System.Drawing.Point(251, 0);
-            this.panel2.Margin = new System.Windows.Forms.Padding(4);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1249, 57);
-            this.panel2.TabIndex = 1;
-            // 
-            // panel3
-            // 
-            this.panel3.BackColor = System.Drawing.Color.Silver;
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel3.Location = new System.Drawing.Point(0, 56);
-            this.panel3.Margin = new System.Windows.Forms.Padding(4);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1249, 1);
-            this.panel3.TabIndex = 4;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("微軟正黑體", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label1.Location = new System.Drawing.Point(57, 12);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(195, 27);
-            this.label1.TabIndex = 3;
-            this.label1.Text = "State Monitor App";
-            // 
-            // panel1
-            // 
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(251, 152);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1249, 655);
-            this.panel1.TabIndex = 5;
-            // 
-            // timer1
-            // 
-            this.timer1.Interval = 1000;
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
-            // 
-            // panel5
-            // 
-            this.panel5.BackColor = System.Drawing.Color.Black;
-            this.panel5.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel5.Location = new System.Drawing.Point(251, 151);
-            this.panel5.Margin = new System.Windows.Forms.Padding(4);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(1249, 1);
-            this.panel5.TabIndex = 44;
-            // 
-            // connStatusLabel
-            // 
-            this.connStatusLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.connStatusLabel.AutoSize = true;
-            this.connStatusLabel.Font = new System.Drawing.Font("微軟正黑體", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.connStatusLabel.Location = new System.Drawing.Point(1131, 90);
-            this.connStatusLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.connStatusLabel.Name = "connStatusLabel";
-            this.connStatusLabel.Size = new System.Drawing.Size(180, 27);
-            this.connStatusLabel.TabIndex = 43;
-            this.connStatusLabel.Text = "連線狀態：未連接";
-            // 
-            // moduleTitle
-            // 
-            this.moduleTitle.AutoSize = true;
-            this.moduleTitle.BackColor = System.Drawing.SystemColors.Control;
-            this.moduleTitle.Dock = System.Windows.Forms.DockStyle.Top;
-            this.moduleTitle.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.moduleTitle.Font = new System.Drawing.Font("微軟正黑體", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.moduleTitle.Location = new System.Drawing.Point(251, 57);
-            this.moduleTitle.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.moduleTitle.Name = "moduleTitle";
-            this.moduleTitle.Padding = new System.Windows.Forms.Padding(27);
-            this.moduleTitle.Size = new System.Drawing.Size(328, 94);
-            this.moduleTitle.TabIndex = 42;
-            this.moduleTitle.Text = "設備狀態監控App";
-            this.moduleTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // btnFormControl
-            // 
-            this.btnFormControl.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnFormControl.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnFormControl.Change = true;
-            this.btnFormControl.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnFormControl.Image = ((System.Drawing.Image)(resources.GetObject("btnFormControl.Image")));
-            this.btnFormControl.Location = new System.Drawing.Point(1153, 17);
-            this.btnFormControl.Margin = new System.Windows.Forms.Padding(4);
-            this.btnFormControl.Name = "btnFormControl";
-            this.btnFormControl.SetSquare = true;
-            this.btnFormControl.Size = new System.Drawing.Size(25, 25);
-            this.btnFormControl.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.btnFormControl.SubImg = ((System.Drawing.Image)(resources.GetObject("btnFormControl.SubImg")));
-            this.btnFormControl.TabIndex = 5;
-            this.btnFormControl.TabStop = false;
-            this.btnFormControl.Tag = ((object)(resources.GetObject("btnFormControl.Tag")));
-            this.btnFormControl.Visible = false;
-            // 
-            // btFold
-            // 
-            this.btFold.Image = ((System.Drawing.Image)(resources.GetObject("btFold.Image")));
-            this.btFold.Location = new System.Drawing.Point(23, 16);
-            this.btFold.Margin = new System.Windows.Forms.Padding(4);
-            this.btFold.Name = "btFold";
-            this.btFold.Size = new System.Drawing.Size(27, 27);
-            this.btFold.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.btFold.TabIndex = 2;
-            this.btFold.TabStop = false;
-            // 
-            // btPower
-            // 
-            this.btPower.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btPower.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btPower.FlatAppearance.BorderSize = 0;
-            this.btPower.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btPower.Image = ((System.Drawing.Image)(resources.GetObject("btPower.Image")));
-            this.btPower.Location = new System.Drawing.Point(1209, 16);
-            this.btPower.Margin = new System.Windows.Forms.Padding(4);
-            this.btPower.Name = "btPower";
-            this.btPower.Size = new System.Drawing.Size(27, 27);
-            this.btPower.TabIndex = 0;
-            this.btPower.UseVisualStyleBackColor = true;
-            this.btPower.Click += new System.EventHandler(this.btPower_Click);
-            // 
             // info
             // 
             this.info.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
@@ -285,6 +101,20 @@ namespace CNCAppPlatform
             this.info.TabStop = false;
             this.info.Visible = false;
             this.info.Click += new System.EventHandler(this.info_Click);
+            // 
+            // flowLayoutPanel1
+            // 
+            this.flowLayoutPanel1.Controls.Add(this.btnPlcSetting);
+            this.flowLayoutPanel1.Controls.Add(this.btnOrderLog);
+            this.flowLayoutPanel1.Controls.Add(this.btnDeviceOverView);
+            this.flowLayoutPanel1.Controls.Add(this.btnPlcTest);
+            this.flowLayoutPanel1.Controls.Add(this.btnSetting);
+            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 140);
+            this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(4);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(251, 569);
+            this.flowLayoutPanel1.TabIndex = 14;
             // 
             // btnPlcSetting
             // 
@@ -395,6 +225,43 @@ namespace CNCAppPlatform
             this.btnSetting.UseVisualStyleBackColor = false;
             this.btnSetting.Click += new System.EventHandler(this.btnSetting_Click);
             // 
+            // panel4
+            // 
+            this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(62)))), ((int)(((byte)(80)))));
+            this.panel4.Controls.Add(this.label2);
+            this.panel4.Controls.Add(this.label3);
+            this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel4.ForeColor = System.Drawing.Color.DarkSlateGray;
+            this.panel4.Location = new System.Drawing.Point(0, 0);
+            this.panel4.Margin = new System.Windows.Forms.Padding(4);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(251, 140);
+            this.panel4.TabIndex = 12;
+            // 
+            // label2
+            // 
+            this.label2.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.label2.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.label2.Location = new System.Drawing.Point(0, 90);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(276, 47);
+            this.label2.TabIndex = 3;
+            this.label2.Text = "  智慧電腦輔助生產系統";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // label3
+            // 
+            this.label3.Font = new System.Drawing.Font("微軟正黑體", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.label3.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.label3.Location = new System.Drawing.Point(16, 5);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(276, 75);
+            this.label3.TabIndex = 4;
+            this.label3.Text = "iCAPS";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
             // btnHome
             // 
             this.btnHome.BackColor = System.Drawing.Color.SteelBlue;
@@ -416,6 +283,139 @@ namespace CNCAppPlatform
             this.btnHome.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnHome.UseVisualStyleBackColor = false;
             // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.btnFormControl);
+            this.panel2.Controls.Add(this.panel3);
+            this.panel2.Controls.Add(this.label1);
+            this.panel2.Controls.Add(this.btFold);
+            this.panel2.Controls.Add(this.btPower);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel2.Location = new System.Drawing.Point(251, 0);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(1249, 57);
+            this.panel2.TabIndex = 1;
+            // 
+            // btnFormControl
+            // 
+            this.btnFormControl.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnFormControl.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnFormControl.Change = true;
+            this.btnFormControl.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnFormControl.Image = ((System.Drawing.Image)(resources.GetObject("btnFormControl.Image")));
+            this.btnFormControl.Location = new System.Drawing.Point(1153, 17);
+            this.btnFormControl.Margin = new System.Windows.Forms.Padding(4);
+            this.btnFormControl.Name = "btnFormControl";
+            this.btnFormControl.SetSquare = true;
+            this.btnFormControl.Size = new System.Drawing.Size(25, 25);
+            this.btnFormControl.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.btnFormControl.SubImg = ((System.Drawing.Image)(resources.GetObject("btnFormControl.SubImg")));
+            this.btnFormControl.TabIndex = 5;
+            this.btnFormControl.TabStop = false;
+            this.btnFormControl.Tag = ((object)(resources.GetObject("btnFormControl.Tag")));
+            this.btnFormControl.Visible = false;
+            // 
+            // panel3
+            // 
+            this.panel3.BackColor = System.Drawing.Color.Silver;
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel3.Location = new System.Drawing.Point(0, 56);
+            this.panel3.Margin = new System.Windows.Forms.Padding(4);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(1249, 1);
+            this.panel3.TabIndex = 4;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("微軟正黑體", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.label1.Location = new System.Drawing.Point(57, 12);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(250, 34);
+            this.label1.TabIndex = 3;
+            this.label1.Text = "State Monitor App";
+            // 
+            // btFold
+            // 
+            this.btFold.Image = ((System.Drawing.Image)(resources.GetObject("btFold.Image")));
+            this.btFold.Location = new System.Drawing.Point(23, 16);
+            this.btFold.Margin = new System.Windows.Forms.Padding(4);
+            this.btFold.Name = "btFold";
+            this.btFold.Size = new System.Drawing.Size(27, 27);
+            this.btFold.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.btFold.TabIndex = 2;
+            this.btFold.TabStop = false;
+            // 
+            // btPower
+            // 
+            this.btPower.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btPower.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btPower.FlatAppearance.BorderSize = 0;
+            this.btPower.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btPower.Image = ((System.Drawing.Image)(resources.GetObject("btPower.Image")));
+            this.btPower.Location = new System.Drawing.Point(1209, 16);
+            this.btPower.Margin = new System.Windows.Forms.Padding(4);
+            this.btPower.Name = "btPower";
+            this.btPower.Size = new System.Drawing.Size(27, 27);
+            this.btPower.TabIndex = 0;
+            this.btPower.UseVisualStyleBackColor = true;
+            this.btPower.Click += new System.EventHandler(this.btPower_Click);
+            // 
+            // panel1
+            // 
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Location = new System.Drawing.Point(251, 162);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1249, 645);
+            this.panel1.TabIndex = 5;
+            // 
+            // timer1
+            // 
+            this.timer1.Interval = 1000;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // panel5
+            // 
+            this.panel5.BackColor = System.Drawing.Color.Black;
+            this.panel5.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel5.Location = new System.Drawing.Point(251, 161);
+            this.panel5.Margin = new System.Windows.Forms.Padding(4);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(1249, 1);
+            this.panel5.TabIndex = 44;
+            // 
+            // connStatusLabel
+            // 
+            this.connStatusLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.connStatusLabel.AutoSize = true;
+            this.connStatusLabel.Font = new System.Drawing.Font("微軟正黑體", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.connStatusLabel.Location = new System.Drawing.Point(1131, 90);
+            this.connStatusLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.connStatusLabel.Name = "connStatusLabel";
+            this.connStatusLabel.Size = new System.Drawing.Size(231, 34);
+            this.connStatusLabel.TabIndex = 43;
+            this.connStatusLabel.Text = "連線狀態：未連接";
+            // 
+            // moduleTitle
+            // 
+            this.moduleTitle.AutoSize = true;
+            this.moduleTitle.BackColor = System.Drawing.SystemColors.Control;
+            this.moduleTitle.Dock = System.Windows.Forms.DockStyle.Top;
+            this.moduleTitle.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.moduleTitle.Font = new System.Drawing.Font("微軟正黑體", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.moduleTitle.Location = new System.Drawing.Point(251, 57);
+            this.moduleTitle.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.moduleTitle.Name = "moduleTitle";
+            this.moduleTitle.Padding = new System.Windows.Forms.Padding(27);
+            this.moduleTitle.Size = new System.Drawing.Size(397, 104);
+            this.moduleTitle.TabIndex = 42;
+            this.moduleTitle.Text = "設備狀態監控App";
+            this.moduleTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -433,13 +433,13 @@ namespace CNCAppPlatform
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "狀態監控App";
             this.sidePanel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.info)).EndInit();
             this.flowLayoutPanel1.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnFormControl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btFold)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.info)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
