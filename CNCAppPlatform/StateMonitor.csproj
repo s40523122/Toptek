@@ -247,6 +247,12 @@
     <Compile Include="Controls\deviceInfoView_V2.Designer.cs">
       <DependentUpon>deviceInfoView_V2.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\paramreg_setting.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\paramreg_setting.Designer.cs">
+      <DependentUpon>paramreg_setting.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\newOverview.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -438,6 +444,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\deviceInfoView_V2.resx">
       <DependentUpon>deviceInfoView_V2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\paramreg_setting.resx">
+      <DependentUpon>paramreg_setting.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\newOverview.resx">
       <DependentUpon>newOverview.cs</DependentUpon>

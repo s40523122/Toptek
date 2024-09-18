@@ -26,7 +26,7 @@ namespace CNCAppPlatform.Controls
             dataGridView1.BorderStyle = BorderStyle.None;
             dataGridView2.BorderStyle = BorderStyle.None;
 
-            Labels = new List<string>(){"label1", "label2", "label3", "label4", "label5", "label6", "label7", "label8", "label9", "label10", "label11", "label12",
+            Labels = new List<string>(){"繁體中文字測試", "label2", "label3", "label4", "label5", "label6", "label7", "label8", "label9", "label10", "label11", "label12",
                                         "label13", "label14", "label15", "label16", "label17", "label18", "label19", "label20", "label21", "label22", "label23", "label24"};
             Paramrters = new List<int>() { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
                                            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
@@ -67,13 +67,13 @@ namespace CNCAppPlatform.Controls
             label1.Font = label2.Font = label3.Font = label4.Font = label5.Font = new Font(label1.Font.FontFamily, Height / 50);
             label2.Height = label3.Height = label4.Height = label5.Height = Height / 23;
 
-            dataGridView1.DefaultCellStyle.Font = new Font(dataGridView1.DefaultCellStyle.Font.FontFamily, dataGridView1.Height/24);
+            dataGridView1.DefaultCellStyle.Font = new Font(dataGridView1.DefaultCellStyle.Font.FontFamily, dataGridView1.Height/40);
             foreach (DataGridViewRow row in dataGridView1.Rows)
             {
                 row.Height = dataGridView1.Height / 12;
             }
 
-            dataGridView2.DefaultCellStyle.Font = new Font(dataGridView2.DefaultCellStyle.Font.FontFamily, dataGridView2.Height / 24);
+            dataGridView2.DefaultCellStyle.Font = new Font(dataGridView2.DefaultCellStyle.Font.FontFamily, dataGridView2.Height / 40);
             foreach (DataGridViewRow row in dataGridView2.Rows)
             {
                 row.Height = dataGridView2.Height / 12;

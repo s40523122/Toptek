@@ -313,19 +313,19 @@ namespace CNCAppPlatform.Controls
                             // 寫入設定檔
                             INiReader.WriteINIFile(IniPath, ID, "device_img", $"{ID}.png");
                         }
-
-                        
                     }
                     break;
 
                 case "device_param":
                     // 打開新視窗進行參數設定
-                    using (Form parameterForm = new Form())
+                    using (paramreg_setting parameterForm = new paramreg_setting())
                     {
+                        parameterForm.ID = ID;
                         parameterForm.Text = "Parameter Settings";
-                        parameterForm.Width = 300;
-                        parameterForm.Height = 200;
+                        //parameterForm.Width = 300;
+                        //parameterForm.Height = 200;
                         parameterForm.StartPosition = FormStartPosition.CenterParent;
+                        parameterForm.ShowIcon = false;
                         parameterForm.ShowDialog();
                     }
                     break;
