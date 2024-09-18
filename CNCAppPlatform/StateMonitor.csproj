@@ -247,11 +247,11 @@
     <Compile Include="Controls\deviceInfoView_V2.Designer.cs">
       <DependentUpon>deviceInfoView_V2.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\paramreg_setting.cs">
+    <Compile Include="Forms\Pages\ParamRegSetting.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\paramreg_setting.Designer.cs">
-      <DependentUpon>paramreg_setting.cs</DependentUpon>
+    <Compile Include="Forms\Pages\ParamRegSetting.Designer.cs">
+      <DependentUpon>ParamRegSetting.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\newOverview.cs">
       <SubType>Form</SubType>
@@ -277,11 +277,11 @@
     <Compile Include="Forms\Setting.Designer.cs">
       <DependentUpon>Setting.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\testt.cs">
+    <Compile Include="Forms\Pages\SequenceList.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\testt.Designer.cs">
-      <DependentUpon>testt.cs</DependentUpon>
+    <Compile Include="Forms\Pages\SequenceList.Designer.cs">
+      <DependentUpon>SequenceList.cs</DependentUpon>
     </Compile>
     <Compile Include="Services\LineNotify.cs" />
     <Compile Include="Temp\datePicker.cs">
@@ -353,10 +353,10 @@
     <Compile Include="Temp\MsgBox.designer.cs">
       <DependentUpon>MsgBox.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\OrderInputFrame.cs">
+    <Compile Include="Forms\Pages\OrderInputFrame.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\OrderInputFrame.Designer.cs">
+    <Compile Include="Forms\Pages\OrderInputFrame.Designer.cs">
       <DependentUpon>OrderInputFrame.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\PlcConn.cs">
@@ -451,8 +451,8 @@
     <EmbeddedResource Include="Controls\deviceInfoView_V2.resx">
       <DependentUpon>deviceInfoView_V2.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\paramreg_setting.resx">
-      <DependentUpon>paramreg_setting.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\Pages\ParamRegSetting.resx">
+      <DependentUpon>ParamRegSetting.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\newOverview.resx">
       <DependentUpon>newOverview.cs</DependentUpon>
@@ -466,8 +466,8 @@
     <EmbeddedResource Include="Forms\Setting.resx">
       <DependentUpon>Setting.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\testt.resx">
-      <DependentUpon>testt.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\Pages\SequenceList.resx">
+      <DependentUpon>SequenceList.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Temp\datePicker.resx">
       <DependentUpon>datePicker.cs</DependentUpon>
@@ -502,7 +502,7 @@
     <EmbeddedResource Include="Temp\MsgBox.resx">
       <DependentUpon>MsgBox.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\OrderInputFrame.resx">
+    <EmbeddedResource Include="Forms\Pages\OrderInputFrame.resx">
       <DependentUpon>OrderInputFrame.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\PlcConn.resx">

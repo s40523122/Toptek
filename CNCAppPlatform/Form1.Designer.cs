@@ -334,7 +334,7 @@ namespace CNCAppPlatform
             this.label1.Location = new System.Drawing.Point(57, 12);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(250, 34);
+            this.label1.Size = new System.Drawing.Size(195, 27);
             this.label1.TabIndex = 3;
             this.label1.Text = "State Monitor App";
             // 
@@ -367,10 +367,10 @@ namespace CNCAppPlatform
             // panel1
             // 
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(251, 162);
+            this.panel1.Location = new System.Drawing.Point(251, 152);
             this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1249, 645);
+            this.panel1.Size = new System.Drawing.Size(1249, 655);
             this.panel1.TabIndex = 5;
             // 
             // timer1
@@ -382,7 +382,7 @@ namespace CNCAppPlatform
             // 
             this.panel5.BackColor = System.Drawing.Color.Black;
             this.panel5.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel5.Location = new System.Drawing.Point(251, 161);
+            this.panel5.Location = new System.Drawing.Point(251, 151);
             this.panel5.Margin = new System.Windows.Forms.Padding(4);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(1249, 1);
@@ -396,7 +396,7 @@ namespace CNCAppPlatform
             this.connStatusLabel.Location = new System.Drawing.Point(1131, 90);
             this.connStatusLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.connStatusLabel.Name = "connStatusLabel";
-            this.connStatusLabel.Size = new System.Drawing.Size(231, 34);
+            this.connStatusLabel.Size = new System.Drawing.Size(180, 27);
             this.connStatusLabel.TabIndex = 43;
             this.connStatusLabel.Text = "連線狀態：未連接";
             // 
@@ -411,7 +411,7 @@ namespace CNCAppPlatform
             this.moduleTitle.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.moduleTitle.Name = "moduleTitle";
             this.moduleTitle.Padding = new System.Windows.Forms.Padding(27);
-            this.moduleTitle.Size = new System.Drawing.Size(397, 104);
+            this.moduleTitle.Size = new System.Drawing.Size(328, 94);
             this.moduleTitle.TabIndex = 42;
             this.moduleTitle.Text = "設備狀態監控App";
             this.moduleTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;

@@ -185,7 +185,7 @@ namespace CNCAppPlatform.Controls
 
             cell_config device_name = new cell_config() {config_name = "device_name", display_text = "設備名稱", value = import_config["device_name"], cell_mode = "text" };
             cell_config device_img = new cell_config() { config_name = "device_img", display_text = "設備圖片", value = "設定", cell_mode = "button" };
-            cell_config order_sequence = new cell_config() { config_name = "order_sequence", display_text = "生產次序內容", value = "設定", cell_mode = "button" };
+            cell_config order_sequence = new cell_config() { config_name = "sequence_list", display_text = "生產次序內容", value = "設定", cell_mode = "button" };
             cell_config reg_sequence = new cell_config() { config_name = "reg_sequence", display_text = "指定生產次序暫存器", value = import_config["reg_sequence"], cell_mode = "text" };
             cell_config device_param = new cell_config() { config_name = "device_param", display_text = "設備參數內容", value = "設定", cell_mode = "button" };
             cell_config reg_availability = new cell_config() { config_name = "reg_availability", display_text = "指定稼動率暫存器", value = import_config["reg_availability"], cell_mode = "text" };
@@ -318,7 +318,21 @@ namespace CNCAppPlatform.Controls
 
                 case "device_param":
                     // 打開新視窗進行參數設定
-                    using (paramreg_setting parameterForm = new paramreg_setting())
+                    using (ParamRegSetting parameterForm = new ParamRegSetting())
+                    {
+                        parameterForm.ID = ID;
+                        parameterForm.Text = "Parameter Settings";
+                        //parameterForm.Width = 300;
+                        //parameterForm.Height = 200;
+                        parameterForm.StartPosition = FormStartPosition.CenterParent;
+                        parameterForm.ShowIcon = false;
+                        parameterForm.ShowDialog();
+                    }
+                    break;
+
+                case "sequence_list":
+                    // 打開新視窗進行參數設定
+                    using (SequenceList parameterForm = new SequenceList())
                     {
                         parameterForm.ID = ID;
                         parameterForm.Text = "Parameter Settings";
