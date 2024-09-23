@@ -35,6 +35,7 @@
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.btnAppend = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -65,7 +66,8 @@
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.Location = new System.Drawing.Point(35, 135);
+            this.dataGridView1.Location = new System.Drawing.Point(47, 166);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -79,7 +81,7 @@
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.RowTemplate.Height = 50;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(730, 280);
+            this.dataGridView1.Size = new System.Drawing.Size(973, 345);
             this.dataGridView1.TabIndex = 0;
             // 
             // btnAppend
@@ -92,9 +94,10 @@
             this.btnAppend.ForeColor = System.Drawing.Color.Black;
             this.btnAppend.Image = ((System.Drawing.Image)(resources.GetObject("btnAppend.Image")));
             this.btnAppend.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAppend.Location = new System.Drawing.Point(0, 20);
+            this.btnAppend.Location = new System.Drawing.Point(0, 25);
+            this.btnAppend.Margin = new System.Windows.Forms.Padding(4);
             this.btnAppend.Name = "btnAppend";
-            this.btnAppend.Size = new System.Drawing.Size(171, 60);
+            this.btnAppend.Size = new System.Drawing.Size(228, 73);
             this.btnAppend.TabIndex = 1;
             this.btnAppend.Text = "新增工單";
             this.btnAppend.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -102,24 +105,37 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.button1);
             this.panel1.Controls.Add(this.btnAppend);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Font = new System.Drawing.Font("微軟正黑體", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panel1.Location = new System.Drawing.Point(35, 35);
+            this.panel1.Location = new System.Drawing.Point(47, 43);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
-            this.panel1.Padding = new System.Windows.Forms.Padding(0, 20, 20, 20);
-            this.panel1.Size = new System.Drawing.Size(730, 100);
+            this.panel1.Padding = new System.Windows.Forms.Padding(0, 25, 27, 25);
+            this.panel1.Size = new System.Drawing.Size(973, 123);
             this.panel1.TabIndex = 2;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(254, 30);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(147, 67);
+            this.button1.TabIndex = 2;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // OrderLog
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1067, 554);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.panel1);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "OrderLog";
-            this.Padding = new System.Windows.Forms.Padding(35);
+            this.Padding = new System.Windows.Forms.Padding(47, 43, 47, 43);
             this.Text = "OrderLog";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.panel1.ResumeLayout(false);
@@ -132,5 +148,6 @@
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button btnAppend;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Button button1;
     }
 }

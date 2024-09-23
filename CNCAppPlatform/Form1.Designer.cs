@@ -44,7 +44,6 @@ namespace CNCAppPlatform
             this.label3 = new System.Windows.Forms.Label();
             this.btnHome = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.btnFormControl = new ART_plus.DoubleImg();
             this.panel3 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.btFold = new System.Windows.Forms.PictureBox();
@@ -54,13 +53,14 @@ namespace CNCAppPlatform
             this.panel5 = new System.Windows.Forms.Panel();
             this.connStatusLabel = new System.Windows.Forms.Label();
             this.moduleTitle = new System.Windows.Forms.Label();
+            this.btnFormControl = new ART_plus.DoubleImg();
             this.sidePanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.info)).BeginInit();
             this.flowLayoutPanel1.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.btnFormControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btFold)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnFormControl)).BeginInit();
             this.SuspendLayout();
             // 
             // sidePanel
@@ -294,27 +294,8 @@ namespace CNCAppPlatform
             this.panel2.Location = new System.Drawing.Point(251, 0);
             this.panel2.Margin = new System.Windows.Forms.Padding(4);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1249, 57);
+            this.panel2.Size = new System.Drawing.Size(1149, 57);
             this.panel2.TabIndex = 1;
-            // 
-            // btnFormControl
-            // 
-            this.btnFormControl.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnFormControl.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnFormControl.Change = true;
-            this.btnFormControl.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnFormControl.Image = ((System.Drawing.Image)(resources.GetObject("btnFormControl.Image")));
-            this.btnFormControl.Location = new System.Drawing.Point(1153, 17);
-            this.btnFormControl.Margin = new System.Windows.Forms.Padding(4);
-            this.btnFormControl.Name = "btnFormControl";
-            this.btnFormControl.SetSquare = true;
-            this.btnFormControl.Size = new System.Drawing.Size(25, 25);
-            this.btnFormControl.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.btnFormControl.SubImg = ((System.Drawing.Image)(resources.GetObject("btnFormControl.SubImg")));
-            this.btnFormControl.TabIndex = 5;
-            this.btnFormControl.TabStop = false;
-            this.btnFormControl.Tag = ((object)(resources.GetObject("btnFormControl.Tag")));
-            this.btnFormControl.Visible = false;
             // 
             // panel3
             // 
@@ -323,7 +304,7 @@ namespace CNCAppPlatform
             this.panel3.Location = new System.Drawing.Point(0, 56);
             this.panel3.Margin = new System.Windows.Forms.Padding(4);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1249, 1);
+            this.panel3.Size = new System.Drawing.Size(1149, 1);
             this.panel3.TabIndex = 4;
             // 
             // label1
@@ -356,7 +337,7 @@ namespace CNCAppPlatform
             this.btPower.FlatAppearance.BorderSize = 0;
             this.btPower.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btPower.Image = ((System.Drawing.Image)(resources.GetObject("btPower.Image")));
-            this.btPower.Location = new System.Drawing.Point(1209, 16);
+            this.btPower.Location = new System.Drawing.Point(1109, 16);
             this.btPower.Margin = new System.Windows.Forms.Padding(4);
             this.btPower.Name = "btPower";
             this.btPower.Size = new System.Drawing.Size(27, 27);
@@ -370,7 +351,7 @@ namespace CNCAppPlatform
             this.panel1.Location = new System.Drawing.Point(251, 152);
             this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1249, 655);
+            this.panel1.Size = new System.Drawing.Size(1149, 655);
             this.panel1.TabIndex = 5;
             // 
             // timer1
@@ -385,7 +366,7 @@ namespace CNCAppPlatform
             this.panel5.Location = new System.Drawing.Point(251, 151);
             this.panel5.Margin = new System.Windows.Forms.Padding(4);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(1249, 1);
+            this.panel5.Size = new System.Drawing.Size(1149, 1);
             this.panel5.TabIndex = 44;
             // 
             // connStatusLabel
@@ -393,7 +374,7 @@ namespace CNCAppPlatform
             this.connStatusLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.connStatusLabel.AutoSize = true;
             this.connStatusLabel.Font = new System.Drawing.Font("微軟正黑體", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.connStatusLabel.Location = new System.Drawing.Point(1131, 90);
+            this.connStatusLabel.Location = new System.Drawing.Point(1031, 90);
             this.connStatusLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.connStatusLabel.Name = "connStatusLabel";
             this.connStatusLabel.Size = new System.Drawing.Size(180, 27);
@@ -416,11 +397,30 @@ namespace CNCAppPlatform
             this.moduleTitle.Text = "設備狀態監控App";
             this.moduleTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // btnFormControl
+            // 
+            this.btnFormControl.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnFormControl.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnFormControl.Change = true;
+            this.btnFormControl.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnFormControl.Image = ((System.Drawing.Image)(resources.GetObject("btnFormControl.Image")));
+            this.btnFormControl.Location = new System.Drawing.Point(1053, 17);
+            this.btnFormControl.Margin = new System.Windows.Forms.Padding(4);
+            this.btnFormControl.Name = "btnFormControl";
+            this.btnFormControl.SetSquare = true;
+            this.btnFormControl.Size = new System.Drawing.Size(25, 25);
+            this.btnFormControl.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.btnFormControl.SubImg = ((System.Drawing.Image)(resources.GetObject("btnFormControl.SubImg")));
+            this.btnFormControl.TabIndex = 5;
+            this.btnFormControl.TabStop = false;
+            this.btnFormControl.Tag = ((object)(resources.GetObject("btnFormControl.Tag")));
+            this.btnFormControl.Visible = false;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1500, 807);
+            this.ClientSize = new System.Drawing.Size(1400, 807);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel5);
             this.Controls.Add(this.connStatusLabel);
@@ -438,8 +438,8 @@ namespace CNCAppPlatform
             this.panel4.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.btnFormControl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btFold)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnFormControl)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

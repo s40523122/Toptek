@@ -122,6 +122,9 @@
     <Compile Include="AddItemButton.Designer.cs">
       <DependentUpon>AddItemButton.cs</DependentUpon>
     </Compile>
+    <Compile Include="APS\ApsModels.cs" />
+    <Compile Include="APS\PriorityBased.cs" />
+    <Compile Include="APS\MinimizeJobDelay.cs" />
     <Compile Include="Controls\deviceInfoConstrict.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -166,6 +169,12 @@
     </Compile>
     <Compile Include="Controls\Forms\FrmWaiting.Designer.cs">
       <DependentUpon>FrmWaiting.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\GanttChartForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Controls\GanttChartForm.Designer.cs">
+      <DependentUpon>GanttChartForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Controls\Helpers\ControlHelper.cs" />
     <Compile Include="Controls\Helpers\Ext.cs" />
