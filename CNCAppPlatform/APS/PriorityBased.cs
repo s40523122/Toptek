@@ -21,13 +21,16 @@ namespace CNCAppPlatform.APS
         // 根據最小化工單延遲邏輯進行工單分配
         public void Dispatching()
         {
+            // 清空機台時程表
+            foreach (var machine in Machines)
+            {
+                machine.schedule.Clear();
+            }
+
             // 將工單依據交期、優先級進行排序
             var sortedJobs = Jobs.OrderBy(j => j.priority)
-                                 .ThenBy(j => j.due_date)
-                                 .ToList();
-            //var sortedJobs = Jobs.OrderBy(j => j.priority)
-            //                     .ThenBy(j => j.due_date)
-            //                     .ToList();
+                                .ThenBy(j => j.due_date)
+                                .ToList();
 
             foreach (var job in sortedJobs)
             {

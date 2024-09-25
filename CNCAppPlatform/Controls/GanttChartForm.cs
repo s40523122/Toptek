@@ -247,10 +247,10 @@ namespace CNCAppPlatform.Controls
             }
 
             // 新增流程條
-            AddScheduleBar();
+            ShowScheduleBar();
         }
 
-        private void AddScheduleBar()
+        public void ShowScheduleBar()
         {
             //　清空時程表
             panel1.Controls.Clear();

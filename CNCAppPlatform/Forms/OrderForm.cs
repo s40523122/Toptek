@@ -17,6 +17,8 @@ namespace CNCAppPlatform
     {
         public static Dictionary<int, string> IdName = new Dictionary<int, string>() { {0, "N/A" } };
 
+        private GanttChartForm gatt_frame;
+        
         // 建立機台
         Machine machine1 = new Machine(1, new List<int> { 1, 2 });
         Machine machine2 = new Machine(2, new List<int> { 3 });
@@ -59,6 +61,11 @@ namespace CNCAppPlatform
 
             Gantt_Show();
 
+            // 建立派工器
+            var dispatcher = new MinimizeJobDelay(new List<Job> { job1, job2, job3, job4, job5 }, new List<Machine> { machine1, machine2, machine3 });
+            dispatcher.Dispatching();
+            gatt_frame.ShowScheduleBar();
+
             btnAppend.Click += BtnAppend_Click;
             btnLog.Click += BtnLog_Click;
             btnApsMode.Click += BtnApsMode_Click;
@@ -83,6 +90,8 @@ namespace CNCAppPlatform
                     dispatcher3.Dispatching();
                     break;
             }
+
+            gatt_frame.ShowScheduleBar();
         }
 
         private void BtnLog_Click(object sender, EventArgs e)
@@ -118,7 +127,7 @@ namespace CNCAppPlatform
 
             List<Machine> machines = new List<Machine>() { machine1, machine2 , machine3 }; // 取得包含排程的機台列表
             
-            GanttChartForm frame = new GanttChartForm(machines)
+            gatt_frame = new GanttChartForm(machines)
             {
                 Dock = DockStyle.Fill,
                 TopLevel = false,
@@ -126,7 +135,7 @@ namespace CNCAppPlatform
                 FormBorderStyle = FormBorderStyle.None
             };
 
-            frame.Show();
+            gatt_frame.Show();
         }
 
 
