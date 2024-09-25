@@ -22,6 +22,7 @@ namespace CNCAppPlatform
         {
             InitializeComponent();
 
+            TopMost = true;
             backForm = new Form()
             {
                 StartPosition = FormStartPosition.Manual,

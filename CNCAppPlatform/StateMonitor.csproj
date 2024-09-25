@@ -256,6 +256,18 @@
     <Compile Include="Controls\deviceInfoView_V2.Designer.cs">
       <DependentUpon>deviceInfoView_V2.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Pages\ApsModeSelect.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Pages\ApsModeSelect.Designer.cs">
+      <DependentUpon>ApsModeSelect.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Pages\OrderLog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Pages\OrderLog.Designer.cs">
+      <DependentUpon>OrderLog.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Pages\ParamRegSetting.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -268,11 +280,11 @@
     <Compile Include="Forms\newOverview.Designer.cs">
       <DependentUpon>newOverview.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\OrderLog.cs">
+    <Compile Include="Forms\OrderForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\OrderLog.Designer.cs">
-      <DependentUpon>OrderLog.cs</DependentUpon>
+    <Compile Include="Forms\OrderForm.Designer.cs">
+      <DependentUpon>OrderForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Overview_V2.cs">
       <SubType>Form</SubType>
@@ -424,6 +436,9 @@
     <EmbeddedResource Include="Controls\Forms\FrmWaiting.resx">
       <DependentUpon>FrmWaiting.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Controls\GanttChartForm.resx">
+      <DependentUpon>GanttChartForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Controls\PlcConnectionBox.resx">
       <DependentUpon>PlcConnectionBox.cs</DependentUpon>
     </EmbeddedResource>
@@ -460,14 +475,20 @@
     <EmbeddedResource Include="Controls\deviceInfoView_V2.resx">
       <DependentUpon>deviceInfoView_V2.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Pages\ApsModeSelect.resx">
+      <DependentUpon>ApsModeSelect.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Pages\OrderLog.resx">
+      <DependentUpon>OrderLog.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Pages\ParamRegSetting.resx">
       <DependentUpon>ParamRegSetting.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\newOverview.resx">
       <DependentUpon>newOverview.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\OrderLog.resx">
-      <DependentUpon>OrderLog.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\OrderForm.resx">
+      <DependentUpon>OrderForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Overview_V2.resx">
       <DependentUpon>Overview_V2.cs</DependentUpon>

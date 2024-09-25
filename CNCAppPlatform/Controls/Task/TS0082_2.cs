@@ -75,7 +75,7 @@ namespace CNCAppPlatform
             {
                 try
                 {
-                    orderID1.Text = OrderLog.IdName[arraydata[0]];
+                    orderID1.Text = OrderForm.IdName[arraydata[0]];
                 }
                 catch (Exception ex)
                 {

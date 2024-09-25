@@ -82,7 +82,7 @@ namespace CNCAppPlatform
                 {
                     try
                     {
-                        controls[countNo].Text = OrderLog.IdName[arraydata[countNo]];
+                        controls[countNo].Text = OrderForm.IdName[arraydata[countNo]];
                     }
                     catch (Exception ex)
                     {

@@ -108,7 +108,7 @@ namespace CNCAppPlatform
             btnColor(button);
             if (!(button.Tag is Form))
             {
-                OrderLog frame = new OrderLog()
+                OrderForm frame = new OrderForm()
                 {
                     Dock = DockStyle.Fill,
                     TopLevel = false,

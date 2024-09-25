@@ -146,7 +146,7 @@ namespace CNCAppPlatform
             {
                 try
                 {
-                    orderID1.Text = OrderLog.IdName[arraydata[0]];
+                    orderID1.Text = OrderForm.IdName[arraydata[0]];
                 }
                 catch (Exception ex)
                 {
@@ -155,7 +155,7 @@ namespace CNCAppPlatform
 
                 try
                 {
-                    orderID2.Text = OrderLog.IdName[arraydata[1]];
+                    orderID2.Text = OrderForm.IdName[arraydata[1]];
                 }
                 catch (Exception ex)
                 {
@@ -187,7 +187,7 @@ namespace CNCAppPlatform
                 {
                     try
                     {
-                        controls[countNo].Text = OrderLog.IdName[arraydata[countNo]];
+                        controls[countNo].Text = OrderForm.IdName[arraydata[countNo]];
                     }
                     catch (Exception ex)
                     {
