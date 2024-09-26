@@ -6,9 +6,11 @@ using System.Threading.Tasks;
 
 namespace CNCAppPlatform.APS
 {
-    internal class ApsModels
+    public interface IDispatcher
     {
+        void Dispatching();
     }
+
     public class Job
     {
         public string order_no { get; set; }

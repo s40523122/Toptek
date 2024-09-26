@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace CNCAppPlatform.APS
 {
-    public class PriorityBased
+    public class PriorityBased : IDispatcher
     {
         private List<Machine> Machines;
         private List<Job> Jobs;
@@ -37,8 +37,6 @@ namespace CNCAppPlatform.APS
             {
                 foreach (var process in job.processes)
                 {
-                    bool assigned = false;
-
                     // 選擇一個最早能夠開始該製程的機台
                     Machine bestMachine = null;
                     DateTime bestStartTime = DateTime.MaxValue;
@@ -49,9 +47,10 @@ namespace CNCAppPlatform.APS
                         if (machine.CanProcess(process.process_id))
                         {
                             // 確保前一製程已完成後，才能開始下一製程
-                            DateTime prevProcessEndTime = process.process_id == job.processes.First().process_id
-                                ? DateTime.Now // 如果是第一道工序，則可以立即開始
-                                : job.processes[job.processes.IndexOf(process) - 1].end_time ?? DateTime.Now;
+                            var previousProcess = job.processes.IndexOf(process) > 0
+                                ? job.processes[job.processes.IndexOf(process) - 1]
+                                : null;
+                            DateTime prevProcessEndTime = previousProcess?.end_time ?? DateTime.Now;
 
                             // 計算目前製程可開始時間
                             DateTime machineNextAvailable = machine.GetNextAvailableTime(prevProcessEndTime, process.process_time);
@@ -69,19 +68,14 @@ namespace CNCAppPlatform.APS
                     {
                         // 分配製程到最佳機台
                         bestMachine.AddSchedule(job, job.processes.IndexOf(process), bestStartTime);
-                        assigned = true;
                     }
-
-                    if (!assigned)
+                    else
                     {
                         Console.WriteLine($"工單 {job.order_no} 的製程 {process.process_id} 暫時無法分配。");
-                        break;
+                        continue;
                     }
                 }
             }
         }
-
-
     }
-
 }

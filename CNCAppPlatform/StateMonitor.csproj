@@ -125,6 +125,7 @@
     <Compile Include="APS\ApsModels.cs" />
     <Compile Include="APS\PriorityBased.cs" />
     <Compile Include="APS\MinimizeJobDelay.cs" />
+    <Compile Include="APS\ShortestProcessingTime.cs" />
     <Compile Include="Controls\deviceInfoConstrict.cs">
       <SubType>UserControl</SubType>
     </Compile>

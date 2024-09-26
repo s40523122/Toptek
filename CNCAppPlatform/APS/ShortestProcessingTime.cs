@@ -1,5 +1,4 @@
-﻿using Messages.sensor_msgs;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -7,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace CNCAppPlatform.APS
 {
-    public class MinimizeJobDelay : IDispatcher
+    internal class ShortestProcessingTime : IDispatcher
     {
         private List<Machine> Machines;
         private List<Job> Jobs;
 
-        public MinimizeJobDelay(List<Job> jobList, List<Machine> machineList)
+        public ShortestProcessingTime(List<Job> jobList, List<Machine> machineList)
         {
             Machines = machineList;
             Jobs = jobList;
@@ -27,10 +26,8 @@ namespace CNCAppPlatform.APS
                 machine.schedule.Clear();
             }
 
-            // 將工單依據交期、優先級進行排序
-            var sortedJobs = Jobs.OrderBy(j => j.due_date)
-                                 .ThenByDescending(j => j.priority)
-                                 .ToList();
+            // 將工單依據當前製程的最短處理時間進行排序
+            var sortedJobs = Jobs.OrderBy(job => job.processes.Sum(p => p.process_time)).ToList();
 
             // 開始排程
             foreach (var job in sortedJobs)
@@ -77,19 +74,5 @@ namespace CNCAppPlatform.APS
                 }
             }
         }
-
-        // 獲取每台機台的工單順序
-        //public Dictionary<string, List<Job>> GetJobAssignments()
-        //{
-        //    var assignments = new Dictionary<string, List<Job>>();
-
-        //    foreach (var machine in machines)
-        //    {
-        //        assignments[machine.MachineId] = machine.JobQueue;
-        //    }
-
-        //    return assignments;
-        //}
     }
-
 }
