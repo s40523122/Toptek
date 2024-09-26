@@ -25,7 +25,7 @@ namespace CNCAppPlatform
         Machine machine3 = new Machine(3, new List<int> { 2 });
 
         // 建立工單
-        Job job1 = new Job("001", DateTime.Now.AddDays(3), 1, new List<Process>
+        Job job1 = new Job("001", DateTime.Now.AddDays(3), 5, new List<Process>
             {
                 new Process(1, 52.5), // 製程序號 1，時間 1.5 小時
                 new Process(2, 12.0)  // 製程序號 2，時間 2.0 小時
@@ -37,7 +37,7 @@ namespace CNCAppPlatform
                 new Process(3, 3.4)  // 製程序號 3，時間 1.5 小時
             }, "MaterialB", 150);
 
-        Job job3 = new Job("003", DateTime.Now.AddDays(1), 2, new List<Process>
+        Job job3 = new Job("003", DateTime.Now.AddDays(1), 3, new List<Process>
             {
                 new Process(2, 10.6), // 製程序號 2，時間 2.0 小時
                 new Process(3, 22.8)  // 製程序號 3，時間 1.5 小時
@@ -49,7 +49,7 @@ namespace CNCAppPlatform
                 new Process(3, 10.5)  // 製程序號 3，時間 1.5 小時
             }, "MaterialB", 150);
 
-        Job job5 = new Job("005", DateTime.Now.AddDays(3), 2, new List<Process>
+        Job job5 = new Job("005", DateTime.Now.AddDays(3), 1, new List<Process>
             {
                 new Process(2, 18.9), // 製程序號 2，時間 2.0 小時
             }, "MaterialB", 150);

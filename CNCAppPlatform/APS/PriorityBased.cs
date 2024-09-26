@@ -28,7 +28,7 @@ namespace CNCAppPlatform.APS
             }
 
             // 將工單依據交期、優先級進行排序
-            var sortedJobs = Jobs.OrderBy(j => j.priority)
+            var sortedJobs = Jobs.OrderByDescending(j => j.priority)
                                  .ThenBy(j => j.due_date)
                                  .ToList();
 
