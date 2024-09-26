@@ -29,9 +29,10 @@ namespace CNCAppPlatform.APS
 
             // 將工單依據交期、優先級進行排序
             var sortedJobs = Jobs.OrderBy(j => j.priority)
-                                .ThenBy(j => j.due_date)
-                                .ToList();
+                                 .ThenBy(j => j.due_date)
+                                 .ToList();
 
+            // 開始排程
             foreach (var job in sortedJobs)
             {
                 foreach (var process in job.processes)
@@ -52,15 +53,14 @@ namespace CNCAppPlatform.APS
                                 ? DateTime.Now // 如果是第一道工序，則可以立即開始
                                 : job.processes[job.processes.IndexOf(process) - 1].end_time ?? DateTime.Now;
 
+                            // 計算目前製程可開始時間
                             DateTime machineNextAvailable = machine.GetNextAvailableTime(prevProcessEndTime, process.process_time);
 
-                            DateTime startTime = machineNextAvailable > prevProcessEndTime ? machineNextAvailable : prevProcessEndTime;
-
                             // 找出最早能開始該製程的機台
-                            if (startTime < bestStartTime)
+                            if (machineNextAvailable < bestStartTime)
                             {
                                 bestMachine = machine;
-                                bestStartTime = startTime;
+                                bestStartTime = machineNextAvailable;
                             }
                         }
                     }

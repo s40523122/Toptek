@@ -63,34 +63,44 @@ namespace CNCAppPlatform.APS
             return capable_processes.Contains(processId);
         }
 
-        public DateTime GetNextAvailableTime(DateTime prevProcessEndTime, double process_time)
+        /// <summary>
+        /// 計算目前製程可開始時間
+        /// </summary>
+        /// <param name="earlierProcessTime">能開始的最早時間，通常是指上一製程結束時間</param>
+        /// <param name="process_time">製程所需小時數</param>
+        /// <returns></returns>
+        public DateTime GetNextAvailableTime(DateTime earlierProcessTime, double process_time)
         {
             if (schedule.Count == 0)
-                return DateTime.Now;  // 如果機台沒有被分配工單，則立即可用
+                return earlierProcessTime;  // 如果機台沒有被分配工單，則立即可用
 
             // 計算時程表中的空檔是否能插入製程
             for (int i = 1; i < schedule.Count; i++)
             {
-                DateTime? start_idle = schedule[i - 1].job.processes[schedule[i - 1].processIndex].end_time;      // 空檔開始時間
-                DateTime? end_idle = schedule[i].job.processes[schedule[i].processIndex].start_time;      // 空檔結束時間
-                
-                // 若上一製程結束時間在空檔間，以製程結束時間做為空檔開始時間
-                start_idle = prevProcessEndTime > start_idle.Value ? prevProcessEndTime : start_idle.Value;
-                if (end_idle.HasValue && start_idle.HasValue)
-                {
-                    TimeSpan idle_time = end_idle.Value - start_idle.Value;
-                    double idle_hours = idle_time.TotalHours;
+                // 取得空檔的開始、結束時間
+                DateTime? start_idle = schedule[i - 1].job.processes[schedule[i - 1].processIndex].end_time;
+                DateTime? end_idle = schedule[i].job.processes[schedule[i].processIndex].start_time;
 
-                    // 若空檔時間大於於程所需時間，插入該製程
-                    if (idle_hours > process_time)
-                    {
-                        return start_idle.Value;
-                    }
+                // 開始或結束時間有空值，表示無空檔，跳出迴圈
+                if (!end_idle.HasValue || !start_idle.HasValue) break;
+
+                // 若空檔在能開始的最早時間前結束，跳過
+                if (earlierProcessTime > end_idle.Value) continue;
+
+                // 若能開始的最早時間在空檔間，以製程結束時間做為空檔開始時間
+                if (earlierProcessTime > start_idle.Value) start_idle = earlierProcessTime;
+
+                // 若空檔時間大於於程所需時間，插入該製程
+                double idle_hours = (end_idle.Value - start_idle.Value).TotalHours;     // 計算空檔存在小時數
+                if (idle_hours > process_time)
+                {
+                    return start_idle.Value;
                 }
             }
 
             // 空檔皆無法插入製程時，返回機台最後一個製程的結束時間
-            return schedule.Last().job.processes[schedule.Last().processIndex].end_time ?? DateTime.Now;
+            DateTime prev_schedule_end_time = schedule.Last().job.processes[schedule.Last().processIndex].end_time.Value;
+            return earlierProcessTime > prev_schedule_end_time ? earlierProcessTime : prev_schedule_end_time;
         }
 
         public void AddSchedule(Job job, int processIndex, DateTime startTime)

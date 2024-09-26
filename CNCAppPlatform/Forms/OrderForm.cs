@@ -54,7 +54,6 @@ namespace CNCAppPlatform
                 new Process(2, 18.9), // 製程序號 2，時間 2.0 小時
             }, "MaterialB", 150);
 
-
         public OrderForm()
         {
             InitializeComponent();
@@ -92,6 +91,10 @@ namespace CNCAppPlatform
             }
 
             gatt_frame.ShowScheduleBar();
+            // 顯示每台機台的時程表
+            machine1.DisplaySchedule();
+            machine2.DisplaySchedule();
+            machine3.DisplaySchedule();
         }
 
         private void BtnLog_Click(object sender, EventArgs e)
@@ -120,10 +123,7 @@ namespace CNCAppPlatform
 
         private void Gantt_Show()
         {
-            // 顯示每台機台的時程表
-            machine1.DisplaySchedule();
-            machine2.DisplaySchedule();
-            machine3.DisplaySchedule();
+            
 
             List<Machine> machines = new List<Machine>() { machine1, machine2 , machine3 }; // 取得包含排程的機台列表
             
