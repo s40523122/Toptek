@@ -25,31 +25,31 @@ namespace CNCAppPlatform
         Machine machine3 = new Machine(3, new List<int> { 2 });
 
         // 建立工單
-        Job job1 = new Job("001", new DateTime(2024, 9, 23).AddDays(3), 5, new List<Process>
+        Job job1 = new Job("001", new DateTime(2024, 9, 24).AddDays(3), 5, new List<Process>
             {
                 new Process(1, 52.5), // 製程序號 1，時間 1.5 小時
                 new Process(2, 12.0)  // 製程序號 2，時間 2.0 小時
             }, "MaterialA", 100);
 
-        Job job2 = new Job("002", new DateTime(2024, 9, 23).AddDays(4), 2, new List<Process>
+        Job job2 = new Job("002", new DateTime(2024, 9, 24).AddDays(4), 2, new List<Process>
             {
                 new Process(2, 32.0), // 製程序號 2，時間 2.0 小時
                 new Process(3, 3.4)  // 製程序號 3，時間 1.5 小時
             }, "MaterialB", 150);
 
-        Job job3 = new Job("003", new DateTime(2024, 9, 23).AddDays(1), 3, new List<Process>
+        Job job3 = new Job("003", new DateTime(2024, 9, 24).AddDays(1), 3, new List<Process>
             {
                 new Process(2, 10.6), // 製程序號 2，時間 2.0 小時
                 new Process(3, 22.8)  // 製程序號 3，時間 1.5 小時
             }, "MaterialB", 150);
 
-        Job job4 = new Job("004", new DateTime(2024, 9, 23).AddDays(2), 2, new List<Process>
+        Job job4 = new Job("004", new DateTime(2024, 9, 24).AddDays(2), 2, new List<Process>
             {
                 new Process(1, 46.3), // 製程序號 2，時間 2.0 小時
                 new Process(3, 10.5)  // 製程序號 3，時間 1.5 小時
             }, "MaterialB", 150);
 
-        Job job5 = new Job("005", new DateTime(2024, 9, 23).AddDays(3), 1, new List<Process>
+        Job job5 = new Job("005", new DateTime(2024, 9, 24).AddDays(3), 1, new List<Process>
             {
                 new Process(2, 18.9), // 製程序號 2，時間 2.0 小時
             }, "MaterialB", 150);
@@ -62,7 +62,7 @@ namespace CNCAppPlatform
 
             // 建立派工器
             var dispatcher = new MinimizeJobDelay(new List<Job> { job1, job2, job3, job4, job5 }, new List<Machine> { machine1, machine2, machine3 });
-            dispatcher.Dispatching();
+            dispatcher.Dispatching(GanttChartForm.StartApsDate);
             gatt_frame.ShowScheduleBar();
 
             btnAppend.Click += BtnAppend_Click;
@@ -70,29 +70,32 @@ namespace CNCAppPlatform
             btnApsMode.Click += BtnApsMode_Click;
         }
 
+        // 建立派工器
+        IDispatcher dispatcher = null;
         private void BtnApsMode_Click(object sender, EventArgs e)
         {
             ApsModeSelect orderLogFrame = new ApsModeSelect() { FormBorderStyle = FormBorderStyle.None };
             orderLogFrame.ShowDialog();
 
-            // 建立派工器
-            IDispatcher dispatcher = null;
+            
             // 開始派工
             switch (ApsModeSelect.Selected)
             {
                 case 0:
-                    dispatcher = new MinimizeJobDelay(new List<Job> { job1, job2, job3, job4, job5 }, new List<Machine> { machine1, machine2, machine3 });
+                    dispatcher = new MinimizeJobDelay(new List<Job> { job1, job2, job3, job4, job5 }, new List<Machine> { machine3, machine2, machine1 });
                     break;
                 case 1:
+                    dispatcher = new EnergyOptimization(new List<Job> { job1, job2, job3, job4, job5 }, new List<Machine> { machine1, machine2, machine3 });
+                    break;
+                case 2:
                     dispatcher = new ShortestProcessingTime(new List<Job> { job1, job2, job3, job4, job5 }, new List<Machine> { machine1, machine2, machine3 });
                     break;
                 case 3:
                     dispatcher = new PriorityBased(new List<Job> { job1, job2, job3, job4, job5 }, new List<Machine> { machine1, machine2, machine3 });
                     break;
-                default:
-                    dispatcher.Dispatching();
-                    break;
             }
+
+            dispatcher.Dispatching(GanttChartForm.StartApsDate);
 
             gatt_frame.ShowScheduleBar();
             // 顯示每台機台的時程表
@@ -110,7 +113,7 @@ namespace CNCAppPlatform
         int idCount = 1;
         private void BtnAppend_Click(object sender, EventArgs e)
         {
-            OrderInputFrame orderInputFrame = new OrderInputFrame() { FormBorderStyle = FormBorderStyle.None, ID = idCount.ToString() };
+            OrderInputFrame orderInputFrame = new OrderInputFrame() { FormBorderStyle = FormBorderStyle.None};
             orderInputFrame.ShowDialog();
 
             if (orderInputFrame.Tag == null) return;

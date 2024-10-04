@@ -1,9 +1,12 @@
-﻿using System;
+﻿using HZH_Controls;
+using HZH_Controls.Controls;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Diagnostics;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,12 +18,20 @@ namespace CNCAppPlatform
     {
         Form backForm;
 
-        public string ID;
-        private string checkStation = "";
+        string ID;       // 工單流水號
+        private string checkStation;
+
+        FlowLayoutPanel[] station_hours_panel;
+        CheckBox[] station_checks;
+        TextBox[] station_hours;
 
         public OrderInputFrame()
         {
             InitializeComponent();
+
+            Init_datagridview();
+
+            ID = (SaveCsv.DataRowCount("work_order.csv") + 1).ToString();       // 下一行 + 1
 
             TopMost = true;
             backForm = new Form()
@@ -36,6 +47,43 @@ namespace CNCAppPlatform
             };
             if (!System.Diagnostics.Debugger.IsAttached) backForm.Show();
 
+            
+            station_hours_panel = new FlowLayoutPanel[] { station1_hour, station2_hour, station3_hour, station4_hour };
+            station_hours = new TextBox[] {hour_1, hour_2, hour_3, hour_4};
+            station_checks = new CheckBox[] { station1, station2, station3, station4 };
+
+            // 將站別依序加入視窗中，這種作法 scroll bar 會比較自然
+            station_hour_list.Controls.AddRange(station_hours_panel);
+
+            foreach (var station in station_checks)
+            {
+                station.Click += station_Click;
+            }
+
+            Load += OrderInputFrame_Load;
+
+            Size = new Size(800, 512);
+        }
+
+        private void Init_datagridview()
+        {
+            // 設定 DataGridView 的欄位標題
+            dataGridView1.ColumnCount = 8;
+            dataGridView1.Columns[0].Name = "no";
+            dataGridView1.Columns[1].Name = "order_no";
+            dataGridView1.Columns[2].Name = "priority";
+            dataGridView1.Columns[3].Name = "material";
+            dataGridView1.Columns[4].Name = "qty";
+            dataGridView1.Columns[5].Name = "due_date";
+            dataGridView1.Columns[6].Name = "station";
+            dataGridView1.Columns[7].Name = "station_hour";
+        }
+
+        private void OrderInputFrame_Load(object sender, EventArgs e)
+        {
+            station2_hour.Visible = false;
+            station3_hour.Visible = false;
+            station4_hour.Visible = false;
         }
 
         private void btnClose_Click(object sender, EventArgs e)
@@ -45,33 +93,71 @@ namespace CNCAppPlatform
             backForm.Hide();
         }
 
+        private void station_Click(object sender, EventArgs e)
+        {
+            CheckBox checkBox = sender as CheckBox;
+            int station_index = Int32.Parse((string)checkBox.Tag) - 1;
+
+            station_hours_panel[station_index].Visible = station_checks[station_index].Checked;
+
+        }
+
         private void btnAppend_MouseClick(object sender, MouseEventArgs e)
         {
-            if (OrderName.Text == "") MessageBox.Show("請填寫工單編號 !");
-            else if (checkStation == "") MessageBox.Show("請勾選站別 !");
-            else if (material.Text == "") MessageBox.Show("請填寫材料 !");
-            else if (count.Text == "") MessageBox.Show("請填寫數量 !");
-            else if (!int.TryParse(count.Text, out _)) MessageBox.Show("數量欄位請填寫數字 !");
-            else
+            // 第一站，若沒有返回 null
+            string first_station = station_checks.FirstOrDefault(cb => cb.Checked)?.Tag.ToString();
+
+            // 檢查所有格位
+            if (input_order_no.Text == "")
             {
-                Tag = $"{OrderName.Text};{checkStation};{material.Text};{count.Text};{DateTime.Now};{remark.Text}";
-                PlcWrite("D1350", ID);      // 工單
-                PlcWrite("D1351", checkStation);        // 站別
-
-                int number = int.Parse(count.Text);
-                // 將數字分割成兩個8位的部分
-                int highShort = (int)(number >> 16); // 右移8位，得到高8位
-                int lowShort = (int)(number & 0xFFFF); // 用0xFF（二進位表示為11111111）進行AND運算，得到低8位
-
-                // 寫入Register1
-                Form1.axActUtlType.SetDevice("D1353", highShort);
-                // 寫入Register2
-                Form1.axActUtlType.SetDevice("D1352", lowShort);
-
-                PlcWrite("D1354", "1");     // 傳送確認
-
-                PlcRead();
+                MessageBox.Show("請填寫工單編號 !");
+                return;
             }
+            else if (first_station == null)
+            {
+                MessageBox.Show("請至少選擇一站別 !");
+                return;
+            }
+            else if (input_material.Text == "")
+            {
+                MessageBox.Show("請填寫材料 !");
+                return;
+            }
+
+            // 取得資料
+            foreach (var station in station_checks)
+            {
+                if (station.Checked)
+                {
+                    int index = Int32.Parse(station.Tag.ToString());   
+
+                    string[] row1 = new string[] { ID, input_order_no.Text, input_priority.Num.ToString(), input_material.Text, 
+                        input_qty.Num.ToString(), input_due_datetime.Value.ToString("yyyy/MM/dd HH:mm"), station.Text, station_hours[index-1].Text};
+                    dataGridView1.Rows.Add(row1);
+
+                    ID = (Int32.Parse(ID) + 1).ToString();
+                }
+            }
+            SaveCsv.SaveDataGridViewToCSV(dataGridView1, "work_order.csv");
+
+            //Tag = $"{OrderName1.Text};{checkStation};{material1.Text};{count1.Num};{DateTime.Now};{remark.Text}";
+            PlcWrite("D1350", ID);      // 工單
+            PlcWrite("D1351", checkStation);        // 站別
+
+            int number = Decimal.ToInt32(input_qty.Num);
+            // 將數字分割成兩個8位的部分
+            int highShort = (int)(number >> 16); // 右移8位，得到高8位
+            int lowShort = (int)(number & 0xFFFF); // 用0xFF（二進位表示為11111111）進行AND運算，得到低8位
+
+            // 寫入Register1
+            Form1.axActUtlType.SetDevice("D1353", highShort);
+            // 寫入Register2
+            Form1.axActUtlType.SetDevice("D1352", lowShort);
+
+            PlcWrite("D1354", "1");     // 傳送確認
+
+            PlcRead();
+            
         }
 
         private void PlcWrite(string d, string value)
@@ -126,17 +212,27 @@ namespace CNCAppPlatform
                 timer.Dispose();
             }
         }
+    }
 
+    class Order_Model
+    {
+        public string Order_no {  get; set; }
+        public int Priority { get; set; }
+        public string Material { get; set; }
+        public int Qty { get; set; }
+        public DateTime Due_date { get; set; }
+        public string Process {  get; set; }
+        public decimal Process_hour {  get; set; }
 
-        private void checkBox1_Click(object sender, EventArgs e)
+        public Order_Model(string order_no, decimal priority, string material, decimal qty, DateTime due_date, string process, decimal process_hour)
         {
-            CheckBox selecting = sender as CheckBox;
-            checkStation = selecting.Text;
-            foreach (CheckBox checkBox in tlpStation.Controls)
-            {
-                if (checkBox == selecting)checkBox.Checked = true;
-                else checkBox.Checked = false;
-            }
+            this.Order_no = order_no;
+            this.Priority = Decimal.ToInt32(priority);
+            this.Material = material;
+            this.Qty = Decimal.ToInt32(qty);
+            this.Due_date = due_date;
+            this.Process = process;
+            this.Process_hour = process_hour;
         }
     }
 }

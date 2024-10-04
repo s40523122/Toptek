@@ -8,7 +8,7 @@ namespace CNCAppPlatform.APS
 {
     public interface IDispatcher
     {
-        void Dispatching();
+        void Dispatching(DateTime begin_time);
     }
 
     public class Job
@@ -28,6 +28,11 @@ namespace CNCAppPlatform.APS
             this.processes = processes;
             required_material = material;
             required_quantity = quantity;
+        }
+
+        public static Process FindProcess((Job job, int processIndex) sche_bundle)
+        {
+            return sche_bundle.job.processes[sche_bundle.processIndex];
         }
     }
 
@@ -112,6 +117,8 @@ namespace CNCAppPlatform.APS
             process.end_time = startTime.AddHours(process.process_time);
 
             schedule.Add((job, processIndex));
+
+            schedule = schedule.OrderBy(sche => sche.job.processes[sche.processIndex].end_time.Value).ToList();
             Console.WriteLine($"機台 {machine_id} 被分配工單 {job.order_no} 的製程 {process.process_id}");
         }
 

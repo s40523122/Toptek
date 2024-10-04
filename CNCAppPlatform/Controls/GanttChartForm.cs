@@ -15,7 +15,8 @@ namespace CNCAppPlatform.Controls
     public partial class GanttChartForm : Form
     {
         private List<Machine> machines; // 用於儲存機台的排程
-        private DateTime selectedDate = DateTime.Today; // 選定的日期
+        private DateTime FocusDate = DateTime.Today; // 選定的日期
+        public static DateTime StartApsDate = DateTime.Today; // 選定的日期
         private enum TimeUnit { Day, Week, Month, Season, Year }; // 新增「季」和「年」選項
         private TimeUnit currentUnit = TimeUnit.Day; // 預設為日單位
         //private MonthCalendar monthCalendar; // 月曆元件
@@ -41,13 +42,25 @@ namespace CNCAppPlatform.Controls
             //toolTip1.SetToolTip(this.panel1, "這是一個按鈕\n有第二行嗎");
             //toolTip1.SetToolTip(this.textBox1, "這是一個文字框");
 
+            // 聚焦日期
+            DateTimePicker focus_time_picker = new DateTimePicker() 
+            { 
+                Margin = new Padding(3, 5, 3, 3),
+                Format = DateTimePickerFormat.Short,  // 設置日期格式為短格式 (MM/DD/YYYY)
+                Width = 110
+            };
+            focus_time_picker.ValueChanged += FocusTimePicker_ValueChanged;  // 綁定日期變更事件
 
-            // 添加 DateTimePicker 元件
-            DateTimePicker dateTimePicker = new DateTimePicker() { Margin = new Padding(3, 20, 3, 3) };
-            dateTimePicker.Format = DateTimePickerFormat.Short;  // 設置日期格式為短格式 (MM/DD/YYYY)
-            dateTimePicker.Location = new Point(20, 400);
-            dateTimePicker.ValueChanged += DateTimePicker_ValueChanged;  // 綁定日期變更事件
-            
+            // 開始排程日期
+            DateTimePicker aps_start_date = new DateTimePicker() 
+            { 
+                Margin = new Padding(3, 5, 3, 3),
+                Format = DateTimePickerFormat.Custom,  // 設定為自訂格式
+                CustomFormat = "yyyy/MM/dd HH:mm",     // 設定日期和時間格式
+                ShowUpDown = false,  // 顯示日曆和時間選擇
+                Width = 150
+            };
+            aps_start_date.ValueChanged += StartTimePicker_ValueChanged;  // 綁定日期變更事件
 
             // 添加按鈕
             Button dayButton = new Button() { Text = "日", Location = new Point(20, 350), Size = new Size(55, 55) };
@@ -62,22 +75,35 @@ namespace CNCAppPlatform.Controls
             quarterButton.Click += (sender, e) => { currentUnit = TimeUnit.Season; panel1.Invalidate(); };
             yearButton.Click += (sender, e) => { currentUnit = TimeUnit.Year; panel1.Invalidate(); };
 
+            flowLayoutPanel1.Controls.Remove(focus_label);
+            flowLayoutPanel1.Controls.Remove(aps_start_label);
             flowLayoutPanel1.Controls.Add(dayButton);
             flowLayoutPanel1.Controls.Add(weekButton);
             flowLayoutPanel1.Controls.Add(monthButton);
             flowLayoutPanel1.Controls.Add(quarterButton);
             flowLayoutPanel1.Controls.Add(yearButton);
-            flowLayoutPanel1.Controls.Add(dateTimePicker);
+            flowLayoutPanel1.Controls.Add(focus_label);
+            flowLayoutPanel1.Controls.Add(focus_time_picker);
+            flowLayoutPanel1.Controls.Add(aps_start_label);
+            flowLayoutPanel1.Controls.Add(aps_start_date);
 
             panel1.Paint += new PaintEventHandler(GanttChart_Paint);
         }
 
 
         // 月曆元件選擇日期事件
-        private void DateTimePicker_ValueChanged(object sender, EventArgs e)
+        private void FocusTimePicker_ValueChanged(object sender, EventArgs e)
         {
             DateTimePicker picker = sender as DateTimePicker;
-            selectedDate = picker.Value; // 更新選定日期
+            FocusDate = picker.Value; // 更新選定日期
+            panel1.Invalidate(); // 重新繪製甘特圖
+        }
+
+        private void StartTimePicker_ValueChanged(object sender, EventArgs e)
+        {
+            DateTimePicker picker = sender as DateTimePicker;
+            StartApsDate = new DateTime(picker.Value.Year, picker.Value.Month, picker.Value.Day, 8, 0, 0); // 更新選定日期
+            picker.Value = StartApsDate;
             panel1.Invalidate(); // 重新繪製甘特圖
         }
 
@@ -86,18 +112,18 @@ namespace CNCAppPlatform.Controls
             switch (currentUnit)
             {
                 case TimeUnit.Day:
-                    return selectedDate.Date; // 當天凌晨 0 點
+                    return FocusDate.Date; // 當天凌晨 0 點
                 case TimeUnit.Week:
-                    return selectedDate.AddDays(-(int)selectedDate.DayOfWeek).Date; // 這周的星期日
+                    return FocusDate.AddDays(-(int)FocusDate.DayOfWeek).Date; // 這周的星期日
                 case TimeUnit.Month:
-                    return new DateTime(selectedDate.Year, selectedDate.Month, 1); // 當月1號
+                    return new DateTime(FocusDate.Year, FocusDate.Month, 1); // 當月1號
                 case TimeUnit.Season:
-                    int quarterStartMonth = ((selectedDate.Month - 1) / 3) * 3 + 1;
-                    return new DateTime(selectedDate.Year, quarterStartMonth, 1); // 所在季的1號
+                    int quarterStartMonth = ((FocusDate.Month - 1) / 3) * 3 + 1;
+                    return new DateTime(FocusDate.Year, quarterStartMonth, 1); // 所在季的1號
                 case TimeUnit.Year:
-                    return new DateTime(selectedDate.Year, 1, 1); // 當年1月1日
+                    return new DateTime(FocusDate.Year, 1, 1); // 當年1月1日
                 default:
-                    return selectedDate.Date; // 默認當天凌晨 0 點
+                    return FocusDate.Date; // 默認當天凌晨 0 點
             }
         }
 

@@ -19,7 +19,7 @@ namespace CNCAppPlatform.APS
         }
 
         // 根據最小化工單延遲邏輯進行工單分配
-        public void Dispatching()
+        public void Dispatching(DateTime begin_time)
         {
             // 清空機台時程表
             foreach (var machine in Machines)
@@ -50,7 +50,7 @@ namespace CNCAppPlatform.APS
                             var previousProcess = job.processes.IndexOf(process) > 0
                                 ? job.processes[job.processes.IndexOf(process) - 1]
                                 : null;
-                            DateTime prevProcessEndTime = previousProcess?.end_time ?? DateTime.Now;
+                            DateTime prevProcessEndTime = previousProcess?.end_time ?? begin_time;
 
                             // 計算目前製程可開始時間
                             DateTime machineNextAvailable = machine.GetNextAvailableTime(prevProcessEndTime, process.process_time);

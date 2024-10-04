@@ -48,6 +48,9 @@
     <Reference Include="EasyModbus, Version=5.6.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\EasyModbusTCP.5.6.0\lib\net40\EasyModbus.dll</HintPath>
     </Reference>
+    <Reference Include="HZH_Controls">
+      <HintPath>Controls\HZH_Controls.dll</HintPath>
+    </Reference>
     <Reference Include="iniRW, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\iniRW\iniRW\bin\Debug\iniRW.dll</HintPath>
@@ -84,6 +87,7 @@
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Design" />
     <Reference Include="System.Management" />
     <Reference Include="System.Net" />
     <Reference Include="System.Reactive, Version=1.0.10621.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
@@ -123,6 +127,7 @@
       <DependentUpon>AddItemButton.cs</DependentUpon>
     </Compile>
     <Compile Include="APS\ApsModels.cs" />
+    <Compile Include="APS\EnergyOptimization.cs" />
     <Compile Include="APS\PriorityBased.cs" />
     <Compile Include="APS\MinimizeJobDelay.cs" />
     <Compile Include="APS\ShortestProcessingTime.cs" />
@@ -135,56 +140,12 @@
     <Compile Include="Controls\DoubleImg.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Controls\Forms\FrmAnchor.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Controls\Forms\FrmAnchor.Designer.cs">
-      <DependentUpon>FrmAnchor.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Controls\Forms\FrmAnchorTips.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Controls\Forms\FrmAnchorTips.Designer.cs">
-      <DependentUpon>FrmAnchorTips.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Controls\Forms\FrmBase.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Controls\Forms\FrmBase.Designer.cs">
-      <DependentUpon>FrmBase.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Controls\Forms\FrmLoading.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Controls\Forms\FrmLoading.Designer.cs">
-      <DependentUpon>FrmLoading.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Controls\Forms\FrmTransparent.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Controls\Forms\FrmTransparent.Designer.cs">
-      <DependentUpon>FrmTransparent.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Controls\Forms\FrmWaiting.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Controls\Forms\FrmWaiting.Designer.cs">
-      <DependentUpon>FrmWaiting.cs</DependentUpon>
-    </Compile>
     <Compile Include="Controls\GanttChartForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Controls\GanttChartForm.Designer.cs">
       <DependentUpon>GanttChartForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Controls\Helpers\ControlHelper.cs" />
-    <Compile Include="Controls\Helpers\Ext.cs" />
-    <Compile Include="Controls\Helpers\GraphDirection.cs" />
-    <Compile Include="Controls\Helpers\ITheme.cs" />
-    <Compile Include="Controls\Helpers\MouseHook.cs" />
-    <Compile Include="Controls\Helpers\NativeMethods.cs" />
-    <Compile Include="Controls\Helpers\TextInputType.cs" />
-    <Compile Include="Controls\Helpers\WindowsHook.cs" />
     <Compile Include="Controls\myPanel.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -196,18 +157,6 @@
     </Compile>
     <Compile Include="Controls\setform.cs">
       <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Controls\Step\UCStep.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Controls\Step\UCStep.Designer.cs">
-      <DependentUpon>UCStep.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Controls\Switch\UCSwitch.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Controls\Switch\UCSwitch.Designer.cs">
-      <DependentUpon>UCSwitch.cs</DependentUpon>
     </Compile>
     <Compile Include="Controls\Task\Agv.cs">
       <SubType>UserControl</SubType>
@@ -306,6 +255,7 @@
       <DependentUpon>SequenceList.cs</DependentUpon>
     </Compile>
     <Compile Include="Services\LineNotify.cs" />
+    <Compile Include="Services\SaveCsv.cs" />
     <Compile Include="Temp\datePicker.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -343,7 +293,7 @@
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="GlobalVar.cs" />
-    <Compile Include="INiReader.cs" />
+    <Compile Include="Services\INiReader.cs" />
     <Compile Include="Controls\LabelLED.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -419,24 +369,6 @@
     <EmbeddedResource Include="Controls\deviceInfoConstrict.resx">
       <DependentUpon>deviceInfoConstrict.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Controls\Forms\FrmAnchor.resx">
-      <DependentUpon>FrmAnchor.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Controls\Forms\FrmAnchorTips.resx">
-      <DependentUpon>FrmAnchorTips.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Controls\Forms\FrmBase.resx">
-      <DependentUpon>FrmBase.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Controls\Forms\FrmLoading.resx">
-      <DependentUpon>FrmLoading.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Controls\Forms\FrmTransparent.resx">
-      <DependentUpon>FrmTransparent.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Controls\Forms\FrmWaiting.resx">
-      <DependentUpon>FrmWaiting.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Controls\GanttChartForm.resx">
       <DependentUpon>GanttChartForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -445,12 +377,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\setform.resx">
       <DependentUpon>setform.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Controls\Step\UCStep.resx">
-      <DependentUpon>UCStep.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Controls\Switch\UCSwitch.resx">
-      <DependentUpon>UCSwitch.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\Task\Agv.resx">
       <DependentUpon>Agv.cs</DependentUpon>
