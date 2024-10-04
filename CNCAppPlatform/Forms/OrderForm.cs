@@ -68,6 +68,9 @@ namespace CNCAppPlatform
             btnAppend.Click += BtnAppend_Click;
             btnLog.Click += BtnLog_Click;
             btnApsMode.Click += BtnApsMode_Click;
+
+            List<Job> jobs = Job.ImportCSV("work_order.csv");
+
         }
 
         // 建立派工器

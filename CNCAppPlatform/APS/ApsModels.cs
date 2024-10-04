@@ -1,8 +1,11 @@
-﻿using System;
+﻿using RosSharp;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Controls;
+using System.Windows.Forms;
 
 namespace CNCAppPlatform.APS
 {
@@ -30,9 +33,54 @@ namespace CNCAppPlatform.APS
             required_quantity = quantity;
         }
 
+        public Job(int reserved ,string orderNo, string dueDate, string priority, List<Process> processes, string material, string quantity)
+        {
+            order_no = orderNo;
+            due_date = DateTime.Parse(dueDate);
+            this.priority = Int32.Parse(priority);
+            this.processes = processes;
+            required_material = material;
+            required_quantity = Int32.Parse(quantity);
+        }
+
         public static Process FindProcess((Job job, int processIndex) sche_bundle)
         {
             return sche_bundle.job.processes[sche_bundle.processIndex];
+        }
+
+        public static List<Job> ImportCSV(string csv_path) 
+        {
+            List<Job> job_list = new List<Job>();
+            
+
+            List<string[]> csv_array = SaveCsv.LoadCSVToString(csv_path);
+            
+            for (int i = 0; i < csv_array.Count-1; i++) 
+            {
+                List<Process> processes = new List<Process> { new Process(csv_array[i][6], csv_array[i][7]) };
+
+                for (int j = i; j < csv_array.Count-1; j++)
+                {
+                    string[] current_order = csv_array[j];
+                    string[] next_order = csv_array[j + 1];
+                    if (current_order[1] == next_order[1])
+                    {
+                        // 相同製程
+                        processes.Add(new Process(next_order[6], next_order[7]));
+                        i++;
+                    }
+                    else
+                    {
+                        break;
+                    }
+                }
+
+                Job _job = new Job(1, csv_array[i][1], csv_array[i][5], csv_array[i][2], processes, csv_array[i][3], csv_array[i][4]);
+
+                job_list.Add(_job);
+            }
+
+            return job_list;
         }
     }
 
@@ -47,6 +95,14 @@ namespace CNCAppPlatform.APS
         {
             process_id = processId;
             process_time = time;
+            start_time = null;
+            end_time = null;
+        }
+
+        public Process(string processId, string time)
+        {
+            process_id = Int32.Parse(processId);
+            process_time = double.Parse(time);
             start_time = null;
             end_time = null;
         }

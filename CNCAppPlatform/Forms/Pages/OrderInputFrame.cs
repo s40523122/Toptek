@@ -68,7 +68,7 @@ namespace CNCAppPlatform
         private void Init_datagridview()
         {
             // 設定 DataGridView 的欄位標題
-            dataGridView1.ColumnCount = 8;
+            dataGridView1.ColumnCount = 9;
             dataGridView1.Columns[0].Name = "no";
             dataGridView1.Columns[1].Name = "order_no";
             dataGridView1.Columns[2].Name = "priority";
@@ -77,6 +77,7 @@ namespace CNCAppPlatform
             dataGridView1.Columns[5].Name = "due_date";
             dataGridView1.Columns[6].Name = "station";
             dataGridView1.Columns[7].Name = "station_hour";
+            dataGridView1.Columns[8].Name = "remark";
         }
 
         private void OrderInputFrame_Load(object sender, EventArgs e)
@@ -132,7 +133,7 @@ namespace CNCAppPlatform
                     int index = Int32.Parse(station.Tag.ToString());   
 
                     string[] row1 = new string[] { ID, input_order_no.Text, input_priority.Num.ToString(), input_material.Text, 
-                        input_qty.Num.ToString(), input_due_datetime.Value.ToString("yyyy/MM/dd HH:mm"), station.Text, station_hours[index-1].Text};
+                        input_qty.Num.ToString(), input_due_datetime.Value.ToString("yyyy/MM/dd HH:mm"), station.Text, station_hours[index-1].Text, remark_msg.Text};
                     dataGridView1.Rows.Add(row1);
 
                     ID = (Int32.Parse(ID) + 1).ToString();

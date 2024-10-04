@@ -53,7 +53,7 @@
             this.input_due_datetime = new System.Windows.Forms.DateTimePicker();
             this.flowLayoutPanel5 = new System.Windows.Forms.FlowLayoutPanel();
             this.label18 = new System.Windows.Forms.Label();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.remark_msg = new System.Windows.Forms.RichTextBox();
             this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
             this.label8 = new System.Windows.Forms.Label();
             this.input_stations = new System.Windows.Forms.FlowLayoutPanel();
@@ -473,7 +473,7 @@
             // 
             this.flowLayoutPanel5.AutoSize = true;
             this.flowLayoutPanel5.Controls.Add(this.label18);
-            this.flowLayoutPanel5.Controls.Add(this.richTextBox1);
+            this.flowLayoutPanel5.Controls.Add(this.remark_msg);
             this.flowLayoutPanel5.Location = new System.Drawing.Point(8, 212);
             this.flowLayoutPanel5.Name = "flowLayoutPanel5";
             this.flowLayoutPanel5.Size = new System.Drawing.Size(358, 151);
@@ -492,16 +492,16 @@
             this.label18.Text = "備註";
             this.label18.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // richTextBox1
+            // remark_msg
             // 
-            this.richTextBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.richTextBox1.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.richTextBox1.Location = new System.Drawing.Point(144, 4);
-            this.richTextBox1.Margin = new System.Windows.Forms.Padding(4);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(210, 143);
-            this.richTextBox1.TabIndex = 6;
-            this.richTextBox1.Text = "";
+            this.remark_msg.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.remark_msg.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.remark_msg.Location = new System.Drawing.Point(144, 4);
+            this.remark_msg.Margin = new System.Windows.Forms.Padding(4);
+            this.remark_msg.Name = "remark_msg";
+            this.remark_msg.Size = new System.Drawing.Size(210, 143);
+            this.remark_msg.TabIndex = 6;
+            this.remark_msg.Text = "";
             // 
             // flowLayoutPanel3
             // 
@@ -1093,7 +1093,7 @@
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel5;
         private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.RichTextBox richTextBox1;
+        private System.Windows.Forms.RichTextBox remark_msg;
         private System.Windows.Forms.FlowLayoutPanel station_hour_list;
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.Label label20;

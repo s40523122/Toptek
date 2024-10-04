@@ -132,5 +132,38 @@ namespace CNCAppPlatform
                 MessageBox.Show("讀取檔案時發生錯誤：" + ex.Message);
             }
         }
+
+        public static List<string[]> LoadCSVToString(string filePath, bool in_degug = true)
+        {
+            // 若 in_debug == true，filePath 改為基於 Debug 路徑的相對路徑
+            if (in_degug) filePath = Path.Combine(debug_path, filePath);
+
+            List<string[]> csv_array = new List<string[]>();
+
+            try
+            {
+                // 使用 StreamReader 讀取 CSV 檔案
+                using (StreamReader reader = new StreamReader(filePath))
+                {
+
+                    // 讀取第一行，這通常是標題行
+                    string headerLine = reader.ReadLine();
+
+                    // 讀取接下來的每一行作為數據
+                    string line;
+                    while ((line = reader.ReadLine()) != null)
+                    {
+                        csv_array.Add(line.Split(',')); // 用逗號分割
+                    }
+                }
+
+                return csv_array;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("讀取檔案時發生錯誤：" + ex.Message);
+                return null;
+            }
+        }
     }
 }

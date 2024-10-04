@@ -64,12 +64,13 @@ namespace CNCAppPlatform
             SaveCsv.LoadCSVToDataGridView(dataGridView1, "work_order.csv");
             dataGridView1.Columns[0].Width = 40;
             dataGridView1.Columns[1].Width = 150;
-            dataGridView1.Columns[2].Width = 80;
+            dataGridView1.Columns[2].Width = 70;
             dataGridView1.Columns[3].Width = 150;
-            dataGridView1.Columns[4].Width = 80;
-            dataGridView1.Columns[5].Width = 200;
+            dataGridView1.Columns[4].Width = 70;
+            dataGridView1.Columns[5].Width = 150;
             dataGridView1.Columns[6].Width = 80;
             dataGridView1.Columns[7].Width = 100;
+            
         }
     }
 }
