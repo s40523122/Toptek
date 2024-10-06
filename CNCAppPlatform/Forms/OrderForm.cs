@@ -69,7 +69,7 @@ namespace CNCAppPlatform
             btnLog.Click += BtnLog_Click;
             btnApsMode.Click += BtnApsMode_Click;
 
-            List<Job> jobs = Job.ImportCSV("work_order.csv");
+            
 
         }
 
@@ -80,12 +80,14 @@ namespace CNCAppPlatform
             ApsModeSelect orderLogFrame = new ApsModeSelect() { FormBorderStyle = FormBorderStyle.None };
             orderLogFrame.ShowDialog();
 
-            
+
+            List<Job> jobs = Job.ImportCSV("work_order.csv");
+
             // 開始派工
             switch (ApsModeSelect.Selected)
             {
                 case 0:
-                    dispatcher = new MinimizeJobDelay(new List<Job> { job1, job2, job3, job4, job5 }, new List<Machine> { machine3, machine2, machine1 });
+                    dispatcher = new MinimizeJobDelay(jobs, new List<Machine> { machine3, machine2, machine1 });
                     break;
                 case 1:
                     dispatcher = new EnergyOptimization(new List<Job> { job1, job2, job3, job4, job5 }, new List<Machine> { machine1, machine2, machine3 });

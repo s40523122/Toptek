@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.Header;
 
 namespace CNCAppPlatform.Controls
 {
@@ -21,6 +22,10 @@ namespace CNCAppPlatform.Controls
         private TimeUnit currentUnit = TimeUnit.Day; // 預設為日單位
         //private MonthCalendar monthCalendar; // 月曆元件
         private ToolTip toolTip1;
+
+        // 定義一個空的顏色對應字典
+        Dictionary<string, int> jobColorDict = new Dictionary<string, int>();
+
         private List<Control> schedule_bars = new List<Control>();
 
         public GanttChartForm(List<Machine> machines)
@@ -134,6 +139,18 @@ namespace CNCAppPlatform.Controls
         Color.Orange, Color.Cyan, Color.Magenta, Color.Lime
         };
 
+        int Color_index = 0;
+        private void BindColor(string order_name)
+        {
+            // 當字典中尚未出現工單名稱，綁定新資料
+            if (!jobColorDict.ContainsKey(order_name))
+            {
+                jobColorDict[order_name] = Color_index;
+                Color_index++;
+                if (Color_index == 9) Color_index = 0;
+            }
+        }
+
         private void GanttChart_Paint(object sender, PaintEventArgs e)
         {
             Graphics g = e.Graphics;
@@ -214,7 +231,7 @@ namespace CNCAppPlatform.Controls
             {
                 g.DrawString(machine.machine_id.ToString(), this.Font, Brushes.Black, 10, startY + machines.IndexOf(machine) * machineHeight);
 
-                Dictionary<int, Brush> jobColors = new Dictionary<int, Brush>();
+                //Dictionary<int, Brush> jobColors = new Dictionary<int, Brush>();
 
                 foreach (var schedule in machine.schedule)
                 {
@@ -222,44 +239,46 @@ namespace CNCAppPlatform.Controls
                     int processIndex = schedule.processIndex;
                     Process process = job.processes[processIndex];
 
+                    BindColor(job.order_no);
+
                     TimeSpan processDuration = (TimeSpan)(process.end_time - process.start_time);
 
                     // 將時間轉換為當前單位的長度
                     int barStartX = startX + (int)((process.start_time.Value - chartStartTime).TotalHours / unitDuration.TotalHours * segmentWidth);
                     int barWidth = (int)((processDuration.TotalHours / unitDuration.TotalHours) * segmentWidth);
 
-                    if (int.TryParse(job.order_no, out int iorder_no))
-                    {
-                        if (!jobColors.ContainsKey(iorder_no))
-                        {
-                            jobColors[iorder_no] = new SolidBrush(colors[iorder_no % colors.Length]);
-                        }
+                    int iorder_no= jobColorDict[job.order_no];
 
-                        //g.FillRectangle(jobColors[iorder_no], barStartX, startY + machines.IndexOf(machine) * machineHeight + 10, barWidth, 20);
-                        //g.DrawRectangle(Pens.Black, barStartX, startY + machines.IndexOf(machine) * machineHeight + 10, barWidth, 20);
+                    //if (!jobColors.ContainsKey(iorder_no))
+                    //{
+                    //    jobColors[iorder_no] = new SolidBrush(colors[iorder_no % colors.Length]);
+                    //}
+
+                    //g.FillRectangle(jobColors[iorder_no], barStartX, startY + machines.IndexOf(machine) * machineHeight + 10, barWidth, 20);
+                    //g.DrawRectangle(Pens.Black, barStartX, startY + machines.IndexOf(machine) * machineHeight + 10, barWidth, 20);
 
                         
 
-                        DateTime dueTime = job.due_date;
-                        if (process.end_time > dueTime)
-                        {
-                            // 若開始時間晚於交期，起點設為開始時間
-                            dueTime = process.start_time > dueTime ? (DateTime)process.start_time : dueTime;
+                    DateTime dueTime = job.due_date;
+                    if (process.end_time > dueTime)
+                    {
+                        // 若開始時間晚於交期，起點設為開始時間
+                        dueTime = process.start_time > dueTime ? (DateTime)process.start_time : dueTime;
                             
-                            // 當超過交期時間，將交期後的部分顯示為紅色斜線
-                            TimeSpan timeOverdue = (TimeSpan)(process.end_time - dueTime);
+                        // 當超過交期時間，將交期後的部分顯示為紅色斜線
+                        TimeSpan timeOverdue = (TimeSpan)(process.end_time - dueTime);
 
-                            int dueTimeX = startX + (int)(((DateTime)dueTime - chartStartTime).TotalHours / unitDuration.TotalHours * segmentWidth);
-                            int overdueBarWidth = (int)((timeOverdue.TotalHours / unitDuration.TotalHours) * segmentWidth);
-                            int onTimeBarWidth = barWidth - overdueBarWidth;
+                        int dueTimeX = startX + (int)(((DateTime)dueTime - chartStartTime).TotalHours / unitDuration.TotalHours * segmentWidth);
+                        int overdueBarWidth = (int)((timeOverdue.TotalHours / unitDuration.TotalHours) * segmentWidth);
+                        int onTimeBarWidth = barWidth - overdueBarWidth;
 
-                            //g.FillRectangle(Brushes.Red, dueTimeX+2, startY + machines.IndexOf(machine) * machineHeight + 23, overdueBarWidth-2, 6); // 超過交期的紅色進度條
-                        }
-                        //g.DrawString($"Job {job.order_no} (P{process.process_id})", this.Font, Brushes.White, barStartX + 5, startY + machines.IndexOf(machine) * machineHeight + 10);
-
-                        ProcessBar process_bar = new ProcessBar(barWidth, job, processIndex) { BackColor = colors[iorder_no], Location = new Point(barStartX, startY + machines.IndexOf(machine) * machineHeight + 15) };
-                        schedule_bars.Add(process_bar);
+                        //g.FillRectangle(Brushes.Red, dueTimeX+2, startY + machines.IndexOf(machine) * machineHeight + 23, overdueBarWidth-2, 6); // 超過交期的紅色進度條
                     }
+                    //g.DrawString($"Job {job.order_no} (P{process.process_id})", this.Font, Brushes.White, barStartX + 5, startY + machines.IndexOf(machine) * machineHeight + 10);
+
+                    ProcessBar process_bar = new ProcessBar(barWidth, job, processIndex) { BackColor = colors[iorder_no], Location = new Point(barStartX, startY + machines.IndexOf(machine) * machineHeight + 15) };
+                    schedule_bars.Add(process_bar);
+                    
                 }
             }
 
