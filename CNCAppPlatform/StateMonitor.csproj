@@ -212,6 +212,12 @@
     <Compile Include="Forms\Pages\ApsModeSelect.Designer.cs">
       <DependentUpon>ApsModeSelect.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Pages\ExportPage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Pages\ExportPage.Designer.cs">
+      <DependentUpon>ExportPage.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Pages\OrderLog.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -404,6 +410,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Pages\ApsModeSelect.resx">
       <DependentUpon>ApsModeSelect.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Pages\ExportPage.resx">
+      <DependentUpon>ExportPage.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Pages\OrderLog.resx">
       <DependentUpon>OrderLog.cs</DependentUpon>

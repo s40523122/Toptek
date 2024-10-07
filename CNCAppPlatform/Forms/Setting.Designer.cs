@@ -54,8 +54,8 @@
             // tabControl1
             // 
             this.tabControl1.Alignment = System.Windows.Forms.TabAlignment.Left;
-            this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
+            this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage3);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl1.DrawMode = System.Windows.Forms.TabDrawMode.OwnerDrawFixed;
@@ -63,10 +63,11 @@
             this.tabControl1.HotTrack = true;
             this.tabControl1.ItemSize = new System.Drawing.Size(20, 180);
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
+            this.tabControl1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tabControl1.Multiline = true;
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1067, 554);
+            this.tabControl1.Size = new System.Drawing.Size(800, 450);
             this.tabControl1.TabIndex = 0;
             this.tabControl1.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.TabControl1_DrawItem);
             // 
@@ -76,9 +77,10 @@
             this.tabPage1.Controls.Add(this.panel1);
             this.tabPage1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabPage1.Location = new System.Drawing.Point(184, 4);
+            this.tabPage1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(80, 80, 80, 0);
-            this.tabPage1.Size = new System.Drawing.Size(879, 546);
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(60, 65, 60, 0);
+            this.tabPage1.Size = new System.Drawing.Size(612, 442);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "設備";
             // 
@@ -94,10 +96,11 @@
             this.panel1.Controls.Add(this.panel3);
             this.panel1.Controls.Add(this.deviceInfoConstrict4);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(80, 80);
+            this.panel1.Location = new System.Drawing.Point(60, 65);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Padding = new System.Windows.Forms.Padding(3);
-            this.panel1.Size = new System.Drawing.Size(719, 466);
+            this.panel1.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel1.Size = new System.Drawing.Size(492, 377);
             this.panel1.TabIndex = 0;
             // 
             // deviceInfoConstrict3
@@ -107,18 +110,19 @@
             this.deviceInfoConstrict3.DeviceName = "Device A";
             this.deviceInfoConstrict3.Dock = System.Windows.Forms.DockStyle.Top;
             this.deviceInfoConstrict3.ID = "device4";
-            this.deviceInfoConstrict3.Location = new System.Drawing.Point(3, 273);
-            this.deviceInfoConstrict3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.deviceInfoConstrict3.Location = new System.Drawing.Point(2, 221);
+            this.deviceInfoConstrict3.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.deviceInfoConstrict3.Name = "deviceInfoConstrict3";
-            this.deviceInfoConstrict3.Size = new System.Drawing.Size(713, 80);
+            this.deviceInfoConstrict3.Size = new System.Drawing.Size(488, 65);
             this.deviceInfoConstrict3.TabIndex = 13;
             // 
             // panel4
             // 
             this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel4.Location = new System.Drawing.Point(3, 263);
+            this.panel4.Location = new System.Drawing.Point(2, 213);
+            this.panel4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(713, 10);
+            this.panel4.Size = new System.Drawing.Size(488, 8);
             this.panel4.TabIndex = 16;
             // 
             // deviceInfoConstrict2
@@ -128,18 +132,19 @@
             this.deviceInfoConstrict2.DeviceName = "Device A";
             this.deviceInfoConstrict2.Dock = System.Windows.Forms.DockStyle.Top;
             this.deviceInfoConstrict2.ID = "device3";
-            this.deviceInfoConstrict2.Location = new System.Drawing.Point(3, 183);
-            this.deviceInfoConstrict2.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.deviceInfoConstrict2.Location = new System.Drawing.Point(2, 148);
+            this.deviceInfoConstrict2.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.deviceInfoConstrict2.Name = "deviceInfoConstrict2";
-            this.deviceInfoConstrict2.Size = new System.Drawing.Size(713, 80);
+            this.deviceInfoConstrict2.Size = new System.Drawing.Size(488, 65);
             this.deviceInfoConstrict2.TabIndex = 11;
             // 
             // panel2
             // 
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel2.Location = new System.Drawing.Point(3, 173);
+            this.panel2.Location = new System.Drawing.Point(2, 140);
+            this.panel2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(713, 10);
+            this.panel2.Size = new System.Drawing.Size(488, 8);
             this.panel2.TabIndex = 14;
             // 
             // deviceInfoConstrict1
@@ -149,18 +154,19 @@
             this.deviceInfoConstrict1.DeviceName = "Device A";
             this.deviceInfoConstrict1.Dock = System.Windows.Forms.DockStyle.Top;
             this.deviceInfoConstrict1.ID = "device2";
-            this.deviceInfoConstrict1.Location = new System.Drawing.Point(3, 93);
-            this.deviceInfoConstrict1.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.deviceInfoConstrict1.Location = new System.Drawing.Point(2, 75);
+            this.deviceInfoConstrict1.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.deviceInfoConstrict1.Name = "deviceInfoConstrict1";
-            this.deviceInfoConstrict1.Size = new System.Drawing.Size(713, 80);
+            this.deviceInfoConstrict1.Size = new System.Drawing.Size(488, 65);
             this.deviceInfoConstrict1.TabIndex = 9;
             // 
             // panel3
             // 
             this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel3.Location = new System.Drawing.Point(3, 83);
+            this.panel3.Location = new System.Drawing.Point(2, 67);
+            this.panel3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(713, 10);
+            this.panel3.Size = new System.Drawing.Size(488, 8);
             this.panel3.TabIndex = 15;
             // 
             // deviceInfoConstrict4
@@ -170,30 +176,32 @@
             this.deviceInfoConstrict4.DeviceName = "Device A";
             this.deviceInfoConstrict4.Dock = System.Windows.Forms.DockStyle.Top;
             this.deviceInfoConstrict4.ID = "device1";
-            this.deviceInfoConstrict4.Location = new System.Drawing.Point(3, 3);
-            this.deviceInfoConstrict4.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.deviceInfoConstrict4.Location = new System.Drawing.Point(2, 2);
+            this.deviceInfoConstrict4.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.deviceInfoConstrict4.Name = "deviceInfoConstrict4";
-            this.deviceInfoConstrict4.Size = new System.Drawing.Size(713, 80);
+            this.deviceInfoConstrict4.Size = new System.Drawing.Size(488, 65);
             this.deviceInfoConstrict4.TabIndex = 7;
             // 
             // tabPage2
             // 
             this.tabPage2.BackColor = System.Drawing.SystemColors.Control;
             this.tabPage2.Location = new System.Drawing.Point(184, 4);
+            this.tabPage2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(879, 546);
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabPage2.Size = new System.Drawing.Size(612, 442);
             this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "tabPage2";
+            this.tabPage2.Text = "基本";
             // 
             // tabPage3
             // 
             this.tabPage3.BackColor = System.Drawing.SystemColors.Control;
             this.tabPage3.Location = new System.Drawing.Point(184, 4);
+            this.tabPage3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Size = new System.Drawing.Size(879, 546);
+            this.tabPage3.Size = new System.Drawing.Size(612, 442);
             this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "tabPage3";
+            this.tabPage3.Text = "環境";
             // 
             // BottomToolStripPanel
             // 
@@ -233,11 +241,10 @@
             // 
             // Setting
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1067, 554);
+            this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.tabControl1);
-            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Setting";
             this.Text = "Setting";
             this.tabControl1.ResumeLayout(false);

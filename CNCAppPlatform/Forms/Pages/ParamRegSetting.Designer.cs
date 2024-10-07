@@ -52,10 +52,10 @@
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(160, 1);
+            this.textBox1.Location = new System.Drawing.Point(158, 1);
             this.textBox1.Margin = new System.Windows.Forms.Padding(1);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(94, 22);
+            this.textBox1.Size = new System.Drawing.Size(72, 22);
             this.textBox1.TabIndex = 0;
             // 
             // dataGridView1
@@ -87,14 +87,16 @@
             dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle4;
-            this.dataGridView1.Location = new System.Drawing.Point(34, 62);
+            this.dataGridView1.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnEnter;
+            this.dataGridView1.Location = new System.Drawing.Point(26, 50);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.ScrollBars = System.Windows.Forms.ScrollBars.None;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(300, 370);
+            this.dataGridView1.Size = new System.Drawing.Size(225, 301);
             this.dataGridView1.TabIndex = 6;
             // 
             // label
@@ -125,7 +127,8 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(3, 0);
+            this.label1.Location = new System.Drawing.Point(2, 0);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(153, 20);
             this.label1.TabIndex = 8;
@@ -161,14 +164,16 @@
             dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridView2.DefaultCellStyle = dataGridViewCellStyle8;
-            this.dataGridView2.Location = new System.Drawing.Point(365, 62);
+            this.dataGridView2.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnEnter;
+            this.dataGridView2.Location = new System.Drawing.Point(274, 50);
+            this.dataGridView2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dataGridView2.Name = "dataGridView2";
             this.dataGridView2.RowHeadersVisible = false;
             this.dataGridView2.RowHeadersWidth = 51;
             this.dataGridView2.RowTemplate.Height = 24;
             this.dataGridView2.ScrollBars = System.Windows.Forms.ScrollBars.None;
             this.dataGridView2.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-            this.dataGridView2.Size = new System.Drawing.Size(300, 370);
+            this.dataGridView2.Size = new System.Drawing.Size(225, 301);
             this.dataGridView2.TabIndex = 6;
             // 
             // dataGridViewTextBoxColumn1
@@ -199,20 +204,22 @@
             // 
             this.flowLayoutPanel1.Controls.Add(this.label1);
             this.flowLayoutPanel1.Controls.Add(this.textBox1);
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(34, 17);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(26, 14);
+            this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(329, 31);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(247, 25);
             this.flowLayoutPanel1.TabIndex = 9;
             // 
-            // paramreg_setting
+            // ParamRegSetting
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(699, 460);
+            this.ClientSize = new System.Drawing.Size(524, 374);
             this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.dataGridView2);
             this.Controls.Add(this.dataGridView1);
-            this.Name = "paramreg_setting";
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Name = "ParamRegSetting";
             this.Text = "_24reg_setting";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
