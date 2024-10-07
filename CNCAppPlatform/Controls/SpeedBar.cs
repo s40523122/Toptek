@@ -16,6 +16,18 @@ namespace CNCAppPlatform
 {
     public partial class SpeedBar : Panel
     {
+        [Description("是否隨機產生稼動率"), Category("自訂值")]
+        public bool RandomValue
+        {
+            get { return _randomValue; }
+            set
+            {
+                _randomValue = value;
+                if (_randomValue) NowPercentage = new Random().Next(60, 80);
+            }
+        }
+        private bool _randomValue = false;
+
         [Description("是否允許雙擊後調整指針百分比"), Category("自訂值")]
         public bool IsAdjustment
         {
