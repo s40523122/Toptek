@@ -12,6 +12,12 @@ namespace CNCAppPlatform
     {
         private static string debug_path = Path.Combine(Application.StartupPath, "Configurations/");         // Debug 資料夾路徑
 
+        /// <summary>
+        /// 當前資料總列數
+        /// </summary>
+        /// <param name="filePath"></param>
+        /// <param name="in_degug"></param>
+        /// <returns></returns>
         public static int DataRowCount(string filePath, bool in_degug = true)
         {
             // 若 in_debug == true，filePath 改為基於 Debug 路徑的相對路徑
@@ -41,6 +47,12 @@ namespace CNCAppPlatform
             return rowCount;
         }
 
+        /// <summary>
+        /// 將 datagridview 資料寫進 CSV
+        /// </summary>
+        /// <param name="dataGridView1"></param>
+        /// <param name="filePath"></param>
+        /// <param name="in_degug"></param>
         public static void SaveDataGridViewToCSV(DataGridView dataGridView1, string filePath, bool in_degug = true)
         {
             // 若 in_debug == true，filePath 改為基於 Debug 路徑的相對路徑
@@ -90,6 +102,12 @@ namespace CNCAppPlatform
             }
         }
 
+        /// <summary>
+        /// 將 CSV 檔案讀取為 datagridview
+        /// </summary>
+        /// <param name="dataGridView1"></param>
+        /// <param name="filePath"></param>
+        /// <param name="in_degug"></param>
         public static void LoadCSVToDataGridView(DataGridView dataGridView1, string filePath, bool in_degug = true)
         {
             // 若 in_debug == true，filePath 改為基於 Debug 路徑的相對路徑
@@ -133,6 +151,12 @@ namespace CNCAppPlatform
             }
         }
 
+        /// <summary>
+        /// 將 CSV 檔案讀取為字串列表
+        /// </summary>
+        /// <param name="filePath"></param>
+        /// <param name="in_degug"></param>
+        /// <returns></returns>
         public static List<string[]> LoadCSVToString(string filePath, bool in_degug = true)
         {
             // 若 in_debug == true，filePath 改為基於 Debug 路徑的相對路徑

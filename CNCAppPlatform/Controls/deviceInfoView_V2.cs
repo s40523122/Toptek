@@ -1,4 +1,8 @@
-﻿using RosSharp;
+﻿using LiveCharts;
+using LiveCharts.Wpf;
+using LiveCharts.Wpf.Charts.Base;
+using Messages.std_msgs;
+using RosSharp;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -8,6 +12,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Media;
 
 namespace CNCAppPlatform.Controls
 {
@@ -44,6 +49,38 @@ namespace CNCAppPlatform.Controls
             }
 
             SizeChanged += deviceInfoView_V2_SizeChanged;
+
+            // 測試圖表功能
+            Chart_design();
+        }
+
+        void Chart_design()
+        {
+            
+
+            SeriesCollection series = new SeriesCollection()
+            {
+                new LineSeries
+                {
+                    Values = new ChartValues<double> {70,72.5,71,75,66,73, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80 },
+
+                    //Fill=new SolidColorBrush(Colors.IndianRed),
+                },
+
+            };
+            cartesianChart1.Series = series;
+
+
+            cartesianChart1.AxisX.Add(new Axis
+            {
+
+                Labels = new[] { "7/2", "7/3", "7/4", "7/5", "7/6" },
+                MaxRange = 10,
+                MinRange = 10
+            });
+
+            cartesianChart1.Zoom = ZoomingOptions.X;
+
         }
 
         public void ImportData(string device_name, Image device_img, string[] param_labels, string[] sequence_list)
