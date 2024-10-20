@@ -53,22 +53,18 @@
             // deviceInfoView_V21
             // 
             this.deviceInfoView_V21.ID = "device1";
-            this.deviceInfoView_V21.Labels = ((System.Collections.Generic.List<string>)(resources.GetObject("deviceInfoView_V21.Labels")));
             this.deviceInfoView_V21.Location = new System.Drawing.Point(3, 2);
             this.deviceInfoView_V21.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.deviceInfoView_V21.Name = "deviceInfoView_V21";
-            this.deviceInfoView_V21.Paramrters = ((System.Collections.Generic.List<int>)(resources.GetObject("deviceInfoView_V21.Paramrters")));
             this.deviceInfoView_V21.Size = new System.Drawing.Size(516, 601);
             this.deviceInfoView_V21.TabIndex = 0;
             // 
             // deviceInfoView_V22
             // 
             this.deviceInfoView_V22.ID = "device2";
-            this.deviceInfoView_V22.Labels = ((System.Collections.Generic.List<string>)(resources.GetObject("deviceInfoView_V22.Labels")));
             this.deviceInfoView_V22.Location = new System.Drawing.Point(525, 2);
             this.deviceInfoView_V22.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.deviceInfoView_V22.Name = "deviceInfoView_V22";
-            this.deviceInfoView_V22.Paramrters = ((System.Collections.Generic.List<int>)(resources.GetObject("deviceInfoView_V22.Paramrters")));
             this.deviceInfoView_V22.Size = new System.Drawing.Size(516, 601);
             this.deviceInfoView_V22.TabIndex = 0;
             // 

@@ -23,8 +23,8 @@ namespace CNCAppPlatform.Controls
         [Description("設備ID。"), Category("自訂值")]
         public string ID { set; get; } = "";
 
-        public List<string> Labels { get; set; }
-        public List<int> Paramrters {get;set;}
+        //public List<string> param_labels { get; set; }
+        //public List<int> param_data {get;set;}
 
         public deviceInfoView_V2()
         {
@@ -33,21 +33,25 @@ namespace CNCAppPlatform.Controls
             dataGridView1.BorderStyle = BorderStyle.None;
             dataGridView2.BorderStyle = BorderStyle.None;
 
-            Labels = new List<string>(){"繁體中文字測試", "label2", "label3", "label4", "label5", "label6", "label7", "label8", "label9", "label10", "label11", "label12",
+            /*
+            param_labels = new List<string>(){"繁體中文字測試", "label2", "label3", "label4", "label5", "label6", "label7", "label8", "label9", "label10", "label11", "label12",
                                         "label13", "label14", "label15", "label16", "label17", "label18", "label19", "label20", "label21", "label22", "label23", "label24"};
-            Paramrters = new List<int>() { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+            param_data = new List<int>() { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
                                            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+            */
 
-
+            // 設定欄位數量
             for (int i = 0; i < 12; i++)
             {
-                string[] row = new string[] { Labels[i], Paramrters[i].ToString() };
-                dataGridView1.Rows.Add(row);
+                //string[] row = new string[] { param_labels[i], param_data[i].ToString() };
+                //dataGridView1.Rows.Add(row);
+                dataGridView1.Rows.Add();
             }
             for (int i = 12; i < 24; i++)
             {
-                string[] row = new string[] { Labels[i], Paramrters[i].ToString() };
-                dataGridView2.Rows.Add(row);
+                //string[] row = new string[] { param_labels[i], param_data[i].ToString() };
+                //dataGridView2.Rows.Add(row);
+                dataGridView2.Rows.Add();
             }
 
             SizeChanged += deviceInfoView_V2_SizeChanged;
@@ -97,6 +101,28 @@ namespace CNCAppPlatform.Controls
 
             // 強制觸發自動更新功能，以限制顯示範圍
             auto_switch.Checked = auto_switch.Checked;
+        }
+
+        /// <summary>
+        /// 更新顯示數據
+        /// </summary>
+        /// <param name="sequence_index">生產次序編號</param>
+        /// <param name="current_activation">當前稼動率</param>
+        /// <param name="param_data">設備參數數據</param>
+        public void Update_data(int sequence_index, int current_activation, int[] param_data)
+        {
+            ucStep1.StepIndex = sequence_index;
+            speedBar1.NowPercentage = current_activation;
+
+            for (int i = 0; i < 12; i++)
+            {
+                dataGridView1.Rows[i].Cells[1].Value = param_data[i];
+            }
+            for (int i = 12; i < 24; i++)
+            {
+                dataGridView2.Rows[i - 12].Cells[1].Value = param_data[i];
+            }
+
         }
 
         public void Import_Param_Data(string device_name, Image device_img, string[] param_labels, string[] sequence_list)

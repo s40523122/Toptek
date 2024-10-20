@@ -91,11 +91,15 @@ namespace CNCAppPlatform
                 // 參數標籤
                 string[] labels = INiReader.ReadINIFile(IniPath, device.ID, "param_labels").Split(';');
 
-                // 生產次序
+                // 生產次序標籤
                 string[] seq_list = INiReader.ReadINIFile(IniPath, device.ID, "sequence_list").Split(';');
 
                 // 匯入設定檔
                 device.Import_Param_Data(device_name, result, labels, seq_list);
+
+                int[] _data = new int[24];
+                
+                device.Update_data(3, 25, _data);
             }
         }
 
