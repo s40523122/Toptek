@@ -29,14 +29,14 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(deviceInfoView_V2));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.myPanel1 = new CNCAppPlatform.myPanel();
             this.ucStep1 = new HZH_Controls.Controls.UCStep();
@@ -57,7 +57,9 @@
             this.value = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label3 = new System.Windows.Forms.Label();
             this.myPanel6 = new CNCAppPlatform.myPanel();
-            this.ucSwitch1 = new HZH_Controls.Controls.UCSwitch();
+            this.label6 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
+            this.auto_switch = new HZH_Controls.Controls.UCSwitch();
             this.cartesianChart1 = new LiveCharts.WinForms.CartesianChart();
             this.label5 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
@@ -93,7 +95,7 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 8F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 22F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 30F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(388, 488);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(388, 450);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // myPanel1
@@ -108,7 +110,7 @@
             this.myPanel1.Name = "myPanel1";
             this.myPanel1.Padding = new System.Windows.Forms.Padding(8, 0, 8, 0);
             this.myPanel1.Radius = 7;
-            this.myPanel1.Size = new System.Drawing.Size(384, 69);
+            this.myPanel1.Size = new System.Drawing.Size(384, 63);
             this.myPanel1.TabIndex = 0;
             // 
             // ucStep1
@@ -118,10 +120,10 @@
             this.ucStep1.Font = new System.Drawing.Font("微軟正黑體", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.ucStep1.ImgCompleted = null;
             this.ucStep1.LineWidth = 2;
-            this.ucStep1.Location = new System.Drawing.Point(8, 21);
+            this.ucStep1.Location = new System.Drawing.Point(8, 19);
             this.ucStep1.Margin = new System.Windows.Forms.Padding(2);
             this.ucStep1.Name = "ucStep1";
-            this.ucStep1.Size = new System.Drawing.Size(368, 48);
+            this.ucStep1.Size = new System.Drawing.Size(368, 44);
             this.ucStep1.StepBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(189)))), ((int)(((byte)(189)))));
             this.ucStep1.StepFontColor = System.Drawing.Color.White;
             this.ucStep1.StepForeColor = System.Drawing.Color.DodgerBlue;
@@ -143,7 +145,7 @@
             this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
             this.label4.Padding = new System.Windows.Forms.Padding(8, 0, 0, 0);
-            this.label4.Size = new System.Drawing.Size(368, 21);
+            this.label4.Size = new System.Drawing.Size(368, 19);
             this.label4.TabIndex = 5;
             this.label4.Text = "生產次序";
             this.label4.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
@@ -153,11 +155,11 @@
             this.myPanel2.BackColor = System.Drawing.Color.White;
             this.myPanel2.Controls.Add(this.pictureBox1);
             this.myPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.myPanel2.Location = new System.Drawing.Point(2, 75);
+            this.myPanel2.Location = new System.Drawing.Point(2, 69);
             this.myPanel2.Margin = new System.Windows.Forms.Padding(2);
             this.myPanel2.Name = "myPanel2";
             this.myPanel2.Radius = 7;
-            this.myPanel2.Size = new System.Drawing.Size(139, 118);
+            this.myPanel2.Size = new System.Drawing.Size(139, 108);
             this.myPanel2.TabIndex = 0;
             // 
             // pictureBox1
@@ -167,7 +169,7 @@
             this.pictureBox1.Location = new System.Drawing.Point(0, 0);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(139, 118);
+            this.pictureBox1.Size = new System.Drawing.Size(139, 108);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
@@ -177,11 +179,11 @@
             this.myPanel3.BackColor = System.Drawing.Color.White;
             this.myPanel3.Controls.Add(this.label1);
             this.myPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.myPanel3.Location = new System.Drawing.Point(2, 197);
+            this.myPanel3.Location = new System.Drawing.Point(2, 181);
             this.myPanel3.Margin = new System.Windows.Forms.Padding(2);
             this.myPanel3.Name = "myPanel3";
             this.myPanel3.Radius = 7;
-            this.myPanel3.Size = new System.Drawing.Size(139, 35);
+            this.myPanel3.Size = new System.Drawing.Size(139, 32);
             this.myPanel3.TabIndex = 0;
             // 
             // label1
@@ -191,7 +193,7 @@
             this.label1.Location = new System.Drawing.Point(0, 0);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(139, 35);
+            this.label1.Size = new System.Drawing.Size(139, 32);
             this.label1.TabIndex = 1;
             this.label1.Text = "label1";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -202,11 +204,11 @@
             this.myPanel4.Controls.Add(this.speedBar1);
             this.myPanel4.Controls.Add(this.label2);
             this.myPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.myPanel4.Location = new System.Drawing.Point(2, 236);
+            this.myPanel4.Location = new System.Drawing.Point(2, 217);
             this.myPanel4.Margin = new System.Windows.Forms.Padding(2);
             this.myPanel4.Name = "myPanel4";
             this.myPanel4.Radius = 7;
-            this.myPanel4.Size = new System.Drawing.Size(139, 103);
+            this.myPanel4.Size = new System.Drawing.Size(139, 95);
             this.myPanel4.TabIndex = 0;
             // 
             // speedBar1
@@ -214,7 +216,7 @@
             this.speedBar1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.speedBar1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.speedBar1.IsAdjustment = false;
-            this.speedBar1.Location = new System.Drawing.Point(0, 21);
+            this.speedBar1.Location = new System.Drawing.Point(0, 19);
             this.speedBar1.Margin = new System.Windows.Forms.Padding(2);
             this.speedBar1.Name = "speedBar1";
             this.speedBar1.NowPercentage = 15;
@@ -226,7 +228,7 @@
             this.speedBar1.RatioPinLength = 45;
             this.speedBar1.Reverse = false;
             this.speedBar1.RingColor = System.Drawing.Color.LightGray;
-            this.speedBar1.Size = new System.Drawing.Size(139, 82);
+            this.speedBar1.Size = new System.Drawing.Size(139, 76);
             this.speedBar1.TabIndex = 2;
             // 
             // label2
@@ -238,7 +240,7 @@
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
             this.label2.Padding = new System.Windows.Forms.Padding(8, 0, 0, 0);
-            this.label2.Size = new System.Drawing.Size(139, 21);
+            this.label2.Size = new System.Drawing.Size(139, 19);
             this.label2.TabIndex = 3;
             this.label2.Text = "設備稼動率";
             this.label2.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
@@ -250,13 +252,13 @@
             this.myPanel5.Controls.Add(this.dataGridView1);
             this.myPanel5.Controls.Add(this.label3);
             this.myPanel5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.myPanel5.Location = new System.Drawing.Point(145, 75);
+            this.myPanel5.Location = new System.Drawing.Point(145, 69);
             this.myPanel5.Margin = new System.Windows.Forms.Padding(2);
             this.myPanel5.Name = "myPanel5";
-            this.myPanel5.Padding = new System.Windows.Forms.Padding(8, 0, 8, 8);
+            this.myPanel5.Padding = new System.Windows.Forms.Padding(8, 0, 8, 7);
             this.myPanel5.Radius = 7;
             this.tableLayoutPanel1.SetRowSpan(this.myPanel5, 3);
-            this.myPanel5.Size = new System.Drawing.Size(241, 264);
+            this.myPanel5.Size = new System.Drawing.Size(241, 243);
             this.myPanel5.TabIndex = 0;
             // 
             // dataGridView2
@@ -267,29 +269,29 @@
             this.dataGridView2.AllowUserToResizeRows = false;
             this.dataGridView2.BackgroundColor = System.Drawing.Color.White;
             this.dataGridView2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView2.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView2.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle9;
             this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView2.ColumnHeadersVisible = false;
             this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn1,
             this.dataGridViewTextBoxColumn2});
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView2.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle12.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            dataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView2.DefaultCellStyle = dataGridViewCellStyle12;
             this.dataGridView2.Dock = System.Windows.Forms.DockStyle.Left;
-            this.dataGridView2.Location = new System.Drawing.Point(120, 21);
+            this.dataGridView2.Location = new System.Drawing.Point(120, 19);
             this.dataGridView2.Margin = new System.Windows.Forms.Padding(2);
             this.dataGridView2.Name = "dataGridView2";
             this.dataGridView2.ReadOnly = true;
@@ -297,14 +299,14 @@
             this.dataGridView2.RowTemplate.Height = 24;
             this.dataGridView2.ScrollBars = System.Windows.Forms.ScrollBars.None;
             this.dataGridView2.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-            this.dataGridView2.Size = new System.Drawing.Size(112, 235);
+            this.dataGridView2.Size = new System.Drawing.Size(112, 217);
             this.dataGridView2.TabIndex = 5;
             // 
             // dataGridViewTextBoxColumn1
             // 
             this.dataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.dataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle10;
             this.dataGridViewTextBoxColumn1.FillWeight = 65F;
             this.dataGridViewTextBoxColumn1.HeaderText = "label";
             this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
@@ -313,8 +315,8 @@
             // dataGridViewTextBoxColumn2
             // 
             this.dataGridViewTextBoxColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.dataGridViewTextBoxColumn2.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dataGridViewTextBoxColumn2.DefaultCellStyle = dataGridViewCellStyle11;
             this.dataGridViewTextBoxColumn2.FillWeight = 35F;
             this.dataGridViewTextBoxColumn2.HeaderText = "value";
             this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
@@ -328,29 +330,29 @@
             this.dataGridView1.AllowUserToResizeRows = false;
             this.dataGridView1.BackgroundColor = System.Drawing.Color.White;
             this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle13.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle13.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            dataGridViewCellStyle13.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle13.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle13.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle13;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.ColumnHeadersVisible = false;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.label,
             this.value});
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle16.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle16.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            dataGridViewCellStyle16.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle16.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle16.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle16.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle16;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.dataGridView1.Location = new System.Drawing.Point(8, 21);
+            this.dataGridView1.Location = new System.Drawing.Point(8, 19);
             this.dataGridView1.Margin = new System.Windows.Forms.Padding(2);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
@@ -358,14 +360,14 @@
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.ScrollBars = System.Windows.Forms.ScrollBars.None;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(112, 235);
+            this.dataGridView1.Size = new System.Drawing.Size(112, 217);
             this.dataGridView1.TabIndex = 1;
             // 
             // label
             // 
             this.label.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.label.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.label.DefaultCellStyle = dataGridViewCellStyle14;
             this.label.FillWeight = 65F;
             this.label.HeaderText = "label";
             this.label.Name = "label";
@@ -374,8 +376,8 @@
             // value
             // 
             this.value.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.value.DefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.value.DefaultCellStyle = dataGridViewCellStyle15;
             this.value.FillWeight = 35F;
             this.value.HeaderText = "value";
             this.value.Name = "value";
@@ -390,7 +392,7 @@
             this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
             this.label3.Padding = new System.Windows.Forms.Padding(8, 0, 0, 0);
-            this.label3.Size = new System.Drawing.Size(225, 21);
+            this.label3.Size = new System.Drawing.Size(225, 19);
             this.label3.TabIndex = 4;
             this.label3.Text = "設備參數";
             this.label3.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
@@ -399,42 +401,66 @@
             // 
             this.myPanel6.BackColor = System.Drawing.Color.White;
             this.tableLayoutPanel1.SetColumnSpan(this.myPanel6, 2);
-            this.myPanel6.Controls.Add(this.ucSwitch1);
+            this.myPanel6.Controls.Add(this.auto_switch);
+            this.myPanel6.Controls.Add(this.label6);
+            this.myPanel6.Controls.Add(this.button1);
             this.myPanel6.Controls.Add(this.cartesianChart1);
             this.myPanel6.Controls.Add(this.label5);
             this.myPanel6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.myPanel6.Location = new System.Drawing.Point(2, 343);
+            this.myPanel6.Location = new System.Drawing.Point(2, 316);
             this.myPanel6.Margin = new System.Windows.Forms.Padding(2);
             this.myPanel6.Name = "myPanel6";
-            this.myPanel6.Padding = new System.Windows.Forms.Padding(8, 0, 8, 8);
+            this.myPanel6.Padding = new System.Windows.Forms.Padding(8, 0, 8, 7);
             this.myPanel6.Radius = 7;
-            this.myPanel6.Size = new System.Drawing.Size(384, 143);
+            this.myPanel6.Size = new System.Drawing.Size(384, 132);
             this.myPanel6.TabIndex = 0;
             // 
-            // ucSwitch1
+            // label6
             // 
-            this.ucSwitch1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.ucSwitch1.BackColor = System.Drawing.Color.Transparent;
-            this.ucSwitch1.Checked = false;
-            this.ucSwitch1.FalseColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(189)))), ((int)(((byte)(189)))));
-            this.ucSwitch1.FalseTextColr = System.Drawing.Color.White;
-            this.ucSwitch1.Location = new System.Drawing.Point(340, 4);
-            this.ucSwitch1.Margin = new System.Windows.Forms.Padding(2);
-            this.ucSwitch1.Name = "ucSwitch1";
-            this.ucSwitch1.Size = new System.Drawing.Size(34, 17);
-            this.ucSwitch1.SwitchType = HZH_Controls.Controls.SwitchType.Line;
-            this.ucSwitch1.TabIndex = 8;
-            this.ucSwitch1.Texts = null;
-            this.ucSwitch1.TrueColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(77)))), ((int)(((byte)(59)))));
-            this.ucSwitch1.TrueTextColr = System.Drawing.Color.White;
+            this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("微軟正黑體", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.label6.Location = new System.Drawing.Point(309, 3);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(36, 17);
+            this.label6.TabIndex = 10;
+            this.label6.Text = "auto";
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(236, 0);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(37, 20);
+            this.button1.TabIndex = 9;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // auto_switch
+            // 
+            this.auto_switch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.auto_switch.BackColor = System.Drawing.Color.Transparent;
+            this.auto_switch.Checked = true;
+            this.auto_switch.FalseColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(189)))), ((int)(((byte)(189)))));
+            this.auto_switch.FalseTextColr = System.Drawing.Color.White;
+            this.auto_switch.Location = new System.Drawing.Point(340, 4);
+            this.auto_switch.Margin = new System.Windows.Forms.Padding(2);
+            this.auto_switch.Name = "auto_switch";
+            this.auto_switch.Size = new System.Drawing.Size(34, 16);
+            this.auto_switch.SwitchType = HZH_Controls.Controls.SwitchType.Line;
+            this.auto_switch.TabIndex = 8;
+            this.auto_switch.Texts = null;
+            this.auto_switch.TrueColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(77)))), ((int)(((byte)(59)))));
+            this.auto_switch.TrueTextColr = System.Drawing.Color.White;
+            this.auto_switch.CheckedChanged += new System.EventHandler(this.auto_switch_CheckedChanged);
             // 
             // cartesianChart1
             // 
             this.cartesianChart1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.cartesianChart1.Location = new System.Drawing.Point(8, 21);
+            this.cartesianChart1.Location = new System.Drawing.Point(8, 19);
             this.cartesianChart1.Margin = new System.Windows.Forms.Padding(2);
             this.cartesianChart1.Name = "cartesianChart1";
-            this.cartesianChart1.Size = new System.Drawing.Size(368, 114);
+            this.cartesianChart1.Size = new System.Drawing.Size(368, 106);
             this.cartesianChart1.TabIndex = 7;
             this.cartesianChart1.Text = "cartesianChart1";
             // 
@@ -447,19 +473,19 @@
             this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label5.Name = "label5";
             this.label5.Padding = new System.Windows.Forms.Padding(8, 0, 0, 0);
-            this.label5.Size = new System.Drawing.Size(368, 21);
+            this.label5.Size = new System.Drawing.Size(368, 19);
             this.label5.TabIndex = 6;
             this.label5.Text = "稼動率歷程";
             this.label5.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
             // 
             // deviceInfoView_V2
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.tableLayoutPanel1);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "deviceInfoView_V2";
-            this.Size = new System.Drawing.Size(388, 488);
+            this.Size = new System.Drawing.Size(388, 450);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.myPanel1.ResumeLayout(false);
             this.myPanel2.ResumeLayout(false);
@@ -470,6 +496,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.myPanel6.ResumeLayout(false);
+            this.myPanel6.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -497,7 +524,9 @@
         private System.Windows.Forms.DataGridView dataGridView2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
-        private HZH_Controls.Controls.UCSwitch ucSwitch1;
+        private HZH_Controls.Controls.UCSwitch auto_switch;
         private HZH_Controls.Controls.UCStep ucStep1;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label label6;
     }
 }

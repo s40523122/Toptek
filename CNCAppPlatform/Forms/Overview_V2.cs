@@ -95,7 +95,7 @@ namespace CNCAppPlatform
                 string[] seq_list = INiReader.ReadINIFile(IniPath, device.ID, "sequence_list").Split(';');
 
                 // 匯入設定檔
-                device.ImportData(device_name, result, labels, seq_list);
+                device.Import_Param_Data(device_name, result, labels, seq_list);
             }
         }
 

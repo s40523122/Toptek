@@ -1,4 +1,5 @@
 ﻿using LiveCharts;
+using LiveCharts.WinForms;
 using LiveCharts.Wpf;
 using LiveCharts.Wpf.Charts.Base;
 using Messages.std_msgs;
@@ -13,6 +14,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Media;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.TaskbarClock;
 
 namespace CNCAppPlatform.Controls
 {
@@ -54,36 +56,50 @@ namespace CNCAppPlatform.Controls
             Chart_design();
         }
 
+        ChartValues<double> chart_x_values = new ChartValues<double>();       // 圖表數據，更新此內容，圖表將自動更新
+        List<string> x_labels = new List<string>();     // 圖表 X 軸標籤，更新此內容，圖表將自動更新
+
         void Chart_design()
         {
-            
-
+            // 設定數據形式
             SeriesCollection series = new SeriesCollection()
             {
                 new LineSeries
                 {
-                    Values = new ChartValues<double> {70,72.5,71,75,66,73, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80 },
-
-                    //Fill=new SolidColorBrush(Colors.IndianRed),
-                },
-
+                    Values = chart_x_values,
+                    // Fill = new SolidColorBrush(Colors.IndianRed),
+                }
             };
             cartesianChart1.Series = series;
 
-
+            // 設定 X 軸標籤
             cartesianChart1.AxisX.Add(new Axis
             {
+                Labels = x_labels,
+                Separator = new LiveCharts.Wpf.Separator
+                {
+                    Step = 1,        // 每個標籤都顯示
+                    //IsEnabled = false  // 如果不想顯示刻度線，可設置為 false
+                },
 
-                Labels = new[] { "7/2", "7/3", "7/4", "7/5", "7/6" },
-                MaxRange = 10,
-                MinRange = 10
+                // 限制顯示範圍
+                //MinValue = chart_values.Count - 6,
+                //MaxValue = chart_values.Count - 1
             });
 
-            cartesianChart1.Zoom = ZoomingOptions.X;
+            // 設定 Y 軸標籤
+            cartesianChart1.AxisY.Add(new LiveCharts.Wpf.Axis
+            {
+                // 限制顯示範圍
+                MinValue = 0,  // 設定 Y 軸最小值
+                MaxValue = 100  // 設定 Y 軸最大值
+            });
 
+            // 強制觸發自動更新功能，以限制顯示範圍
+            auto_switch.Checked = auto_switch.Checked;
         }
 
-        public void ImportData(string device_name, Image device_img, string[] param_labels, string[] sequence_list)
+        public void Import_Param_Data(string device_name, Image device_img, string[] param_labels, string[] sequence_list)
         {
             label1.Text = device_name;
             pictureBox1.Image = device_img;
@@ -128,6 +144,52 @@ namespace CNCAppPlatform.Controls
             }
 
             ucStep1.StepWidth = ucStep1.Height * 2 / 5;
+        }
+
+        TimeSpan _time = new TimeSpan(10, 0, 0);
+        private void button1_Click(object sender, EventArgs e)
+        {
+            // 新增一個數據點
+            chart_x_values.Add(new Random().Next(70, 90));  // 加入數字 9 到折線圖
+
+            // 強制觸發自動更新功能，以限制顯示範圍
+            auto_switch.Checked = auto_switch.Checked;
+
+            // 加入 x 軸標籤
+            _time = _time.Add(new TimeSpan(1, 0, 0));
+            x_labels.Add(_time.ToString(@"hh\:mm"));
+        }
+
+        /// <summary>
+        /// 圖表自動更新按鈕
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void auto_switch_CheckedChanged(object sender, EventArgs e)
+        {
+            // 當按下後，自動更新，圖表範圍鎖定最新 12 筆
+            if (auto_switch.Checked)
+            {
+                cartesianChart1.Zoom = ZoomingOptions.None;
+
+                // 不足 12 筆前，顯示前 12 筆
+                if (chart_x_values.Count <= 12)
+                {
+                    cartesianChart1.AxisX[0].MinValue = 0;
+                    cartesianChart1.AxisX[0].MaxValue = 12;
+                }
+                else
+                {
+                    cartesianChart1.AxisX[0].MinValue = chart_x_values.Count - 13;
+                    cartesianChart1.AxisX[0].MaxValue = chart_x_values.Count - 1;
+                }
+                
+            }
+            // 反之，圖表 X 軸可被拖曳
+            else
+            {
+                cartesianChart1.Zoom = ZoomingOptions.X;
+            }
         }
     }
 }
