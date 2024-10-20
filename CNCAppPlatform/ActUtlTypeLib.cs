@@ -16,7 +16,7 @@ namespace ActUtlTypeLib
         }
         public int ReadDeviceBlock2(string _, int __, out short aa)
         {
-            aa = 0;
+            aa = 1;
             return 1;
         }
 

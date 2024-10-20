@@ -58,6 +58,33 @@ namespace CNCAppPlatform.Controls
 
             // 測試圖表功能
             Chart_design();
+
+            Setting_Timer();
+        }
+
+        public void Setting_Timer()
+        {
+            System.Timers.Timer timer = new System.Timers.Timer();
+            timer.Interval = 3600000; // 設置計時器間隔為 3000 毫秒 (3 秒)
+            timer.Elapsed += Active_Timer_Elapsed;
+            timer.Start();
+        }
+
+        private void Active_Timer_Elapsed(object sender, EventArgs e)
+        {
+            Invoke(new MethodInvoker(delegate
+            {
+                // 新增一個數據點
+                //chart_x_values.Add(new Random().Next(70, 90));  // 加入數字 9 到折線圖
+                chart_x_values.Add(speedBar1.NowPercentage);
+
+                // 強制觸發自動更新功能，以限制顯示範圍
+                auto_switch.Checked = auto_switch.Checked;
+
+                // 加入 x 軸標籤
+                //_time = _time.Add(new TimeSpan(1, 0, 0));
+                x_labels.Add(DateTime.Now.ToString(@"hh\:mm"));
+            }));
         }
 
         ChartValues<double> chart_x_values = new ChartValues<double>();       // 圖表數據，更新此內容，圖表將自動更新
@@ -109,20 +136,22 @@ namespace CNCAppPlatform.Controls
         /// <param name="sequence_index">生產次序編號</param>
         /// <param name="current_activation">當前稼動率</param>
         /// <param name="param_data">設備參數數據</param>
-        public void Update_data(int sequence_index, int current_activation, int[] param_data)
+        public void Update_data(int sequence_index, int current_activation, short[] param_data)
         {
-            ucStep1.StepIndex = sequence_index;
-            speedBar1.NowPercentage = current_activation;
-
-            for (int i = 0; i < 12; i++)
+            Invoke(new MethodInvoker(delegate
             {
-                dataGridView1.Rows[i].Cells[1].Value = param_data[i];
-            }
-            for (int i = 12; i < 24; i++)
-            {
-                dataGridView2.Rows[i - 12].Cells[1].Value = param_data[i];
-            }
+                ucStep1.StepIndex = sequence_index;
+                speedBar1.NowPercentage = current_activation;
 
+                for (int i = 0; i < 12; i++)
+                {
+                    dataGridView1.Rows[i].Cells[1].Value = param_data[i];
+                }
+                for (int i = 12; i < 24; i++)
+                {
+                    dataGridView2.Rows[i - 12].Cells[1].Value = param_data[i];
+                }
+            }));
         }
 
         public void Import_Param_Data(string device_name, Image device_img, string[] param_labels, string[] sequence_list)

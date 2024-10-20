@@ -56,8 +56,69 @@ namespace CNCAppPlatform
             ChangePage();
 
             SizeChanged += Overview_V2_SizeChanged;
+
+            ActiveStateRead();      // 讀取 PLC
         }
 
+        #region 計時器
+        /// <summary>
+        /// PLC 計時器
+        /// </summary>
+        public void ActiveStateRead()
+        {
+            System.Timers.Timer timer = new System.Timers.Timer();
+            timer.Interval = 3000; // 設置計時器間隔為 3000 毫秒 (3 秒)
+            timer.Elapsed += Active_Timer_Elapsed;
+            timer.Start();
+        }
+
+        private void Active_Timer_Elapsed(object sender, EventArgs e)
+        {
+            // 匯入資料
+            foreach (deviceInfoView_V2 device in flowLayoutPanel1.Controls)
+            {
+                // 取得設定檔資料
+                Dictionary<string, string> import_config = INiReader.ReadSection(IniPath, device.ID);
+
+                try
+                {
+                    string _ = import_config["device_name"];
+                }
+                catch
+                {
+                    return;
+                }
+
+                // 讀取暫存器位置
+                string reg_seq = import_config["reg_sequence"];         // 次序指定暫存器
+                string reg_ava = import_config["reg_availability"];     // 稼動率指定暫存器
+                string reg_param = "D" + import_config["param_start_reg"];    // 設備參數開始暫存器
+
+                int seq_value = Plc_Read(reg_seq, 1)[0];
+                int ava_value = Plc_Read(reg_ava, 1)[0];
+                short[] param_values = Plc_Read(reg_param, 24);
+
+                // 更新數據
+                device.Update_data(seq_value, ava_value, param_values);
+            }
+        }
+
+        short[] Plc_Read(string start_reg, int reg_count)
+        {
+            short[] arraydata = new short[reg_count];
+
+            _ = Form1.axActUtlType.ReadDeviceBlock2(start_reg, reg_count, out arraydata[0]);
+
+            //Invoke(new MethodInvoker(delegate
+            //{
+            //    plateNo1.Text = arraydata[0].ToString();
+            //    plateNo2.Text = arraydata[1].ToString();
+            //    plateNo3.Text = arraydata[2].ToString();
+            //    plateNo4.Text = arraydata[3].ToString();
+            //}));
+            return arraydata;
+        }
+        #endregion
         public void Import_config()
         {
             // 匯入資料
@@ -96,10 +157,6 @@ namespace CNCAppPlatform
 
                 // 匯入設定檔
                 device.Import_Param_Data(device_name, result, labels, seq_list);
-
-                int[] _data = new int[24];
-                
-                device.Update_data(3, 25, _data);
             }
         }
 
