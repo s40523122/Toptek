@@ -17,7 +17,7 @@ namespace CNCAppPlatform
     public partial class Overview_V2 : Form
     {
         // 設定加入設備數量
-        int Num_of_Devices = 4;
+        int Num_of_Devices = 6;
 
         List<Control> page_dot = new List<Control>();
         System.Timers.Timer timer = new System.Timers.Timer();

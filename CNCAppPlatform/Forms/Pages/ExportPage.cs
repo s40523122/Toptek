@@ -12,6 +12,11 @@ namespace CNCAppPlatform.Forms.Pages
 {
     public partial class ExportPage : Form
     {
+        public bool xml_mode = false;
+        
+        int station = 0;
+        int mode = 0;
+        
         Form backForm;
         public ExportPage()
         {
@@ -37,6 +42,36 @@ namespace CNCAppPlatform.Forms.Pages
         {
             Close();
             backForm.Hide();
+        }
+
+        private void btnAppend_Click(object sender, EventArgs e)
+        {
+            switch (mode)
+            {
+                case 1:
+                    SaveCsv.FilterCsv("work_order.csv", "station", station.ToString(), is_xml:xml_mode);
+                    break;
+                case 2:
+                    SaveCsv.FilterCsv("availability_history.csv", "station", "device" + station.ToString(), is_xml:xml_mode);
+                    break;
+                case 3:
+                    break;
+            }
+            
+        }
+
+        private void Station_Click(object sender, EventArgs e)
+        {
+            foreach(CheckBox box in groupBox1.Controls) { box.Checked = false; }
+            (sender as CheckBox).Checked = true;
+            station = Int32.Parse((sender as CheckBox).Tag.ToString());
+        }
+
+        private void Mode_Click(object sender, EventArgs e)
+        {
+            foreach (CheckBox box in groupBox2.Controls) { box.Checked = false; }
+            (sender as CheckBox).Checked = true;
+            mode = Int32.Parse((sender as CheckBox).Tag.ToString());
         }
     }
 }

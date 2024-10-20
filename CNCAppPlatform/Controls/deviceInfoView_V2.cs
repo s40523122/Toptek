@@ -10,6 +10,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -77,6 +78,17 @@ namespace CNCAppPlatform.Controls
                 // 新增一個數據點
                 //chart_x_values.Add(new Random().Next(70, 90));  // 加入數字 9 到折線圖
                 chart_x_values.Add(speedBar1.NowPercentage);
+                
+                // 儲存 csv
+                DataGridView dataGridView1 = new DataGridView();
+                dataGridView1.ColumnCount = 3;
+                dataGridView1.Columns[0].Name = "availability";
+                dataGridView1.Columns[1].Name = "log_time";
+                dataGridView1.Columns[2].Name = "station";
+
+                string[] row1 = new string[] { speedBar1.NowPercentage.ToString(), DateTime.Now.ToString(@"hh\:mm"), ID };
+                dataGridView1.Rows.Add(row1);
+                SaveCsv.SaveDataGridViewToCSV(dataGridView1, "availability_history.csv", message:false);
 
                 // 強制觸發自動更新功能，以限制顯示範圍
                 auto_switch.Checked = auto_switch.Checked;

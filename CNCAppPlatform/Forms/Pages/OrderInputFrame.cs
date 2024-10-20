@@ -133,7 +133,7 @@ namespace CNCAppPlatform
                     int index = Int32.Parse(station.Tag.ToString());   
 
                     string[] row1 = new string[] { ID, input_order_no.Text, input_priority.Num.ToString(), input_material.Text, 
-                        input_qty.Num.ToString(), input_due_datetime.Value.ToString("yyyy/MM/dd HH:mm"), station.Text, station_hours[index-1].Text, remark_msg.Text};
+                                                   input_qty.Num.ToString(), input_due_datetime.Value.ToString("yyyy/MM/dd HH:mm"), station.Text, station_hours[index-1].Text, remark_msg.Text};
                     dataGridView1.Rows.Add(row1);
 
                     ID = (Int32.Parse(ID) + 1).ToString();

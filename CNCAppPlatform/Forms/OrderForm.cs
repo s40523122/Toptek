@@ -24,6 +24,10 @@ namespace CNCAppPlatform
         Machine machine2 = new Machine(2, new List<int> { 2 });
         Machine machine3 = new Machine(3, new List<int> { 3 });
         Machine machine4 = new Machine(4, new List<int> { 4 });
+        Machine machine5 = new Machine(5, new List<int> { 5 });
+        Machine machine6 = new Machine(6, new List<int> { 6 });
+
+        List<Machine> machine_list;
 
         // 建立工單
         Job job1 = new Job("001", new DateTime(2024, 9, 24).AddDays(3), 5, new List<Process>
@@ -59,10 +63,11 @@ namespace CNCAppPlatform
         {
             InitializeComponent();
 
-            Gantt_Show();
+            machine_list = new List<Machine>() { machine1, machine2, machine3, machine4, machine5, machine6 };
+            Gantt_Show();            
 
             // 建立派工器
-            var dispatcher = new MinimizeJobDelay(new List<Job> { job1, job2, job3, job4, job5 }, new List<Machine> { machine1, machine2, machine3, machine4 });
+            var dispatcher = new MinimizeJobDelay(new List<Job> { job1, job2, job3, job4, job5 }, machine_list);
             dispatcher.Dispatching(GanttChartForm.StartApsDate);
             gatt_frame.ShowScheduleBar();
 
@@ -70,12 +75,18 @@ namespace CNCAppPlatform
             btnLog.Click += BtnLog_Click;
             btnApsMode.Click += BtnApsMode_Click;
             btnCsv.Click += BtnCsv_Click;
-            btnXml.Click += BtnCsv_Click;
+            btnXml.Click += BtnXml_Click;
         }
 
         private void BtnCsv_Click(object sender, EventArgs e)
         {
             ExportPage export_page = new ExportPage() { FormBorderStyle = FormBorderStyle.None };
+            export_page.ShowDialog();
+        }
+
+        private void BtnXml_Click(object sender, EventArgs e)
+        {
+            ExportPage export_page = new ExportPage() { FormBorderStyle = FormBorderStyle.None, xml_mode = true };
             export_page.ShowDialog();
         }
 
@@ -93,16 +104,16 @@ namespace CNCAppPlatform
             switch (ApsModeSelect.Selected)
             {
                 case 0:
-                    dispatcher = new MinimizeJobDelay(jobs, new List<Machine> { machine3, machine2, machine1, machine4 });
+                    dispatcher = new MinimizeJobDelay(jobs, machine_list);
                     break;
                 case 1:
-                    dispatcher = new EnergyOptimization(jobs, new List<Machine> { machine1, machine2, machine3, machine4 });
+                    dispatcher = new EnergyOptimization(jobs, machine_list);
                     break;
                 case 2:
-                    dispatcher = new ShortestProcessingTime(jobs, new List<Machine> { machine1, machine2, machine3, machine4 });
+                    dispatcher = new ShortestProcessingTime(jobs, machine_list);
                     break;
                 case 3:
-                    dispatcher = new PriorityBased(jobs, new List<Machine> { machine1, machine2, machine3, machine4 });
+                    dispatcher = new PriorityBased(jobs, machine_list);
                     break;
             }
 
@@ -141,12 +152,8 @@ namespace CNCAppPlatform
         
 
         private void Gantt_Show()
-        {
-            
-
-            List<Machine> machines = new List<Machine>() { machine1, machine2 , machine3, machine4 }; // 取得包含排程的機台列表
-            
-            gatt_frame = new GanttChartForm(machines)
+        {            
+            gatt_frame = new GanttChartForm(machine_list)
             {
                 Dock = DockStyle.Fill,
                 TopLevel = false,
