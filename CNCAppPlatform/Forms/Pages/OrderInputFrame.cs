@@ -43,11 +43,10 @@ namespace CNCAppPlatform
                 WindowState = FormWindowState.Maximized,
                 TopMost = true,
                 Location = this.Location,
-                ShowInTaskbar = false,
+                ShowInTaskbar = false
             };
             if (!System.Diagnostics.Debugger.IsAttached) backForm.Show();
 
-            
             station_hours_panel = new FlowLayoutPanel[] { station1_hour, station2_hour, station3_hour, station4_hour };
             station_hours = new TextBox[] {hour_1, hour_2, hour_3, hour_4};
             station_checks = new CheckBox[] { station1, station2, station3, station4 };
@@ -55,14 +54,21 @@ namespace CNCAppPlatform
             // 將站別依序加入視窗中，這種作法 scroll bar 會比較自然
             station_hour_list.Controls.AddRange(station_hours_panel);
 
-            foreach (var station in station_checks)
-            {
-                station.Click += station_Click;
-            }
-
             Load += OrderInputFrame_Load;
 
             Size = new Size(800, 512);
+
+            // 創建ToolTip物件
+            ToolTip toolTip1 = new ToolTip();
+
+            // 設定 ToolTip 的屬性
+            toolTip1.AutoPopDelay = 360000;   // 當顯示時持續的時間 (毫秒)
+            toolTip1.InitialDelay = 100;   // 滑鼠停留在控件上時等待的時間 (毫秒)
+            toolTip1.ReshowDelay = 500;     // 當滑鼠再次懸停時重新顯示的延遲時間 (毫秒)
+            toolTip1.ShowAlways = true;     // 即使窗體不活動也顯示 ToolTip
+
+            // 將 ToolTip 關聯到控件
+            toolTip1.SetToolTip(info, "這是一個按鈕\n有第二行嗎");
         }
 
         private void Init_datagridview()
@@ -90,8 +96,9 @@ namespace CNCAppPlatform
         private void btnClose_Click(object sender, EventArgs e)
         {
             //Tag = null;
-            Close();
             backForm.Hide();
+            Close();
+            
         }
 
         private void station_Click(object sender, EventArgs e)
@@ -99,6 +106,7 @@ namespace CNCAppPlatform
             CheckBox checkBox = sender as CheckBox;
             int station_index = Int32.Parse((string)checkBox.Tag) - 1;
 
+            checkStation = station_index.ToString();
             station_hours_panel[station_index].Visible = station_checks[station_index].Checked;
 
         }

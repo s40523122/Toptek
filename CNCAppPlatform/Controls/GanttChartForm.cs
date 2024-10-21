@@ -16,7 +16,7 @@ namespace CNCAppPlatform.Controls
     public partial class GanttChartForm : Form
     {
         private List<Machine> machines; // 用於儲存機台的排程
-        private DateTime FocusDate = DateTime.Today; // 選定的日期
+        private DateTime FocusDate = DateTime.Today; // 聚焦日期
         public static DateTime StartApsDate = DateTime.Today; // 選定的日期
         private enum TimeUnit { Day, Week, Month, Season, Year }; // 新增「季」和「年」選項
         private TimeUnit currentUnit = TimeUnit.Day; // 預設為日單位

@@ -59,7 +59,7 @@ namespace CNCAppPlatform.Forms.Pages
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(379, 44);
+            this.panel1.Size = new System.Drawing.Size(379, 48);
             this.panel1.TabIndex = 3;
             // 
             // btnClose
@@ -75,7 +75,7 @@ namespace CNCAppPlatform.Forms.Pages
             this.btnClose.Font = new System.Drawing.Font("微軟正黑體", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.btnClose.Location = new System.Drawing.Point(328, 0);
             this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(48, 44);
+            this.btnClose.Size = new System.Drawing.Size(48, 48);
             this.btnClose.TabIndex = 5;
             this.btnClose.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.btnClose.UseVisualStyleBackColor = false;
@@ -86,7 +86,7 @@ namespace CNCAppPlatform.Forms.Pages
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("微軟正黑體", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(9, 12);
+            this.label1.Location = new System.Drawing.Point(9, 13);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(96, 26);
             this.label1.TabIndex = 2;
@@ -101,9 +101,9 @@ namespace CNCAppPlatform.Forms.Pages
             this.btnAppend.Font = new System.Drawing.Font("微軟正黑體", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.btnAppend.ForeColor = System.Drawing.Color.Black;
             this.btnAppend.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAppend.Location = new System.Drawing.Point(129, 249);
+            this.btnAppend.Location = new System.Drawing.Point(129, 270);
             this.btnAppend.Name = "btnAppend";
-            this.btnAppend.Size = new System.Drawing.Size(103, 46);
+            this.btnAppend.Size = new System.Drawing.Size(103, 50);
             this.btnAppend.TabIndex = 4;
             this.btnAppend.Text = "匯出";
             this.btnAppend.UseVisualStyleBackColor = false;
@@ -117,9 +117,9 @@ namespace CNCAppPlatform.Forms.Pages
             this.groupBox1.Controls.Add(this.checkBox3);
             this.groupBox1.Controls.Add(this.checkBox2);
             this.groupBox1.Controls.Add(this.checkBox1);
-            this.groupBox1.Location = new System.Drawing.Point(23, 65);
+            this.groupBox1.Location = new System.Drawing.Point(23, 70);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(335, 85);
+            this.groupBox1.Size = new System.Drawing.Size(335, 92);
             this.groupBox1.TabIndex = 5;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "選擇站台";
@@ -127,9 +127,9 @@ namespace CNCAppPlatform.Forms.Pages
             // checkBox9
             // 
             this.checkBox9.AutoSize = true;
-            this.checkBox9.Location = new System.Drawing.Point(17, 52);
+            this.checkBox9.Location = new System.Drawing.Point(17, 56);
             this.checkBox9.Name = "checkBox9";
-            this.checkBox9.Size = new System.Drawing.Size(54, 16);
+            this.checkBox9.Size = new System.Drawing.Size(56, 17);
             this.checkBox9.TabIndex = 0;
             this.checkBox9.Tag = "5";
             this.checkBox9.Text = "站台5";
@@ -139,9 +139,9 @@ namespace CNCAppPlatform.Forms.Pages
             // checkBox8
             // 
             this.checkBox8.AutoSize = true;
-            this.checkBox8.Location = new System.Drawing.Point(86, 52);
+            this.checkBox8.Location = new System.Drawing.Point(86, 56);
             this.checkBox8.Name = "checkBox8";
-            this.checkBox8.Size = new System.Drawing.Size(54, 16);
+            this.checkBox8.Size = new System.Drawing.Size(56, 17);
             this.checkBox8.TabIndex = 0;
             this.checkBox8.Tag = "6";
             this.checkBox8.Text = "站台6";
@@ -151,9 +151,9 @@ namespace CNCAppPlatform.Forms.Pages
             // checkBox4
             // 
             this.checkBox4.AutoSize = true;
-            this.checkBox4.Location = new System.Drawing.Point(224, 30);
+            this.checkBox4.Location = new System.Drawing.Point(224, 32);
             this.checkBox4.Name = "checkBox4";
-            this.checkBox4.Size = new System.Drawing.Size(54, 16);
+            this.checkBox4.Size = new System.Drawing.Size(56, 17);
             this.checkBox4.TabIndex = 0;
             this.checkBox4.Tag = "4";
             this.checkBox4.Text = "站台4";
@@ -163,9 +163,9 @@ namespace CNCAppPlatform.Forms.Pages
             // checkBox3
             // 
             this.checkBox3.AutoSize = true;
-            this.checkBox3.Location = new System.Drawing.Point(155, 30);
+            this.checkBox3.Location = new System.Drawing.Point(155, 32);
             this.checkBox3.Name = "checkBox3";
-            this.checkBox3.Size = new System.Drawing.Size(54, 16);
+            this.checkBox3.Size = new System.Drawing.Size(56, 17);
             this.checkBox3.TabIndex = 0;
             this.checkBox3.Tag = "3";
             this.checkBox3.Text = "站台3";
@@ -175,9 +175,9 @@ namespace CNCAppPlatform.Forms.Pages
             // checkBox2
             // 
             this.checkBox2.AutoSize = true;
-            this.checkBox2.Location = new System.Drawing.Point(86, 30);
+            this.checkBox2.Location = new System.Drawing.Point(86, 32);
             this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(54, 16);
+            this.checkBox2.Size = new System.Drawing.Size(56, 17);
             this.checkBox2.TabIndex = 0;
             this.checkBox2.Tag = "2";
             this.checkBox2.Text = "站台2";
@@ -187,9 +187,9 @@ namespace CNCAppPlatform.Forms.Pages
             // checkBox1
             // 
             this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(17, 30);
+            this.checkBox1.Location = new System.Drawing.Point(17, 32);
             this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(54, 16);
+            this.checkBox1.Size = new System.Drawing.Size(56, 17);
             this.checkBox1.TabIndex = 0;
             this.checkBox1.Tag = "1";
             this.checkBox1.Text = "站台1";
@@ -201,9 +201,9 @@ namespace CNCAppPlatform.Forms.Pages
             this.groupBox2.Controls.Add(this.checkBox6);
             this.groupBox2.Controls.Add(this.checkBox7);
             this.groupBox2.Controls.Add(this.checkBox5);
-            this.groupBox2.Location = new System.Drawing.Point(23, 156);
+            this.groupBox2.Location = new System.Drawing.Point(23, 169);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(335, 71);
+            this.groupBox2.Size = new System.Drawing.Size(335, 77);
             this.groupBox2.TabIndex = 5;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "匯出資料";
@@ -211,9 +211,9 @@ namespace CNCAppPlatform.Forms.Pages
             // checkBox6
             // 
             this.checkBox6.AutoSize = true;
-            this.checkBox6.Location = new System.Drawing.Point(129, 31);
+            this.checkBox6.Location = new System.Drawing.Point(129, 34);
             this.checkBox6.Name = "checkBox6";
-            this.checkBox6.Size = new System.Drawing.Size(60, 16);
+            this.checkBox6.Size = new System.Drawing.Size(62, 17);
             this.checkBox6.TabIndex = 0;
             this.checkBox6.Tag = "2";
             this.checkBox6.Text = "稼動率";
@@ -223,9 +223,9 @@ namespace CNCAppPlatform.Forms.Pages
             // checkBox7
             // 
             this.checkBox7.AutoSize = true;
-            this.checkBox7.Location = new System.Drawing.Point(224, 31);
+            this.checkBox7.Location = new System.Drawing.Point(224, 34);
             this.checkBox7.Name = "checkBox7";
-            this.checkBox7.Size = new System.Drawing.Size(72, 16);
+            this.checkBox7.Size = new System.Drawing.Size(74, 17);
             this.checkBox7.TabIndex = 0;
             this.checkBox7.Tag = "3";
             this.checkBox7.Text = "產能紀錄";
@@ -235,9 +235,9 @@ namespace CNCAppPlatform.Forms.Pages
             // checkBox5
             // 
             this.checkBox5.AutoSize = true;
-            this.checkBox5.Location = new System.Drawing.Point(19, 31);
+            this.checkBox5.Location = new System.Drawing.Point(19, 34);
             this.checkBox5.Name = "checkBox5";
-            this.checkBox5.Size = new System.Drawing.Size(72, 16);
+            this.checkBox5.Size = new System.Drawing.Size(74, 17);
             this.checkBox5.TabIndex = 0;
             this.checkBox5.Tag = "1";
             this.checkBox5.Text = "排程清單";
@@ -246,9 +246,9 @@ namespace CNCAppPlatform.Forms.Pages
             // 
             // ExportPage
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(379, 318);
+            this.ClientSize = new System.Drawing.Size(379, 344);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btnAppend);

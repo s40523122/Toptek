@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(OrderInputFrame));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.info = new System.Windows.Forms.PictureBox();
             this.btnClose = new System.Windows.Forms.CheckBox();
             this.label1 = new System.Windows.Forms.Label();
             this.btnAppend = new System.Windows.Forms.CheckBox();
@@ -89,6 +90,7 @@
             this.flowLayoutPanel11 = new System.Windows.Forms.FlowLayoutPanel();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.info)).BeginInit();
             this.flowLayoutPanel2.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             this.flowLayoutPanel7.SuspendLayout();
@@ -114,6 +116,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.SteelBlue;
+            this.panel1.Controls.Add(this.info);
             this.panel1.Controls.Add(this.btnClose);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
@@ -122,6 +125,16 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1226, 59);
             this.panel1.TabIndex = 0;
+            // 
+            // info
+            // 
+            this.info.Image = ((System.Drawing.Image)(resources.GetObject("info.Image")));
+            this.info.Location = new System.Drawing.Point(130, 13);
+            this.info.Name = "info";
+            this.info.Size = new System.Drawing.Size(30, 32);
+            this.info.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.info.TabIndex = 13;
+            this.info.TabStop = false;
             // 
             // btnClose
             // 
@@ -134,10 +147,10 @@
             this.btnClose.FlatAppearance.CheckedBackColor = System.Drawing.Color.LightSkyBlue;
             this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClose.Font = new System.Drawing.Font("微軟正黑體", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.btnClose.Location = new System.Drawing.Point(1158, 0);
+            this.btnClose.Location = new System.Drawing.Point(1174, 9);
             this.btnClose.Margin = new System.Windows.Forms.Padding(4);
             this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(64, 59);
+            this.btnClose.Size = new System.Drawing.Size(40, 40);
             this.btnClose.TabIndex = 5;
             this.btnClose.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.btnClose.UseVisualStyleBackColor = false;
@@ -557,6 +570,7 @@
             this.station1.Text = "1";
             this.station1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.station1.UseVisualStyleBackColor = false;
+            this.station1.Click += new System.EventHandler(this.station_Click);
             // 
             // station2
             // 
@@ -574,6 +588,7 @@
             this.station2.Text = "2";
             this.station2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.station2.UseVisualStyleBackColor = false;
+            this.station2.Click += new System.EventHandler(this.station_Click);
             // 
             // station3
             // 
@@ -591,6 +606,7 @@
             this.station3.Text = "3";
             this.station3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.station3.UseVisualStyleBackColor = false;
+            this.station3.Click += new System.EventHandler(this.station_Click);
             // 
             // station4
             // 
@@ -608,6 +624,7 @@
             this.station4.Text = "4";
             this.station4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.station4.UseVisualStyleBackColor = false;
+            this.station4.Click += new System.EventHandler(this.station_Click);
             // 
             // station_hour_list
             // 
@@ -1024,6 +1041,7 @@
             this.TopMost = true;
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.info)).EndInit();
             this.flowLayoutPanel2.ResumeLayout(false);
             this.flowLayoutPanel2.PerformLayout();
             this.flowLayoutPanel1.ResumeLayout(false);
@@ -1122,5 +1140,6 @@
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel11;
         private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.PictureBox info;
     }
 }
