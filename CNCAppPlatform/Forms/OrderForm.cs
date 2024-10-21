@@ -27,7 +27,9 @@ namespace CNCAppPlatform
         Machine machine5 = new Machine(5, new List<int> { 5 });
         Machine machine6 = new Machine(6, new List<int> { 6 });
 
-        List<Machine> machine_list;
+        public static List<Machine> machine_list;
+
+        ApsModeSelect orderLogFrame;
 
         // 建立工單
         Job job1 = new Job("001", new DateTime(2024, 9, 24).AddDays(3), 5, new List<Process>
@@ -64,11 +66,12 @@ namespace CNCAppPlatform
             InitializeComponent();
 
             machine_list = new List<Machine>() { machine1, machine2, machine3, machine4, machine5, machine6 };
+            orderLogFrame = new ApsModeSelect() { FormBorderStyle = FormBorderStyle.None };
             Gantt_Show();            
 
             // 建立派工器
-            var dispatcher = new MinimizeJobDelay(new List<Job> { job1, job2, job3, job4, job5 }, machine_list);
-            dispatcher.Dispatching(GanttChartForm.StartApsDate);
+            //var dispatcher = new MinimizeJobDelay(new List<Job> { job1, job2, job3, job4, job5 }, machine_list);
+            //dispatcher.Dispatching(GanttChartForm.StartApsDate);
             gatt_frame.ShowScheduleBar();
 
             btnAppend.Click += BtnAppend_Click;
@@ -91,33 +94,33 @@ namespace CNCAppPlatform
         }
 
         // 建立派工器
-        IDispatcher dispatcher = null;
+        //IDispatcher dispatcher = null;
         private void BtnApsMode_Click(object sender, EventArgs e)
         {
-            ApsModeSelect orderLogFrame = new ApsModeSelect() { FormBorderStyle = FormBorderStyle.None };
+            
             orderLogFrame.ShowDialog();
 
 
-            List<Job> jobs = Job.ImportCSV("work_order.csv");
+            //List<Job> jobs = Job.ImportCSV("work_order.csv");
 
-            // 開始派工
-            switch (ApsModeSelect.Selected)
-            {
-                case 0:
-                    dispatcher = new MinimizeJobDelay(jobs, machine_list);
-                    break;
-                case 1:
-                    dispatcher = new EnergyOptimization(jobs, machine_list);
-                    break;
-                case 2:
-                    dispatcher = new ShortestProcessingTime(jobs, machine_list);
-                    break;
-                case 3:
-                    dispatcher = new PriorityBased(jobs, machine_list);
-                    break;
-            }
+            //// 開始派工
+            //switch (ApsModeSelect.Selected)
+            //{
+            //    case 0:
+            //        dispatcher = new MinimizeJobDelay(jobs, machine_list);
+            //        break;
+            //    case 1:
+            //        dispatcher = new EnergyOptimization(jobs, machine_list);
+            //        break;
+            //    case 2:
+            //        dispatcher = new ShortestProcessingTime(jobs, machine_list);
+            //        break;
+            //    case 3:
+            //        dispatcher = new PriorityBased(jobs, machine_list);
+            //        break;
+            //}
 
-            dispatcher.Dispatching(GanttChartForm.StartApsDate);
+            //dispatcher.Dispatching(GanttChartForm.StartApsDate);
 
             gatt_frame.ShowScheduleBar();
             // 顯示每台機台的時程表

@@ -1,4 +1,6 @@
-﻿using System;
+﻿using CNCAppPlatform.APS;
+using CNCAppPlatform.Controls;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -7,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Threading;
 //using System.Windows.Media;
 
 namespace CNCAppPlatform.Forms.Pages
@@ -24,26 +27,25 @@ namespace CNCAppPlatform.Forms.Pages
         public static int Selected { get; set; } = 0;
         
         /// <summary>
-        /// 已建立的模式
-        /// </summary>
-        private myPanel[] modes;
-        
-        /// <summary>
         /// 已建立的模式名稱
         /// </summary>
         Label[] mode_labels;
+
+        public List<Machine> machine_list = OrderForm.machine_list;
+
+        public static DateTime StartApsDate = DateTime.Today; // 選定的日期
 
         public ApsModeSelect()
         {
             InitializeComponent();
 
-            // 加入模式內容
-            modes = new myPanel[] { myPanel1, myPanel2, myPanel3, myPanel4 };
+            // 設定模式標籤集
             mode_labels = new Label[] { label2, label3, label4, label5 };
-            
-            // 指定選定的模式
-            modes[Selected].BackColor = Color.Wheat;
-            label7.Text = mode_labels[Selected].Text.Replace("\r\n", " ");
+
+            // 顯示當前選擇狀態
+            Control[] mode_list = new myPanel[] { myPanel1, myPanel2, myPanel3, myPanel4 };
+            mode_list[Selected].BackColor = Color.Wheat;
+            selected_mode_lable.Text = mode_labels[Selected].Text.Replace("\r\n", " ");     // 標籤文字
 
             // 建立黑背景
             TopMost = true;
@@ -60,25 +62,40 @@ namespace CNCAppPlatform.Forms.Pages
             };
             if (!System.Diagnostics.Debugger.IsAttached) backForm.Show();       // Dubug 模式不顯示
 
-            // 模式區塊渲染&點擊事件
-            foreach (myPanel mode in new myPanel[]{ myPanel1, myPanel2, myPanel3, myPanel4})
-            {
-                mode.Paint += ApsModeSelect_Paint;
-                mode.MouseClick += MyPanel1_MouseClick;
-            }
+            DateTimePicker_init();
+
+            Execute_dispatch();
         }
 
-        private void MyPanel1_MouseClick(object sender, MouseEventArgs e)
+        void DateTimePicker_init()
         {
-            foreach (myPanel mode in modes)
+            dateTimePicker1.Format = DateTimePickerFormat.Custom;  // 設定為自訂格式
+            dateTimePicker1.CustomFormat = "yyyy/MM/dd HH:mm";     // 設定日期和時間格式
+            // dateTimePicker1.ShowUpDown = true;  // 顯示日曆上下選擇按鈕
+
+            // 日期更改事件
+            dateTimePicker1.ValueChanged += StartTimePicker_ValueChanged;
+        }
+
+        private void Mode_Click(object sender, EventArgs e)
+        {
+            foreach (myPanel mode in modes_layout.Controls)
             {
                 mode.BackColor = Color.FloralWhite;
             }
             (sender as myPanel).BackColor = Color.Wheat;
             Selected = Int32.Parse((string)(sender as myPanel).Tag);
-            
-            label7.Text = mode_labels[Selected].Text.Replace("\r\n", " ");
+
+            selected_mode_lable.Text = mode_labels[Selected].Text.Replace("\r\n", " ");
         }
+
+        private void StartTimePicker_ValueChanged(object sender, EventArgs e)
+        {
+            DateTimePicker picker = sender as DateTimePicker;
+            StartApsDate = new DateTime(picker.Value.Year, picker.Value.Month, picker.Value.Day, 8, 0, 0); // 更新選定日期
+            picker.Value = StartApsDate;
+        }
+
 
         private void ApsModeSelect_Paint(object sender, PaintEventArgs e)
         {
@@ -157,6 +174,35 @@ namespace CNCAppPlatform.Forms.Pages
         {
             Close();
             backForm.Hide();
+
+            Execute_dispatch();
+        }
+
+        void Execute_dispatch()
+        {
+            List<Job> jobs = Job.ImportCSV("work_order.csv");
+
+            // 建立派工器
+            IDispatcher dispatcher = null;
+
+            // 開始派工
+            switch (ApsModeSelect.Selected)
+            {
+                case 0:
+                    dispatcher = new MinimizeJobDelay(jobs, machine_list);
+                    break;
+                case 1:
+                    dispatcher = new EnergyOptimization(jobs, machine_list);
+                    break;
+                case 2:
+                    dispatcher = new ShortestProcessingTime(jobs, machine_list);
+                    break;
+                case 3:
+                    dispatcher = new PriorityBased(jobs, machine_list);
+                    break;
+            }
+
+            dispatcher.Dispatching(StartApsDate);
         }
     }
 }

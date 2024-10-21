@@ -45,12 +45,16 @@
             this.label5 = new System.Windows.Forms.Label();
             this.richTextBox4 = new System.Windows.Forms.RichTextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
+            this.selected_mode_lable = new System.Windows.Forms.Label();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.aps_start_label = new System.Windows.Forms.Label();
+            this.modes_layout = new System.Windows.Forms.FlowLayoutPanel();
             this.panel1.SuspendLayout();
             this.myPanel1.SuspendLayout();
             this.myPanel2.SuspendLayout();
             this.myPanel3.SuspendLayout();
             this.myPanel4.SuspendLayout();
+            this.modes_layout.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -104,12 +108,15 @@
             this.myPanel1.Controls.Add(this.label2);
             this.myPanel1.Controls.Add(this.richTextBox1);
             this.myPanel1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.myPanel1.Location = new System.Drawing.Point(31, 64);
+            this.myPanel1.Location = new System.Drawing.Point(13, 13);
+            this.myPanel1.Margin = new System.Windows.Forms.Padding(13);
             this.myPanel1.Name = "myPanel1";
             this.myPanel1.Radius = 10;
             this.myPanel1.Size = new System.Drawing.Size(278, 240);
-            this.myPanel1.TabIndex = 2;
+            this.myPanel1.TabIndex = 1;
             this.myPanel1.Tag = "0";
+            this.myPanel1.Click += new System.EventHandler(this.Mode_Click);
+            this.myPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.ApsModeSelect_Paint);
             // 
             // label2
             // 
@@ -144,12 +151,15 @@
             this.myPanel2.Controls.Add(this.label3);
             this.myPanel2.Controls.Add(this.richTextBox2);
             this.myPanel2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.myPanel2.Location = new System.Drawing.Point(335, 64);
+            this.myPanel2.Location = new System.Drawing.Point(317, 13);
+            this.myPanel2.Margin = new System.Windows.Forms.Padding(13);
             this.myPanel2.Name = "myPanel2";
             this.myPanel2.Radius = 10;
             this.myPanel2.Size = new System.Drawing.Size(278, 240);
             this.myPanel2.TabIndex = 2;
             this.myPanel2.Tag = "1";
+            this.myPanel2.Click += new System.EventHandler(this.Mode_Click);
+            this.myPanel2.Paint += new System.Windows.Forms.PaintEventHandler(this.ApsModeSelect_Paint);
             // 
             // label3
             // 
@@ -184,12 +194,15 @@
             this.myPanel3.Controls.Add(this.label4);
             this.myPanel3.Controls.Add(this.richTextBox3);
             this.myPanel3.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.myPanel3.Location = new System.Drawing.Point(31, 328);
+            this.myPanel3.Location = new System.Drawing.Point(13, 279);
+            this.myPanel3.Margin = new System.Windows.Forms.Padding(13);
             this.myPanel3.Name = "myPanel3";
             this.myPanel3.Radius = 10;
             this.myPanel3.Size = new System.Drawing.Size(278, 240);
-            this.myPanel3.TabIndex = 2;
+            this.myPanel3.TabIndex = 3;
             this.myPanel3.Tag = "2";
+            this.myPanel3.Click += new System.EventHandler(this.Mode_Click);
+            this.myPanel3.Paint += new System.Windows.Forms.PaintEventHandler(this.ApsModeSelect_Paint);
             // 
             // label4
             // 
@@ -224,12 +237,15 @@
             this.myPanel4.Controls.Add(this.label5);
             this.myPanel4.Controls.Add(this.richTextBox4);
             this.myPanel4.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.myPanel4.Location = new System.Drawing.Point(335, 328);
+            this.myPanel4.Location = new System.Drawing.Point(317, 279);
+            this.myPanel4.Margin = new System.Windows.Forms.Padding(13);
             this.myPanel4.Name = "myPanel4";
             this.myPanel4.Radius = 10;
             this.myPanel4.Size = new System.Drawing.Size(278, 240);
-            this.myPanel4.TabIndex = 2;
+            this.myPanel4.TabIndex = 4;
             this.myPanel4.Tag = "3";
+            this.myPanel4.Click += new System.EventHandler(this.Mode_Click);
+            this.myPanel4.Paint += new System.Windows.Forms.PaintEventHandler(this.ApsModeSelect_Paint);
             // 
             // label5
             // 
@@ -262,34 +278,64 @@
             this.label6.AutoSize = true;
             this.label6.Cursor = System.Windows.Forms.Cursors.Default;
             this.label6.Font = new System.Drawing.Font("微軟正黑體", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label6.Location = new System.Drawing.Point(27, 598);
+            this.label6.Location = new System.Drawing.Point(22, 654);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(91, 24);
             this.label6.TabIndex = 0;
             this.label6.Text = "目前模式:";
             // 
-            // label7
+            // selected_mode_lable
             // 
-            this.label7.AutoSize = true;
-            this.label7.Cursor = System.Windows.Forms.Cursors.Default;
-            this.label7.Font = new System.Drawing.Font("微軟正黑體", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label7.Location = new System.Drawing.Point(124, 598);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(334, 24);
-            this.label7.TabIndex = 0;
-            this.label7.Text = "最小化工單延遲 (Minimize Job Delay)";
+            this.selected_mode_lable.AutoSize = true;
+            this.selected_mode_lable.Cursor = System.Windows.Forms.Cursors.Default;
+            this.selected_mode_lable.Font = new System.Drawing.Font("微軟正黑體", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.selected_mode_lable.Location = new System.Drawing.Point(119, 654);
+            this.selected_mode_lable.Name = "selected_mode_lable";
+            this.selected_mode_lable.Size = new System.Drawing.Size(334, 24);
+            this.selected_mode_lable.TabIndex = 0;
+            this.selected_mode_lable.Text = "最小化工單延遲 (Minimize Job Delay)";
+            // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateTimePicker1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateTimePicker1.Location = new System.Drawing.Point(188, 70);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(164, 26);
+            this.dateTimePicker1.TabIndex = 3;
+            // 
+            // aps_start_label
+            // 
+            this.aps_start_label.AutoSize = true;
+            this.aps_start_label.Font = new System.Drawing.Font("微軟正黑體", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.aps_start_label.Location = new System.Drawing.Point(35, 70);
+            this.aps_start_label.Margin = new System.Windows.Forms.Padding(2, 8, 2, 0);
+            this.aps_start_label.Name = "aps_start_label";
+            this.aps_start_label.Size = new System.Drawing.Size(148, 24);
+            this.aps_start_label.TabIndex = 4;
+            this.aps_start_label.Text = "選擇排程開始日:";
+            // 
+            // modes_layout
+            // 
+            this.modes_layout.Controls.Add(this.myPanel1);
+            this.modes_layout.Controls.Add(this.myPanel2);
+            this.modes_layout.Controls.Add(this.myPanel3);
+            this.modes_layout.Controls.Add(this.myPanel4);
+            this.modes_layout.Location = new System.Drawing.Point(17, 102);
+            this.modes_layout.Name = "modes_layout";
+            this.modes_layout.Size = new System.Drawing.Size(608, 533);
+            this.modes_layout.TabIndex = 5;
             // 
             // ApsModeSelect
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(642, 652);
-            this.Controls.Add(this.label7);
+            this.ClientSize = new System.Drawing.Size(642, 695);
+            this.Controls.Add(this.modes_layout);
+            this.Controls.Add(this.aps_start_label);
+            this.Controls.Add(this.dateTimePicker1);
+            this.Controls.Add(this.selected_mode_lable);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.myPanel4);
-            this.Controls.Add(this.myPanel3);
-            this.Controls.Add(this.myPanel2);
-            this.Controls.Add(this.myPanel1);
             this.Controls.Add(this.panel1);
             this.Name = "ApsModeSelect";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -304,6 +350,7 @@
             this.myPanel3.PerformLayout();
             this.myPanel4.ResumeLayout(false);
             this.myPanel4.PerformLayout();
+            this.modes_layout.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -327,6 +374,9 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.RichTextBox richTextBox4;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label selected_mode_lable;
+        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.Label aps_start_label;
+        private System.Windows.Forms.FlowLayoutPanel modes_layout;
     }
 }

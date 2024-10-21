@@ -17,7 +17,7 @@ namespace CNCAppPlatform.Controls
     {
         private List<Machine> machines; // 用於儲存機台的排程
         private DateTime FocusDate = DateTime.Today; // 聚焦日期
-        public static DateTime StartApsDate = DateTime.Today; // 選定的日期
+        //public static DateTime StartApsDate = DateTime.Today; // 選定的日期
         private enum TimeUnit { Day, Week, Month, Season, Year }; // 新增「季」和「年」選項
         private TimeUnit currentUnit = TimeUnit.Day; // 預設為日單位
         //private MonthCalendar monthCalendar; // 月曆元件
@@ -56,17 +56,6 @@ namespace CNCAppPlatform.Controls
             };
             focus_time_picker.ValueChanged += FocusTimePicker_ValueChanged;  // 綁定日期變更事件
 
-            // 開始排程日期
-            DateTimePicker aps_start_date = new DateTimePicker() 
-            { 
-                Margin = new Padding(3, 5, 3, 3),
-                Format = DateTimePickerFormat.Custom,  // 設定為自訂格式
-                CustomFormat = "yyyy/MM/dd HH:mm",     // 設定日期和時間格式
-                ShowUpDown = false,  // 顯示日曆和時間選擇
-                Width = 150
-            };
-            aps_start_date.ValueChanged += StartTimePicker_ValueChanged;  // 綁定日期變更事件
-
             // 添加按鈕
             Button dayButton = new Button() { Text = "日", Location = new Point(20, 350), Size = new Size(55, 55) };
             Button weekButton = new Button() { Text = "周", Location = new Point(100, 350), Size = new Size(55, 55) };
@@ -81,7 +70,6 @@ namespace CNCAppPlatform.Controls
             yearButton.Click += (sender, e) => { currentUnit = TimeUnit.Year; panel1.Invalidate(); };
 
             flowLayoutPanel1.Controls.Remove(focus_label);
-            flowLayoutPanel1.Controls.Remove(aps_start_label);
             flowLayoutPanel1.Controls.Add(dayButton);
             flowLayoutPanel1.Controls.Add(weekButton);
             flowLayoutPanel1.Controls.Add(monthButton);
@@ -89,8 +77,6 @@ namespace CNCAppPlatform.Controls
             flowLayoutPanel1.Controls.Add(yearButton);
             flowLayoutPanel1.Controls.Add(focus_label);
             flowLayoutPanel1.Controls.Add(focus_time_picker);
-            flowLayoutPanel1.Controls.Add(aps_start_label);
-            flowLayoutPanel1.Controls.Add(aps_start_date);
 
             panel1.Paint += new PaintEventHandler(GanttChart_Paint);
         }
@@ -101,14 +87,6 @@ namespace CNCAppPlatform.Controls
         {
             DateTimePicker picker = sender as DateTimePicker;
             FocusDate = picker.Value; // 更新選定日期
-            panel1.Invalidate(); // 重新繪製甘特圖
-        }
-
-        private void StartTimePicker_ValueChanged(object sender, EventArgs e)
-        {
-            DateTimePicker picker = sender as DateTimePicker;
-            StartApsDate = new DateTime(picker.Value.Year, picker.Value.Month, picker.Value.Day, 8, 0, 0); // 更新選定日期
-            picker.Value = StartApsDate;
             panel1.Invalidate(); // 重新繪製甘特圖
         }
 
