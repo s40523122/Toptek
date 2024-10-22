@@ -70,7 +70,53 @@ namespace CNCAppPlatform
             dataGridView1.Columns[5].Width = 150;
             dataGridView1.Columns[6].Width = 80;
             dataGridView1.Columns[7].Width = 100;
+
+
+            // 第一欄前新增一欄形式為 checkbox
+            DataGridViewColumn colCheck = new DataGridViewCheckBoxColumn() { Width = 45 };
+            dataGridView1.Columns.Insert(0, colCheck);
             
+            dataGridView1.CellClick += dgvRet_CellClick;
+
+            // 把第一欄的標題修改為 checkbox
+            Size checkbox_column_size = dataGridView1.Rows[0].Cells[0].Size;
+
+            CheckBox checkboxHeader = new CheckBox()
+            {
+                Size = new Size(checkbox_column_size.Width - 2, checkbox_column_size.Height),
+                CheckAlign = ContentAlignment.MiddleCenter,
+                BackColor = Color.White
+            };
+            checkboxHeader.Left++;
+            dataGridView1.Controls.Add(checkboxHeader);
+
+            checkboxHeader.Click += CheckboxHeader_Click; ;
+        }
+
+        private void CheckboxHeader_Click(object sender, EventArgs e)
+        {
+            CheckBox checkboxHeader = (CheckBox)sender;
+            foreach (DataGridViewRow row in dataGridView1.Rows)
+            {
+                // 修改第一欄的值（假設是 CheckBox 或者 TextBox）
+                row.Cells[0].Value = checkboxHeader.Checked;
+
+                // 如果是 CheckBox 並需要勾選
+                // row.Cells[0].Value = true;  // 勾選
+            }
+        }
+
+        private void dgvRet_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            // 點擊第一欄的動作
+            if (dataGridView1.CurrentCell.ColumnIndex == 0)
+            {
+                // 取得 DataGridView 中 CheckBox 的 Cell
+                DataGridViewCheckBoxCell dgvCheck = (DataGridViewCheckBoxCell)(dataGridView1.Rows[dataGridView1.CurrentCell.RowIndex].Cells[0]);
+
+                // 根據點擊時，Cell 的值作為判斷勾選與否。EditedFormattedValue 和 Value 均可以
+                dgvCheck.Value = !Convert.ToBoolean(dgvCheck.Value);
+            }
         }
     }
 }

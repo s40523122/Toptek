@@ -56,7 +56,11 @@ namespace CNCAppPlatform
             ChangePage();
 
             SizeChanged += Overview_V2_SizeChanged;
+            Load += Overview_V2_Load;
+        }
 
+        private void Overview_V2_Load(object sender, EventArgs e)
+        {
             ActiveStateRead();      // 讀取 PLC
         }
 
