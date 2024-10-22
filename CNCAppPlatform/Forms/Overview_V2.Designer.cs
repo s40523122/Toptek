@@ -33,7 +33,7 @@
             this.deviceInfoView_V21 = new CNCAppPlatform.Controls.deviceInfoView_V2();
             this.deviceInfoView_V22 = new CNCAppPlatform.Controls.deviceInfoView_V2();
             this.page_bottom = new System.Windows.Forms.Splitter();
-            this.page_dots = new System.Windows.Forms.FlowLayoutPanel();
+            this.page_dot_layout = new System.Windows.Forms.FlowLayoutPanel();
             this.pause_btn = new ART_plus.DoubleImg();
             this.flowLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pause_btn)).BeginInit();
@@ -81,12 +81,12 @@
             // 
             // page_dots
             // 
-            this.page_dots.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.page_dots.Location = new System.Drawing.Point(587, 642);
-            this.page_dots.Margin = new System.Windows.Forms.Padding(0);
-            this.page_dots.Name = "page_dots";
-            this.page_dots.Size = new System.Drawing.Size(131, 30);
-            this.page_dots.TabIndex = 4;
+            this.page_dot_layout.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.page_dot_layout.Location = new System.Drawing.Point(587, 642);
+            this.page_dot_layout.Margin = new System.Windows.Forms.Padding(0);
+            this.page_dot_layout.Name = "page_dots";
+            this.page_dot_layout.Size = new System.Drawing.Size(131, 30);
+            this.page_dot_layout.TabIndex = 4;
             // 
             // pause_btn
             // 
@@ -110,7 +110,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1075, 676);
             this.Controls.Add(this.pause_btn);
-            this.Controls.Add(this.page_dots);
+            this.Controls.Add(this.page_dot_layout);
             this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.page_bottom);
             this.DoubleBuffered = true;
@@ -129,7 +129,7 @@
         private Controls.deviceInfoView_V2 deviceInfoView_V22;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.Splitter page_bottom;
-        private System.Windows.Forms.FlowLayoutPanel page_dots;
+        private System.Windows.Forms.FlowLayoutPanel page_dot_layout;
         private ART_plus.DoubleImg pause_btn;
     }
 }

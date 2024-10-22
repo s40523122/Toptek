@@ -19,7 +19,10 @@ namespace CNCAppPlatform
         // 設定加入設備數量
         int Num_of_Devices = 6;
 
-        List<Control> page_dot = new List<Control>();
+        // 目前分頁數
+        int current_page_index = 1;     
+
+        List<Control> dot_list = new List<Control>();
         System.Timers.Timer timer = new System.Timers.Timer();
 
         string IniPath = Path.Combine(Form1.path, "Configurations/devices.ini");
@@ -44,12 +47,14 @@ namespace CNCAppPlatform
             int max_pages = (int) Math.Round(((double)Num_of_Devices / 2.0), 0, MidpointRounding.AwayFromZero);
             for (int i = 0; i < max_pages; i++)
             {
-                page_dot.Add(new myPanel() { Size = new Size(20, 20), Radius = 8, BackColor = Color.DarkGray});
+                // 用 TabIndex 作為分頁頁碼
+                myPanel dot = new myPanel() { TabIndex = i, Size = new Size(20, 20), Radius = 8, BackColor = Color.DarkGray, Cursor = Cursors.Hand };
+                dot_list.Add(dot);
+                dot.Click += Dot_Click;
             }
-            page_dots.Controls.AddRange(page_dot.ToArray());
-            page_dots.Controls.Add(pause_btn);
-            page_dots.Width = 26 * (page_dot.Count + 1);
-
+            page_dot_layout.Controls.AddRange(dot_list.ToArray());
+            page_dot_layout.Controls.Add(pause_btn);
+            page_dot_layout.Width = 26 * (dot_list.Count + 1);
             Import_config();
 
             // 啟動輪播
@@ -57,6 +62,16 @@ namespace CNCAppPlatform
 
             SizeChanged += Overview_V2_SizeChanged;
             Load += Overview_V2_Load;
+        }
+
+        private void Dot_Click(object sender, EventArgs e)
+        {
+            // 手動切換分頁時，暫停輪播功能
+            pause_btn.Change = true;
+            
+            // 計算並切換分頁
+            myPanel dot = sender as myPanel;
+            Turn_Page(dot.TabIndex - current_page_index + 1);
         }
 
         private void Overview_V2_Load(object sender, EventArgs e)
@@ -175,12 +190,12 @@ namespace CNCAppPlatform
             // 自適應 flowLayoutPanel 並回到初始位置
             flowLayoutPanel1.Width = (deviceInfoView_V21.Width + 5) * Num_of_Devices;
             flowLayoutPanel1.Left = 20;
-            page_index = 1;
+            current_page_index = 1;
 
             // 置中分頁預覽點
-            page_dots.Left = (Width - page_dots.Width) / 2;
-            foreach (Control control in page_dot) { control.BackColor = Color.DarkGray; }
-            page_dot[0].BackColor = Color.Green;
+            page_dot_layout.Left = (Width - page_dot_layout.Width) / 2;
+            foreach (Control control in dot_list) { control.BackColor = Color.DarkGray; }
+            dot_list[0].BackColor = Color.Green;
 
             timer.Start();
         }
@@ -196,8 +211,6 @@ namespace CNCAppPlatform
             timer.Start();
         }
 
-        int page_index = 1;     // 目前分頁數
-        //int next_page = 1;      // 下一頁需求數量
         private void Page_Elapsed(object sender, EventArgs e)
         {
             // 判定是否輪播
@@ -205,20 +218,30 @@ namespace CNCAppPlatform
             if (Num_of_Devices == 2) return;
 
             // 計算總頁數
-            int max_page = (int)Math.Round(((double)Num_of_Devices / 2.0), 0, MidpointRounding.AwayFromZero);
+            // int max_page = (int)Math.Round(((double)Num_of_Devices / 2.0), 0, MidpointRounding.AwayFromZero);
+            int max_page = page_dot_layout.Controls.Count - 1;
 
             // 當目前頁數為最後頁時，回到第一頁
-            int next_page = page_index < max_page ? 1 : -max_page+1;
+            int next_page = current_page_index < max_page ? 1 : -max_page + 1;
 
+            Turn_Page(next_page);
+        }
+
+        /// <summary>
+        /// 翻頁動作
+        /// </summary>
+        /// <param name="turn_num">需求頁數</param>
+        private void Turn_Page(int turn_num)
+        {
             // 計算翻頁距離
             int between = deviceInfoView_V22.Left - deviceInfoView_V21.Left;
             int step = 12;      // 細分為 12 步
-            int one_step = between * next_page * 2 / step;
+            int one_step = between * turn_num * 2 / step;
 
             // 翻頁動畫，每 10ms 移動一次
             for (int i = 1; i <= step; i++)
             {
-                flowLayoutPanel1.Invoke((MethodInvoker) delegate
+                flowLayoutPanel1.Invoke((MethodInvoker)delegate
                 {
                     flowLayoutPanel1.Left -= one_step;
                     Thread.Sleep(10);
@@ -228,16 +251,16 @@ namespace CNCAppPlatform
                     Update();
 
                     // 補回因整數計算產生的遺失步
-                    if (i == step - 1 ) flowLayoutPanel1.Left -= (between * next_page * 2 - one_step * step);
+                    if (i == step - 1) flowLayoutPanel1.Left -= (between * turn_num * 2 - one_step * step);
                 });
             }
 
             // 更新目前分頁數
-            page_index += next_page;
+            current_page_index += turn_num;
 
             // 渲染分頁預覽點
-            foreach (Control control in page_dot) { control.BackColor = Color.DarkGray; }
-            page_dot[page_index - 1].BackColor = Color.Green;
+            foreach (Control control in dot_list) { control.BackColor = Color.DarkGray; }
+            dot_list[current_page_index - 1].BackColor = Color.Green;
         }
 
     }

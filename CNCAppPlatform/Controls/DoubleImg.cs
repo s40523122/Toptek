@@ -22,6 +22,7 @@ namespace ART_plus
             get { return change; }
             set
             {
+                if (change == value) return;
                 change = value;
                 Tag = Image;
                 Image = SubImg;
