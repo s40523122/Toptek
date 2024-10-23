@@ -60,6 +60,11 @@ namespace CNCAppPlatform.Controls
             // 測試圖表功能
             Chart_design();
 
+            Load += DeviceInfoView_V2_Load;
+        }
+
+        private void DeviceInfoView_V2_Load(object sender, EventArgs e)
+        {
             Setting_Timer();
         }
 

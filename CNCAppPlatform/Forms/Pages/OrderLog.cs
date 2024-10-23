@@ -115,5 +115,28 @@ namespace CNCAppPlatform
                 dgvCheck.Value = !Convert.ToBoolean(dgvCheck.Value);
             }
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            string msg = "";
+
+            // 遍歷 DataGridView 的所有行
+            foreach (DataGridViewRow row in dataGridView1.Rows)
+            {
+                // 確保這不是「新增」行
+                if (!row.IsNewRow)
+                {
+                    // 檢查第一欄是否為 true
+                    if (Convert.ToBoolean(row.Cells[0].Value) == true)
+                    {
+                        // 將第二欄的值加入清單
+                        string secondColumnValue = row.Cells[2].Value.ToString();
+                        msg += (secondColumnValue) + "\n";
+                    }
+                }
+            }
+
+            MessageBox.Show(msg);
+        }
     }
 }

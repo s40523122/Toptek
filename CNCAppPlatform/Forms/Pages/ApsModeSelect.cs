@@ -180,6 +180,7 @@ namespace CNCAppPlatform.Forms.Pages
 
         void Execute_dispatch()
         {
+            // 導入待排程工單資料
             List<Job> jobs = Job.ImportCSV("work_order.csv");
 
             // 建立派工器
