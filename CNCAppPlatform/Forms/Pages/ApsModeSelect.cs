@@ -19,13 +19,10 @@ namespace CNCAppPlatform.Forms.Pages
         Form backForm;
 
         /// <summary>
-        /// 選擇模式
+        /// 已選擇的模式 index
         /// </summary>
-        /// <remarks>
-        /// 宣告為靜態物件，為所有 APS 模式的來源。
-        /// </remarks>
         public static int Selected { get; set; } = 0;
-        
+
         /// <summary>
         /// 已建立的模式名稱
         /// </summary>
@@ -180,26 +177,26 @@ namespace CNCAppPlatform.Forms.Pages
 
         void Execute_dispatch()
         {
-            // 導入待排程工單資料
-            List<Job> jobs = Job.ImportCSV("work_order.csv");
-
             // 建立派工器
             IDispatcher dispatcher = null;
+            
+            // 待排程工單資料
+            List<Job> _raw_jobs = Global_Variable.raw_jobs;
 
             // 開始派工
             switch (ApsModeSelect.Selected)
             {
                 case 0:
-                    dispatcher = new MinimizeJobDelay(jobs, machine_list);
+                    dispatcher = new MinimizeJobDelay(_raw_jobs, machine_list);
                     break;
                 case 1:
-                    dispatcher = new EnergyOptimization(jobs, machine_list);
+                    dispatcher = new EnergyOptimization(_raw_jobs, machine_list);
                     break;
                 case 2:
-                    dispatcher = new ShortestProcessingTime(jobs, machine_list);
+                    dispatcher = new ShortestProcessingTime(_raw_jobs, machine_list);
                     break;
                 case 3:
-                    dispatcher = new PriorityBased(jobs, machine_list);
+                    dispatcher = new PriorityBased(_raw_jobs, machine_list);
                     break;
             }
 

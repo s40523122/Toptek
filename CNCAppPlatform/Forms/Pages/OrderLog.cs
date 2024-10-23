@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CNCAppPlatform.APS;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -120,23 +121,43 @@ namespace CNCAppPlatform
         {
             string msg = "";
 
+            Global_Variable.raw_jobs.Clear();
+
             // 遍歷 DataGridView 的所有行
             foreach (DataGridViewRow row in dataGridView1.Rows)
             {
                 // 確保這不是「新增」行
-                if (!row.IsNewRow)
+                if (row.IsNewRow) continue;
+
+                // 檢查第一欄是否為 true
+                if (Convert.ToBoolean(row.Cells[0].Value) != true) continue;
+                //{
+                //    // 將第二欄的值加入清單
+                //    string secondColumnValue = row.Cells[2].Value.ToString();
+                //    msg += (secondColumnValue) + "\n";
+                //}
+
+                
+                if (Global_Variable.raw_jobs.Count != 0)
                 {
-                    // 檢查第一欄是否為 true
-                    if (Convert.ToBoolean(row.Cells[0].Value) == true)
+                    if (row.Cells[2].Value.ToString() == Global_Variable.raw_jobs.Last().order_no)
                     {
-                        // 將第二欄的值加入清單
-                        string secondColumnValue = row.Cells[2].Value.ToString();
-                        msg += (secondColumnValue) + "\n";
+                        // 相同製程
+                        Global_Variable.raw_jobs.Last().processes.Add(new Process(row.Cells[7].Value.ToString(), row.Cells[8].Value.ToString()));
+                        continue;
                     }
                 }
+                
+
+                List<Process> processes = new List<Process> { new Process(row.Cells[7].Value.ToString(), row.Cells[8].Value.ToString()) };
+
+                Job _job = new Job(row.Cells[2].Value.ToString(), row.Cells[6].Value.ToString(), row.Cells[3].Value.ToString(), processes, row.Cells[4].Value.ToString(), row.Cells[5].Value.ToString());
+
+                Global_Variable.raw_jobs.Add(_job);
+
             }
 
-            MessageBox.Show(msg);
+            //MessageBox.Show(msg);
         }
     }
 }

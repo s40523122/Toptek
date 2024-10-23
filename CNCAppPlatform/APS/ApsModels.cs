@@ -33,7 +33,7 @@ namespace CNCAppPlatform.APS
             required_quantity = quantity;
         }
 
-        public Job(int reserved ,string orderNo, string dueDate, string priority, List<Process> processes, string material, string quantity)
+        public Job(string orderNo, string dueDate, string priority, List<Process> processes, string material, string quantity)
         {
             order_no = orderNo;
             due_date = DateTime.Parse(dueDate);
@@ -48,6 +48,11 @@ namespace CNCAppPlatform.APS
             return sche_bundle.job.processes[sche_bundle.processIndex];
         }
 
+        /// <summary>
+        /// 從 CSV 導入資料
+        /// </summary>
+        /// <param name="csv_path"></param>
+        /// <returns></returns>
         public static List<Job> ImportCSV(string csv_path) 
         {
             List<Job> job_list = new List<Job>();
@@ -75,7 +80,7 @@ namespace CNCAppPlatform.APS
                     }
                 }
 
-                Job _job = new Job(1, csv_array[i][1], csv_array[i][5], csv_array[i][2], processes, csv_array[i][3], csv_array[i][4]);
+                Job _job = new Job(csv_array[i][1], csv_array[i][5], csv_array[i][2], processes, csv_array[i][3], csv_array[i][4]);
 
                 job_list.Add(_job);
             }

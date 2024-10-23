@@ -260,6 +260,7 @@
     <Compile Include="Forms\Pages\SequenceList.Designer.cs">
       <DependentUpon>SequenceList.cs</DependentUpon>
     </Compile>
+    <Compile Include="Global_Variable.cs" />
     <Compile Include="Services\LineNotify.cs" />
     <Compile Include="Services\SaveCsv.cs" />
     <Compile Include="Temp\datePicker.cs">
