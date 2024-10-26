@@ -17,13 +17,13 @@ namespace CNCAppPlatform
     public partial class Overview_V2 : Form
     {
         // 設定加入設備數量
-        int Num_of_Devices = 6;
+        readonly int Num_of_Devices = 6;
 
         // 目前分頁數
         int current_page_index = 1;     
 
-        List<Control> dot_list = new List<Control>();
-        System.Timers.Timer timer = new System.Timers.Timer();
+        private List<Control> dot_list = new List<Control>();
+        private System.Timers.Timer timer = new System.Timers.Timer();
 
         string IniPath = Path.Combine(Form1.path, "Configurations/devices.ini");
         string ImgPath = Path.Combine(Form1.path, "Images/Devices/");
@@ -85,8 +85,10 @@ namespace CNCAppPlatform
         /// </summary>
         public void ActiveStateRead()
         {
-            System.Timers.Timer timer = new System.Timers.Timer();
-            timer.Interval = 3000; // 設置計時器間隔為 3000 毫秒 (3 秒)
+            System.Timers.Timer timer = new System.Timers.Timer
+            {
+                Interval = 3000 // 設置計時器間隔為 3000 毫秒 (3 秒)
+            };
             timer.Elapsed += Active_Timer_Elapsed;
             timer.Start();
         }
@@ -161,8 +163,7 @@ namespace CNCAppPlatform
                 // 圖片來源
                 //Image device_img = Image.FromFile(Path.Combine(ImgPath, import_config["device_img"]));
                 FileStream fs = File.OpenRead(Path.Combine(ImgPath, import_config["device_img"]));
-                int filelength = 0;
-                filelength = (int)fs.Length; //獲得檔長度
+                int filelength = (int)fs.Length; //獲得檔長度
                 Byte[] image = new Byte[filelength]; //建立一個位元組陣列
                 fs.Read(image, 0, filelength); //按位元組流讀取
                 Image result = Image.FromStream(fs);
@@ -176,6 +177,10 @@ namespace CNCAppPlatform
 
                 // 匯入設定檔
                 device.Import_Param_Data(device_name, result, labels, seq_list);
+
+                // 稼動率
+                List<string[]> _availability_history = SaveCsv.LoadCSVToString("availability_history.csv");
+                //device.Update_availability();
             }
         }
 

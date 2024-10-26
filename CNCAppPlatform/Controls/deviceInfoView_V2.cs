@@ -24,6 +24,9 @@ namespace CNCAppPlatform.Controls
         [Description("設備ID。"), Category("自訂值")]
         public string ID { set; get; } = "";
 
+        ChartValues<double> chart_x_values = new ChartValues<double>();       // 稼動率歷史數據，更新此內容，稼動率圖表將自動更新
+        List<string> x_labels = new List<string>();     // 稼動率圖表 X 軸標籤，更新此內容，稼動率圖表將自動更新
+
         //public List<string> param_labels { get; set; }
         //public List<int> param_data {get;set;}
 
@@ -68,6 +71,20 @@ namespace CNCAppPlatform.Controls
             Setting_Timer();
         }
 
+        /// <summary>
+        /// 更新稼動率基礎資料
+        /// </summary>
+        public void Update_availability(List<string> s_values, List<string> lables)
+        {
+            // 使用 Select 轉換為 List<double>
+            List<double> d_values = s_values
+                .Select(s => double.TryParse(s, out double result) ? result : 0.0) // 將字串轉換為 double，若無法轉換則使用 0.0
+                .ToList();
+
+            chart_x_values = new ChartValues<double>(d_values);       // 稼動率歷史數據，更新此內容，稼動率圖表將自動更新
+            x_labels = lables;     // 稼動率圖表 X 軸標籤，更新此內容，稼動率圖表將自動更新
+        }
+
         public void Setting_Timer()
         {
             System.Timers.Timer timer = new System.Timers.Timer();
@@ -103,9 +120,6 @@ namespace CNCAppPlatform.Controls
                 x_labels.Add(DateTime.Now.ToString(@"hh\:mm"));
             }));
         }
-
-        ChartValues<double> chart_x_values = new ChartValues<double>();       // 圖表數據，更新此內容，圖表將自動更新
-        List<string> x_labels = new List<string>();     // 圖表 X 軸標籤，更新此內容，圖表將自動更新
 
         void Chart_design()
         {
