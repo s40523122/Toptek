@@ -145,7 +145,7 @@ namespace CNCAppPlatform
                     }
                 }
 
-                MessageBox.Show("CSV 檔案已成功載入！");
+                // MessageBox.Show("CSV 檔案已成功載入！");
             }
             catch (Exception ex)
             {

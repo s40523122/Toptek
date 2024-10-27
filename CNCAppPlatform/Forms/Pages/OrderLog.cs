@@ -19,8 +19,6 @@ namespace CNCAppPlatform
         {
             InitializeComponent();
 
-            InitialzeDataGridView();
-
             TopMost = true;
             backForm = new Form()
             {
@@ -43,7 +41,22 @@ namespace CNCAppPlatform
             backForm.Hide();
         }
 
-        private void InitialzeDataGridView()
+        public void Input_order_histroy(string title_name)
+        {
+            flowLayoutPanel1.Visible = false;
+            label1.Text = title_name;
+
+            SaveCsv.LoadCSVToDataGridView(dataGridView1, "order_history.csv");
+            dataGridView1.Columns[0].Width = 50;
+            dataGridView1.Columns[1].Width = 150;
+            dataGridView1.Columns[2].Width = 70;
+            dataGridView1.Columns[3].Width = 150;
+            dataGridView1.Columns[4].Width = 70;
+            dataGridView1.Columns[5].Width = 150;
+            dataGridView1.Columns[6].Width = 150;
+        }
+
+        public void Input_order_log()
         {
             //dataGridView1.Columns.Add("ID", "ID");
             //dataGridView1.Columns.Add("OrderName", "工單編號\nOrder Name");

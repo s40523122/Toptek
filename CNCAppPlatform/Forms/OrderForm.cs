@@ -133,6 +133,7 @@ namespace CNCAppPlatform
         private void BtnLog_Click(object sender, EventArgs e)
         {
             OrderLog orderLogFrame = new OrderLog() { FormBorderStyle = FormBorderStyle.None};
+            orderLogFrame.Input_order_log();
             orderLogFrame.ShowDialog();
         }
 
@@ -167,6 +168,11 @@ namespace CNCAppPlatform
             gatt_frame.Show();
         }
 
-
+        private void button1_Click(object sender, EventArgs e)
+        {
+            OrderLog orderLogFrame = new OrderLog() { FormBorderStyle = FormBorderStyle.None };
+            orderLogFrame.Input_order_histroy("產能歷程");
+            orderLogFrame.ShowDialog();
+        }
     }
 }
