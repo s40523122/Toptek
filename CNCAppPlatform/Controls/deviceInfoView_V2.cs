@@ -1,4 +1,5 @@
 ﻿using LiveCharts;
+using LiveCharts.Definitions.Charts;
 using LiveCharts.WinForms;
 using LiveCharts.Wpf;
 using LiveCharts.Wpf.Charts.Base;
@@ -81,8 +82,14 @@ namespace CNCAppPlatform.Controls
                 .Select(s => double.TryParse(s, out double result) ? result : 0.0) // 將字串轉換為 double，若無法轉換則使用 0.0
                 .ToList();
 
-            chart_x_values = new ChartValues<double>(d_values);       // 稼動率歷史數據，更新此內容，稼動率圖表將自動更新
-            x_labels = lables;     // 稼動率圖表 X 軸標籤，更新此內容，稼動率圖表將自動更新
+            // chart_x_values = new ChartValues<double>(d_values);       // 稼動率歷史數據，更新此內容，稼動率圖表將自動更新
+            // x_labels = lables;     // 稼動率圖表 X 軸標籤，更新此內容，稼動率圖表將自動更新
+            for(int _index = 0; _index < d_values.Count; _index++)
+            {
+                // 新增一個數據點
+                chart_x_values.Add(d_values[_index]);
+                x_labels.Add(lables[_index]);     // 標籤
+            }
         }
 
         public void Setting_Timer()

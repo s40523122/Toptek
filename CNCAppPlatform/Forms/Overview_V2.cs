@@ -142,6 +142,9 @@ namespace CNCAppPlatform
         #endregion
         public void Import_config()
         {
+            // 稼動率資料
+            List<string[]> _availability_history = SaveCsv.LoadCSVToString("availability_history.csv");
+
             // 匯入資料
             foreach (deviceInfoView_V2 device in flowLayoutPanel1.Controls)
             {
@@ -178,9 +181,17 @@ namespace CNCAppPlatform
                 // 匯入設定檔
                 device.Import_Param_Data(device_name, result, labels, seq_list);
 
-                // 稼動率
-                List<string[]> _availability_history = SaveCsv.LoadCSVToString("availability_history.csv");
-                //device.Update_availability();
+                List<string> availability_values = _availability_history
+                    .Where(arr => arr.Length > 2 && arr[2] == device.ID) // 篩選第 3 個元素符合指定值的項目
+                    .Select(arr => arr[0])
+                    .ToList();
+
+                List<string> availability_lables = _availability_history
+                    .Where(arr => arr.Length > 2 && arr[2] == device.ID) // 篩選第 3 個元素符合指定值的項目
+                    .Select(arr => arr[1])
+                    .ToList();
+                
+                device.Update_availability(availability_values, availability_lables);
             }
         }
 
