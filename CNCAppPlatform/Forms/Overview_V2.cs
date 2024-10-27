@@ -28,6 +28,9 @@ namespace CNCAppPlatform
         string IniPath = Path.Combine(Form1.path, "Configurations/devices.ini");
         string ImgPath = Path.Combine(Form1.path, "Images/Devices/");
 
+        // 稼動率是否已更新
+        bool init = false;
+
         public Overview_V2()
         {
             InitializeComponent();
@@ -181,18 +184,24 @@ namespace CNCAppPlatform
                 // 匯入設定檔
                 device.Import_Param_Data(device_name, result, labels, seq_list);
 
-                List<string> availability_values = _availability_history
+
+                if (init == false)
+                {
+                    List<string> availability_values = _availability_history
                     .Where(arr => arr.Length > 2 && arr[2] == device.ID) // 篩選第 3 個元素符合指定值的項目
                     .Select(arr => arr[0])
                     .ToList();
 
-                List<string> availability_lables = _availability_history
-                    .Where(arr => arr.Length > 2 && arr[2] == device.ID) // 篩選第 3 個元素符合指定值的項目
-                    .Select(arr => arr[1])
-                    .ToList();
-                
-                device.Update_availability(availability_values, availability_lables);
+                    List<string> availability_lables = _availability_history
+                        .Where(arr => arr.Length > 2 && arr[2] == device.ID) // 篩選第 3 個元素符合指定值的項目
+                        .Select(arr => arr[1])
+                        .ToList();
+
+                    device.Update_availability(availability_values, availability_lables);
+                }
             }
+
+            init = true;
         }
 
         private void Overview_V2_SizeChanged(object sender, EventArgs e)
