@@ -70,8 +70,9 @@ namespace CNCAppPlatform.APS
                     string[] next_order = csv_array[j + 1];
                     if (current_order[1] == next_order[1])
                     {
+                        double total_time = Double.Parse(next_order[7]) * Double.Parse(next_order[4]);
                         // 相同製程
-                        processes.Add(new Process(next_order[6], next_order[7]));
+                        processes.Add(new Process(next_order[6], total_time.ToString()));
                         i++;
                     }
                     else
