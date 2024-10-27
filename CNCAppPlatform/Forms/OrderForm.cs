@@ -24,8 +24,8 @@ namespace CNCAppPlatform
         Machine machine2 = new Machine(2, new List<int> { 2 });
         Machine machine3 = new Machine(3, new List<int> { 3 });
         Machine machine4 = new Machine(4, new List<int> { 4 });
-        Machine machine5 = new Machine(5, new List<int> { 5 });
-        Machine machine6 = new Machine(6, new List<int> { 6 });
+        Machine machine5 = new Machine(5, new List<int> { 1 });
+        Machine machine6 = new Machine(6, new List<int> { 2 });
 
         public static List<Machine> machine_list;
 

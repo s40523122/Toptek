@@ -1,4 +1,5 @@
-﻿using System;
+﻿using HZH_Controls;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -34,11 +35,14 @@ namespace CNCAppPlatform.APS
             {
                 foreach (var process in job.processes)
                 {
+                    
                     // 選擇最後完工機台
-                    Machine latestMachine = Machines.OrderByDescending(m => m.schedule.Last().job.processes[m.schedule.Last().processIndex].end_time).FirstOrDefault();
+                    //Machine latestMachine = Machines.OrderByDescending(m => m.schedule.Last().job.processes[m.schedule.Last().processIndex].end_time).FirstOrDefault();
 
                     Machine bestMachine = null;
                     DateTime bestStartTime = DateTime.MaxValue;
+
+                    bool over_date = true;
 
                     foreach (var machine in Machines)
                     {
@@ -55,10 +59,22 @@ namespace CNCAppPlatform.APS
                             DateTime machineNextAvailable = machine.GetNextAvailableTime(prevProcessEndTime, process.process_time);
 
                             // 找出最早能開始該製程的機台
-                            if (machineNextAvailable < bestStartTime)
+                            //if (machineNextAvailable < bestStartTime)
+                            //{
+                            //    bestMachine = machine;
+                            //    bestStartTime = machineNextAvailable;
+                            //}
+
+                            if (over_date)
                             {
                                 bestMachine = machine;
                                 bestStartTime = machineNextAvailable;
+                            }
+
+                            // 若未逾期，只記錄目前
+                            if (machineNextAvailable.AddHours(process.process_time) < job.due_date) 
+                            {
+                                over_date = false;
                             }
                         }
                     }
