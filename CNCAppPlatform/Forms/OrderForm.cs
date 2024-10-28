@@ -29,8 +29,6 @@ namespace CNCAppPlatform
 
         public static List<Machine> machine_list;
 
-        ApsModeSelect orderLogFrame;
-
         // 建立工單
         Job job1 = new Job("001", new DateTime(2024, 9, 24).AddDays(3), 5, new List<Process>
             {
@@ -66,7 +64,6 @@ namespace CNCAppPlatform
             InitializeComponent();
 
             machine_list = new List<Machine>() { machine1, machine2, machine3, machine4, machine5, machine6 };
-            orderLogFrame = new ApsModeSelect() { FormBorderStyle = FormBorderStyle.None };
             Gantt_Show();            
 
             // 建立派工器
@@ -97,8 +94,8 @@ namespace CNCAppPlatform
         //IDispatcher dispatcher = null;
         private void BtnApsMode_Click(object sender, EventArgs e)
         {
-            
-            orderLogFrame.ShowDialog();
+            ApsModeSelect aps_select = new ApsModeSelect() { FormBorderStyle = FormBorderStyle.None };
+            aps_select.ShowDialog();
 
 
             //List<Job> jobs = Job.ImportCSV("work_order.csv");
