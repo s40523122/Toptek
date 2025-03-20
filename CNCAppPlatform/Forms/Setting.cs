@@ -13,6 +13,8 @@ using RosSharp;
 using System.Threading;
 using Renci.SshNet;
 using System.IO;
+using CNCAppPlatform.Controls;
+using System.Reflection;
 
 namespace CNCAppPlatform
 {
@@ -21,8 +23,33 @@ namespace CNCAppPlatform
         public Setting()
         {
             InitializeComponent();
-            
+
+
+            Load += Setting_Load; ;
         }
+
+        private void Setting_Load(object sender, EventArgs e)
+        {
+            foreach (iDevice device_model in Global_Variable.Devices)
+            {
+                deviceInfoConstrict constrict = new deviceInfoConstrict()
+                {
+                    IniSection = device_model.IniSection,
+                    Height = 45,
+                    //Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right
+                };
+
+                
+
+                constrict.UpdateInfo(device_model.DeviceName, device_model.DeviceImage);
+                device_model.AddControl(constrict);
+
+                flowLayoutPanel1.Controls.Add(constrict);
+
+            }
+        }
+
+ 
 
         private void TabControl1_DrawItem(object sender, System.Windows.Forms.DrawItemEventArgs e)
         {
@@ -55,5 +82,12 @@ namespace CNCAppPlatform
             g.ResetTransform();
         }
 
+        private void flowLayoutPanel1_Resize(object sender, EventArgs e)
+        {
+            foreach (Control ctrl in flowLayoutPanel1.Controls)
+            {
+                ctrl.Width = flowLayoutPanel1.ClientSize.Width - 6;
+            }
+        }
     }
 }

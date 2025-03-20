@@ -206,6 +206,12 @@
     <Compile Include="Controls\deviceInfoView_V2.Designer.cs">
       <DependentUpon>deviceInfoView_V2.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Pages\ApsModeSelect.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -261,14 +267,9 @@
       <DependentUpon>SequenceList.cs</DependentUpon>
     </Compile>
     <Compile Include="Global_Variable.cs" />
+    <Compile Include="Managers\MXConnect.cs" />
     <Compile Include="Services\LineNotify.cs" />
     <Compile Include="Services\SaveCsv.cs" />
-    <Compile Include="Temp\datePicker.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Temp\datePicker.designer.cs">
-      <DependentUpon>datePicker.cs</DependentUpon>
-    </Compile>
     <Compile Include="Controls\deviceInfoView.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -280,12 +281,6 @@
     </Compile>
     <Compile Include="Forms\deviceOverview.Designer.cs">
       <DependentUpon>deviceOverview.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Temp\equipStateIndicator.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Temp\equipStateIndicator.Designer.cs">
-      <DependentUpon>equipStateIndicator.cs</DependentUpon>
     </Compile>
     <Compile Include="Controls\flowView.cs">
       <SubType>UserControl</SubType>
@@ -299,7 +294,6 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="GlobalVar.cs" />
     <Compile Include="Services\INiReader.cs" />
     <Compile Include="Controls\LabelLED.cs">
       <SubType>UserControl</SubType>
@@ -314,24 +308,6 @@
       <DependentUpon>LayoutView.cs</DependentUpon>
     </Compile>
     <Compile Include="LineNotify.cs" />
-    <Compile Include="Temp\machineInfo.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Temp\machineInfo.designer.cs">
-      <DependentUpon>machineInfo.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Temp\machineState.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Temp\machineState.Designer.cs">
-      <DependentUpon>machineState.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Temp\MsgBox.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Temp\MsgBox.designer.cs">
-      <DependentUpon>MsgBox.cs</DependentUpon>
-    </Compile>
     <Compile Include="Forms\Pages\OrderInputFrame.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -364,11 +340,11 @@
     <Compile Include="Controls\SpeedBar.Designer.cs">
       <DependentUpon>SpeedBar.cs</DependentUpon>
     </Compile>
-    <Compile Include="Temp\ToggleSwitch.cs">
-      <SubType>Component</SubType>
+    <Compile Include="Temp\MsgBox.cs">
+      <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Temp\ToggleSwitch.Designer.cs">
-      <DependentUpon>ToggleSwitch.cs</DependentUpon>
+    <Compile Include="Temp\MsgBox.designer.cs">
+      <DependentUpon>MsgBox.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="AddItemButton.resx">
       <DependentUpon>AddItemButton.cs</DependentUpon>
@@ -436,17 +412,11 @@
     <EmbeddedResource Include="Forms\Pages\SequenceList.resx">
       <DependentUpon>SequenceList.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Temp\datePicker.resx">
-      <DependentUpon>datePicker.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Controls\deviceInfoView.resx">
       <DependentUpon>deviceInfoView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\deviceOverview.resx">
       <DependentUpon>deviceOverview.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Temp\equipStateIndicator.resx">
-      <DependentUpon>equipStateIndicator.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\flowView.resx">
       <DependentUpon>flowView.cs</DependentUpon>
@@ -459,15 +429,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\LayoutView.resx">
       <DependentUpon>LayoutView.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Temp\machineInfo.resx">
-      <DependentUpon>machineInfo.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Temp\machineState.resx">
-      <DependentUpon>machineState.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Temp\MsgBox.resx">
-      <DependentUpon>MsgBox.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Pages\OrderInputFrame.resx">
       <DependentUpon>OrderInputFrame.cs</DependentUpon>
@@ -493,6 +454,9 @@
     </Compile>
     <EmbeddedResource Include="Controls\SpeedBar.resx">
       <DependentUpon>SpeedBar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Temp\MsgBox.resx">
+      <DependentUpon>MsgBox.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -626,6 +590,10 @@
       <Isolated>False</Isolated>
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Controllers\" />
+    <Folder Include="Dispatchers\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

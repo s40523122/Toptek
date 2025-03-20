@@ -16,56 +16,25 @@ namespace CNCAppPlatform.Controls
     public partial class deviceInfoConstrict : UserControl
     {
         [Description("設備ID。"), Category("自訂值")]
-        public string ID { set; get; } = "";
-
-        public Image DeviceImg
-        {
-            get
-            {
-                return pictureBox1.Image;
-            }
-            set
-            {
-                pictureBox1.Image = value;
-                Refresh();
-            }
-        }
-
-
-
+        public string IniSection { set; get; } = "";
         private string _deviceName = "";
-        public string DeviceName
-        {
-            get
-            {
-                return _deviceName;
-            }
-            set
-            {
-                _deviceName = value;
-                Refresh();
-            }
-        }
-
-        string IniPath = Path.Combine(Form1.path, "Configurations/devices.ini");
-        string ImgPath = Path.Combine(Form1.path, "Images/Devices/");
 
         public deviceInfoConstrict()
         {
             InitializeComponent();
             InitializeDataGridView();
 
-
-            if (DeviceImg == null) DeviceImg = pictureBox1.Image;
-            //Height = button1.Height;
-
             SizeChanged += DeviceInfoConstrict_SizeChanged;
-            Load += DeviceInfoConstrict_Load;
+
+            button1.Paint += button1_Paint;
         }
 
-        private void DeviceInfoConstrict_Load(object sender, EventArgs e)
+        public void UpdateInfo(string name, Image img)
         {
-            Config_input();
+            pictureBox1.Image = img;
+            _deviceName = name;
+
+            button1.Refresh();
         }
 
         private void DeviceInfoConstrict_SizeChanged(object sender, EventArgs e)
@@ -73,12 +42,19 @@ namespace CNCAppPlatform.Controls
             if (!doubleImg1.Change) button1.Height = Height;
         }
 
+        private void button1_MouseDown(object sender, MouseEventArgs e)
+        {
+            doubleImg1.Change = !doubleImg1.Change;
+            if (doubleImg1.Change) Height *= 5;
+            else Height /= 5;
+        }
+
         private void button1_Paint(object sender, PaintEventArgs e)
         {
             Button button = sender as Button;
 
             // 加載圖片
-            Image imgLeft = DeviceImg; // 左邊的圖片
+            Image imgLeft = pictureBox1.Image; // 左邊的圖片
             Image imgRight = doubleImg1.Image; // 右邊的圖片
 
             // 設置圖片位置
@@ -101,7 +77,7 @@ namespace CNCAppPlatform.Controls
             e.Graphics.DrawImage(imgRight, imgRightRect);
 
             // 繪製文字
-            string buttonText = DeviceName;
+            string buttonText = _deviceName;
             Font font = new Font(button.Font.FontFamily, imageHeight / 4);
             SizeF textSize = e.Graphics.MeasureString(buttonText, font);
             PointF textLocation = new PointF(imageHeight + padding * 7, (button.Height - textSize.Height) / 2);
@@ -109,12 +85,7 @@ namespace CNCAppPlatform.Controls
             e.Graphics.DrawString(buttonText, font, Brushes.Black, textLocation);
         }
 
-        private void button1_MouseDown(object sender, MouseEventArgs e)
-        {
-            doubleImg1.Change = !doubleImg1.Change;
-            if (doubleImg1.Change) Height *= 5;
-            else Height /= 5;
-        }
+       
 
         class cell_config
         {
@@ -159,54 +130,21 @@ namespace CNCAppPlatform.Controls
             dataGridView1.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             dataGridView1.Columns[1].FillWeight = 4;
 
-            
         }
 
-        private void Config_input()
+        public void Config_input(iDevice device)
         {
-            // 若無指定 ID，不匯入資料
-            if (ID == "")
-            {
-                MessageBox.Show("請加入 Constrict ID");
-                return;
-            }
 
-            // 匯入設定檔
-            Dictionary<string, string> import_config = INiReader.ReadSection(IniPath, ID);
-
-            try 
-            {
-                string _ = import_config["device_name"];
-            }
-            catch
-            {
-                return;
-            }
-
-            cell_config device_name = new cell_config() {config_name = "device_name", display_text = "設備名稱", value = import_config["device_name"], cell_mode = "text" };
+            cell_config device_name = new cell_config() {config_name = "device_name", display_text = "設備名稱", value = device.DeviceName, cell_mode = "text" };
             cell_config device_img = new cell_config() { config_name = "device_img", display_text = "設備圖片", value = "設定", cell_mode = "button" };
             cell_config order_sequence = new cell_config() { config_name = "sequence_list", display_text = "生產次序內容", value = "設定", cell_mode = "button" };
-            cell_config reg_sequence = new cell_config() { config_name = "reg_sequence", display_text = "指定生產次序暫存器", value = import_config["reg_sequence"], cell_mode = "text" };
+            cell_config reg_sequence = new cell_config() { config_name = "reg_sequence", display_text = "指定生產次序暫存器", value = device.RegSequence, cell_mode = "text" };
             cell_config device_param = new cell_config() { config_name = "device_param", display_text = "設備參數內容", value = "設定", cell_mode = "button" };
-            cell_config reg_availability = new cell_config() { config_name = "reg_availability", display_text = "指定稼動率暫存器", value = import_config["reg_availability"], cell_mode = "text" };
-            cell_config update_rate = new cell_config() { config_name = "update_rate", display_text = "更新頻率(s)", value = import_config["update_rate"], cell_mode = "text" };
-            cell_config enable_line_notify = new cell_config() { config_name = "enable_line_notify", display_text = "是否開啟 Line Notify 追蹤", value = import_config["enable_line_notify"], cell_mode = "bool" };
+            cell_config reg_availability = new cell_config() { config_name = "reg_availability", display_text = "指定稼動率暫存器", value = device.RegAvailability, cell_mode = "text" };
+            cell_config update_rate = new cell_config() { config_name = "update_rate", display_text = "更新頻率(s)", value = device.UpdateRate.ToString(), cell_mode = "text" };
+            cell_config enable_line_notify = new cell_config() { config_name = "enable_line_notify", display_text = "是否開啟 Line Notify 追蹤", value = device.EnableLineNotify, cell_mode = "bool" };
 
             List<cell_config> config_list = new List<cell_config>() { device_name, device_img, order_sequence, reg_sequence, device_param, reg_availability, update_rate, enable_line_notify };
-
-            // 更新預覽圖示
-            DeviceName = import_config["device_name"];
-            //DeviceImg = Image.FromFile(Path.Combine(ImgPath, import_config["device_img"]));
-            
-            // 解決圖片占用問題
-            FileStream fs = File.OpenRead(Path.Combine(ImgPath, import_config["device_img"]));
-            int filelength = 0;
-            filelength = (int)fs.Length; //獲得檔長度
-            Byte[] image = new Byte[filelength]; //建立一個位元組陣列
-            fs.Read(image, 0, filelength); //按位元組流讀取
-            Image result = Image.FromStream(fs);
-            fs.Close();
-            DeviceImg = result;
 
             // 加入設定內容格式
             foreach (cell_config config in config_list)
@@ -241,20 +179,12 @@ namespace CNCAppPlatform.Controls
         {
             string _name = dataGridView1.Rows[e.RowIndex].Tag as string;
             string _value = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
-            Dictionary<string, string> import_config = INiReader.ReadSection(IniPath, ID);
-            try
-            {
-                string _val = import_config[_name];
-            }
-            catch
-            {
-                return;
-            }
 
+            iDevice device_model = Global_Variable.Devices.Where(x => x.IniSection == IniSection).FirstOrDefault();
             switch (_name)
             {
                 case "device_name":
-                    DeviceName = _value;
+                    device_model.DeviceName = _value;
                     break;
                 case "update_rate":
                     if (!Int32.TryParse(_value, out int num))
@@ -264,24 +194,18 @@ namespace CNCAppPlatform.Controls
                     };
                     break;
             }
-
-            INiReader.WriteINIFile(IniPath, ID, _name, _value);
         }
 
         private void DataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            // 若無指定 ID，不匯入資料
-            if (ID == "")
-            {
-                MessageBox.Show("請加入 Constrict ID");
-                return;
-            }
 
             // 標題欄與描述格不可選
             if (e.RowIndex <= 0 || e.ColumnIndex == 0) return;
             string _name = dataGridView1.Rows[e.RowIndex].Tag as string;
 
             string description = dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString();
+
+            iDevice device_model = Global_Variable.Devices.Where(x => x.IniSection == IniSection).FirstOrDefault();
 
             switch (_name)
             {
@@ -291,28 +215,7 @@ namespace CNCAppPlatform.Controls
                     {
                         openFileDialog.Filter = "Image Files|*.jpg;*.jpeg;*.png;*.bmp";
                         if (openFileDialog.ShowDialog() == DialogResult.OK)
-                        {
-                            //MessageBox.Show($"Selected Image: {openFileDialog.FileName}");
-                            DeviceImg = Image.FromFile(openFileDialog.FileName);
-                            
-                            // 將圖片儲存到指定的資料夾中
-                            string savePath = Path.Combine(ImgPath, $"{ID}.png");
-
-                            // 為了解決錯誤"在GDI+中發生泛型錯誤"
-                            //using (System.IO.MemoryStream oMS = new System.IO.MemoryStream())
-                            //{
-                            //    //將oTarImg儲存（指定）到記憶體串流中
-                            //    DeviceImg.Save(oMS, System.Drawing.Imaging.ImageFormat.Jpeg);
-                            //    //將串流整個讀到陣列中，寫入某個路徑中的某個檔案裡
-                            //    using (System.IO.FileStream oFS = System.IO.File.Open(savePath, System.IO.FileMode.OpenOrCreate))
-                            //    { oFS.Write(oMS.ToArray(), 0, oMS.ToArray().Length); }
-                            //}
-                            // GDI+中發生泛型錯誤，可能原因為圖片被占用?
-                            DeviceImg.Save(savePath);
-
-                            // 寫入設定檔
-                            INiReader.WriteINIFile(IniPath, ID, "device_img", $"{ID}.png");
-                        }
+                            device_model.DeviceImage = Image.FromFile(openFileDialog.FileName);
                     }
                     break;
 
@@ -320,7 +223,7 @@ namespace CNCAppPlatform.Controls
                     // 打開新視窗進行參數設定
                     using (ParamRegSetting parameterForm = new ParamRegSetting())
                     {
-                        parameterForm.ID = ID;
+                        //parameterForm.ID = ID;
                         parameterForm.Text = "Parameter Settings";
                         //parameterForm.Width = 300;
                         //parameterForm.Height = 200;
@@ -334,7 +237,7 @@ namespace CNCAppPlatform.Controls
                     // 打開新視窗進行參數設定
                     using (SequenceList parameterForm = new SequenceList())
                     {
-                        parameterForm.ID = ID;
+                        //parameterForm.ID = ID;
                         parameterForm.Text = "Parameter Settings";
                         //parameterForm.Width = 300;
                         //parameterForm.Height = 200;

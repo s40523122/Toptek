@@ -12,6 +12,7 @@ using iniRW;
 using System.Data.SqlClient;
 using System.Diagnostics;
 using ActUtlTypeLib;
+using System.IO;
 
 namespace CNCAppPlatform
 { 
@@ -49,7 +50,23 @@ namespace CNCAppPlatform
                 btnFormControl.Click += BtnFormControl_Click;
             }
             else WindowState = FormWindowState.Maximized;
+
+            Load_device();
+            // Console.WriteLine(Global_Variable.Devices);
         }
+
+        /// <summary>
+        /// 導入設備
+        /// </summary>
+        void Load_device()
+        {
+            string[] device_names = INiReader.GetAllSectionNames(Global_Variable.IniPath);
+            foreach(string device_name in device_names)
+            {
+                iDevice device = new iDevice(device_name);
+                Global_Variable.Devices.Add(device);
+            }
+        } 
 
         /// <summary>
         /// 視窗縮放 (點擊事件)
@@ -150,7 +167,7 @@ namespace CNCAppPlatform
 
             Tag = button.Tag;
             (button.Tag as Form).Show();
-            (button.Tag as Overview_V2).Import_config();
+            //0319 (button.Tag as Overview_V2).Import_config();
 
             moduleTitle.Text = button.Text.Trim();
         }

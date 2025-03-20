@@ -44,7 +44,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.btnHome = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.btnFormControl = new ART_plus.DoubleImg();
             this.panel3 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.btFold = new System.Windows.Forms.PictureBox();
@@ -54,13 +53,14 @@
             this.panel5 = new System.Windows.Forms.Panel();
             this.connStatusLabel = new System.Windows.Forms.Label();
             this.moduleTitle = new System.Windows.Forms.Label();
+            this.btnFormControl = new ART_plus.DoubleImg();
             this.sidePanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.info)).BeginInit();
             this.flowLayoutPanel1.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.btnFormControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btFold)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnFormControl)).BeginInit();
             this.SuspendLayout();
             // 
             // sidePanel
@@ -289,24 +289,6 @@
             this.panel2.Size = new System.Drawing.Size(862, 46);
             this.panel2.TabIndex = 1;
             // 
-            // btnFormControl
-            // 
-            this.btnFormControl.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnFormControl.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnFormControl.Change = true;
-            this.btnFormControl.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnFormControl.Image = ((System.Drawing.Image)(resources.GetObject("btnFormControl.Image")));
-            this.btnFormControl.Location = new System.Drawing.Point(790, 14);
-            this.btnFormControl.Name = "btnFormControl";
-            this.btnFormControl.SetSquare = true;
-            this.btnFormControl.Size = new System.Drawing.Size(19, 19);
-            this.btnFormControl.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.btnFormControl.SubImg = ((System.Drawing.Image)(resources.GetObject("btnFormControl.SubImg")));
-            this.btnFormControl.TabIndex = 5;
-            this.btnFormControl.TabStop = false;
-            this.btnFormControl.Tag = ((object)(resources.GetObject("btnFormControl.Tag")));
-            this.btnFormControl.Visible = false;
-            // 
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.Silver;
@@ -399,6 +381,24 @@
             this.moduleTitle.Text = "設備狀態監控App";
             this.moduleTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // btnFormControl
+            // 
+            this.btnFormControl.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnFormControl.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnFormControl.Change = true;
+            this.btnFormControl.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnFormControl.Image = ((System.Drawing.Image)(resources.GetObject("btnFormControl.Image")));
+            this.btnFormControl.Location = new System.Drawing.Point(790, 14);
+            this.btnFormControl.Name = "btnFormControl";
+            this.btnFormControl.SetSquare = true;
+            this.btnFormControl.Size = new System.Drawing.Size(19, 19);
+            this.btnFormControl.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.btnFormControl.SubImg = ((System.Drawing.Image)(resources.GetObject("btnFormControl.SubImg")));
+            this.btnFormControl.TabIndex = 5;
+            this.btnFormControl.TabStop = false;
+            this.btnFormControl.Tag = ((object)(resources.GetObject("btnFormControl.Tag")));
+            this.btnFormControl.Visible = false;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -420,8 +420,8 @@
             this.panel4.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.btnFormControl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btFold)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnFormControl)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

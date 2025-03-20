@@ -88,7 +88,7 @@ namespace CNCAppPlatform
             byte[] buffer = new byte[2048];
 
             GetPrivateProfileSection(section, buffer, 2048, path);
-            String[] tmp = Encoding.ASCII.GetString(buffer).Trim('\0').Split('\0');
+            String[] tmp = Encoding.Default.GetString(buffer).Trim('\0').Split('\0');
 
             Dictionary<string, string> keyValuePairs = new Dictionary<string, string>();
 
@@ -105,6 +105,28 @@ namespace CNCAppPlatform
             }
 
             return keyValuePairs;
+        }
+
+        [DllImport("kernel32")]
+        static extern uint GetPrivateProfileSectionNames(IntPtr pszReturnBuffer, uint nSize, string lpFileName);
+
+        /// <summary>
+        /// 取得所有節點名稱
+        /// </summary>
+        /// <param name="path"></param>
+        /// <returns></returns>
+        public static string[] GetAllSectionNames(string path)
+        {
+            path = Path.GetFullPath(path);
+            uint MAX_BUFFER = 32767;
+            IntPtr pReturnedString = Marshal.AllocCoTaskMem((int)MAX_BUFFER);
+            uint bytesReturned = GetPrivateProfileSectionNames(pReturnedString, MAX_BUFFER, path);
+            if (bytesReturned == 0)
+                return null;
+            string local = Marshal.PtrToStringAnsi(pReturnedString, (int)bytesReturned).ToString();
+            Marshal.FreeCoTaskMem(pReturnedString);
+            //use of Substring below removes terminating null for split
+            return local.Substring(0, local.Length - 1).Split('\0');
         }
 
     }

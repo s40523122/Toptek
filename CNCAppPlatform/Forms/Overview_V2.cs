@@ -25,8 +25,8 @@ namespace CNCAppPlatform
         private List<Control> dot_list = new List<Control>();
         private System.Timers.Timer timer = new System.Timers.Timer();
 
-        string IniPath = Path.Combine(Form1.path, "Configurations/devices.ini");
-        string ImgPath = Path.Combine(Form1.path, "Images/Devices/");
+        //string IniPath = Path.Combine(Form1.path, "Configurations/devices.ini");
+        //string ImgPath = Path.Combine(Form1.path, "Images/Devices/");
 
         // 稼動率是否已更新
         bool init = false;
@@ -39,11 +39,16 @@ namespace CNCAppPlatform
             this.SetStyle(ControlStyles.OptimizedDoubleBuffer, true);
             this.UpdateStyles();
 
+            Global_Variable.Devices[0].AddControl(deviceInfoView_V21);
+            Global_Variable.Devices[1].AddControl(deviceInfoView_V22);
+
             // 加入設備
             for (int i = 3; i <= Num_of_Devices; i++)
             {
                 deviceInfoView_V2 deviceInfoView = new deviceInfoView_V2() { ID = $"device{i}"};
                 flowLayoutPanel1.Controls.Add(deviceInfoView);
+
+                Global_Variable.Devices[i-1].AddControl(deviceInfoView);
             }
 
             // 設定分頁圖示
@@ -102,21 +107,14 @@ namespace CNCAppPlatform
             foreach (deviceInfoView_V2 device in flowLayoutPanel1.Controls)
             {
                 // 取得設定檔資料
-                Dictionary<string, string> import_config = INiReader.ReadSection(IniPath, device.ID);
+                //Dictionary<string, string> import_config = INiReader.ReadSection(IniPath, device.ID);
 
-                try
-                {
-                    string _ = import_config["device_name"];
-                }
-                catch
-                {
-                    return;
-                }
+                iDevice iDevice = Global_Variable.Devices.Where(d => d.IniSection == device.ID).FirstOrDefault();
 
                 // 讀取暫存器位置
-                string reg_seq = import_config["reg_sequence"];         // 次序指定暫存器
-                string reg_ava = import_config["reg_availability"];     // 稼動率指定暫存器
-                string reg_param = "D" + import_config["param_start_reg"];    // 設備參數開始暫存器
+                string reg_seq = iDevice.RegSequence;         // 次序指定暫存器
+                string reg_ava = iDevice.RegAvailability;     // 稼動率指定暫存器
+                string reg_param = "D" + iDevice.RegParamStart;    // 設備參數開始暫存器
 
                 int seq_value = Plc_Read(reg_seq, 1)[0];
                 int ava_value = Plc_Read(reg_ava, 1)[0];
@@ -151,39 +149,6 @@ namespace CNCAppPlatform
             // 匯入資料
             foreach (deviceInfoView_V2 device in flowLayoutPanel1.Controls)
             {
-                // 取得設定檔資料
-                Dictionary<string, string> import_config = INiReader.ReadSection(IniPath, device.ID);
-
-                try
-                {
-                    string _ = import_config["device_name"];
-                }
-                catch
-                {
-                    return;
-                }
-
-                // 設備名稱
-                string device_name = import_config["device_name"];
-                
-                // 圖片來源
-                //Image device_img = Image.FromFile(Path.Combine(ImgPath, import_config["device_img"]));
-                FileStream fs = File.OpenRead(Path.Combine(ImgPath, import_config["device_img"]));
-                int filelength = (int)fs.Length; //獲得檔長度
-                Byte[] image = new Byte[filelength]; //建立一個位元組陣列
-                fs.Read(image, 0, filelength); //按位元組流讀取
-                Image result = Image.FromStream(fs);
-                fs.Close();
-
-                // 參數標籤
-                string[] labels = INiReader.ReadINIFile(IniPath, device.ID, "param_labels").Split(';');
-
-                // 生產次序標籤
-                string[] seq_list = INiReader.ReadINIFile(IniPath, device.ID, "sequence_list").Split(';');
-
-                // 匯入設定檔
-                device.Import_Param_Data(device_name, result, labels, seq_list);
-
 
                 if (init == false)
                 {

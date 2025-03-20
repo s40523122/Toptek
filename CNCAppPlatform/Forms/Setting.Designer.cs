@@ -28,30 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Setting));
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.panel3 = new System.Windows.Forms.Panel();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.BottomToolStripPanel = new System.Windows.Forms.ToolStripPanel();
             this.TopToolStripPanel = new System.Windows.Forms.ToolStripPanel();
             this.RightToolStripPanel = new System.Windows.Forms.ToolStripPanel();
             this.LeftToolStripPanel = new System.Windows.Forms.ToolStripPanel();
             this.ContentPanel = new System.Windows.Forms.ToolStripContentPanel();
-            this.panel5 = new System.Windows.Forms.Panel();
-            this.panel6 = new System.Windows.Forms.Panel();
-            this.deviceInfoConstrict6 = new CNCAppPlatform.Controls.deviceInfoConstrict();
-            this.deviceInfoConstrict5 = new CNCAppPlatform.Controls.deviceInfoConstrict();
-            this.deviceInfoConstrict3 = new CNCAppPlatform.Controls.deviceInfoConstrict();
-            this.deviceInfoConstrict2 = new CNCAppPlatform.Controls.deviceInfoConstrict();
-            this.deviceInfoConstrict1 = new CNCAppPlatform.Controls.deviceInfoConstrict();
-            this.deviceInfoConstrict4 = new CNCAppPlatform.Controls.deviceInfoConstrict();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
-            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -69,72 +56,36 @@
             this.tabControl1.Multiline = true;
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(800, 415);
+            this.tabControl1.Size = new System.Drawing.Size(799, 484);
             this.tabControl1.TabIndex = 0;
             this.tabControl1.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.TabControl1_DrawItem);
             // 
             // tabPage1
             // 
             this.tabPage1.BackColor = System.Drawing.SystemColors.Control;
-            this.tabPage1.Controls.Add(this.panel1);
+            this.tabPage1.Controls.Add(this.flowLayoutPanel1);
             this.tabPage1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabPage1.Location = new System.Drawing.Point(184, 4);
             this.tabPage1.Margin = new System.Windows.Forms.Padding(2);
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(60, 60, 60, 0);
-            this.tabPage1.Size = new System.Drawing.Size(612, 407);
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(60, 65, 60, 0);
+            this.tabPage1.Size = new System.Drawing.Size(611, 476);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "設備";
             // 
-            // panel1
+            // flowLayoutPanel1
             // 
-            this.panel1.AutoScroll = true;
-            this.panel1.BackColor = System.Drawing.SystemColors.Control;
-            this.panel1.Controls.Add(this.deviceInfoConstrict6);
-            this.panel1.Controls.Add(this.panel6);
-            this.panel1.Controls.Add(this.deviceInfoConstrict5);
-            this.panel1.Controls.Add(this.panel5);
-            this.panel1.Controls.Add(this.deviceInfoConstrict3);
-            this.panel1.Controls.Add(this.panel4);
-            this.panel1.Controls.Add(this.deviceInfoConstrict2);
-            this.panel1.Controls.Add(this.panel2);
-            this.panel1.Controls.Add(this.deviceInfoConstrict1);
-            this.panel1.Controls.Add(this.panel3);
-            this.panel1.Controls.Add(this.deviceInfoConstrict4);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(60, 60);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2);
-            this.panel1.Name = "panel1";
-            this.panel1.Padding = new System.Windows.Forms.Padding(2);
-            this.panel1.Size = new System.Drawing.Size(492, 347);
-            this.panel1.TabIndex = 0;
-            // 
-            // panel4
-            // 
-            this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel4.Location = new System.Drawing.Point(2, 196);
-            this.panel4.Margin = new System.Windows.Forms.Padding(2);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(471, 7);
-            this.panel4.TabIndex = 16;
-            // 
-            // panel2
-            // 
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel2.Location = new System.Drawing.Point(2, 129);
-            this.panel2.Margin = new System.Windows.Forms.Padding(2);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(471, 7);
-            this.panel2.TabIndex = 14;
-            // 
-            // panel3
-            // 
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel3.Location = new System.Drawing.Point(2, 62);
-            this.panel3.Margin = new System.Windows.Forms.Padding(2);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(471, 7);
-            this.panel3.TabIndex = 15;
+            this.flowLayoutPanel1.AutoScroll = true;
+            this.flowLayoutPanel1.AutoSize = true;
+            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(60, 65);
+            this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(0);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(491, 411);
+            this.flowLayoutPanel1.TabIndex = 1;
+            this.flowLayoutPanel1.WrapContents = false;
+            this.flowLayoutPanel1.Resize += new System.EventHandler(this.flowLayoutPanel1_Resize);
             // 
             // tabPage3
             // 
@@ -142,7 +93,7 @@
             this.tabPage3.Location = new System.Drawing.Point(184, 4);
             this.tabPage3.Margin = new System.Windows.Forms.Padding(2);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Size = new System.Drawing.Size(612, 407);
+            this.tabPage3.Size = new System.Drawing.Size(612, 476);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "環境";
             // 
@@ -182,113 +133,16 @@
             // 
             this.ContentPanel.Size = new System.Drawing.Size(280, 201);
             // 
-            // panel5
-            // 
-            this.panel5.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel5.Location = new System.Drawing.Point(2, 263);
-            this.panel5.Margin = new System.Windows.Forms.Padding(2);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(471, 7);
-            this.panel5.TabIndex = 18;
-            // 
-            // panel6
-            // 
-            this.panel6.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel6.Location = new System.Drawing.Point(2, 330);
-            this.panel6.Margin = new System.Windows.Forms.Padding(2);
-            this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(471, 7);
-            this.panel6.TabIndex = 20;
-            // 
-            // deviceInfoConstrict6
-            // 
-            this.deviceInfoConstrict6.BackColor = System.Drawing.Color.White;
-            this.deviceInfoConstrict6.DeviceImg = ((System.Drawing.Image)(resources.GetObject("deviceInfoConstrict6.DeviceImg")));
-            this.deviceInfoConstrict6.DeviceName = "Device A";
-            this.deviceInfoConstrict6.Dock = System.Windows.Forms.DockStyle.Top;
-            this.deviceInfoConstrict6.ID = "device6";
-            this.deviceInfoConstrict6.Location = new System.Drawing.Point(2, 337);
-            this.deviceInfoConstrict6.Margin = new System.Windows.Forms.Padding(4, 8, 4, 8);
-            this.deviceInfoConstrict6.Name = "deviceInfoConstrict6";
-            this.deviceInfoConstrict6.Size = new System.Drawing.Size(471, 60);
-            this.deviceInfoConstrict6.TabIndex = 19;
-            // 
-            // deviceInfoConstrict5
-            // 
-            this.deviceInfoConstrict5.BackColor = System.Drawing.Color.White;
-            this.deviceInfoConstrict5.DeviceImg = ((System.Drawing.Image)(resources.GetObject("deviceInfoConstrict5.DeviceImg")));
-            this.deviceInfoConstrict5.DeviceName = "Device A";
-            this.deviceInfoConstrict5.Dock = System.Windows.Forms.DockStyle.Top;
-            this.deviceInfoConstrict5.ID = "device5";
-            this.deviceInfoConstrict5.Location = new System.Drawing.Point(2, 270);
-            this.deviceInfoConstrict5.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
-            this.deviceInfoConstrict5.Name = "deviceInfoConstrict5";
-            this.deviceInfoConstrict5.Size = new System.Drawing.Size(471, 60);
-            this.deviceInfoConstrict5.TabIndex = 17;
-            // 
-            // deviceInfoConstrict3
-            // 
-            this.deviceInfoConstrict3.BackColor = System.Drawing.Color.White;
-            this.deviceInfoConstrict3.DeviceImg = ((System.Drawing.Image)(resources.GetObject("deviceInfoConstrict3.DeviceImg")));
-            this.deviceInfoConstrict3.DeviceName = "Device A";
-            this.deviceInfoConstrict3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.deviceInfoConstrict3.ID = "device4";
-            this.deviceInfoConstrict3.Location = new System.Drawing.Point(2, 203);
-            this.deviceInfoConstrict3.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.deviceInfoConstrict3.Name = "deviceInfoConstrict3";
-            this.deviceInfoConstrict3.Size = new System.Drawing.Size(471, 60);
-            this.deviceInfoConstrict3.TabIndex = 13;
-            // 
-            // deviceInfoConstrict2
-            // 
-            this.deviceInfoConstrict2.BackColor = System.Drawing.SystemColors.HighlightText;
-            this.deviceInfoConstrict2.DeviceImg = ((System.Drawing.Image)(resources.GetObject("deviceInfoConstrict2.DeviceImg")));
-            this.deviceInfoConstrict2.DeviceName = "Device A";
-            this.deviceInfoConstrict2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.deviceInfoConstrict2.ID = "device3";
-            this.deviceInfoConstrict2.Location = new System.Drawing.Point(2, 136);
-            this.deviceInfoConstrict2.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.deviceInfoConstrict2.Name = "deviceInfoConstrict2";
-            this.deviceInfoConstrict2.Size = new System.Drawing.Size(471, 60);
-            this.deviceInfoConstrict2.TabIndex = 11;
-            // 
-            // deviceInfoConstrict1
-            // 
-            this.deviceInfoConstrict1.BackColor = System.Drawing.SystemColors.HighlightText;
-            this.deviceInfoConstrict1.DeviceImg = ((System.Drawing.Image)(resources.GetObject("deviceInfoConstrict1.DeviceImg")));
-            this.deviceInfoConstrict1.DeviceName = "Device A";
-            this.deviceInfoConstrict1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.deviceInfoConstrict1.ID = "device2";
-            this.deviceInfoConstrict1.Location = new System.Drawing.Point(2, 69);
-            this.deviceInfoConstrict1.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.deviceInfoConstrict1.Name = "deviceInfoConstrict1";
-            this.deviceInfoConstrict1.Size = new System.Drawing.Size(471, 60);
-            this.deviceInfoConstrict1.TabIndex = 9;
-            // 
-            // deviceInfoConstrict4
-            // 
-            this.deviceInfoConstrict4.BackColor = System.Drawing.SystemColors.HighlightText;
-            this.deviceInfoConstrict4.DeviceImg = ((System.Drawing.Image)(resources.GetObject("deviceInfoConstrict4.DeviceImg")));
-            this.deviceInfoConstrict4.DeviceName = "Device A";
-            this.deviceInfoConstrict4.Dock = System.Windows.Forms.DockStyle.Top;
-            this.deviceInfoConstrict4.ID = "device1";
-            this.deviceInfoConstrict4.Location = new System.Drawing.Point(2, 2);
-            this.deviceInfoConstrict4.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.deviceInfoConstrict4.Name = "deviceInfoConstrict4";
-            this.deviceInfoConstrict4.Size = new System.Drawing.Size(471, 60);
-            this.deviceInfoConstrict4.TabIndex = 7;
-            // 
             // Setting
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 415);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
+            this.ClientSize = new System.Drawing.Size(799, 484);
             this.Controls.Add(this.tabControl1);
             this.Name = "Setting";
             this.Text = "Setting";
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
-            this.panel1.ResumeLayout(false);
+            this.tabPage1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -305,17 +159,6 @@
         private System.Windows.Forms.ToolStripPanel RightToolStripPanel;
         private System.Windows.Forms.ToolStripPanel LeftToolStripPanel;
         private System.Windows.Forms.ToolStripContentPanel ContentPanel;
-        private System.Windows.Forms.Panel panel1;
-        private Controls.deviceInfoConstrict deviceInfoConstrict4;
-        private Controls.deviceInfoConstrict deviceInfoConstrict2;
-        private Controls.deviceInfoConstrict deviceInfoConstrict1;
-        private Controls.deviceInfoConstrict deviceInfoConstrict3;
-        private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Panel panel3;
-        private Controls.deviceInfoConstrict deviceInfoConstrict6;
-        private System.Windows.Forms.Panel panel6;
-        private Controls.deviceInfoConstrict deviceInfoConstrict5;
-        private System.Windows.Forms.Panel panel5;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
     }
 }
