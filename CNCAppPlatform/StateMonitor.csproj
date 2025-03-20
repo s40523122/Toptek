@@ -158,48 +158,6 @@
     <Compile Include="Controls\setform.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Controls\Task\Agv.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Controls\Task\Agv.Designer.cs">
-      <DependentUpon>Agv.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Controls\Task\TR1844.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Controls\Task\TR1844.Designer.cs">
-      <DependentUpon>TR1844.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Controls\Task\TS0082-1.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Controls\Task\TS0082-1.Designer.cs">
-      <DependentUpon>TS0082-1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Controls\Task\TS0082_2.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Controls\Task\TS0082_2.Designer.cs">
-      <DependentUpon>TS0082_2.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Controls\Task\TS0082_3.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Controls\Task\TS0082_3.Designer.cs">
-      <DependentUpon>TS0082_3.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Controls\Task\Carousel_8_box.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Controls\Task\Carousel_8_box.Designer.cs">
-      <DependentUpon>Carousel_8_box.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Controls\Task\TS0131.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Controls\Task\TS0131.Designer.cs">
-      <DependentUpon>TS0131.cs</DependentUpon>
-    </Compile>
     <Compile Include="Controls\deviceInfoView_V2.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -360,27 +318,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\setform.resx">
       <DependentUpon>setform.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Controls\Task\Agv.resx">
-      <DependentUpon>Agv.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Controls\Task\TR1844.resx">
-      <DependentUpon>TR1844.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Controls\Task\TS0082-1.resx">
-      <DependentUpon>TS0082-1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Controls\Task\TS0082_2.resx">
-      <DependentUpon>TS0082_2.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Controls\Task\TS0082_3.resx">
-      <DependentUpon>TS0082_3.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Controls\Task\Carousel_8_box.resx">
-      <DependentUpon>Carousel_8_box.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Controls\Task\TS0131.resx">
-      <DependentUpon>TS0131.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\deviceInfoView_V2.resx">
       <DependentUpon>deviceInfoView_V2.cs</DependentUpon>

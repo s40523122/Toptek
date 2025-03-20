@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Drawing.Drawing2D;
 using System.Windows.Shapes;
+using CNCAppPlatform.Managers;
 
 
 namespace CNCAppPlatform
@@ -50,7 +51,7 @@ namespace CNCAppPlatform
             String[] arrdata;
             arraydata = new short[no];
 
-            _ = Form1.axActUtlType.ReadDeviceBlock2(D_register, no, out arraydata[0]);
+            arraydata = MXConnect.Plc_Read(D_register, no);
 
             // 這裡一定要 Invoke !!! by正暉(聖貿都沒講)
             Invoke(new MethodInvoker(delegate

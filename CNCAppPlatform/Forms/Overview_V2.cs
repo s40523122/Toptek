@@ -1,4 +1,5 @@
 ﻿using CNCAppPlatform.Controls;
+using CNCAppPlatform.Managers;
 using Renci.SshNet.Messages;
 using System;
 using System.Collections.Generic;
@@ -116,30 +117,16 @@ namespace CNCAppPlatform
                 string reg_ava = iDevice.RegAvailability;     // 稼動率指定暫存器
                 string reg_param = "D" + iDevice.RegParamStart;    // 設備參數開始暫存器
 
-                int seq_value = Plc_Read(reg_seq, 1)[0];
-                int ava_value = Plc_Read(reg_ava, 1)[0];
-                short[] param_values = Plc_Read(reg_param, 24);
+                int seq_value = MXConnect.Plc_Read(reg_seq, 1)[0];
+                int ava_value = MXConnect.Plc_Read(reg_ava, 1)[0];
+                short[] param_values = MXConnect.Plc_Read(reg_param, 24);
 
                 // 更新數據
                 device.Update_data(seq_value, ava_value, param_values);
             }
         }
 
-        short[] Plc_Read(string start_reg, int reg_count)
-        {
-            short[] arraydata = new short[reg_count];
 
-            _ = Form1.axActUtlType.ReadDeviceBlock2(start_reg, reg_count, out arraydata[0]);
-
-            //Invoke(new MethodInvoker(delegate
-            //{
-            //    plateNo1.Text = arraydata[0].ToString();
-            //    plateNo2.Text = arraydata[1].ToString();
-            //    plateNo3.Text = arraydata[2].ToString();
-            //    plateNo4.Text = arraydata[3].ToString();
-            //}));
-            return arraydata;
-        }
         #endregion
         public void Import_config()
         {

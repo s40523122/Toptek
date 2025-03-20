@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using System.IO;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using System.Diagnostics;
+using CNCAppPlatform.Managers;
 
 namespace CNCAppPlatform
 {
@@ -246,7 +247,7 @@ namespace CNCAppPlatform
 
             flowView1.PlcRead();
 
-            _ = Form1.axActUtlType.ReadDeviceBlock2(activation_D_register, no, out arraydata[0]);
+            arraydata = MXConnect.Plc_Read(activation_D_register, no);
 
             Invoke(new MethodInvoker(delegate
             {

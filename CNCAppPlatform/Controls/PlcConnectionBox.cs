@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using ActUtlTypeLib;
+using CNCAppPlatform.Managers;
 
 namespace CNCAppPlatform
 {
@@ -70,8 +71,6 @@ namespace CNCAppPlatform
 
             try
             {
-                Form1.axActUtlType = new ActUtlType();
-
                 connectBtn.Click += ConnectBtn_Click;
                 disconnBtn.Click += DisconnBtn_Click;
             }
@@ -110,30 +109,18 @@ namespace CNCAppPlatform
 
         private void DisconnBtn_Click(object sender, EventArgs e)
         {
-            Form1.axActUtlType.Close();
+            MXConnect.Disconnect();
             labelLED1.IsLight = false;
             (ParentForm.ParentForm as Form1).ConnectStatus = "連接狀態：未連接";
         }
 
         private void ConnectBtn_Click(object sender, EventArgs e)
         {
-            int returncode;
-            try
+            bool conn = MXConnect.Connect(LogicalStationNumber);
+            if (conn)
             {
-                Form1.axActUtlType.ActLogicalStationNumber = LogicalStationNumber;
-                returncode = Form1.axActUtlType.Open();
-                if (returncode == 0)
-                {
-                    //MessageBox.Show("connect");
-                    labelLED1.IsLight = true;
-                    (ParentForm.ParentForm as Form1).ConnectStatus = $"連接狀態：已連接至 #{LogicalStationNumber}";
-
-                }
-                else MessageBox.Show("unconnect");
-            }
-            catch
-            {
-                MessageBox.Show("unconnect");
+                labelLED1.IsLight = true;
+                (ParentForm.ParentForm as Form1).ConnectStatus = $"連接狀態：已連接至 #{LogicalStationNumber}";
             }
         }
 

@@ -21,7 +21,7 @@ namespace CNCAppPlatform
     {
         //private const int CS_DropShadow = 0x00020000;
 
-        public static ActUtlType axActUtlType = new ActUtlType();       // PLC
+        // public static ActUtlType axActUtlType = new ActUtlType();       // PLC
         public static string path = Application.StartupPath;
 
         /// <summary>

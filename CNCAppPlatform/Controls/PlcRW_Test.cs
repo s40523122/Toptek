@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using CNCAppPlatform.Managers;
 
 namespace CNCAppPlatform
 {
@@ -37,19 +38,22 @@ namespace CNCAppPlatform
             arraydata = new int[1] { (int)Convert.ToInt32(dataMsg.Text) };
 
             d = dName.Text;
-            _ = Form1.axActUtlType.WriteDeviceBlock(d, no, ref arraydata[0]);
+            MXConnect.axActUtlType.WriteDeviceBlock(d, no, ref arraydata[0]);
+
+
         }
 
         private void Timer_Tick(object sender, EventArgs e)
         {
             string d = "";
             int no = 1;
-            int[] arraydata;
+            short[] arraydata;
             String[] arrdata;
-            arraydata = new int[no];
+            arraydata = new short[no];
 
             d = dName.Text;
-            _ = Form1.axActUtlType.ReadDeviceBlock(d, no, out arraydata[0]);
+            //_ = Form1.axActUtlType.ReadDeviceBlock(d, no, out arraydata[0]);
+            arraydata = MXConnect.Plc_Read(d, no);
 
             dataMsg.Text = arraydata[0].ToString();
             //MessageBox.Show(arraydata[0].ToString());

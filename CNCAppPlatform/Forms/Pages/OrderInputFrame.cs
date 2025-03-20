@@ -1,4 +1,5 @@
-﻿using HZH_Controls;
+﻿using CNCAppPlatform.Managers;
+using HZH_Controls;
 using HZH_Controls.Controls;
 using System;
 using System.Collections.Generic;
@@ -157,9 +158,9 @@ namespace CNCAppPlatform
             int lowShort = (int)(number & 0xFFFF); // 用0xFF（二進位表示為11111111）進行AND運算，得到低8位
 
             // 寫入Register1
-            Form1.axActUtlType.SetDevice("D1353", highShort);
+            MXConnect.axActUtlType.SetDevice("D1353", highShort);
             // 寫入Register2
-            Form1.axActUtlType.SetDevice("D1352", lowShort);
+            MXConnect.axActUtlType.SetDevice("D1352", lowShort);
 
             PlcWrite("D1354", "1");     // 傳送確認
 
@@ -173,7 +174,7 @@ namespace CNCAppPlatform
             short[] arraydata;
 
             arraydata = new short[1] { (short)Convert.ToInt32(value) };
-            _ = Form1.axActUtlType.WriteDeviceBlock2(d, no, ref arraydata[0]);
+            MXConnect.axActUtlType.WriteDeviceBlock2(d, no, ref arraydata[0]);
         }
 
         System.Timers.Timer timer = new System.Timers.Timer();
@@ -195,7 +196,7 @@ namespace CNCAppPlatform
             arraydata = new short[no];
 
             d = "D1355";
-            _ = Form1.axActUtlType.ReadDeviceBlock2(d, no, out arraydata[0]);
+            MXConnect.axActUtlType.ReadDeviceBlock2(d, no, out arraydata[0]);
             if (arraydata[0] == 1 || Debugger.IsAttached)
             {
                 //MessageBox.Show("確認PLC接收工單", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1, MessageBoxOptions.DefaultDesktopOnly);
